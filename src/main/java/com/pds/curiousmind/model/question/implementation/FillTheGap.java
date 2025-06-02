@@ -6,7 +6,7 @@ public class FillTheGap extends Question {
 
 
     public FillTheGap(String indication, String statement, String correctAnswer) {
-        super(indication, statement, correctAnswer, null);
+        super(indication, statement, correctAnswer);
     }
 
     @Override

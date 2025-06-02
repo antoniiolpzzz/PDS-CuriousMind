@@ -1,5 +1,6 @@
 package com.pds.curiousmind.model.question;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Question {
@@ -8,16 +9,21 @@ public abstract class Question {
     protected String statement;
     protected String correctAnswer;
 
-    protected List<QuestionOption> options;
+    protected List<QuestionOption> options = new ArrayList<>();
 
-
+    // CONSTRUCTORS
     public Question(String indication, String statement, String correctAnswer, List<QuestionOption> options) {
         this.indication = indication;
         this.statement = statement;
         this.correctAnswer = correctAnswer;
-        this.options = options;
+        if (options != null) this.options.addAll(options);
     }
 
+    public Question(String indication, String statement, String correctAnswer) {
+        this(indication, statement, correctAnswer, null);
+    }
+
+    // GETTERS
     public String getIndication() {
         return indication;
     }
@@ -34,6 +40,7 @@ public abstract class Question {
         return options;
     }
 
+    // ABSTRACT METHODS
     public abstract Boolean validateAnswer(String answer);
 
 }
