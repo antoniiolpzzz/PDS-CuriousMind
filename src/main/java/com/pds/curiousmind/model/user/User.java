@@ -1,5 +1,7 @@
 package com.pds.curiousmind.model.user;
 
+import com.pds.curiousmind.model.stat.Stat;
+
 public class User {
 
     private String firstName;
@@ -22,6 +24,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
+        this.stats = new Stat(0, 0, 0, 0, 0); // Inicializamos las estadísticas del usuario
     }
 
     public String getFirstName() {
