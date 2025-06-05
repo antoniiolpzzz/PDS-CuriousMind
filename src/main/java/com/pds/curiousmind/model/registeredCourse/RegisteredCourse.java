@@ -1,0 +1,73 @@
+package com.pds.curiousmind.model.registeredCourse;
+
+import java.util.*;
+public class RegisteredCourse {
+
+    private String name;
+    private String description;
+    private String imageUrl;
+    private List<RegisteredBlock> contentBlocks;
+    private final Strategy strategy;
+    private int progress;
+    private boolean isCompleted;
+
+    public RegisteredCourse(Course course, Strategy strategy) {
+        this.name = course.name;
+        this.description = course.description;
+        this.imageUrl = course.imageUrl;
+        this.contentBlocks = course.contentBlocks;
+        this.strategy = strategy;
+        this.progress = 0; // Default progress
+        this.isCompleted = false; // Default completion status
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public List<RegisteredBlock> getContentBlocks() {
+        return contentBlocks;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public Strategy getStrategy() {
+        return strategy;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+
+    //METHODS
+    public RegisteredCourse create(Course course, Strategy strategy) {
+        return new RegisteredCourse(course, strategy);
+    }
+
+    public int getCompletedBlocksCount() {
+        return (int) contentBlocks.stream().filter(RegisteredBlock::isCompleted).count();
+    }
+
+    public void updateProgress() {
+        this.progress = getCompletedBlocksCount()/contentBlocks.size() * 100;
+    }
+
+    public void markAsCompleted() {
+        if (getCompletedBlocksCount() == contentBlocks.size()) {
+            this.isCompleted = true;
+            updateProgress();
+        }
+    }
+
+}
