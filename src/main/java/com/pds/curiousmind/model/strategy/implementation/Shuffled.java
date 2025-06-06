@@ -1,15 +1,16 @@
 package com.pds.curiousmind.model.strategy.implementation;
 
+import com.pds.curiousmind.model.strategy.Strategy;
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shuffled {
+public class Shuffled implements Strategy {
 
     public List<Question> getQuestionsBlock(Bloque bloque){
 
         List<Question> questions = bloque.getQuestions();
-
-        java.util.Collections.shuffle(questions);
+        Collections.shuffle(questions);
         return questions;
 
     }

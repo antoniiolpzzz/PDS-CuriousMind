@@ -1,10 +1,12 @@
 package com.pds.curiousmind.model.strategy.implementation;
 
+import com.pds.curiousmind.model.strategy.Strategy;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class SpacedRepetition {
+public class SpacedRepetition implements Strategy {
 
     public static final int REPETITION_NUMBER = 3;
 
