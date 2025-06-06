@@ -1,33 +1,40 @@
 package com.pds.curiousmind.model.stat;
 
+import com.pds.curiousmind.model.user.User;
+
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Stat {
 
-    private int level;
+    private static final int EXPERIENCE_POINTS_PER_LEVEL = 1000;
+
+    //private int level; // TODO: determine, since this is a dynamically calculated value, how it is calculated
     private int experiencePoints;
-    private int completedCourses;
-    private int bestStell;
-    private int daysActive;
+    private final Set<LocalDate> entries = new HashSet<>();
+    //private int completedCourses; //TODO: this is a dinamically calculated value, not stored in the database
+    //private int bestStell; //TODO: this is a dinamically calculated value, not stored in the database
+    //private int daysActive; //TODO: this is a dinamically calculated value, not stored in the database
+    //TODO: we may need a logIn timestamp-set to calculate daysActive and bestStell
 
-    // private user user; ???????????
+    private User user;
 
-    public Stat(int level, int experiencePoints, int completedCourses, int bestStell, int daysActive) {
-        this.level = level;
+    public Stat(int experiencePoints) {
         this.experiencePoints = experiencePoints;
-        this.completedCourses = completedCourses;
-        this.bestStell = bestStell;
-        this.daysActive = daysActive;
+
     }
 
     public int getLevel() {
-        return level;
+        return experiencePoints / EXPERIENCE_POINTS_PER_LEVEL;
     }
 
     public int getExperiencePoints() {
-        return experiencePoints;
+        return experiencePoints % EXPERIENCE_POINTS_PER_LEVEL;
     }
 
     public int getCompletedCourses() {
-        return completedCourses;
+        return user.getStats().getCompletedCourses();
     }
 
     public int getBestStell() {
