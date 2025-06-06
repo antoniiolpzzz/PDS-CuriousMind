@@ -9,14 +9,17 @@ public class RegisteredCourse {
 
     private String name;
     private String description;
-    private String imageUrl;
+    private String imageURL;
     private List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
-    private final Strategy strategy;
 
+    private final Strategy strategy;
+    private Course course;
+
+    //CONSTRUCTOR
     public RegisteredCourse(Course course, Strategy strategy) {
         this.name = course.name;
         this.description = course.description;
-        this.imageUrl = course.imageUrl;
+        this.imageURL = course.imageURL;
         this.strategy = strategy;
 
         for (var contentBlock : course.contentBlocks) {
@@ -25,6 +28,7 @@ public class RegisteredCourse {
 
     }
 
+    //GETTERS
     public String getName() {
         return name;
     }
@@ -33,16 +37,16 @@ public class RegisteredCourse {
         return description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageURL() {
+        return imageURL;
     }
 
     public List<RegisteredContentBlock> getContentBlocks() {
-        return contentBlocks;
+        return registeredContentBlocks;
     }
 
     public int getProgress() {
-        return getCompletedBlocksCount()/contentBlocks.size() * 100;
+        return getCompletedBlocksCount()/registeredContentBlocks.size() * 100;
     }
 
     public Strategy getStrategy() {
@@ -50,17 +54,13 @@ public class RegisteredCourse {
     }
 
     public boolean isCompleted() {
-        return getCompletedBlocksCount() == contentBlocks.size();
+        return getCompletedBlocksCount() == registeredContentBlocks.size();
     }
 
 
     //METHODS
-    public RegisteredCourse create(Course course, Strategy strategy) {
-        return new RegisteredCourse(course, strategy);
-    }
-
     public int getCompletedBlocksCount() {
-        return (int) contentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
+        return (int) registeredContentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
     }
 
 
