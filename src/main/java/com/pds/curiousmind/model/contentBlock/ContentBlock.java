@@ -13,7 +13,10 @@ public class ContentBlock {
     // CONSTRUCTORS
     public ContentBlock(String name, List<Question> questions, Difficulty difficultyLevel) {
         this.name = name;
-        this.questions = questions;
+
+        for (Question question : questions) {
+            this.questions.add(question);
+        }
         this.difficulty = difficultyLevel;
     }
 
