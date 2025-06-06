@@ -1,12 +1,16 @@
 package com.pds.curiousmind.model.registeredCourse;
 
 import java.util.*;
+import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
+import com.pds.curiousmind.model.strategy.Strategy;
+
 public class RegisteredCourse {
 
     private String name;
     private String description;
     private String imageUrl;
-    private List<RegisteredBlock> contentBlocks;
+    private List<RegisteredContentBlock> contentBlocks;
     private final Strategy strategy;
     private int progress;
     private boolean isCompleted;
@@ -33,7 +37,7 @@ public class RegisteredCourse {
         return imageUrl;
     }
 
-    public List<RegisteredBlock> getContentBlocks() {
+    public List<RegisteredContentBlock> getContentBlocks() {
         return contentBlocks;
     }
 
@@ -56,7 +60,7 @@ public class RegisteredCourse {
     }
 
     public int getCompletedBlocksCount() {
-        return (int) contentBlocks.stream().filter(RegisteredBlock::isCompleted).count();
+        return (int) contentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
     }
 
     public void updateProgress() {
