@@ -10,19 +10,19 @@ public class RegisteredCourse {
     private String name;
     private String description;
     private String imageUrl;
-    private List<RegisteredContentBlock> contentBlocks;
+    private List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
     private final Strategy strategy;
-    private int progress;
-    private boolean isCompleted;
 
     public RegisteredCourse(Course course, Strategy strategy) {
         this.name = course.name;
         this.description = course.description;
         this.imageUrl = course.imageUrl;
-        this.contentBlocks = course.contentBlocks;
         this.strategy = strategy;
-        this.progress = 0; // Default progress
-        this.isCompleted = false; // Default completion status
+
+        for (var contentBlock : course.contentBlocks) {
+            this.registeredContentBlocks.add(new RegisteredContentBlock(contentBlock));
+        }
+
     }
 
     public String getName() {
@@ -42,7 +42,7 @@ public class RegisteredCourse {
     }
 
     public int getProgress() {
-        return progress;
+        return getCompletedBlocksCount()/contentBlocks.size() * 100;
     }
 
     public Strategy getStrategy() {
@@ -50,7 +50,7 @@ public class RegisteredCourse {
     }
 
     public boolean isCompleted() {
-        return isCompleted;
+        return getCompletedBlocksCount() == contentBlocks.size();
     }
 
 
@@ -63,15 +63,7 @@ public class RegisteredCourse {
         return (int) contentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
     }
 
-    public void updateProgress() {
-        this.progress = getCompletedBlocksCount()/contentBlocks.size() * 100;
-    }
 
-    public void markAsCompleted() {
-        if (getCompletedBlocksCount() == contentBlocks.size()) {
-            this.isCompleted = true;
-            updateProgress();
-        }
-    }
+
 
 }
