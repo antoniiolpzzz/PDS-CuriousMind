@@ -1,21 +1,27 @@
 package com.pds.curiousmind.model.course;
 
+import com.pds.curiousmind.model.contentBlock.ContentBlock;
+
+import java.util.List;
+
 public class Course {
 
     private String name;
     private String description;
-    private String imageUrl;
-    private List<Block> contentBlocks;
+    private String imageURL;
 
-    public Course(String name, String description, String imageUrl, List<Block> contentBlocks) {
+    private List<ContentBlock> contentBlocks;
+
+
+    public Course(String name, String description, String imageURL, List<ContentBlock> contentBlocks) {
         this.name = name;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.imageURL = imageURL;
         this.contentBlocks = contentBlocks;
     }
 
-    public Course(String name, String imageUrl, List<Block> contentBlocks) {
-        this(name, null, imageUrl, contentBlocks);
+    public Course(String name, String imageURL, List<ContentBlock> contentBlocks) {
+        this(name, null, imageURL, contentBlocks);
     }
 
     public String getName() {
@@ -26,17 +32,15 @@ public class Course {
         return description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public List<Block> getContentBlocks() {
+    public List<ContentBlock> getContentBlocks() {
         return contentBlocks;
     }
 
-    //METHODS
+    // METHODS
 
-    public Course create(String name, String description, String imageUrl, List<Block> contentBlocks) {
-        return new Course(name, description, imageUrl, contentBlocks);
-    }
+
 }
