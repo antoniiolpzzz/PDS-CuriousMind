@@ -1,6 +1,9 @@
 package com.pds.curiousmind.model.user;
 
 import com.pds.curiousmind.model.stat.Stat;
+import jdk.jfr.Registered;
+
+import java.util.ArrayList;
 
 public class User {
 
@@ -9,13 +12,13 @@ public class User {
     private String email;
     private String password;
     private String username;
-    private Stat stats;
+    private final Stat stats; //TODO: consider final to ensure it is initialized once and not changed (look for others) (not sure if compatible with JPA/Hibernate or minimal constructors)
 
-    private List<RegisteredCourse> registeredCourses = new ArrayList<RegisteredCourse>();
+    // TODO: im not sure this needed to be initialized here, but rather in the constructor
+    private final List<RegisteredCourse> registeredCourses = new ArrayList<RegisteredCourse>();
 
-    //BIBLIOTECA DE CURSOS DE UN USUARIO?????
-    //FOTO DE USUARIO?????
-
+    //FOTO DE USUARIO????? //TODO: id rather use an API to get some cute avatars instead of storing images in the database
+    // TODO: consider this API as an option: https://www.dicebear.com
 
 
     public User(String firstName, String lastName, String email, String password, String username) {
@@ -24,6 +27,8 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
+        // this.registeredCourses; //TODO: check
+        // TODO: reconsider the minimal Constructors, so we skip this dependence on objects creation (is not clean this way)
         this.stats = new Stat(0, 0, 0, 0, 0); // Inicializamos las estadísticas del usuario
     }
 
@@ -61,28 +66,9 @@ public class User {
 
     //METHODS:
 
-    public void registerCourse(Course course) {
-        RegisteredCouse registeredCourse = new RegisteredCourse(course);
-        registeredCourses.add(registeredCourse);
+    public void registerCourse(RegisteredCourse course) {
+        registeredCourses.add(course);
     }
-
-    public void shareCourse(Course course) {
-
-        // Lógica para compartir un curso:
-        // Le das a un botón de al lado del curso y eso te descarga el json del curso para poder enviarlo.
-        // Ese json en realidad se manda por correo no dentro de la aplicaicón.
-    }
-
-    public void createCourse(Course course) {
-
-        // Lógica para crear un curso:
-        // Le das a un botón de crear curso y te lleva a una pantalla donde seleccionas el json de tu curso.
-        // Una vez introducido el json, se crea el curso y se añade a la lista de cursos del usuario.
-    }
-
-
-
-
 
 
 }
