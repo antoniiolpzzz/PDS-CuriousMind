@@ -2,8 +2,8 @@ package com.pds.curiousmind.model.question;
 
 public class QuestionOption {
 
-    String label;
-    String imageURL;
+    private String label;
+    private String imageURL;
 
     public QuestionOption(String label, String imageURL) {
         this.label = label;
