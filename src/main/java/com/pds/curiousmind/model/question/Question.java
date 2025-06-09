@@ -18,7 +18,7 @@ public abstract class Question {
     public Question(String indication, String statement, String correctAnswer, List<Option> options) {
         this.indication = indication;
         this.statement = statement;
-        this.correctAnswer = correctAnswer;
+        this.correctAnswer = correctAnswer.trim();
 
         if (options != null) {
             this.options = new ArrayList<>(options);
@@ -48,7 +48,8 @@ public abstract class Question {
         return Collections.unmodifiableList(options);
     }
 
-    // ABSTRACT METHODS
-    public abstract boolean validateAnswer(String answer);
+    public boolean validateAnswer(String answer) {
+        return this.correctAnswer.equalsIgnoreCase(answer.trim());
+    }
 
 }

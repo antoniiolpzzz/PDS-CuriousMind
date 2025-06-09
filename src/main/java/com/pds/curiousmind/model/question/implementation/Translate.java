@@ -18,8 +18,4 @@ public class Translate extends Question {
                 .forEach(this.options::add);
     }
 
-    @Override
-    public boolean validateAnswer(String answer) {
-        return this.correctAnswer.trim().equalsIgnoreCase(answer.trim());
-    }
 }

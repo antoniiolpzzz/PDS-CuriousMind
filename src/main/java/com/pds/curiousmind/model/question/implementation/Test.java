@@ -11,8 +11,4 @@ public class Test extends Question {
         super(indication, statement, correctAnswer, options);
     }
 
-    @Override
-    public boolean validateAnswer(String answer) {
-        return this.correctAnswer.trim().equalsIgnoreCase(answer.trim());
-    }
 }
