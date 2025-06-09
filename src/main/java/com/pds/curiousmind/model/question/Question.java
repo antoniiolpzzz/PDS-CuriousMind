@@ -9,10 +9,10 @@ public abstract class Question {
     protected String statement;
     protected String correctAnswer;
 
-    protected List<QuestionOption> options = new ArrayList<>();
+    protected List<Option> options = new ArrayList<>();
 
     // CONSTRUCTORS
-    public Question(String indication, String statement, String correctAnswer, List<QuestionOption> options) {
+    public Question(String indication, String statement, String correctAnswer, List<Option> options) {
         this.indication = indication;
         this.statement = statement;
         this.correctAnswer = correctAnswer;
@@ -36,7 +36,7 @@ public abstract class Question {
         return correctAnswer;
     }
 
-    public List<QuestionOption> getOptions() {
+    public List<Option> getOptions() {
         return options;
     }
 
