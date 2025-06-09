@@ -13,6 +13,6 @@ public class Test extends Question {
 
     @Override
     public Boolean validateAnswer(String answer) {
-        return this.correctAnswer.equalsIgnoreCase(answer);
+        return this.correctAnswer.trim().equalsIgnoreCase(answer.trim());
     }
 }
