@@ -1,7 +1,7 @@
 package com.pds.curiousmind.model.question.implementation;
 
 import com.pds.curiousmind.model.question.Question;
-import com.pds.curiousmind.model.question.Option;
+import com.pds.curiousmind.model.question.option.Option;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class Test extends Question {
     }
 
     @Override
-    public Boolean validateAnswer(String answer) {
+    public boolean validateAnswer(String answer) {
         return this.correctAnswer.trim().equalsIgnoreCase(answer.trim());
     }
 }

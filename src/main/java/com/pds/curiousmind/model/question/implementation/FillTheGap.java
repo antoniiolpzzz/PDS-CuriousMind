@@ -10,7 +10,7 @@ public class FillTheGap extends Question {
     }
 
     @Override
-    public Boolean validateAnswer(String answer) {
+    public boolean validateAnswer(String answer) {
         return this.correctAnswer.trim().equalsIgnoreCase(answer.trim());
     }
 }
