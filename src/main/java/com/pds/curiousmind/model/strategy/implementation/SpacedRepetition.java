@@ -10,9 +10,9 @@ public class SpacedRepetition implements Strategy {
 
     public static final int REPETITION_NUMBER = 3;
 
-    public List<Question> getQuestionsBlock(Bloque bloque){
+    public List<Question> getQuestionsBlock(ContentBlock block){
 
-        List<Question> questions = bloque.getQuestions();
+        List<Question> questions = block.getQuestions();
         List<Question> result = new ArrayList<Question>();
 
         IntStream.range(0, questions.size()).forEach(i -> {

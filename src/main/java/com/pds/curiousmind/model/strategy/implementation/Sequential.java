@@ -7,8 +7,8 @@ import java.util.List;
 public class Sequential implements Strategy {
 
 
-    public List<Question> getQuestionsBlock(Bloque bloque){
+    public List<Question> getQuestionsBlock(ContentBlock block){
 
-        return bloque.getQuestions();
+        return block.getQuestions();
     }
 }
