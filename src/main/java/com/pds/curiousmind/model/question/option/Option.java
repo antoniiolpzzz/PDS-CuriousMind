@@ -1,4 +1,4 @@
-package com.pds.curiousmind.model.question;
+package com.pds.curiousmind.model.question.option;
 
 import java.util.Objects;
 
