@@ -1,7 +1,10 @@
 package com.pds.curiousmind.model.question;
 
+import com.pds.curiousmind.model.question.option.Option;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public abstract class Question {
 
@@ -9,14 +12,19 @@ public abstract class Question {
     protected String statement;
     protected String correctAnswer;
 
-    protected List<Option> options = new ArrayList<>();
+    protected List<Option> options;
 
     // CONSTRUCTORS
     public Question(String indication, String statement, String correctAnswer, List<Option> options) {
         this.indication = indication;
         this.statement = statement;
         this.correctAnswer = correctAnswer;
-        if (options != null) this.options.addAll(options);
+
+        if (options != null) {
+            this.options = new ArrayList<>(options);
+        } else {
+            this.options = new ArrayList<>();
+        }
     }
 
     public Question(String indication, String statement, String correctAnswer) {
@@ -37,10 +45,10 @@ public abstract class Question {
     }
 
     public List<Option> getOptions() {
-        return options;
+        return Collections.unmodifiableList(options);
     }
 
     // ABSTRACT METHODS
-    public abstract Boolean validateAnswer(String answer);
+    public abstract boolean validateAnswer(String answer);
 
 }
