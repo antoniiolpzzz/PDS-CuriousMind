@@ -9,35 +9,26 @@ import com.pds.curiousmind.model.question.Difficulty;
 
 
 public class RegisteredContentBlock {
-
-    private String name;
-    private List<Question> questions = new ArrayList<>();
-    private Difficulty difficulty;
+    
+    private ContentBlock contentBlock;
     private boolean isCompleted;
 
-    private ContentBlock contentBlock;
-
-
+    // CONSTRUCTOR
     public RegisteredContentBlock(ContentBlock contentBlock) {
-        this.name = contentBlock.name;
-        this.difficulty = contentBlock.difficultyLevel;
         this.isCompleted = false;
-
-        for (var question : contentBlock.questions) {
-            this.questions.add(question);
-        }
     }
 
+    // GETTERS
     public String getName() {
-        return name;
+        return this.contentBlock.getName();
     }
 
     public List<Question> getQuestions() {
-        return questions;
+        return this.contentBlock.getQuestions();
     }
 
     public Difficulty getDifficulty() {
-        return difficulty;
+        return this.contentBlock.getDifficulty();
     }
 
     public boolean isCompleted() {
@@ -45,16 +36,10 @@ public class RegisteredContentBlock {
     }
 
     // METHODS
-
-    public void markAsCompleted(Boolean isCorrect) {
+    public void markAsCompleted() {
             this.isCompleted = true;
     }
-
-    public void quitContentBlock() {
+    public void resetContentBlock() {
         this.isCompleted = false;
-
     }
-
-
-
 }
