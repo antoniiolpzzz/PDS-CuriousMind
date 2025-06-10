@@ -6,17 +6,14 @@ import java.util.ArrayList;
 
 public class ContentBlock {
     private String name;
-
-    private List<Question> questions = new ArrayList<>();
     private Difficulty difficulty;
+
+    private List<Question> questions;
 
     // CONSTRUCTORS
     public ContentBlock(String name, List<Question> questions, Difficulty difficultyLevel) {
         this.name = name;
-
-        for (Question question : questions) {
-            this.questions.add(question);
-        }
+        this.questions = new ArrayList<Question>(questions);
         this.difficulty = difficultyLevel;
     }
 
@@ -27,10 +24,9 @@ public class ContentBlock {
     public List<Question> getQuestions() {
         return questions;
     }
+
     public Difficulty getDifficulty() {
         return difficulty;
     }
-
-    // METHODS
 
 }

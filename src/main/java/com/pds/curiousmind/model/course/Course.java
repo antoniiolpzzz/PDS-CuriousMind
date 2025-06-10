@@ -2,6 +2,8 @@ package com.pds.curiousmind.model.course;
 
 import com.pds.curiousmind.model.contentBlock.ContentBlock;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Course {
@@ -17,7 +19,7 @@ public class Course {
         this.name = name;
         this.description = description;
         this.imageURL = imageURL;
-        this.contentBlocks = contentBlocks;
+        this.contentBlocks = new ArrayList<>(contentBlocks);
     }
 
     public Course(String name, String imageURL, List<ContentBlock> contentBlocks) {
@@ -37,7 +39,7 @@ public class Course {
     }
 
     public List<ContentBlock> getContentBlocks() {
-        return contentBlocks;
+        return Collections.unmodifiableList(contentBlocks);
     }
 
     // METHODS
