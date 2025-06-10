@@ -14,7 +14,7 @@ public class Course {
 
     private List<ContentBlock> contentBlocks;
 
-
+    // CONSTRUCTORS
     public Course(String name, String description, String imageURL, List<ContentBlock> contentBlocks) {
         this.name = name;
         this.description = description;
@@ -26,6 +26,7 @@ public class Course {
         this(name, null, imageURL, contentBlocks);
     }
 
+    // GETTERS
     public String getName() {
         return name;
     }
@@ -43,6 +44,4 @@ public class Course {
     }
 
     // METHODS
-
-
 }
