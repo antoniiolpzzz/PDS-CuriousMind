@@ -1,66 +1,65 @@
 package com.pds.curiousmind.model.registeredCourse;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.strategy.Strategy;
 
 public class RegisteredCourse {
 
-    private String name;
-    private String description;
-    private String imageURL;
-    private List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
-
-    private final Strategy strategy;
     private Course course;
+    private final Strategy strategy;
+
+    private final List<RegisteredContentBlock> registeredContentBlocks;
+
 
     //CONSTRUCTOR
     public RegisteredCourse(Course course, Strategy strategy) {
-        this.name = course.name;
-        this.description = course.description;
-        this.imageURL = course.imageURL;
+        this.course = course;
         this.strategy = strategy;
 
-        for (var contentBlock : course.contentBlocks) {
-            this.registeredContentBlocks.add(new RegisteredContentBlock(contentBlock));
-        }
+        this.registeredContentBlocks = course.contentBlocks.stream()
+            .map(RegisteredContentBlock::new)
+            .collect(Collectors.toCollection(ArrayList::new));
 
     }
 
     //GETTERS
     public String getName() {
-        return name;
+        return this.course.getName();
     }
 
     public String getDescription() {
-        return description;
+        return this.course.getDescription();
     }
 
     public String getImageURL() {
-        return imageURL;
+        return this.course.getImageURL();
     }
 
-    public List<RegisteredContentBlock> getContentBlocks() {
-        return registeredContentBlocks;
+    public List<RegisteredContentBlock> getRegisteredContentBlocks() {
+        return Collections.unmodifiableList(registeredContentBlocks);
     }
 
-    public int getProgress() {
-        return getCompletedBlocksCount()/registeredContentBlocks.size() * 100;
+    public double getProgress() {
+        return this.registeredContentBlocks.isEmpty() ? 0.0 :
+                ((double) getCompletedBlocksCount() * 100.0 / registeredContentBlocks.size());
     }
 
     public Strategy getStrategy() {
-        return strategy;
+        return this.strategy;
     }
 
     public boolean isCompleted() {
-        return getCompletedBlocksCount() == registeredContentBlocks.size();
+        return this.getCompletedBlocksCount() == this.registeredContentBlocks.size();
     }
 
 
     //METHODS
     public int getCompletedBlocksCount() {
-        return (int) registeredContentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
+        return (int) this.registeredContentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
     }
 
 
