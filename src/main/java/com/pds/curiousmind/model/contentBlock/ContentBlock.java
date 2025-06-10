@@ -1,7 +1,5 @@
 package com.pds.curiousmind.model.contentBlock;
 
-import com.pds.curiousmind.model.course.Course;
-
 import java.util.ArrayList;
 
 public class ContentBlock {
