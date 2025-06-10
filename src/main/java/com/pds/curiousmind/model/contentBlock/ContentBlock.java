@@ -1,6 +1,7 @@
 package com.pds.curiousmind.model.contentBlock;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ContentBlock {
     private String name;
@@ -20,7 +21,7 @@ public class ContentBlock {
     }
 
     public List<Question> getQuestions() {
-        return questions;
+        return Collections.unmodifiableList(questions);
     }
 
     public Difficulty getDifficulty() {
