@@ -1,9 +1,11 @@
 package com.pds.curiousmind.model.user;
 
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
 import jdk.jfr.Registered;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 
@@ -58,10 +60,6 @@ public class User {
 
     public List<RegisteredCourse> getRegisteredCourses() {
         return registeredCourses;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     //METHODS:

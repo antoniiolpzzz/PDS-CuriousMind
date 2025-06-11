@@ -1,11 +1,9 @@
 package com.pds.curiousmind.model.registeredContentBlock;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import com.pds.curiousmind.model.contentBlock.ContentBlock;
+import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.question.Question;
-import com.pds.curiousmind.model.question.Difficulty;
+import com.pds.curiousmind.model.contentblock.Difficulty;
 
 
 public class RegisteredContentBlock {

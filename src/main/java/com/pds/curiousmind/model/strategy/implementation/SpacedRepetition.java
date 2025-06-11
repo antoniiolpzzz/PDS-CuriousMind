@@ -1,5 +1,7 @@
 package com.pds.curiousmind.model.strategy.implementation;
 
+import com.pds.curiousmind.model.contentblock.ContentBlock;
+import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.strategy.Strategy;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ public class SpacedRepetition implements Strategy {
 
     public static final int REPETITION_NUMBER = 3;
 
+    @Override
     public List<Question> getQuestionsBlock(ContentBlock block){
 
         List<Question> questions = block.getQuestions();
