@@ -1,6 +1,6 @@
 package com.pds.curiousmind.view.authentication.login;
 
-import com.pds.curiousmind.view.authentication.signup.SignupWindow;
+//import com.pds.curiousmind.view.authentication.signup.SignupWindow;
 import com.pds.curiousmind.view.authentication.components.*;
 
 import javax.swing.*;
@@ -70,7 +70,7 @@ public class LoginWindow extends JFrame {
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             dispose();
-            new HomeWindow();
+            //new HomeWindow();
         });
         rightPanel.add(loginButton);
 
@@ -83,8 +83,9 @@ public class LoginWindow extends JFrame {
 
         StyledButton signupButton = new StyledButton("Sign up", new Color(240, 240, 240), Color.BLACK);
         signupButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         signupButton.addActionListener(e -> {
-            new SignupWindow();
+            //new SignupWindow();
             dispose();
         });
         rightPanel.add(signupButton);
