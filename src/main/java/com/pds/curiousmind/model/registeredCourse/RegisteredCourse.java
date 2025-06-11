@@ -9,18 +9,17 @@ import com.pds.curiousmind.model.strategy.Strategy;
 
 public class RegisteredCourse {
 
-    private Course course;
-    private final Strategy strategy;
+    private final Course course;
+    private final String strategyID;
 
     private final List<RegisteredContentBlock> registeredContentBlocks;
 
 
     //CONSTRUCTOR
-    public RegisteredCourse(Course course, Strategy strategy) {
+    public RegisteredCourse(Course course, String strategyID) {
         this.course = course;
-        this.strategy = strategy;
-
-        this.registeredContentBlocks = course.contentBlocks.stream()
+        this.strategyID = strategyID;
+        this.registeredContentBlocks = course.getContentBlocks.stream()
             .map(RegisteredContentBlock::new)
             .collect(Collectors.toCollection(ArrayList::new));
 
@@ -48,8 +47,8 @@ public class RegisteredCourse {
                 ((double) getCompletedBlocksCount() * 100.0 / registeredContentBlocks.size());
     }
 
-    public Strategy getStrategy() {
-        return this.strategy;
+    public String getStrategyID() {
+        return this.strategyID;
     }
 
     public boolean isCompleted() {
