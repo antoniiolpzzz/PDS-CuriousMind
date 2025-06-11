@@ -1,7 +1,10 @@
 package com.pds.curiousmind.model.contentblock;
 
+import com.pds.curiousmind.model.question.Question;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ContentBlock {
     private String name;

@@ -19,7 +19,7 @@ public class RegisteredCourse {
     public RegisteredCourse(Course course, String strategyID) {
         this.course = course;
         this.strategyID = strategyID;
-        this.registeredContentBlocks = course.getContentBlocks.stream()
+        this.registeredContentBlocks = course.getContentBlocks().stream()
             .map(RegisteredContentBlock::new)
             .collect(Collectors.toCollection(ArrayList::new));
 
