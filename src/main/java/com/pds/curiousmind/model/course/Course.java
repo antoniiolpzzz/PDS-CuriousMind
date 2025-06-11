@@ -12,18 +12,20 @@ public class Course {
     private String description;
     private String imageURL;
 
+    private List<String> availableStrategies;
     private List<ContentBlock> contentBlocks;
 
     // CONSTRUCTORS
-    public Course(String name, String description, String imageURL, List<ContentBlock> contentBlocks) {
+    public Course(String name, String description, String imageURL, List<String> strategies, List<ContentBlock> contentBlocks) {
         this.name = name;
         this.description = description;
         this.imageURL = imageURL;
+        this.availableStrategies = new ArrayList<>(strategies);
         this.contentBlocks = new ArrayList<>(contentBlocks);
     }
 
-    public Course(String name, String imageURL, List<ContentBlock> contentBlocks) {
-        this(name, null, imageURL, contentBlocks);
+    public Course(String name, String imageURL, List<String> strategies, List<ContentBlock> contentBlocks) {
+        this(name, null, imageURL, strategies, contentBlocks);
     }
 
     // GETTERS
@@ -41,6 +43,10 @@ public class Course {
 
     public List<ContentBlock> getContentBlocks() {
         return Collections.unmodifiableList(contentBlocks);
+    }
+
+    public List<String> getAvailableStrategies() {
+        return Collections.unmodifiableList(availableStrategies);
     }
 
     // METHODS
