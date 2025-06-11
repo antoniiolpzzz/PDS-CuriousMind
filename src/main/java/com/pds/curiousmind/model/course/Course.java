@@ -8,12 +8,12 @@ import java.util.List;
 
 public class Course {
 
-    private String name;
-    private String description;
-    private String imageURL;
+    private final String name;
+    private final String description;
+    private final String imageURL;
 
-    private List<String> availableStrategies;
-    private List<ContentBlock> contentBlocks;
+    private final List<String> availableStrategies;
+    private final List<ContentBlock> contentBlocks;
 
     // CONSTRUCTORS
     public Course(String name, String description, String imageURL, List<String> strategies, List<ContentBlock> contentBlocks) {
