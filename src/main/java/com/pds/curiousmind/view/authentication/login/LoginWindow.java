@@ -1,7 +1,7 @@
 package com.pds.curiousmind.view.authentication.login;
 
 import com.pds.curiousmind.view.authentication.signup.SignupWindow;
-import com.pds.curiousmind.view.authentication.login.components.*;
+import com.pds.curiousmind.view.authentication.components.*;
 
 import javax.swing.*;
 import java.awt.*;
