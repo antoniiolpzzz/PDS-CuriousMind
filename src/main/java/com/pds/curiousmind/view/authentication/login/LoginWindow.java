@@ -46,7 +46,7 @@ public class LoginWindow extends JFrame {
         usernameField.setBorder(BorderFactory.createTitledBorder("Username or email"));
         usernameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         rightPanel.add(usernameField);
-        rightPanel.add(Box.createVerticalStrut(20));
+        rightPanel.add(Box.createVerticalStrut(10));
 
         passwordField = new JPasswordField();
         passwordField.setBorder(BorderFactory.createTitledBorder("Password"));
@@ -64,7 +64,7 @@ public class LoginWindow extends JFrame {
         });
         optionsPanel.add(showPasswordCheckBox, BorderLayout.WEST);
         rightPanel.add(optionsPanel);
-        rightPanel.add(Box.createVerticalStrut(25));
+        rightPanel.add(Box.createVerticalStrut(130));
 
         StyledButton loginButton = new StyledButton("Log in", Color.BLACK, Color.WHITE);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
