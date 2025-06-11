@@ -31,6 +31,22 @@ public class LoginWindow extends JFrame {
         topBar.setOpaque(false);
         topBar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
+        JLabel titleLabel = new JLabel("CuriousMind");
+        titleLabel.setFont(new Font("SansSerif", Font.BOLD, 40));
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        topBar.add(titleLabel, BorderLayout.NORTH);
+        topBar.add(Box.createHorizontalStrut(500));
+
+        JLabel welcomeLabel = new JLabel("WELCOME BACK!");
+        welcomeLabel.setFont(new Font("SansSerif", Font.BOLD, 35));
+        welcomeLabel.setForeground(Color.WHITE);
+        welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        welcomeLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        topBar.add(welcomeLabel, BorderLayout.SOUTH);
+
+
+
 
         // Botones a la derecha
         JPanel navButtons = new JPanel();

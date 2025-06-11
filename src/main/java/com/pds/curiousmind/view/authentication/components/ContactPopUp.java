@@ -13,8 +13,7 @@ public class ContactPopUp extends JDialog {
 
         RoundedPanel panel = new RoundedPanel(40);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(Color.WHITE);
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+        panel.setBackground(Color.LIGHT_GRAY);
         add(panel, BorderLayout.CENTER);
 
         JLabel title = new JLabel("CONTACT", SwingConstants.CENTER);

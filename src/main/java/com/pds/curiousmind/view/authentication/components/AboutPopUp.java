@@ -7,14 +7,13 @@ public class AboutPopUp extends JDialog {
     public AboutPopUp(JFrame parent) {
         super(parent, "About Us", true);
         setUndecorated(false);
-        setSize(450, 300);
+        setSize(500, 350);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
         RoundedPanel panel = new RoundedPanel(40);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(Color.WHITE);
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+        panel.setBackground(Color.LIGHT_GRAY);
         add(panel, BorderLayout.CENTER);
 
         JLabel title = new JLabel("ABOUT US", SwingConstants.CENTER);
@@ -27,9 +26,9 @@ public class AboutPopUp extends JDialog {
         photosPanel.setOpaque(false);
         panel.add(photosPanel);
 
-        addPerson(photosPanel, "Javier", "icons/javier.png");
-        addPerson(photosPanel, "Antonio", "icons/antonio.png");
-        addPerson(photosPanel, "Mercedes", "icons/mercedes.png");
+        addPerson(photosPanel, "Javier", "icons/about/javier.jpg");
+        addPerson(photosPanel, "Antonio", "icons/about/antonio.jpg");
+        addPerson(photosPanel, "Mercedes", "icons/about/mercedes.jpg");
     }
 
     private void addPerson(JPanel panel, String name, String iconPath) {
@@ -38,7 +37,7 @@ public class AboutPopUp extends JDialog {
         personPanel.setLayout(new BoxLayout(personPanel, BoxLayout.Y_AXIS));
         personPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel photo = new JLabel(loadIcon(iconPath, 70, 70));
+        JLabel photo = new JLabel(loadIcon(iconPath, 100, 130));
         photo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         photo.setAlignmentX(Component.CENTER_ALIGNMENT);
         personPanel.add(photo);
