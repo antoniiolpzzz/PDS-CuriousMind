@@ -13,14 +13,18 @@ public class SignupWindow extends JFrame {
 
     public SignupWindow() {
         setTitle("CuriousMind - Sign up");
-        setMinimumSize(new Dimension(1200, 600));
+        setMinimumSize(new Dimension(1300, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
-        BackgroundPanel basePanel = new BackgroundPanel("icons/background/signup.jpg");
+        BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
+
+        NavigationBar navBar = new NavigationBar("Sign Up");
+        basePanel.add(navBar, BorderLayout.NORTH);
+
 
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);

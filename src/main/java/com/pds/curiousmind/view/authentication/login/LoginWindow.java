@@ -6,6 +6,8 @@ import com.pds.curiousmind.view.authentication.components.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LoginWindow extends JFrame {
     private JTextField usernameField;
@@ -14,14 +16,33 @@ public class LoginWindow extends JFrame {
 
     public LoginWindow() {
         setTitle("CuriousMind - Log in");
-        setMinimumSize(new Dimension(1200, 600));
+        setMinimumSize(new Dimension(1300, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
-        BackgroundPanel basePanel = new BackgroundPanel("icons/background/login.jpg");
+        BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
+
+        // Panel superior con botones de navegación
+        JPanel topBar = new JPanel();
+        topBar.setLayout(new BorderLayout());
+        topBar.setOpaque(false);
+        topBar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+
+
+        // Botones a la derecha
+        JPanel navButtons = new JPanel();
+        navButtons.setOpaque(false);
+        navButtons.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 0));
+
+        NavigationBar navBar = new NavigationBar("Log in");
+        basePanel.add(navBar, BorderLayout.NORTH);
+
+
+        topBar.add(navButtons, BorderLayout.CENTER);
+        basePanel.add(topBar);
 
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
@@ -102,6 +123,9 @@ public class LoginWindow extends JFrame {
         pack();
         setVisible(true);
     }
+
+
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(LoginWindow::new);
