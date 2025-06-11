@@ -1,8 +1,8 @@
 package com.pds.curiousmind.model.gameManager;
 
 import com.pds.curiousmind.model.question.Question;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -15,7 +15,7 @@ public class QuestionIterator implements Iterator<Question> {
 
     //CONSTRUCTOR
     public QuestionIterator(List<Question> questions) {
-        this.questions = new LinkedList<>(questions);
+        this.questions = new ArrayList<>(questions);
         this.currentIndex = 0;
         this.failedCount = 0;
     }

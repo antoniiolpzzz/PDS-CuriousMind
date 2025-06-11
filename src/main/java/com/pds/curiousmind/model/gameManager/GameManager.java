@@ -31,7 +31,7 @@ public enum GameManager {
     public void initializeGame(RegisteredCourse course, RegisteredContentBlock contentBlock){
         this.currentCourse = course;
         this.currentContentBlock = contentBlock;
-        List<Question> processedQuestions = ;//TODO: get the strategy from the course (use a factory or resolver here)
+        List<Question> processedQuestions;//TODO: get the strategy from the course (use a factory or resolver here)
                                             //TODO: to process the questions as expected
         this.questionIterator = new QuestionIterator(processedQuestions);
     }
