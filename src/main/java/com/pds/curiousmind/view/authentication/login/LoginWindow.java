@@ -1,6 +1,6 @@
 package com.pds.curiousmind.view.authentication.login;
 
-//import com.pds.curiousmind.view.authentication.signup.SignupWindow;
+import com.pds.curiousmind.view.authentication.signup.SignupWindow;
 import com.pds.curiousmind.view.authentication.components.*;
 
 import javax.swing.*;
@@ -19,7 +19,7 @@ public class LoginWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        BackgroundPanel basePanel = new BackgroundPanel("icons/A3B80D76-7857-4DF3-8E9B-77619D7A2D56_1_105_c.jpeg");
+        BackgroundPanel basePanel = new BackgroundPanel("icons/background/login.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
@@ -85,7 +85,7 @@ public class LoginWindow extends JFrame {
         signupButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         signupButton.addActionListener(e -> {
-            //new SignupWindow();
+            new SignupWindow();
             dispose();
         });
         rightPanel.add(signupButton);
