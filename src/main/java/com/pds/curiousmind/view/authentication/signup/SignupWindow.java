@@ -85,7 +85,7 @@ public class SignupWindow extends JFrame {
         StyledButton createButton = new StyledButton("Create account", Color.BLACK, Color.WHITE);
         createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         createButton.addActionListener(e -> {
-            // acción para crear cuenta
+
         });
         rightPanel.add(createButton);
 
