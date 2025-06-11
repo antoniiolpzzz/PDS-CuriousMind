@@ -43,7 +43,7 @@ public class QuestionIterator implements Iterator<Question> {
     }
 
     public void addFailedQuestion(Question question) {
-        if (question != null) {
+        if (question != null && !questions.contains(question)) {
             questions.add(question);
             failedCount++;
         }
