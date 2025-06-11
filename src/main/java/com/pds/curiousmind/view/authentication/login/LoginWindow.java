@@ -69,8 +69,17 @@ public class LoginWindow extends JFrame {
         StyledButton loginButton = new StyledButton("Log in", Color.BLACK, Color.WHITE);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
-            dispose();
-            //new HomeWindow();
+            if (checkFields(usernameField.getText(), passwordField))
+            {
+                //TODO: Controler check password and username
+                //if(controler.checkFields(usernameField,passwordField))
+                {
+                    dispose();
+                    //new HomeWindow();
+                }
+
+            }
+
         });
         rightPanel.add(loginButton);
 
@@ -96,5 +105,13 @@ public class LoginWindow extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(LoginWindow::new);
+    }
+
+    public boolean checkFields(String username, JPasswordField password) {
+        if (username.isEmpty() || password.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
     }
 }

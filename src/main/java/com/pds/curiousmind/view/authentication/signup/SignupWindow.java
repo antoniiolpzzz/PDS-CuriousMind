@@ -85,7 +85,16 @@ public class SignupWindow extends JFrame {
         StyledButton createButton = new StyledButton("Create account", Color.BLACK, Color.WHITE);
         createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         createButton.addActionListener(e -> {
+            if (checkFields(fullNameField.getText(), emailField.getText(), passwordField, confirmPasswordField))
+            {
+                //TODO: Controller logic to handle signup
+                // if (controller.signup(fullNameField.getText(), emailField.getText(), passwordField.getPassword())) {
+                {
+                    dispose();
+                    new LoginWindow();
+                }
 
+            }
         });
         rightPanel.add(createButton);
 
@@ -110,5 +119,18 @@ public class SignupWindow extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(SignupWindow::new);
+    }
+
+
+    public boolean checkFields(String fullName, String email, JPasswordField password, JPasswordField confirmPassword) {
+        if (fullName.isEmpty() || email.isEmpty() || password.getPassword().length == 0 || confirmPassword.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!new String(password.getPassword()).equals(new String(confirmPassword.getPassword()))) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
     }
 }
