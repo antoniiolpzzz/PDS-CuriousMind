@@ -1,6 +1,6 @@
 package com.pds.curiousmind.model.course;
 
-import com.pds.curiousmind.model.contentBlock.ContentBlock;
+import com.pds.curiousmind.model.contentblock.ContentBlock;
 
 import java.util.ArrayList;
 import java.util.Collections;

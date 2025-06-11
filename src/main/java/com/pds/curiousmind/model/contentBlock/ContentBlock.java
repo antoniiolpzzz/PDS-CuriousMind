@@ -1,4 +1,4 @@
-package com.pds.curiousmind.model.contentBlock;
+package com.pds.curiousmind.model.contentblock;
 
 import java.util.ArrayList;
 import java.util.Collections;
