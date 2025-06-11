@@ -9,13 +9,8 @@ public class Stat {
 
     private static final int EXPERIENCE_POINTS_PER_LEVEL = 1000;
 
-    //private int level; // TODO: determine, since this is a dynamically calculated value, how it is calculated
     private int experiencePoints;
     private final Set<LocalDate> entries;
-    //private int completedCourses; //TODO: this is a dinamically calculated value, not stored in the database
-    //private int bestStell; //TODO: this is a dinamically calculated value, not stored in the database
-    //private int daysActive; //TODO: this is a dinamically calculated value, not stored in the database
-    //TODO: we may need a logIn timestamp-set to calculate daysActive and bestStell
 
     private User user;
 

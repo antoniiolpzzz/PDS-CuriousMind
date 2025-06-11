@@ -14,7 +14,6 @@ public class User {
     private String username;
     private final Stat stats; //TODO: consider final to ensure it is initialized once and not changed (look for others) (not sure if compatible with JPA/Hibernate or minimal constructors)
 
-    // TODO: im not sure this needed to be initialized here, but rather in the constructor
     private final List<RegisteredCourse> registeredCourses;
 
     //FOTO DE USUARIO????? //TODO: id rather use an API to get some cute avatars instead of storing images in the database
