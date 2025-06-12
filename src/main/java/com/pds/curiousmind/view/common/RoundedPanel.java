@@ -1,5 +1,5 @@
 
-package com.pds.curiousmind.view.authentication.components;
+package com.pds.curiousmind.view.common;
 import javax.swing.*;
 import java.awt.*;
 
