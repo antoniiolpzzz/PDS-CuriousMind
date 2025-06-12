@@ -52,7 +52,7 @@ public class JsonChooserWindow extends JDialog {
 
         mainPanel.add(Box.createVerticalStrut(30));
 
-        openButton = new StyledButton("Open file explorer", Color.WHITE, Color.BLACK);
+        openButton = new StyledButton("Open file explorer", Color.BLACK, Color.WHITE);
         openButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         openButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
         openButton.addActionListener((ActionEvent e) -> {
