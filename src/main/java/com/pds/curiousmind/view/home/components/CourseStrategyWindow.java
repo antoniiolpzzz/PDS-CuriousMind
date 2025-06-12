@@ -14,6 +14,8 @@ import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
+
 
 public class CourseStrategyWindow extends JDialog {
     private final String courseName;
@@ -148,19 +150,6 @@ public class CourseStrategyWindow extends JDialog {
 
 
         return panel;
-    }
-    private void addHoverEffect(JButton button) {
-        Color original = button.getBackground();
-        button.setContentAreaFilled(true);
-        button.setOpaque(true);
-        button.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(original.brighter());
-            }
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(original);
-            }
-        });
     }
 
 }

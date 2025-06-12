@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
+
 
 
 public class CourseItemPanel extends JPanel {
@@ -50,17 +52,4 @@ public class CourseItemPanel extends JPanel {
         });
     }
 
-    private void addHoverEffect(JButton button) {
-        Color original = button.getBackground();
-        button.setContentAreaFilled(true);
-        button.setOpaque(true);
-        button.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(original.brighter());
-            }
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(original);
-            }
-        });
-    }
 }

@@ -2,6 +2,8 @@ package com.pds.curiousmind.view.home.dashboard;
 
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
+import com.pds.curiousmind.view.home.stats.UserWindow;
+import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 
@@ -10,6 +12,7 @@ import java.awt.*;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class HomeWindow extends JFrame {
 
@@ -105,7 +108,7 @@ public class HomeWindow extends JFrame {
         title.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                //new ProfileWindow(topFrame);
+                new UserWindow();
                 dispose();
             }
             @Override
@@ -129,7 +132,7 @@ public class HomeWindow extends JFrame {
         iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                //new ProfileWindow(topFrame);
+                new UserWindow();
                 dispose();
             }
         });
@@ -215,22 +218,6 @@ public class HomeWindow extends JFrame {
         }
 
         return row;
-    }
-
-
-
-    private void addHoverEffect(JButton button) {
-        Color original = button.getBackground();
-        button.setContentAreaFilled(true);
-        button.setOpaque(true);
-        button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent e) {
-                button.setBackground(original.brighter());
-            }
-            public void mouseExited(java.awt.event.MouseEvent e) {
-                button.setBackground(original);
-            }
-        });
     }
 
 
