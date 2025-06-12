@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
 
 public class JsonChooserWindow extends JDialog {
 
@@ -103,14 +105,4 @@ public class JsonChooserWindow extends JDialog {
         setVisible(true);
     }
 
-    private ImageIcon loadIcon(String path, int width, int height) {
-        URL url = getClass().getClassLoader().getResource(path);
-        if (url == null) {
-            System.err.println("No se encontró el icono: " + path);
-            return null;
-        }
-        ImageIcon originalIcon = new ImageIcon(url);
-        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(scaledImage);
-    }
 }

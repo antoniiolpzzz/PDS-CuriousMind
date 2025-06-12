@@ -4,6 +4,8 @@ package com.pds.curiousmind.view.home.components;
 
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -161,14 +163,4 @@ public class CourseStrategyWindow extends JDialog {
         });
     }
 
-    private ImageIcon loadIcon(String path, int width, int height) {
-        URL url = getClass().getClassLoader().getResource(path);
-        if (url == null) {
-            System.err.println("No se encontró el icono: " + path);
-            return null;
-        }
-        ImageIcon originalIcon = new ImageIcon(url);
-        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(scaledImage);
-    }
 }

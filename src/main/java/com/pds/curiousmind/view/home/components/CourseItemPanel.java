@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
 
 public class CourseItemPanel extends JPanel {
     public CourseItemPanel(String name, String iconPath, Runnable onClick) {
@@ -60,16 +62,5 @@ public class CourseItemPanel extends JPanel {
                 button.setBackground(original);
             }
         });
-    }
-
-    private ImageIcon loadIcon(String path, int width, int height) {
-        URL url = getClass().getClassLoader().getResource(path);
-        if (url == null) {
-            System.err.println("Icon not found: " + path);
-            return null;
-        }
-        ImageIcon originalIcon = new ImageIcon(url);
-        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(scaledImage);
     }
 }

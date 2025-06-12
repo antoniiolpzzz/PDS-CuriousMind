@@ -2,6 +2,8 @@ package com.pds.curiousmind.view.home.dashboard;
 
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -231,16 +233,6 @@ public class HomeWindow extends JFrame {
         });
     }
 
-    private ImageIcon loadIcon(String path, int width, int height) {
-        URL url = getClass().getClassLoader().getResource(path);
-        if (url == null) {
-            System.err.println("No se encontró el icono: " + path);
-            return null;
-        }
-        ImageIcon originalIcon = new ImageIcon(url);
-        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(scaledImage);
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(HomeWindow::new);
