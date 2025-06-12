@@ -10,14 +10,15 @@ public class AboutPopUp extends JDialog {
         setSize(500, 350);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
-        getContentPane().setBackground(Color.LIGHT_GRAY); // Fondo gris para toda la ventana
+        getContentPane().setBackground(Color.WHITE); // Fondo gris para toda la ventana
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(Color.LIGHT_GRAY);
+        panel.setBackground(Color.WHITE);
         add(panel, BorderLayout.CENTER);
 
-        JLabel title = new JLabel("ABOUT US", SwingConstants.CENTER);
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Espacio alrededor del contenido
+        JLabel title = new JLabel("Who are CuriousMinds?", SwingConstants.CENTER);
         title.setFont(new Font("SansSerif", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(title);
@@ -27,11 +28,16 @@ public class AboutPopUp extends JDialog {
         photosPanel.setOpaque(false);
         panel.add(photosPanel);
 
-        addPerson(photosPanel, "Javier", "icons/about/javier.jpg");
-        addPerson(photosPanel, "Antonio", "icons/about/antonio.jpg");
-        addPerson(photosPanel, "Mercedes", "icons/about/mercedes.jpg");
+        addPerson(photosPanel, "Javier", "icons/about/javier.png");
+        addPerson(photosPanel, "Antonio", "icons/about/antonio.png");
+        addPerson(photosPanel, "Mercedes", "icons/about/mercedes.png");
 
-        JLabel description = new JLabel("Alumnos Ingeniería Informática Universidad de Murica", SwingConstants.CENTER);
+        panel.add(Box.createVerticalStrut(10)); // Espacio antes del separador
+        JSeparator separator1 = new JSeparator(SwingConstants.HORIZONTAL);
+        separator1.setForeground(Color.BLACK);
+        panel.add(separator1);
+
+        JLabel description = new JLabel("Computer Engineering students from University of Murcia", SwingConstants.CENTER);
         description.setFont(new Font("SansSerif", Font.PLAIN, 16));
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0)); // Menos espacio arriba
@@ -44,8 +50,7 @@ public class AboutPopUp extends JDialog {
         personPanel.setLayout(new BoxLayout(personPanel, BoxLayout.Y_AXIS));
         personPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel photo = new JLabel(loadIcon(iconPath, 100, 130));
-        photo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        JLabel photo = new JLabel(loadIcon(iconPath, 130, 130));
         photo.setAlignmentX(Component.CENTER_ALIGNMENT);
         personPanel.add(photo);
 
