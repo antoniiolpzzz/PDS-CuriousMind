@@ -11,10 +11,11 @@ import java.util.Set;
 public enum StrategyFactory {
     INSTANCE;
 
+    private static final String PACKAGE_NAME = "com.pds.curiousmind.model.strategy.implementation";
     private final Map<StrategyType, Strategy> strategies = new HashMap<>();
 
     StrategyFactory() {
-        Reflections reflections = new Reflections("com.pds.curiousmind.model.strategy.implementation");
+        Reflections reflections = new Reflections(PACKAGE_NAME);
         Set<Class<? extends Strategy>> strategyClasses = reflections.getSubTypesOf(Strategy.class);
         for (Class<? extends Strategy> strategy : strategyClasses) {
             try {
