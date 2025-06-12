@@ -2,6 +2,9 @@ package com.pds.curiousmind.view.authentication.login;
 
 import com.pds.curiousmind.view.authentication.signup.SignupWindow;
 import com.pds.curiousmind.view.authentication.components.*;
+import com.pds.curiousmind.view.common.BackgroundPanel;
+import com.pds.curiousmind.view.common.RoundedPanel;
+import com.pds.curiousmind.view.common.StyledButton;
 
 import javax.swing.*;
 import java.awt.*;

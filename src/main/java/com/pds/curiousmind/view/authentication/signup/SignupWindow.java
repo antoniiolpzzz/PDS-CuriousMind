@@ -5,6 +5,9 @@ import java.awt.*;
 
 import com.pds.curiousmind.view.authentication.components.*;
 import com.pds.curiousmind.view.authentication.login.LoginWindow;
+import com.pds.curiousmind.view.common.BackgroundPanel;
+import com.pds.curiousmind.view.common.RoundedPanel;
+import com.pds.curiousmind.view.common.StyledButton;
 
 public class SignupWindow extends JFrame {
     private JTextField fullNameField, emailField;
