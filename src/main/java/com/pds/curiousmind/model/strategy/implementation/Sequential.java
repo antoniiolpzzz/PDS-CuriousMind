@@ -6,11 +6,11 @@ import com.pds.curiousmind.model.strategy.Strategy;
 
 import java.util.List;
 
-public class Sequential implements Strategy {
+public enum Sequential implements Strategy {
+    INSTANCE;
 
     @Override
     public List<Question> getQuestionsBlock(ContentBlock block){
-
         return block.getQuestions();
     }
 }

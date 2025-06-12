@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class SpacedRepetition implements Strategy {
+public enum SpacedRepetition implements Strategy {
+    INSTANCE;
 
     public static final int REPETITION_NUMBER = 3;
 

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Shuffled implements Strategy {
+public enum Shuffled implements Strategy {
+    INSTANCE;
 
     @Override
     public List<Question> getQuestionsBlock(ContentBlock block){
-
         List<Question> questions = new ArrayList<Question>(block.getQuestions());
         Collections.shuffle(questions);
         return questions;
