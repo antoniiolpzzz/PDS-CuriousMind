@@ -1,9 +1,11 @@
-
 package com.pds.curiousmind.view.common;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class provides hover effects for UI components.
+ */
 public class HoverEffect {
 
     public static void addHoverEffect(JButton button) {

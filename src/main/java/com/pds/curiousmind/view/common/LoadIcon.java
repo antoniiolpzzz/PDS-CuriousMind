@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
+// This class loads and scales icons for the UI.
 public class LoadIcon {
 
     public static ImageIcon loadIcon(String path, int width, int height) {

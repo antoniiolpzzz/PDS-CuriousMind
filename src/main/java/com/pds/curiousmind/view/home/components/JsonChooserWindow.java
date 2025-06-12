@@ -1,4 +1,3 @@
-
 package com.pds.curiousmind.view.home.components;
 
 import com.pds.curiousmind.view.common.StyledButton;
@@ -16,7 +15,7 @@ public class JsonChooserWindow extends JDialog {
     private StyledButton openButton;
 
     public JsonChooserWindow(JFrame parent) {
-        super(parent, "JSON", true);
+        super(parent, "Create Course", true);
 
         setLayout(new BorderLayout());
         setSize(480, 320);
@@ -28,11 +27,11 @@ public class JsonChooserWindow extends JDialog {
         mainPanel.setBackground(Color.WHITE);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        mainPanel.add(Box.createVerticalStrut(2)); // Espacio antes del separador
+        mainPanel.add(Box.createVerticalStrut(2));
         JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
         separator.setForeground(Color.BLACK);
         mainPanel.add(separator);
-        mainPanel.add(Box.createVerticalStrut(20)); // Espacio después del separador
+        mainPanel.add(Box.createVerticalStrut(20));
 
 
 
@@ -57,6 +56,7 @@ public class JsonChooserWindow extends JDialog {
         openButton = new StyledButton("Open file explorer", Color.BLACK, Color.WHITE);
         openButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         openButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        // Button to open file chooser dialog
         openButton.addActionListener((ActionEvent e) -> {
             JFileChooser fileChooser = new JFileChooser();
             int result = fileChooser.showOpenDialog(this);
@@ -67,12 +67,12 @@ public class JsonChooserWindow extends JDialog {
         });
         mainPanel.add(openButton);
 
-        mainPanel.add(Box.createVerticalStrut(20)); // Espacio antes del separador
+        mainPanel.add(Box.createVerticalStrut(20));
         JSeparator separator1 = new JSeparator(SwingConstants.HORIZONTAL);
         separator1.setForeground(Color.BLACK);
         mainPanel.add(separator1);
 
-
+        // Panel for Accept button aligned to the right
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
@@ -98,8 +98,6 @@ public class JsonChooserWindow extends JDialog {
         mainPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 
         buttonPanel.setBackground(Color.WHITE);
-
-
         add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);

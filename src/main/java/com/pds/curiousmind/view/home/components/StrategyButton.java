@@ -7,6 +7,7 @@ import java.util.List;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
+// This class creates a styled button for selecting a course strategy.
 public class StrategyButton {
 
     public static JPanel createStrategyButton(String name, String iconPath, String[] selectedStrategy, List<JButton> strategyButtons) {
@@ -15,10 +16,9 @@ public class StrategyButton {
         panel.setOpaque(false);
         JButton button = new JButton(loadIcon(iconPath, 55, 55));
         button.setFocusPainted(false);
-        button.setBackground(Color.WHITE); // Fondo blanco siempre
+        button.setBackground(Color.WHITE);
         button.setContentAreaFilled(true);
         button.setOpaque(true);
-        // Borde negro por defecto
         button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         addHoverEffect(button);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);

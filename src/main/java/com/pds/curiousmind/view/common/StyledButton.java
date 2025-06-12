@@ -5,9 +5,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+// This class provides a custom styled JButton for consistent UI appearance.
 public class StyledButton extends JButton {
-    private Color hoverBorderColor;
-    private Color normalBorderColor;
+    private final Color hoverBorderColor;
+    private final Color normalBorderColor;
 
     public StyledButton(String text, Color background, Color foreground) {
         super(text);

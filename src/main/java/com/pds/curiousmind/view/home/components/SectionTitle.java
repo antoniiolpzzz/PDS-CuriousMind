@@ -3,6 +3,9 @@ package com.pds.curiousmind.view.home.components;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class provides a styled section title panel for UI sections.
+ */
 public class SectionTitle {
 
     public static JPanel sectionTitle(String text) {

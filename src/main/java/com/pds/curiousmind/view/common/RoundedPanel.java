@@ -6,6 +6,8 @@ import java.awt.*;
 public class RoundedPanel extends JPanel {
     private int cornerRadius;
 
+    // This class provides a JPanel with rounded corners for custom UI panels.
+
     public RoundedPanel(int radius) {
         this.cornerRadius = radius;
         setOpaque(false);

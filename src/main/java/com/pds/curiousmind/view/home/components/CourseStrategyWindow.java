@@ -14,6 +14,7 @@ import java.util.Map;
 public class CourseStrategyWindow extends JDialog {
 
     // Static map for course descriptions
+    //TODO: Receive real courses with their details
     private static final Map<String, String> courseDescriptions = new HashMap<>() {{
         put("German", "Learn basic to advanced German language skills.");
         put("Modern History", "Explore major events from the 19th and 20th centuries.");
