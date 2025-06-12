@@ -12,24 +12,55 @@ public class SignupWindow extends JFrame {
     private JCheckBox showPasswordBox1, showPasswordBox2;
 
     public SignupWindow() {
+        // Configuración de la ventana
         setTitle("CuriousMind - Sign up");
         setMinimumSize(new Dimension(1300, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
+        // Panel de fondo con imagen
         BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
-        NavigationBar navBar = new NavigationBar("Sign Up");
+        // Panel superior con botones de navegación
+        JPanel topBar = new JPanel();
+        topBar.setLayout(new BorderLayout());
+        topBar.setOpaque(false);
+        topBar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+
+        // Título de la aplicación
+        JLabel titleLabel = new JLabel("CuriousMind");
+        titleLabel.setFont(new Font("SansSerif", Font.BOLD, 40));
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        topBar.add(titleLabel, BorderLayout.NORTH);
+        topBar.add(Box.createHorizontalStrut(500));
+
+        // Etiqueta de bienvenida
+        JLabel welcomeLabel = new JLabel("WELCOME!");
+        welcomeLabel.setFont(new Font("SansSerif", Font.BOLD, 35));
+        welcomeLabel.setForeground(Color.WHITE);
+        welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        welcomeLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        topBar.add(welcomeLabel, BorderLayout.SOUTH);
+
+        // Botones a la derecha
+        JPanel navButtons = new JPanel();
+        navButtons.setOpaque(false);
+        navButtons.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 0));
+        NavigationBar navBar = new NavigationBar("Sign up");
         basePanel.add(navBar, BorderLayout.NORTH);
+        topBar.add(navButtons, BorderLayout.CENTER);
+        basePanel.add(topBar);
 
-
+        // Panel derecho para el formulario de registro
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
 
+        // Panel redondeado para el formulario
         RoundedPanel rightPanel = new RoundedPanel(30);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);
@@ -38,12 +69,14 @@ public class SignupWindow extends JFrame {
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(370, 0));
 
+        // Título del formulario de registro
         JLabel signupTitle = new JLabel("Sign up");
         signupTitle.setFont(new Font("SansSerif", Font.BOLD, 24));
         signupTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         rightPanel.add(signupTitle);
         rightPanel.add(Box.createVerticalStrut(25));
 
+        // Campos del formulario
         fullNameField = new JTextField();
         fullNameField.setBorder(BorderFactory.createTitledBorder("Full Name"));
         fullNameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
@@ -69,6 +102,7 @@ public class SignupWindow extends JFrame {
         passwordPanel.add(passwordField);
         passwordPanel.add(confirmPasswordField);
 
+        // Panel de opciones para mostrar la contraseña
         showPasswordBox1 = new JCheckBox("Show password");
         showPasswordBox1.setOpaque(false);
         showPasswordBox1.setForeground(Color.GRAY);
@@ -86,6 +120,7 @@ public class SignupWindow extends JFrame {
         rightPanel.add(passwordPanel);
         rightPanel.add(Box.createVerticalStrut(25));
 
+        // Botón de creación de cuenta
         StyledButton createButton = new StyledButton("Create account", Color.BLACK, Color.WHITE);
         createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         createButton.addActionListener(e -> {
@@ -102,6 +137,7 @@ public class SignupWindow extends JFrame {
         });
         rightPanel.add(createButton);
 
+        // Espaciado y etiqueta "Or"
         rightPanel.add(Box.createVerticalStrut(15));
         JLabel orLabel = new JLabel("Or", SwingConstants.CENTER);
         orLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -109,6 +145,7 @@ public class SignupWindow extends JFrame {
         rightPanel.add(orLabel);
         rightPanel.add(Box.createVerticalStrut(15));
 
+        // Botón de inicio de sesión
         StyledButton backButton = new StyledButton("Log in", new Color(240, 240, 240), Color.BLACK);
         backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         backButton.addActionListener(e -> {
@@ -119,10 +156,6 @@ public class SignupWindow extends JFrame {
 
         pack();
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(SignupWindow::new);
     }
 
 
@@ -137,4 +170,10 @@ public class SignupWindow extends JFrame {
         }
         return true;
     }
+
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(SignupWindow::new);
+    }
+
 }
