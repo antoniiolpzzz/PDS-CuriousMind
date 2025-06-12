@@ -18,6 +18,7 @@ public class UserWindow extends JFrame {
     private final RoundedPanel rightPanel;
 
     public UserWindow() {
+
         setTitle("CuriousMind - Profile");
         setMinimumSize(new Dimension(1200, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,6 +56,7 @@ public class UserWindow extends JFrame {
         rightPanel.add(Box.createVerticalStrut(20));
 
         // Courses section
+        //TODO: Recuperate the user's registered courses from the database
         rightPanel.add(sectionTitle("Your courses"));
         JPanel coursePanel = createCourseRowSection(Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
@@ -78,6 +80,7 @@ public class UserWindow extends JFrame {
         statsGrid.setOpaque(false);
         statsGrid.setMaximumSize(new Dimension(880, 200));
 
+        //TODO: Recuperate the user's stats from the database
         statsGrid.add(new StatsBlock("Best streak", "15 days", "icons/stat/streak.jpg"));
         statsGrid.add(new StatsBlock("Days of use", "63 days", "icons/stat/days.jpg"));
         statsGrid.add(new StatsBlock("Completed courses", "2 courses", "icons/stat/courses.jpg"));
@@ -91,14 +94,12 @@ public class UserWindow extends JFrame {
 
     private JPanel createCourseRowSection(List<String[]> courseData) {
         JPanel row = new JPanel();
-        row.setLayout(new GridLayout(0, 4, 20, -5)); // negativa para eliminar espacio
+        row.setLayout(new GridLayout(0, 4, 20, -5));
         row.setOpaque(false);
 
         for (String[] d : courseData) {
             row.add(new CourseWithProgressPanel(d[0], d[1], getProgressForCourse(d[0]), () -> {
                 //TODO: Open course dashboard with the content blocks
-                //JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
-                //new CourseStrategyWindow(topFrame, d[0], d[1]);
             }));
 
         }
@@ -106,6 +107,7 @@ public class UserWindow extends JFrame {
     }
 
     private int getProgressForCourse(String courseName) {
+        //TODO: Recuperate the course progress from the database
         return switch (courseName) {
             case "German" -> 30;
             case "Modern History" -> 80;

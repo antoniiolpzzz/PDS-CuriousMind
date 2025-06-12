@@ -3,6 +3,9 @@ package com.pds.curiousmind.view.home.stats.components;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class provides a custom progress bar with rounded corners for UI progress display.
+ */
 public class RoundedProgressBar extends JProgressBar {
 
     public RoundedProgressBar(int value) {

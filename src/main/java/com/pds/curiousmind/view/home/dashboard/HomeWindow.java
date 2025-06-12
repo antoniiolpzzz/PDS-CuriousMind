@@ -8,18 +8,13 @@ import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import com.pds.curiousmind.view.common.StyledButton;
 
-
-
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
 
 public class HomeWindow extends JFrame {
-
-    private final RoundedPanel rightPanel;
 
     public HomeWindow() {
         setTitle("CuriousMind - Home");
@@ -28,11 +23,12 @@ public class HomeWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
+        // Set up the main background panel
         JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
-        // Top bar
+        // Top bar with app title
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setOpaque(false);
         JLabel appTitle = new JLabel("CuriousMind");
@@ -41,7 +37,7 @@ public class HomeWindow extends JFrame {
         topPanel.add(appTitle);
         basePanel.add(topPanel, BorderLayout.NORTH);
 
-        // Bottom left "Log out"
+        // Bottom left log out label
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.setOpaque(false);
         JLabel logoutLabel = new JLabel("Log out");
@@ -53,7 +49,7 @@ public class HomeWindow extends JFrame {
             Color original = logoutLabel.getForeground();
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                dispose(); // or new LoginWindow();
+                dispose();
             }
             @Override
             public void mouseEntered(java.awt.event.MouseEvent e) {
@@ -67,36 +63,30 @@ public class HomeWindow extends JFrame {
         bottomPanel.add(logoutLabel);
         basePanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        // Right panel setup
+        // Right panel setup for main content
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
-
-        rightPanel = new RoundedPanel(30);
+        RoundedPanel rightPanel = new RoundedPanel(30);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);
         rightPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         rightWrapper.add(rightPanel, BorderLayout.CENTER);
-
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
-        // Title
+        // Header with user info and home title
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
-        headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60)); // Ajusta alto según necesidad
-
-        // Título "Home" centrado
+        headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         JLabel homeTitle = new JLabel("Home", SwingConstants.LEFT);
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
-        homeTitle.setForeground(Color.BLACK); // Ajusta color si el fondo es blanco
+        homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        // Panel para el nombre y la imagen alineados horizontalmente
         JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         userPanel.setOpaque(false);
 
-        /// Label con nombre
+        // User panel with title and icon
         JLabel title = new JLabel("Javier");
         title.setFont(new Font("SansSerif", Font.PLAIN, 16));
         title.setOpaque(true);
@@ -105,8 +95,6 @@ public class HomeWindow extends JFrame {
         title.setHorizontalAlignment(SwingConstants.CENTER);
         title.setPreferredSize(new Dimension(80, 35));
         title.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
-
-        // al pulsar en el // nombre, se abre la ventana de perfil
         title.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         title.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -123,14 +111,9 @@ public class HomeWindow extends JFrame {
                 title.setBackground(Color.BLACK);
             }
         });
-
-        // Imagen circular
         ImageIcon icon = loadIcon("icons/button/user.png", 35, 35);
-        System.out.println("Width: " + icon.getIconWidth() + ", Height: " + icon.getIconHeight());
         Image image = icon.getImage();
         JLabel iconLabel = new JLabel(new ImageIcon(image));
-
-        // al pulsar en la imagen, se abre la ventana de perfil
         iconLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -139,22 +122,16 @@ public class HomeWindow extends JFrame {
                 dispose();
             }
         });
-
-        // Añadir nombre + imagen al panel derecho
         userPanel.add(title);
         userPanel.add(iconLabel);
-
-        // Y añadir todo al header
         headerPanel.add(userPanel, BorderLayout.EAST);
-
         headerPanel.add(homeTitle, BorderLayout.WEST);
-
-        // Añádelo al top del panel blanco
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(20));
 
+        // Add course sections and scroll panels
 
-        // Sections
+        //TODO: Controller has to recuperate the registered courses from the database
         rightPanel.add(sectionTitle("Your courses"));
         JPanel rowMyCourses = createCourseRowSection(Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
@@ -164,8 +141,9 @@ public class HomeWindow extends JFrame {
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new MyCoursesScrollPanel(rowMyCourses));
         rightPanel.add(Box.createVerticalStrut(20));
-
         rightPanel.add(sectionTitle("New course"));
+
+        //TODO: Controller has to recuperate the all created courses from the database
         JPanel rowNewCourses = createCourseRowSection(Arrays.asList(
                 new String[]{"Languages", "icons/course/languages.png"},
                 new String[]{"Sciences", "icons/course/sciences.png"},
@@ -182,46 +160,40 @@ public class HomeWindow extends JFrame {
         rightPanel.add(new NewCoursesScrollPanel(rowNewCourses));
         rightPanel.add(Box.createVerticalStrut(20));
 
-
-        // Create course
+        // Section for creating a new course
         rightPanel.add(sectionTitle("Create your course"));
         rightPanel.add(Box.createVerticalStrut(15));
         JPanel createBtnPanel = new JPanel();
         createBtnPanel.setLayout(new BoxLayout(createBtnPanel, BoxLayout.X_AXIS));
         createBtnPanel.setOpaque(false);
         createBtnPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        createBtnPanel.add(Box.createHorizontalStrut(10)); // Margen izquierdo
+        createBtnPanel.add(Box.createHorizontalStrut(10));
         StyledButton createButton = new StyledButton("+   Import Json", Color.WHITE, Color.BLACK);
         createButton.setPreferredSize(new Dimension(200, 40));
         createButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         addHoverEffect(createButton);
         createButton.addActionListener(e -> new JsonChooserWindow(this));
         createBtnPanel.add(createButton);
+        rightPanel.add(createBtnPanel);
 
         setVisible(true);
     }
 
-
-
+    // Helper to create a row of course panels
     private JPanel createCourseRowSection(List<String[]> courseData) {
         JPanel row = new JPanel();
-        row.setLayout(new GridLayout(0, 4, 20, 15)); // 0 filas, 4 columnas, con separaciones
+        row.setLayout(new GridLayout(0, 4, 20, 15));
         row.setOpaque(false);
-
         for (String[] d : courseData) {
             row.add(new CourseItemPanel(d[0], d[1], () -> {
-                if (!isRegisteredCourse(d[0])) {
-                    JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
-                    new CourseStrategyWindow(topFrame, d[0], d[1]);
-                } else {
-                    //TODO: Open course dashboard with the content blocks
-                }
+                JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
+                new CourseStrategyWindow(topFrame, d[0], d[1]);
             }));
         }
-
         return row;
     }
 
+     // Method to check if the user is registered in a course
     //TODO: Check if the user is registered in the course
     private boolean isRegisteredCourse(String courseName) {
 

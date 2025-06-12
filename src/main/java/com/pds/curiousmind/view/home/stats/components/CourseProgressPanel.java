@@ -5,6 +5,9 @@ import com.pds.curiousmind.view.home.components.CourseItemPanel;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class displays a course item with a progress bar for user progress.
+ */
 public class CourseProgressPanel extends JPanel {
 
     public CourseProgressPanel(String title, String iconPath, int progress, Runnable onClick) {
