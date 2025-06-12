@@ -64,6 +64,10 @@ public class HomeWindow extends JFrame {
         createButton.setPreferredSize(new Dimension(200, 40));
         createButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         addHoverEffect(createButton);
+
+        createButton.addActionListener(e -> {
+            new JsonChooserWindow(this);
+        });
         rightPanel.add(createButton);
 
         setVisible(true);
