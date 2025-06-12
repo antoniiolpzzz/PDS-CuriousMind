@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.net.URL;
 
 public class JsonChooserWindow extends JDialog {
 
@@ -23,10 +24,22 @@ public class JsonChooserWindow extends JDialog {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBackground(Color.WHITE);
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        mainPanel.add(Box.createVerticalStrut(2)); // Espacio antes del separador
+        JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
+        separator.setForeground(Color.BLACK);
+        mainPanel.add(separator);
+        mainPanel.add(Box.createVerticalStrut(20)); // Espacio después del separador
+
+
+
         add(mainPanel, BorderLayout.CENTER);
 
         JLabel title = new JLabel("CREATE COURSE", SwingConstants.CENTER);
-        title.setFont(new Font("SansSerif", Font.BOLD, 25));
+        title.setFont(new Font("SansSerif", Font.BOLD, 22));
+        String courseIconPath = "icons/button/more.png"; // Path to the course icon
+        title.setIcon(loadIcon(courseIconPath, 28, 28));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(title);
 
@@ -52,7 +65,11 @@ public class JsonChooserWindow extends JDialog {
         });
         mainPanel.add(openButton);
 
-        mainPanel.add(Box.createVerticalStrut(20));
+        mainPanel.add(Box.createVerticalStrut(20)); // Espacio antes del separador
+        JSeparator separator1 = new JSeparator(SwingConstants.HORIZONTAL);
+        separator1.setForeground(Color.BLACK);
+        mainPanel.add(separator1);
+
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
@@ -70,7 +87,7 @@ public class JsonChooserWindow extends JDialog {
         StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
         cancelButton.addActionListener(e -> dispose());
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(30));
+        buttonPanel.add(Box.createHorizontalStrut(3));
         buttonPanel.add(acceptButton);
         cancelButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         buttonPanel.add(Box.createHorizontalStrut(60));
@@ -80,8 +97,20 @@ public class JsonChooserWindow extends JDialog {
 
         buttonPanel.setBackground(Color.WHITE);
 
+
         add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
+    }
+
+    private ImageIcon loadIcon(String path, int width, int height) {
+        URL url = getClass().getClassLoader().getResource(path);
+        if (url == null) {
+            System.err.println("No se encontró el icono: " + path);
+            return null;
+        }
+        ImageIcon originalIcon = new ImageIcon(url);
+        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(scaledImage);
     }
 }

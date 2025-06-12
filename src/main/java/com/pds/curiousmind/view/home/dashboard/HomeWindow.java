@@ -82,9 +82,9 @@ public class HomeWindow extends JFrame {
         // Sections
         rightPanel.add(sectionTitle("Your courses"));
         JPanel rowMyCourses = createCourseRowSection(Arrays.asList(
-                new String[]{"German", "icons/german.png"},
-                new String[]{"Modern History", "icons/history.png"},
-                new String[]{"Java Script", "icons/js.png"}
+                new String[]{"German", "icons/course/german.png"},
+                new String[]{"Modern History", "icons/course/history.png"},
+                new String[]{"Java Script", "icons/course/js.png"}
         ));
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new MyCoursesScrollPanel(rowMyCourses));
@@ -92,16 +92,16 @@ public class HomeWindow extends JFrame {
 
         rightPanel.add(sectionTitle("New course"));
         JPanel rowNewCourses = createCourseRowSection(Arrays.asList(
-                new String[]{"Languages", "icons/languages.png"},
-                new String[]{"Sciences", "icons/sciences.png"},
-                new String[]{"Grammar", "icons/grammar.png"},
-                new String[]{"Music", "icons/music.png"},
-                new String[]{"Programming", "icons/programming.png"},
-                new String[]{"History", "icons/history.png"},
-                new String[]{"Sciences", "icons/sciences.png"},
-                new String[]{"Grammar", "icons/grammar.png"},
-                new String[]{"Music", "icons/music.png"},
-                new String[]{"Programming", "icons/programming.png"}
+                new String[]{"Languages", "icons/course/languages.png"},
+                new String[]{"Sciences", "icons/course/sciences.png"},
+                new String[]{"Grammar", "icons/course/grammar.png"},
+                new String[]{"Music", "icons/course/music.png"},
+                new String[]{"Programming", "icons/course/programming.png"},
+                new String[]{"History", "icons/course/history.png"},
+                new String[]{"Sciences", "icons/course/sciences.png"},
+                new String[]{"Grammar", "icons/course/grammar.png"},
+                new String[]{"Music", "icons/course/music.png"},
+                new String[]{"Programming", "icons/course/programming.png"}
         ));
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new NewCoursesScrollPanel(rowNewCourses));
