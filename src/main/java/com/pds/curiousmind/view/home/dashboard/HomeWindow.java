@@ -101,8 +101,7 @@ public class HomeWindow extends JFrame {
                 new String[]{"Sciences", "icons/sciences.png"},
                 new String[]{"Grammar", "icons/grammar.png"},
                 new String[]{"Music", "icons/music.png"},
-                new String[]{"Programming", "icons/programming.png"},
-                new String[]{"History", "icons/history.png"}
+                new String[]{"Programming", "icons/programming.png"}
         ));
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new NewCoursesScrollPanel(rowNewCourses));
