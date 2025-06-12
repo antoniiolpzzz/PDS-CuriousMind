@@ -11,7 +11,7 @@ public class ContactPopUp extends JDialog {
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
-        RoundedPanel panel = new RoundedPanel(40);
+        JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.LIGHT_GRAY);
         add(panel, BorderLayout.CENTER);

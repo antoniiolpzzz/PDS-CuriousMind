@@ -37,7 +37,6 @@ public class LoginWindow extends JFrame {
         JLabel titleLabel = new JLabel("CuriousMind");
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 40));
         titleLabel.setForeground(Color.WHITE);
-        titleLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         topBar.add(titleLabel, BorderLayout.NORTH);
         topBar.add(Box.createHorizontalStrut(500));
 

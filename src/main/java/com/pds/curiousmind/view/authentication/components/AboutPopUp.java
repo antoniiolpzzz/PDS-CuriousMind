@@ -10,8 +10,9 @@ public class AboutPopUp extends JDialog {
         setSize(500, 350);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
+        getContentPane().setBackground(Color.LIGHT_GRAY); // Fondo gris para toda la ventana
 
-        RoundedPanel panel = new RoundedPanel(40);
+        JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.LIGHT_GRAY);
         add(panel, BorderLayout.CENTER);
@@ -29,6 +30,12 @@ public class AboutPopUp extends JDialog {
         addPerson(photosPanel, "Javier", "icons/about/javier.jpg");
         addPerson(photosPanel, "Antonio", "icons/about/antonio.jpg");
         addPerson(photosPanel, "Mercedes", "icons/about/mercedes.jpg");
+
+        JLabel description = new JLabel("Alumnos Ingeniería Informática Universidad de Murica", SwingConstants.CENTER);
+        description.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        description.setAlignmentX(Component.CENTER_ALIGNMENT);
+        description.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0)); // Menos espacio arriba
+        panel.add(description);
     }
 
     private void addPerson(JPanel panel, String name, String iconPath) {
