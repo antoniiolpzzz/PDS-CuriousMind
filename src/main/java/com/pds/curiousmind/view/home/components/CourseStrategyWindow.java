@@ -86,7 +86,32 @@ public class CourseStrategyWindow extends JDialog {
 
         mainPanel.add(strategyPanel);
 
+        // Panel de botones abajo a la derecha
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
+
+        JButton acceptButton = new JButton("Accept");
+        JButton cancelButton = new JButton("Cancel");
+
+        acceptButton.addActionListener(e -> {
+            if (stratLabel == null) { //TODO: Check if a strategy is selected
+                JOptionPane.showMessageDialog(this, "Please, select a strategy.");
+            } else {
+                dispose();
+            }
+        });
+
+        cancelButton.addActionListener(e -> dispose());
+
+        buttonPanel.add(cancelButton);
+        buttonPanel.add(acceptButton);
+
+        add(buttonPanel, BorderLayout.SOUTH);
+
         setVisible(true);
+
+
+
     }
 
     private JPanel createStrategyButton(String name, String iconPath) {

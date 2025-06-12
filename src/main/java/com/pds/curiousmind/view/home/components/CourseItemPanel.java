@@ -1,9 +1,12 @@
+
 package com.pds.curiousmind.view.home.components;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 
 public class CourseItemPanel extends JPanel {
@@ -27,6 +30,22 @@ public class CourseItemPanel extends JPanel {
         shareBtn.setFocusPainted(false);
         addHoverEffect(shareBtn);
         add(shareBtn);
+
+        // TODO: Implement the share functionality to save to Json file of the course
+        shareBtn.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Save course name");
+            fileChooser.setSelectedFile(new java.io.File(name + ".txt"));
+            int userSelection = fileChooser.showSaveDialog(this);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                java.io.File fileToSave = fileChooser.getSelectedFile();
+                try (FileWriter writer = new FileWriter(fileToSave)) {
+                    writer.write(name);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Error saving file: " + ex.getMessage());
+                }
+            }
+        });
     }
 
     private void addHoverEffect(JButton button) {
@@ -46,7 +65,7 @@ public class CourseItemPanel extends JPanel {
     private ImageIcon loadIcon(String path, int width, int height) {
         URL url = getClass().getClassLoader().getResource(path);
         if (url == null) {
-            System.err.println("No se encontr\u00f3 el icono: " + path);
+            System.err.println("Icon not found: " + path);
             return null;
         }
         ImageIcon originalIcon = new ImageIcon(url);
