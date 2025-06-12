@@ -68,7 +68,7 @@ public class UserWindow extends JFrame {
         courseScroll.setBorder(null);
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(courseScroll);
-        rightPanel.add(Box.createVerticalStrut(20));
+        rightPanel.add(Box.createVerticalStrut(10));
 
         // Stats section
         rightPanel.add(sectionTitle("Your stats"));
@@ -96,8 +96,9 @@ public class UserWindow extends JFrame {
 
         for (String[] d : courseData) {
             row.add(new CourseWithProgressPanel(d[0], d[1], getProgressForCourse(d[0]), () -> {
-                JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
-                new CourseStrategyWindow(topFrame, d[0], d[1]);
+                //TODO: Open course dashboard with the content blocks
+                //JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
+                //new CourseStrategyWindow(topFrame, d[0], d[1]);
             }));
 
         }

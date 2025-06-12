@@ -6,6 +6,8 @@ import com.pds.curiousmind.view.home.stats.UserWindow;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+import com.pds.curiousmind.view.common.StyledButton;
+
 
 
 import javax.swing.*;
@@ -184,12 +186,17 @@ public class HomeWindow extends JFrame {
         // Create course
         rightPanel.add(sectionTitle("Create your course"));
         rightPanel.add(Box.createVerticalStrut(15));
+        JPanel createBtnPanel = new JPanel();
+        createBtnPanel.setLayout(new BoxLayout(createBtnPanel, BoxLayout.X_AXIS));
+        createBtnPanel.setOpaque(false);
+        createBtnPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        createBtnPanel.add(Box.createHorizontalStrut(10)); // Margen izquierdo
         StyledButton createButton = new StyledButton("+   Import Json", Color.WHITE, Color.BLACK);
         createButton.setPreferredSize(new Dimension(200, 40));
         createButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         addHoverEffect(createButton);
         createButton.addActionListener(e -> new JsonChooserWindow(this));
-        rightPanel.add(createButton);
+        createBtnPanel.add(createButton);
 
         setVisible(true);
     }
@@ -203,12 +210,23 @@ public class HomeWindow extends JFrame {
 
         for (String[] d : courseData) {
             row.add(new CourseItemPanel(d[0], d[1], () -> {
-                JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
-                new CourseStrategyWindow(topFrame, d[0], d[1]);
+                if (!isRegisteredCourse(d[0])) {
+                    JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
+                    new CourseStrategyWindow(topFrame, d[0], d[1]);
+                } else {
+                    //TODO: Open course dashboard with the content blocks
+                }
             }));
         }
 
         return row;
+    }
+
+    //TODO: Check if the user is registered in the course
+    private boolean isRegisteredCourse(String courseName) {
+
+        List<String> enrolledCourses = Arrays.asList("German", "Modern History", "Java Script");
+        return enrolledCourses.contains(courseName);
     }
 
 

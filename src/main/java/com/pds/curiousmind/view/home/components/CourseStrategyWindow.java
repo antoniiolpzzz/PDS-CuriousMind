@@ -1,26 +1,19 @@
-// Ventana emergente para ver curso y seleccionar estrategia
 package com.pds.curiousmind.view.home.components;
 
 
-import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
-
+import static com.pds.curiousmind.view.home.components.StrategyButton.createStrategyButton;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 
 
 public class CourseStrategyWindow extends JDialog {
-    private final String courseName;
-    private final String courseIconPath;
 
+    // Static map for course descriptions
     private static final Map<String, String> courseDescriptions = new HashMap<>() {{
         put("German", "Learn basic to advanced German language skills.");
         put("Modern History", "Explore major events from the 19th and 20th centuries.");
@@ -35,9 +28,8 @@ public class CourseStrategyWindow extends JDialog {
 
     public CourseStrategyWindow(JFrame parent, String courseName, String courseIconPath) {
         super(parent, "Select Strategy", true);
-        this.courseName = courseName;
-        this.courseIconPath = courseIconPath;
 
+        // Set up window properties and focus behavior
         addWindowFocusListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowGainedFocus(java.awt.event.WindowEvent e) {
@@ -50,13 +42,13 @@ public class CourseStrategyWindow extends JDialog {
         setResizable(false);
         setLocationRelativeTo(parent);
 
+        // Main panel for course info and strategy selection
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBackground(Color.WHITE);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(mainPanel);
 
-        // Título con icono
         JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         titlePanel.setOpaque(false);
         JLabel title = new JLabel(courseName);
@@ -67,31 +59,31 @@ public class CourseStrategyWindow extends JDialog {
 
         mainPanel.add(Box.createVerticalStrut(3));
 
-        // Descripción
+        // Display course description
         String desc = courseDescriptions.getOrDefault(courseName, "Course description not available.");
         JLabel descriptionArea = new JLabel(desc);
         descriptionArea.setAlignmentX(Component.CENTER_ALIGNMENT);
         descriptionArea.setFont(new Font("SansSerif", Font.PLAIN, 13));
         mainPanel.add(descriptionArea);
 
-        mainPanel.add(Box.createVerticalStrut(40));
+        mainPanel.add(Box.createVerticalStrut(10));
 
-        // Estrategias
-
-
+        // Panel for strategy selection buttons
         JPanel strategyPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 10));
         JLabel stratLabel = new JLabel("Strategy");
         stratLabel.setFont(new Font("SansSerif", Font.BOLD, 16));
         stratLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(stratLabel);
         strategyPanel.setOpaque(false);
-        strategyPanel.add(createStrategyButton("Sequential", "icons/strategy/sequential.png"));
-        strategyPanel.add(createStrategyButton("Random", "icons/strategy/random.png"));
-        strategyPanel.add(createStrategyButton("Spaced Repetition", "icons/strategy/repetition.png"));
-
+        // Track the selected strategy and buttons
+        final String[] selectedStrategy = {null};
+        final java.util.List<JButton> strategyButtons = new java.util.ArrayList<>();
+        strategyPanel.add(createStrategyButton("Sequential", "icons/strategy/sequential.png", selectedStrategy, strategyButtons));
+        strategyPanel.add(createStrategyButton("Random", "icons/strategy/random.png", selectedStrategy, strategyButtons));
+        strategyPanel.add(createStrategyButton("Spaced Repetition", "icons/strategy/repetition.png", selectedStrategy, strategyButtons));
         mainPanel.add(strategyPanel);
 
-        // Panel de botones abajo a la derecha
+        // Bottom panel for Accept/Cancel buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         buttonPanel.setBackground(Color.WHITE);
@@ -100,7 +92,7 @@ public class CourseStrategyWindow extends JDialog {
         StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
 
         acceptButton.addActionListener(e -> {
-            if (stratLabel == null) { //TODO: Check if a strategy is selected
+            if (selectedStrategy[0] == null) {
                 JOptionPane.showMessageDialog(this, "Please, select a strategy.");
             } else {
                 dispose();
@@ -117,39 +109,7 @@ public class CourseStrategyWindow extends JDialog {
         add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
-
-
-
-    }
-
-    private JPanel createStrategyButton(String name, String iconPath) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setOpaque(false);
-
-        JButton button = new JButton(loadIcon(iconPath, 40, 40));
-        button.setFocusPainted(false);
-        button.setContentAreaFilled(false);
-        button.setBorderPainted(true);
-        addHoverEffect(button);
-
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        JLabel label = new JLabel(name);
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        label.setFont(new Font("SansSerif", Font.PLAIN, 12));
-
-        panel.add(button);
-        panel.add(Box.createVerticalStrut(5));
-        panel.add(label);
-
-        button.addActionListener(e -> {
-            addHoverEffect(button);
-        });
-
-
-
-        return panel;
     }
 
 }
+
