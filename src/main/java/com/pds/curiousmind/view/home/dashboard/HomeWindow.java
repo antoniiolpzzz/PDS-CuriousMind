@@ -19,9 +19,54 @@ public class HomeWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        BackgroundPanel basePanel = new BackgroundPanel("icons/A3B80D76-7857-4DF3-8E9B-77619D7A2D56_1_105_c.jpeg");
+        JPanel basePanel = new JPanel();
+        basePanel.setBackground(Color.BLACK);
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
+
+
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        topPanel.setOpaque(false);
+        JLabel appTitle = new JLabel("CuriousMind");
+        appTitle.setFont(new Font("SansSerif", Font.BOLD, 26));
+        appTitle.setForeground(Color.WHITE);
+        topPanel.add(appTitle);
+        basePanel.add(topPanel, BorderLayout.NORTH);
+
+
+        // Panel inferior alineado a la izquierda
+        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        bottomPanel.setOpaque(false);
+
+        // Label "Log out" con estilo de botón
+        JLabel logoutLabel = new JLabel("Log out");
+        logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        logoutLabel.setForeground(Color.WHITE);
+        logoutLabel.setOpaque(false); // Sin fondo
+        logoutLabel.setBorder(null);  // Sin borde
+        logoutLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            Color original = logoutLabel.getForeground();
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                //new LoginWindow();
+                dispose();
+            }
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                logoutLabel.setForeground(new Color(150, 150, 150)); // Cambia a gris al hacer hover
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                logoutLabel.setForeground(original);
+            }
+        });
+
+        bottomPanel.add(logoutLabel);
+        basePanel.add(bottomPanel, BorderLayout.SOUTH);
+
+        //BackgroundPanel basePanel = new BackgroundPanel("icons/A3B80D76-7857-4DF3-8E9B-77619D7A2D56_1_105_c.jpeg");
 
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
@@ -41,7 +86,7 @@ public class HomeWindow extends JFrame {
         title.setAlignmentX(Component.LEFT_ALIGNMENT);
         rightPanel.add(title);
 
-        rightPanel.add(Box.createVerticalStrut(30));
+        rightPanel.add(Box.createVerticalStrut(10));
 
         addSection("Your courses", Arrays.asList(
                 new String[]{"German", "icons/german.png"},
@@ -58,9 +103,9 @@ public class HomeWindow extends JFrame {
                 new String[]{"History", "icons/history.png"}
         ));
 
-        rightPanel.add(Box.createVerticalStrut(30));
         rightPanel.add(sectionTitle("Create your course"));
-        JButton createButton = new JButton("+");
+        rightPanel.add(Box.createVerticalStrut(5));
+        JButton createButton = new JButton("+   Import Json");
         createButton.setPreferredSize(new Dimension(200, 40));
         createButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         addHoverEffect(createButton);
@@ -88,7 +133,7 @@ public class HomeWindow extends JFrame {
         }
 
         rightPanel.add(row);
-        rightPanel.add(Box.createVerticalStrut(30));
+        rightPanel.add(Box.createVerticalStrut(10));
     }
 
     private JPanel sectionTitle(String text) {

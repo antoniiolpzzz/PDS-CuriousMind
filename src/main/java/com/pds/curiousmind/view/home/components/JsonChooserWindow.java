@@ -61,7 +61,7 @@ public class JsonChooserWindow extends JDialog {
                 JOptionPane.showMessageDialog(this, "Please, select JSON file.");
             } else {
                 System.out.println("Selected File: " + openButton.getText());
-                //TODO: Controller functionality to handle the JSON file
+                //TODO: Controller functionality to handle the JSON file and create the course
                 dispose();
             }
         });
