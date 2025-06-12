@@ -4,6 +4,7 @@ import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
 import com.pds.curiousmind.view.home.stats.UserWindow;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
+import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 
@@ -193,17 +194,7 @@ public class HomeWindow extends JFrame {
         setVisible(true);
     }
 
-    private JPanel sectionTitle(String text) {
-        JPanel panel = new JPanel();
-        panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
-        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panel.setBackground(Color.BLACK);
-        JLabel label = new JLabel(text);
-        label.setForeground(Color.WHITE);
-        label.setFont(new Font("SansSerif", Font.BOLD, 14));
-        panel.add(label);
-        return panel;
-    }
+
 
     private JPanel createCourseRowSection(List<String[]> courseData) {
         JPanel row = new JPanel();
