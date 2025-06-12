@@ -20,7 +20,7 @@ public class HomeWindow extends JFrame {
         setResizable(true);
 
         JPanel basePanel = new JPanel();
-        basePanel.setBackground(Color.BLACK);
+        basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
@@ -28,7 +28,7 @@ public class HomeWindow extends JFrame {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setOpaque(false);
         JLabel appTitle = new JLabel("CuriousMind");
-        appTitle.setFont(new Font("SansSerif", Font.BOLD, 26));
+        appTitle.setFont(new Font("SansSerif", Font.BOLD, 30));
         appTitle.setForeground(Color.WHITE);
         topPanel.add(appTitle);
         basePanel.add(topPanel, BorderLayout.NORTH);
@@ -40,7 +40,7 @@ public class HomeWindow extends JFrame {
 
         // Label "Log out" con estilo de botón
         JLabel logoutLabel = new JLabel("Log out");
-        logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
         logoutLabel.setForeground(Color.WHITE);
         logoutLabel.setOpaque(false); // Sin fondo
         logoutLabel.setBorder(null);  // Sin borde
@@ -66,7 +66,7 @@ public class HomeWindow extends JFrame {
         bottomPanel.add(logoutLabel);
         basePanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        //BackgroundPanel basePanel = new BackgroundPanel("icons/A3B80D76-7857-4DF3-8E9B-77619D7A2D56_1_105_c.jpeg");
+
 
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);

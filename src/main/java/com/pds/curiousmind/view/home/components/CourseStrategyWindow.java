@@ -3,6 +3,7 @@ package com.pds.curiousmind.view.home.components;
 
 
 import com.pds.curiousmind.view.common.RoundedPanel;
+import com.pds.curiousmind.view.common.StyledButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +46,7 @@ public class CourseStrategyWindow extends JDialog {
         setResizable(false);
         setLocationRelativeTo(parent);
 
-        RoundedPanel mainPanel = new RoundedPanel(30);
+        JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBackground(Color.WHITE);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -80,18 +81,19 @@ public class CourseStrategyWindow extends JDialog {
         stratLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(stratLabel);
         strategyPanel.setOpaque(false);
-        strategyPanel.add(createStrategyButton("Sequential", "icons/sequential.png"));
-        strategyPanel.add(createStrategyButton("Random", "icons/random.png"));
-        strategyPanel.add(createStrategyButton("Spaced Repetition", "icons/repetition.png"));
+        strategyPanel.add(createStrategyButton("Sequential", "icons/strategy/sequential.png"));
+        strategyPanel.add(createStrategyButton("Random", "icons/strategy/random.png"));
+        strategyPanel.add(createStrategyButton("Spaced Repetition", "icons/strategy/repetition.png"));
 
         mainPanel.add(strategyPanel);
 
         // Panel de botones abajo a la derecha
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
+        buttonPanel.setBackground(Color.WHITE);
 
-        JButton acceptButton = new JButton("Accept");
-        JButton cancelButton = new JButton("Cancel");
+        StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
+        StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
 
         acceptButton.addActionListener(e -> {
             if (stratLabel == null) { //TODO: Check if a strategy is selected
@@ -105,6 +107,7 @@ public class CourseStrategyWindow extends JDialog {
         cancelButton.addActionListener(e -> dispose());
 
         buttonPanel.add(cancelButton);
+        buttonPanel.add(Box.createHorizontalStrut(30));
         buttonPanel.add(acceptButton);
 
         add(buttonPanel, BorderLayout.SOUTH);

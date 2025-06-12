@@ -25,7 +25,7 @@ public class CourseItemPanel extends JPanel {
         courseBtn.addActionListener(e -> onClick.run());
         add(courseBtn);
 
-        JButton shareBtn = new JButton(loadIcon("icons/share.png", 18, 18));
+        JButton shareBtn = new JButton(loadIcon("icons/button/share.png", 18, 18));
         shareBtn.setPreferredSize(new Dimension(35, 35));
         shareBtn.setFocusPainted(false);
         addHoverEffect(shareBtn);

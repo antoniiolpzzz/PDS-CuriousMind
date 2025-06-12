@@ -1,6 +1,8 @@
 
 package com.pds.curiousmind.view.home.components;
 
+import com.pds.curiousmind.view.common.StyledButton;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,13 +10,13 @@ import java.io.File;
 
 public class JsonChooserWindow extends JDialog {
 
-    private JButton openButton;
+    private StyledButton openButton;
 
     public JsonChooserWindow(JFrame parent) {
         super(parent, "JSON", true);
 
         setLayout(new BorderLayout());
-        setSize(420, 240);
+        setSize(480, 320);
         setResizable(false);
         setLocationRelativeTo(parent);
 
@@ -37,7 +39,7 @@ public class JsonChooserWindow extends JDialog {
 
         mainPanel.add(Box.createVerticalStrut(30));
 
-        openButton = new JButton("Open file explorer");
+        openButton = new StyledButton("Open file explorer", Color.WHITE, Color.BLACK);
         openButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         openButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
         openButton.addActionListener((ActionEvent e) -> {
@@ -54,7 +56,7 @@ public class JsonChooserWindow extends JDialog {
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
-        JButton acceptButton = new JButton("Accept");
+        StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
         buttonPanel.add(acceptButton);
         acceptButton.addActionListener(e -> {
             if (openButton.getText().equals("Open file explorer") || !openButton.getText().toLowerCase().endsWith(".json")) {
@@ -65,15 +67,18 @@ public class JsonChooserWindow extends JDialog {
                 dispose();
             }
         });
-        JButton cancelButton = new JButton("Cancel");
+        StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
         cancelButton.addActionListener(e -> dispose());
         buttonPanel.add(cancelButton);
+        buttonPanel.add(Box.createHorizontalStrut(30));
         buttonPanel.add(acceptButton);
         cancelButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         buttonPanel.add(Box.createHorizontalStrut(60));
         acceptButton.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
         mainPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+
+        buttonPanel.setBackground(Color.WHITE);
 
         add(buttonPanel, BorderLayout.SOUTH);
 
