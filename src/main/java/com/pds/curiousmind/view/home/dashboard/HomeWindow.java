@@ -5,6 +5,7 @@ import com.pds.curiousmind.view.home.components.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
@@ -73,11 +74,77 @@ public class HomeWindow extends JFrame {
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
         // Title
-        JLabel title = new JLabel("Home");
-        title.setFont(new Font("SansSerif", Font.BOLD, 28));
-        title.setAlignmentX(Component.LEFT_ALIGNMENT);
-        rightPanel.add(title);
-        rightPanel.add(Box.createVerticalStrut(10));
+        JPanel headerPanel = new JPanel(new BorderLayout());
+        headerPanel.setOpaque(false);
+        headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60)); // Ajusta alto según necesidad
+
+        // Título "Home" centrado
+        JLabel homeTitle = new JLabel("Home", SwingConstants.LEFT);
+        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setForeground(Color.BLACK); // Ajusta color si el fondo es blanco
+        homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Panel para el nombre y la imagen alineados horizontalmente
+        JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+        userPanel.setOpaque(false);
+
+        /// Label con nombre
+        JLabel title = new JLabel("Javier");
+        title.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        title.setOpaque(true);
+        title.setBackground(Color.BLACK);
+        title.setForeground(Color.WHITE);
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        title.setPreferredSize(new Dimension(80, 35));
+        title.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+
+        // al pulsar en el // nombre, se abre la ventana de perfil
+        title.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        title.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                //new ProfileWindow(topFrame);
+                dispose();
+            }
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                title.setBackground(new Color(50, 50, 50));
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                title.setBackground(Color.BLACK);
+            }
+        });
+
+        // Imagen circular
+        ImageIcon icon = loadIcon("icons/button/user.png", 35, 35);
+        System.out.println("Width: " + icon.getIconWidth() + ", Height: " + icon.getIconHeight());
+        Image image = icon.getImage();
+        JLabel iconLabel = new JLabel(new ImageIcon(image));
+
+        // al pulsar en la imagen, se abre la ventana de perfil
+        iconLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                //new ProfileWindow(topFrame);
+                dispose();
+            }
+        });
+
+        // Añadir nombre + imagen al panel derecho
+        userPanel.add(title);
+        userPanel.add(iconLabel);
+
+        // Y añadir todo al header
+        headerPanel.add(userPanel, BorderLayout.EAST);
+
+        headerPanel.add(homeTitle, BorderLayout.WEST);
+
+        // Añádelo al top del panel blanco
+        rightPanel.add(headerPanel);
+        rightPanel.add(Box.createVerticalStrut(20));
+
 
         // Sections
         rightPanel.add(sectionTitle("Your courses"));
@@ -162,6 +229,17 @@ public class HomeWindow extends JFrame {
                 button.setBackground(original);
             }
         });
+    }
+
+    private ImageIcon loadIcon(String path, int width, int height) {
+        URL url = getClass().getClassLoader().getResource(path);
+        if (url == null) {
+            System.err.println("No se encontró el icono: " + path);
+            return null;
+        }
+        ImageIcon originalIcon = new ImageIcon(url);
+        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(scaledImage);
     }
 
     public static void main(String[] args) {
