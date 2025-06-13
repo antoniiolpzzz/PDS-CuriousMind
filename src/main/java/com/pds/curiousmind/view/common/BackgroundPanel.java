@@ -9,7 +9,7 @@ public class BackgroundPanel extends JPanel {
     public BackgroundPanel(String imagePath) {
         var url = getClass().getClassLoader().getResource(imagePath);
         if (url == null) {
-            System.err.println("No se encontró la imagen: " + imagePath);
+            System.err.println("Image not found: " + imagePath);
         } else {
             backgroundImage = new ImageIcon(url).getImage();
         }

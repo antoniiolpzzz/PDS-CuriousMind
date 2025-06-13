@@ -66,7 +66,7 @@ public class AboutPopUp extends JDialog {
     private ImageIcon loadIcon(String path, int width, int height) {
         var url = getClass().getClassLoader().getResource(path);
         if (url == null) {
-            System.err.println("No se encontró el icono: " + path);
+            System.err.println("Icon not found: " + path);
             return null;
         }
         ImageIcon icon = new ImageIcon(url);

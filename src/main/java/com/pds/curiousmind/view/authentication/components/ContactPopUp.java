@@ -18,7 +18,7 @@ public class ContactPopUp extends JDialog {
 
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Espacio alrededor del contenido
 
-        JLabel title = new JLabel("How to contact CuriousMinds", SwingConstants.CENTER);
+        JLabel title = new JLabel("How to contact CuriousMind", SwingConstants.CENTER);
         title.setFont(new Font("SansSerif", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(title);
@@ -31,7 +31,7 @@ public class ContactPopUp extends JDialog {
         phone.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(phone);
 
-        JLabel email = new JLabel("Email: CouriousMind@gmail.com",
+        JLabel email = new JLabel("Email: CuriousMind@gmail.com",
                 resizeIcon("icons/contact/mail.png", 32, 32), JLabel.LEFT);
         email.setFont(new Font("SansSerif", Font.BOLD, 16));
         email.setAlignmentX(Component.CENTER_ALIGNMENT);

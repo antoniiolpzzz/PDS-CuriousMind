@@ -22,25 +22,21 @@ public class SignupWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        // Panel de fondo con imagen
         BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
-        // Panel superior con botones de navegación
         JPanel topBar = new JPanel();
         topBar.setLayout(new BorderLayout());
         topBar.setOpaque(false);
         topBar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
-        // Título de la aplicación
         JLabel titleLabel = new JLabel("CuriousMind");
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 30));
         titleLabel.setForeground(Color.WHITE);
         topBar.add(titleLabel, BorderLayout.NORTH);
         topBar.add(Box.createHorizontalStrut(500));
 
-        // Etiqueta de bienvenida
         JLabel welcomeLabel = new JLabel("WELCOME!");
         welcomeLabel.setFont(new Font("SansSerif", Font.BOLD, 35));
         welcomeLabel.setForeground(Color.WHITE);
@@ -48,7 +44,6 @@ public class SignupWindow extends JFrame {
         welcomeLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
         topBar.add(welcomeLabel, BorderLayout.SOUTH);
 
-        // Botones a la derecha
         JPanel navButtons = new JPanel();
         navButtons.setOpaque(false);
         navButtons.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 0));

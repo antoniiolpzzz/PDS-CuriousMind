@@ -15,7 +15,7 @@ public class NavigationBar extends JPanel {
         setLayout(new FlowLayout(FlowLayout.LEFT, 30, 10));
         setOpaque(false);
 
-        add(Box.createHorizontalStrut(500)); // Espaciado entre logo y opciones
+        add(Box.createHorizontalStrut(500));
 
         aboutUsLabel = createNavLabel("About Us");
         contactLabel = createNavLabel("Contact");
