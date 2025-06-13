@@ -1,21 +1,13 @@
 package com.pds.curiousmind.view.playview.question;
 
-import com.pds.curiousmind.view.authentication.login.LoginWindow;
-import com.pds.curiousmind.view.common.BackgroundPanel;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
-import com.pds.curiousmind.view.home.components.SectionTitle;
-import com.pds.curiousmind.view.home.course.CourseDashboard;
-import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
-
-import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
-import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
-import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.playview.question.components.CreateHeader.createHeader;
 import static com.pds.curiousmind.view.playview.question.components.QuestionBackground.createBackground;
 import static com.pds.curiousmind.view.playview.question.components.TestOptions.createTestPanel;
@@ -52,6 +44,9 @@ public class Test extends JFrame {
 
         // OPTIONS PANEL
         rightPanel.add(createTestPanel(options));
+        rightPanel.add(Box.createVerticalStrut(10));
+
+
 
         // Submit button
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
@@ -62,7 +57,7 @@ public class Test extends JFrame {
             JOptionPane.showMessageDialog(this, "Test submitted successfully!");
         });
         rightPanel.add(submitButton);
-        rightPanel.add(Box.createVerticalStrut(20));
+        rightPanel.add(Box.createVerticalStrut(10));
 
         setVisible(true);
     }
@@ -79,7 +74,7 @@ public class Test extends JFrame {
             "icons/course/german.png",
             "Choose the correct answer",
                 "If you are hungry and want some crisps, how would you order them?",
-            Arrays.asList("A.   Kuchen", "B.   Kartoffelchips", "C.   Kopfsalat", "D.   Lachs")
+            Arrays.asList("A.   Kuchen", "B.   Kartoffelchips", "C.   Kopfsalat")
         ));
     }
 

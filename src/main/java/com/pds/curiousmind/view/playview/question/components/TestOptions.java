@@ -11,7 +11,6 @@ public class TestOptions {
         JPanel optionsPanel = new JPanel();
         optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
         optionsPanel.setOpaque(false);
-        optionsPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         ButtonGroup group = new ButtonGroup();
         for (String option : options) {
             JToggleButton optionButton = new JToggleButton(option);
@@ -31,3 +30,4 @@ public class TestOptions {
 
     }
 }
+

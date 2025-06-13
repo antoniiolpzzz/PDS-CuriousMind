@@ -4,9 +4,6 @@ import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.common.BackgroundPanel;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
-import com.pds.curiousmind.view.home.components.SectionTitle;
-import com.pds.curiousmind.view.home.course.CourseDashboard;
-import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,7 +48,7 @@ public class Translation extends JFrame {
 
         //TODO: show the options to translate the statement
 
-        // Submit button
+        // SUBMIT BUTTON
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
         submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -65,11 +62,6 @@ public class Translation extends JFrame {
         setVisible(true);
     }
 
-    private int getProgressForCourse() {
-        //TODO: Recuperate the progress of the content block related with the number of questions answered
-        return 30; // Example value, this should be dynamic based on actual progress
-
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new Translation(
