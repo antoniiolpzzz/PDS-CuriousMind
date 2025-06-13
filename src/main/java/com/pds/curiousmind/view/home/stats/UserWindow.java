@@ -94,7 +94,7 @@ public class UserWindow extends JFrame {
         rightPanel.add(Box.createVerticalStrut(20));
 
         // Courses section
-        //TODO: Recuperate the user's registered courses from the database
+        //TODO: Retrieve the user's registered courses from the database
         rightPanel.add(sectionTitle("Your courses"));
         JPanel coursePanel = createCourseRowSection(Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},

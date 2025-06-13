@@ -97,7 +97,7 @@ public class CourseStrategyWindow extends JDialog {
                 JOptionPane.showMessageDialog(this, "Please, select a strategy.");
             } else {
                 dispose();
-                //TODO: Controller functionality to handle the selected strategy and cretate registerCourse
+                //TODO: Controller functionality to handle the selected strategy and create registerCourse
             }
         });
 

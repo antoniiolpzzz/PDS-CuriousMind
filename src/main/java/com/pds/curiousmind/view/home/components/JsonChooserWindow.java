@@ -76,7 +76,6 @@ public class JsonChooserWindow extends JDialog {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
-        buttonPanel.add(acceptButton);
         acceptButton.addActionListener(e -> {
             if (openButton.getText().equals("Open file explorer") || !openButton.getText().toLowerCase().endsWith(".json")) {
                 JOptionPane.showMessageDialog(this, "Please, select JSON file.");

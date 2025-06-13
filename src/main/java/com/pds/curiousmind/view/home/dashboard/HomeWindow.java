@@ -141,7 +141,7 @@ public class HomeWindow extends JFrame {
                 new String[]{"Java Script", "icons/course/js.png"}
         ));
         rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(new MyCoursesScrollPanel(rowMyCourses));
+        rightPanel.add(new CoursesScrollPanel(rowMyCourses));
         rightPanel.add(Box.createVerticalStrut(20));
         rightPanel.add(sectionTitle("New course"));
 
@@ -159,7 +159,7 @@ public class HomeWindow extends JFrame {
                 new String[]{"Programming", "icons/course/programming.png"}
         ));
         rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(new NewCoursesScrollPanel(rowNewCourses));
+        rightPanel.add(new CoursesScrollPanel(rowNewCourses));
         rightPanel.add(Box.createVerticalStrut(20));
 
         // Section for creating a new course

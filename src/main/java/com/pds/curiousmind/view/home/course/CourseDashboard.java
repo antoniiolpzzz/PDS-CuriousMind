@@ -64,21 +64,18 @@ public class CourseDashboard extends JFrame {
         basePanel.add(bottomPanel, BorderLayout.SOUTH);
 
 
-        // Right panel wrapper
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
         rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
         basePanel.add(rightWrapper, BorderLayout.EAST);
 
-// Panel principal blanco (RoundedPanel)
         RoundedPanel rightPanel = new RoundedPanel(30);
         rightPanel.setLayout(new BorderLayout());
         rightPanel.setBackground(Color.WHITE);
         rightPanel.setBorder(BorderFactory.createEmptyBorder(30, 0, 30, 0)); // sin márgenes laterales
         rightWrapper.add(rightPanel, BorderLayout.CENTER);
 
-// HEADER: título + icono
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
         headerPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 10, 30)); // solo padding lateral
@@ -92,22 +89,15 @@ public class CourseDashboard extends JFrame {
         rightPanel.add(headerPanel, BorderLayout.NORTH);
 
 
-// CENTER con sección fija (título) + scroll para bloques
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
         centerPanel.setOpaque(false);
         rightPanel.add(centerPanel, BorderLayout.CENTER);
 
-// TÍTULO de sección (no debe hacer scroll)
         JPanel section = sectionTitle("Content blocks");
 
         centerPanel.add(section, BorderLayout.NORTH);
 
-
-
-
-
-// Panel con scroll solo para bloques
         JPanel scrollContent = new JPanel();
         scrollContent.setLayout(new BoxLayout(scrollContent, BoxLayout.Y_AXIS));
         scrollContent.setOpaque(false);
@@ -128,7 +118,6 @@ public class CourseDashboard extends JFrame {
         scrollContent.add(Box.createVerticalStrut(20));
 
 
-// Scroll SOLO para los bloques
         JScrollPane scrollPane = new JScrollPane(scrollContent);
         scrollPane.setBorder(null);
         scrollPane.setOpaque(false);
@@ -160,16 +149,15 @@ public class CourseDashboard extends JFrame {
 
             boolean isCompleted = completedBlocks.contains(name);
             if (isCompleted) {
-                label.setBackground(new Color(214, 245, 214)); // verde claro
+                label.setBackground(new Color(214, 245, 214));
             } else {
-                label.setBackground(new Color(245, 245, 245)); // gris claro
+                label.setBackground(new Color(245, 245, 245));
             }
 
             label.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
             label.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
             label.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-            // Hover visual solo si no está completado
             if (!isCompleted) {
                 label.addMouseListener(new java.awt.event.MouseAdapter() {
                     Color originalBg = label.getBackground();
