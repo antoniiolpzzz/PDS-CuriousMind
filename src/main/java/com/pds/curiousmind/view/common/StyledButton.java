@@ -1,5 +1,4 @@
 package com.pds.curiousmind.view.common;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -9,6 +8,7 @@ import java.awt.event.MouseEvent;
 public class StyledButton extends JButton {
     private final Color hoverBorderColor;
     private final Color normalBorderColor;
+
 
     public StyledButton(String text, Color background, Color foreground) {
         super(text);
@@ -33,6 +33,4 @@ public class StyledButton extends JButton {
             }
         });
     }
-
-
 }
