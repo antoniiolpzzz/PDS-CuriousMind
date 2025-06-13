@@ -13,9 +13,9 @@ import java.util.Set;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
-
 public class CourseDashboard extends JFrame {
 
+    //TODO: This should receive only the course.
     public CourseDashboard(String title, String iconPath) {
         setTitle("CuriousMind - Course Dashboard");
         setMinimumSize(new Dimension(1200, 650));
@@ -64,7 +64,6 @@ public class CourseDashboard extends JFrame {
         bottomPanel.add(logoutLabel);
         basePanel.add(bottomPanel, BorderLayout.SOUTH);
 
-
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
@@ -81,14 +80,13 @@ public class CourseDashboard extends JFrame {
         headerPanel.setOpaque(false);
         headerPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 10, 30));
 
+        // Header
         JLabel homeTitle = new JLabel(title);
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setIcon(loadIcon(iconPath, 24, 24));
         headerPanel.add(homeTitle, BorderLayout.WEST);
-
         rightPanel.add(headerPanel, BorderLayout.NORTH);
-
 
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
@@ -96,7 +94,6 @@ public class CourseDashboard extends JFrame {
         rightPanel.add(centerPanel, BorderLayout.CENTER);
 
         JPanel section = sectionTitle("Content blocks");
-
         centerPanel.add(section, BorderLayout.NORTH);
 
         JPanel scrollContent = new JPanel();
@@ -114,10 +111,8 @@ public class CourseDashboard extends JFrame {
                 "Talk about animals"
         );
         scrollContent.add(Box.createVerticalStrut(20));
-
         scrollContent.add(ContentBlockRow.createContentColumnSection(contentNames));
         scrollContent.add(Box.createVerticalStrut(20));
-
 
         JScrollPane scrollPane = new JScrollPane(scrollContent);
         scrollPane.setBorder(null);
@@ -128,11 +123,8 @@ public class CourseDashboard extends JFrame {
 
         centerPanel.add(scrollPane, BorderLayout.CENTER);
 
-
         setVisible(true);
     }
-
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new CourseDashboard("German", "icons/course/german.png"));

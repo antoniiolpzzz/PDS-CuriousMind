@@ -49,7 +49,9 @@ public class ContentBlockRow {
                     }
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        // TODO: abrir el bloque o marcar como completado
+                        //dispose();
+                        //TODO: Handle type of the first question of the content block
+                        //TODO: You can only open your current content block or the previous ones
                     }
                 });
             }
