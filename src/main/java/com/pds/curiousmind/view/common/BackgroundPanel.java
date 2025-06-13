@@ -3,6 +3,10 @@ package com.pds.curiousmind.view.common;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class provides a JPanel with a scalable background image for the UI.
+ */
+
 public class BackgroundPanel extends JPanel {
     private Image backgroundImage;
 

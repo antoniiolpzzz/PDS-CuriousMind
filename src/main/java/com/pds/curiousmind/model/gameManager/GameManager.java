@@ -1,6 +1,8 @@
 package com.pds.curiousmind.model.gameManager;
 
 import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 
 import java.util.List;
 
@@ -33,7 +35,7 @@ public enum GameManager {
         this.currentContentBlock = contentBlock;
         List<Question> processedQuestions;//TODO: get the strategy from the course (use a factory or resolver here)
                                             //TODO: to process the questions as expected
-        this.questionIterator = new QuestionIterator(processedQuestions);
+        //this.questionIterator = new QuestionIterator(processedQuestions);
     }
 
     public void deactivateGame() {
