@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
 
@@ -40,7 +42,7 @@ public class UserWindow extends JFrame {
         //TODO: Añadir un icono de home
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.setOpaque(false);
-        JLabel logoutLabel = new JLabel("Home");
+        JLabel logoutLabel = new JLabel("Home", loadIcon("icons/button/home.jpg", 20, 20), JLabel.LEFT);
         logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
         logoutLabel.setForeground(Color.WHITE);
         logoutLabel.setOpaque(false);

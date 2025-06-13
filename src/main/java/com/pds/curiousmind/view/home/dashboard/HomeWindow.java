@@ -42,7 +42,7 @@ public class HomeWindow extends JFrame {
         //TODO: Añadir un icono de log out
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.setOpaque(false);
-        JLabel logoutLabel = new JLabel("Log out");
+        JLabel logoutLabel = new JLabel("Log out", loadIcon("icons/button/logout.jpg", 20, 20), JLabel.LEFT);
         logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
         logoutLabel.setForeground(Color.WHITE);
         logoutLabel.setOpaque(false);
