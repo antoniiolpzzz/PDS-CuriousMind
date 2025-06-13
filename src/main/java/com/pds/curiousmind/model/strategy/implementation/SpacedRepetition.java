@@ -1,19 +1,26 @@
 package com.pds.curiousmind.model.strategy.implementation;
 
-import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.strategy.Strategy;
+import com.pds.curiousmind.model.strategy.StrategyType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class SpacedRepetition implements Strategy {
+public enum SpacedRepetition implements Strategy {
+    INSTANCE;
 
-    public static final int REPETITION_NUMBER = 3;
+    private static final int REPETITION_NUMBER = 3;
 
     @Override
-    public List<Question> getQuestionsBlock(ContentBlock block){
+    public StrategyType getStrategyType() {
+        return StrategyType.SPACED_REPETITION;
+    }
+
+    @Override
+    public List<Question> getProcessedQuestions(RegisteredContentBlock block){
 
         List<Question> questions = block.getQuestions();
         List<Question> result = new ArrayList<Question>();
