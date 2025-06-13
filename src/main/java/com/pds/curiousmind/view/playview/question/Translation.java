@@ -16,6 +16,8 @@ import java.util.Arrays;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+import static com.pds.curiousmind.view.playview.question.components.CreateHeader.createHeader;
+import static com.pds.curiousmind.view.playview.question.components.QuestionBackground.createBackground;
 
 
 public class Translation extends JFrame {
@@ -28,48 +30,11 @@ public class Translation extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        // Set up the main background panel
-        JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
-        basePanel.setLayout(new BorderLayout());
+        // BACKGROUND PANEL
+        JPanel basePanel = createBackground(title,iconPath);
         setContentPane(basePanel);
 
-        // Top bar with app title
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanel.setOpaque(false);
-        JLabel appTitle = new JLabel("CuriousMind");
-        appTitle.setFont(new Font("SansSerif", Font.BOLD, 30));
-        appTitle.setForeground(Color.WHITE);
-        topPanel.add(appTitle);
-        basePanel.add(topPanel, BorderLayout.NORTH);
-
-        // Bottom left log out label
-        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        bottomPanel.setOpaque(false);
-        JLabel logoutLabel = new JLabel("Exit", loadIcon("icons/button/logout.jpg", 20, 20), JLabel.LEFT);
-        logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
-        logoutLabel.setForeground(Color.WHITE);
-        logoutLabel.setOpaque(false);
-        logoutLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            final Color original = logoutLabel.getForeground();
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e) {
-                new CourseDashboard(title, iconPath);
-                dispose();
-            }
-            @Override
-            public void mouseEntered(java.awt.event.MouseEvent e) {
-                logoutLabel.setForeground(new Color(150, 150, 150));
-            }
-            @Override
-            public void mouseExited(java.awt.event.MouseEvent e) {
-                logoutLabel.setForeground(original);
-            }
-        });
-        bottomPanel.add(logoutLabel);
-        basePanel.add(bottomPanel, BorderLayout.SOUTH);
-
-        // Right panel setup for main content
+        // RIGHT PANEL
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
@@ -81,55 +46,10 @@ public class Translation extends JFrame {
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
-        // Header with user info and home title
-        JPanel headerPanel = new JPanel(new BorderLayout());
-        headerPanel.setOpaque(false);
-        headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
-        JLabel homeTitle = new JLabel(title, SwingConstants.LEFT);
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
-        homeTitle.setForeground(Color.BLACK);
-        homeTitle.setIcon(loadIcon(iconPath, 24, 24));
-        headerPanel.add(homeTitle, BorderLayout.WEST);
-        rightPanel.add(headerPanel);
-        rightPanel.add(Box.createVerticalStrut(20));
-
-        // Section title for the content block
-        //TODO: Reucuperate the name of the content block from the content block object
-        rightPanel.add(sectionTitle("--Name of the content block--"));
-
-        //Progress bar related with de number of questions answered
-
-        rightPanel.add(Box.createVerticalStrut(10));
-        JProgressBar progressBar = new RoundedProgressBar(getProgressForCourse());
-        progressBar.setStringPainted(true);
-        progressBar.setFont(new Font("SansSerif", Font.PLAIN, 16));
-        progressBar.setForeground(new Color(76, 175, 80)); // Green color
-        progressBar.setBackground(new Color(245, 245, 245));
-        progressBar.setAlignmentX(Component.CENTER_ALIGNMENT);
-        rightPanel.add(progressBar);
-        rightPanel.add(Box.createVerticalStrut(10));
-
-
-
-
-        // Statement label
-        JLabel statementLabel = new JLabel("<html><div style='text-align: center; width: 100%'>" + indication + "</div></html>");
-        statementLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        statementLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        statementLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
-        rightPanel.add(statementLabel);
-        rightPanel.add(Box.createVerticalStrut(10));
-
-        // Statement label for the question
-        JLabel questionLabel = new JLabel("<html><div style='text-align: center; width: 100%'>" + statement + "</div></html>");
-        questionLabel.setFont(new Font("SansSerif", Font.PLAIN, 16));
-        questionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        questionLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
-        rightPanel.add(questionLabel);
-        rightPanel.add(Box.createVerticalStrut(25));
+        // COMMON HEADER
+        rightPanel.add(createHeader(title, iconPath, indication, statement));
 
         //TODO: show the options to translate the statement
-
 
         // Submit button
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);

@@ -10,11 +10,16 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 // This class creates a styled button for selecting a course strategy.
 public class StrategyButton {
 
-    public static JPanel createStrategyButton(String name, String iconPath, String[] selectedStrategy, List<JButton> strategyButtons) {
+    public static JPanel createStrategyButton(String name, String iconPath, String[] selectedStrategy, List<JButton> strategyButtons, boolean isCard) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setOpaque(false);
-        JButton button = new JButton(loadIcon(iconPath, 55, 55));
+        JButton button = new JButton();
+        if(isCard){
+             button = new JButton(loadIcon(iconPath, 100, 100));
+        } else {
+             button = new JButton(loadIcon(iconPath, 55, 55));
+        }
         button.setFocusPainted(false);
         button.setBackground(Color.WHITE);
         button.setContentAreaFilled(true);
@@ -32,6 +37,7 @@ public class StrategyButton {
         panel.add(Box.createVerticalStrut(5));
         panel.add(label);
 
+        JButton finalButton = button;
         button.addActionListener(e -> {
             selectedStrategy[0] = name;
             for (JButton b : strategyButtons) {
@@ -39,11 +45,11 @@ public class StrategyButton {
                 b.setBackground(Color.WHITE);
             }
             // Borde compuesto: negro + azul grueso
-            button.setBorder(BorderFactory.createCompoundBorder(
+            finalButton.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(new Color(0, 120, 215), 3, true),
                     BorderFactory.createLineBorder(Color.BLACK, 2)
             ));
-            button.setBackground(Color.WHITE);
+            finalButton.setBackground(Color.WHITE);
         });
 
         return panel;
