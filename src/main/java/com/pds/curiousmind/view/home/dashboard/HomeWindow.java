@@ -7,6 +7,7 @@ import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.home.course.CourseDashboard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,6 +39,7 @@ public class HomeWindow extends JFrame {
         basePanel.add(topPanel, BorderLayout.NORTH);
 
         // Bottom left log out label
+        //TODO: Añadir un icono de log out
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.setOpaque(false);
         JLabel logoutLabel = new JLabel("Log out");
@@ -167,7 +169,7 @@ public class HomeWindow extends JFrame {
         createBtnPanel.setLayout(new BoxLayout(createBtnPanel, BoxLayout.X_AXIS));
         createBtnPanel.setOpaque(false);
         createBtnPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        createBtnPanel.add(Box.createHorizontalStrut(10));
+        createBtnPanel.add(Box.createHorizontalStrut(15));
         StyledButton createButton = new StyledButton("+   Import Json", Color.WHITE, Color.BLACK);
         createButton.setPreferredSize(new Dimension(200, 40));
         createButton.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -187,7 +189,13 @@ public class HomeWindow extends JFrame {
         for (String[] d : courseData) {
             row.add(new CourseItemPanel(d[0], d[1], () -> {
                 JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
-                new CourseStrategyWindow(topFrame, d[0], d[1]);
+                // Only allow opening CourseStrategyWindow if user is not registered
+                if (!isRegisteredCourse(d[0])) {
+                    new CourseStrategyWindow(topFrame, d[0], d[1]);
+                } else {
+                    dispose();
+                    new CourseDashboard(d[0], d[1]);
+                }
             }));
         }
         return row;

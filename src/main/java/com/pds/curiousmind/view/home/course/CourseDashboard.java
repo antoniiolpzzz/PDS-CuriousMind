@@ -1,23 +1,19 @@
-package com.pds.curiousmind.view.home.stats;
+package com.pds.curiousmind.view.home.course;
 
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.dashboard.HomeWindow;
-import com.pds.curiousmind.view.home.stats.components.CourseWithProgressPanel;
-import com.pds.curiousmind.view.home.stats.components.StatsBlock;
-import com.pds.curiousmind.view.home.course.CourseDashboard;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.List;
+
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
 
-public class UserWindow extends JFrame {
+public class CourseDashboard extends JFrame {
 
-    public UserWindow() {
-
-        setTitle("CuriousMind - Profile");
+    public CourseDashboard(String title, String iconPath) {
+        setTitle("CuriousMind - Course Dashboard");
         setMinimumSize(new Dimension(1200, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -80,80 +76,78 @@ public class UserWindow extends JFrame {
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
         // Header
-        JLabel homeTitle = new JLabel("Hello Javier!");
+        JLabel homeTitle = new JLabel(title); // Usar el parámetro title
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
+        homeTitle.setIcon(loadIcon(iconPath, 20, 20)); // Usar el parámetro iconPath
         homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
         headerPanel.add(homeTitle, BorderLayout.WEST);
         rightPanel.add(headerPanel);
-        rightPanel.add(Box.createVerticalStrut(20));
 
         // Courses section
-        //TODO: Recuperate the user's registered courses from the database
-        rightPanel.add(sectionTitle("Your courses"));
-        JPanel coursePanel = createCourseRowSection(Arrays.asList(
-                new String[]{"German", "icons/course/german.png"},
-                new String[]{"Modern History", "icons/course/history.png"},
-                new String[]{"Java Script", "icons/course/js.png"}
-        ));
-        JScrollPane courseScroll = new JScrollPane(coursePanel);
-        courseScroll.setPreferredSize(new Dimension(880, 230));
-        courseScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        courseScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        courseScroll.setBorder(null);
+        //TODO: Recuperate the course Content Blocks
+
+        // Content blocks section (vertical, clickable, hover effect)
+        rightPanel.add(sectionTitle("Content blocks"));
+        java.util.List<String> contentNames = java.util.Arrays.asList(
+            "Introduction",
+            "Grammar",
+            "Vocabulary",
+            "Exercises",
+            "Listening Practice",
+            "Speaking Practice",
+            "Reading Comprehension",
+            "Writing Practice"
+        );
         rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(courseScroll);
+        rightPanel.add(createContentColumnSection(contentNames));
         rightPanel.add(Box.createVerticalStrut(10));
-
-        // Stats section
-        rightPanel.add(sectionTitle("Your stats"));
-        rightPanel.add(Box.createVerticalStrut(10));
-
-        JPanel statsGrid = new JPanel(new GridLayout(2, 2, 30, 20));
-        statsGrid.setOpaque(false);
-        statsGrid.setMaximumSize(new Dimension(880, 200));
-
-        //TODO: Recuperate the user's stats from the database
-        statsGrid.add(new StatsBlock("Best streak", "15 days", "icons/stat/streak.jpg"));
-        statsGrid.add(new StatsBlock("Days of use", "63 days", "icons/stat/days.jpg"));
-        statsGrid.add(new StatsBlock("Completed courses", "2 courses", "icons/stat/courses.jpg"));
-        statsGrid.add(new StatsBlock("Time of use", "15 min/day", "icons/stat/time.jpg"));
-
-        rightPanel.add(statsGrid);
 
         setVisible(true);
     }
 
-
-    private JPanel createCourseRowSection(List<String[]> courseData) {
-        JPanel row = new JPanel();
-        row.setLayout(new GridLayout(0, 4, 20, -5));
-        row.setOpaque(false);
-
-        for (String[] d : courseData) {
-            row.add(new CourseWithProgressPanel(d[0], d[1], getProgressForCourse(d[0]), () -> {
-                dispose();
-                new CourseDashboard(d[0], d[1]);
-            }));
-
+    // Creates a vertical column of clickable content blocks with hover effect
+    private JPanel createContentColumnSection(java.util.List<String> contentNames) {
+        JPanel column = new JPanel();
+        column.setLayout(new BoxLayout(column, BoxLayout.Y_AXIS));
+        column.setOpaque(false);
+        column.setAlignmentX(Component.LEFT_ALIGNMENT);
+        for (String name : contentNames) {
+            JLabel label = new JLabel(name);
+            label.setFont(new Font("SansSerif", Font.BOLD, 16));
+            label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            label.setOpaque(true);
+            label.setBackground(new Color(235, 235, 235)); // Fondo gris claro
+            label.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+            label.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35));
+            label.setPreferredSize(new Dimension(Integer.MAX_VALUE, 35));
+            label.setAlignmentX(Component.LEFT_ALIGNMENT); // Alinear a la izquierda
+            // Hover effect
+            label.addMouseListener(new java.awt.event.MouseAdapter() {
+                Color originalBg = label.getBackground();
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent e) {
+                    label.setBackground(new Color(220, 235, 255));
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent e) {
+                    label.setBackground(originalBg);
+                }
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                    // TODO: Handle content block click, open a new window with questions
+                }
+            });
+            column.add(label);
+            column.add(Box.createVerticalStrut(10));
         }
-        return row;
-    }
-
-    private int getProgressForCourse(String courseName) {
-        //TODO: Recuperate the course progress from the database
-        return switch (courseName) {
-            case "German" -> 30;
-            case "Modern History" -> 80;
-            case "Java Script" -> 50;
-            default -> 0;
-        };
+        return column;
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(UserWindow::new);
+        SwingUtilities.invokeLater(() -> new CourseDashboard("German", "icons/course/german.png"));
     }
 }
