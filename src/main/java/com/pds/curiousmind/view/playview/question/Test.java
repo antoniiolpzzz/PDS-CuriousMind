@@ -128,12 +128,12 @@ public class Test extends JFrame {
         ButtonGroup group = new ButtonGroup();
         for (String option : options) {
             JToggleButton optionButton = new JToggleButton(option);
-            optionButton.setFont(new Font("SansSerif", Font.PLAIN, 18));
+            optionButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
             optionButton.setOpaque(true);
             optionButton.setBackground(new Color(245, 245, 245));
             optionButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-            optionButton.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
-            optionButton.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
+            optionButton.setMaximumSize(new Dimension(Integer.MAX_VALUE, 20));
+            optionButton.setPreferredSize(new Dimension(Integer.MAX_VALUE, 20));
             optionButton.setHorizontalAlignment(SwingConstants.LEFT);
             group.add(optionButton);
             optionsPanel.add(optionButton);
