@@ -147,7 +147,7 @@ public class Test extends JFrame {
         submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.addActionListener(e -> {
-            // Handle the submission logic here
+            //TODO: Handle the submission logic here
             JOptionPane.showMessageDialog(this, "Test submitted successfully!");
         });
         rightPanel.add(submitButton);
@@ -166,8 +166,8 @@ public class Test extends JFrame {
         SwingUtilities.invokeLater(() -> new Test(
             "German",
             "icons/course/german.png",
-            "Enunciado de prueba para el tipo test",
-            Arrays.asList("Opción 1", "Opción 2", "Opción 3", "Opción 4")
+                "If you are hungry and want some crisps, how would you order them?",
+            Arrays.asList("A.   Kuchen", "B.   Kartoffelchips", "C.   Kopfsalat", "D.   Lachs")
         ));
     }
 
