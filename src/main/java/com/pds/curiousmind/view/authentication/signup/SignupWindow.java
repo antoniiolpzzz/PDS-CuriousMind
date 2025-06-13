@@ -35,7 +35,7 @@ public class SignupWindow extends JFrame {
 
         // Título de la aplicación
         JLabel titleLabel = new JLabel("CuriousMind");
-        titleLabel.setFont(new Font("SansSerif", Font.BOLD, 40));
+        titleLabel.setFont(new Font("SansSerif", Font.BOLD, 30));
         titleLabel.setForeground(Color.WHITE);
         topBar.add(titleLabel, BorderLayout.NORTH);
         topBar.add(Box.createHorizontalStrut(500));
