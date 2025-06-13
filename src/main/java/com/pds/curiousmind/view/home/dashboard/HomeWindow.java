@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.dashboard;
 
+import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
 import com.pds.curiousmind.view.home.stats.UserWindow;
@@ -48,9 +49,10 @@ public class HomeWindow extends JFrame {
         logoutLabel.setOpaque(false);
         logoutLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            Color original = logoutLabel.getForeground();
+            final Color original = logoutLabel.getForeground();
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
+                new LoginWindow();
                 dispose();
             }
             @Override
@@ -114,6 +116,7 @@ public class HomeWindow extends JFrame {
             }
         });
         ImageIcon icon = loadIcon("icons/button/user.png", 35, 35);
+        assert icon != null;
         Image image = icon.getImage();
         JLabel iconLabel = new JLabel(new ImageIcon(image));
         iconLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
