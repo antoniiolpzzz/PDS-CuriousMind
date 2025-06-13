@@ -91,6 +91,7 @@ public class FillTheGaps extends JFrame {
         rightPanel.add(Box.createVerticalStrut(20));
 
         // Section title for the content block
+        //TODO: Reucuperate the name of the content block from the content block object
         rightPanel.add(sectionTitle("--Name of the content block--"));
 
         //Progress bar related with de number of questions answered
