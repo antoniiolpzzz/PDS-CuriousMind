@@ -23,6 +23,7 @@ public class Test extends JFrame {
             optionButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
             optionButton.setBackground(new Color(245, 245, 245));
             optionButton.setHorizontalAlignment(SwingConstants.LEFT);
+            optionButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
             // Asignamos tamaño fijo para que ocupe todo el ancho del rightPanel (950 px menos márgenes)
             optionButton.setPreferredSize(new Dimension(830, 40)); // 950 - 30(left) - 30(right)
