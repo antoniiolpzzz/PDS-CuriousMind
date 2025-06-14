@@ -15,10 +15,17 @@ public class ImageButton {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setOpaque(false);
         JButton button;
+
+        JLabel label = new JLabel(name);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+
         if(isCard){
-             button = new JButton(loadIcon(iconPath, 100, 100));
+             button = new JButton(loadIcon(iconPath, 180, 180));
+            label.setFont(new Font("SansSerif", Font.PLAIN, 25));
         } else {
              button = new JButton(loadIcon(iconPath, 70, 70));
+            label.setFont(new Font("SansSerif", Font.PLAIN, 12));
         }
         button.setFocusPainted(false);
         button.setBackground(Color.WHITE);
@@ -31,9 +38,7 @@ public class ImageButton {
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
-        JLabel label = new JLabel(name);
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        label.setFont(new Font("SansSerif", Font.PLAIN, 12));
+
 
         panel.add(button);
         panel.add(Box.createVerticalStrut(5));
