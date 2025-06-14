@@ -12,29 +12,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public enum UserLibrary implements Library<User> {
     INSTANCE;
 
-    private final IUserAdapter adapter;
+    private final IUserAdapter userAdapter;
     private final List<User> users;
 
     UserLibrary() {
-        this.adapter = AdapterProvider.INSTANCE().getUserAdapter();
-        this.users = new CopyOnWriteArrayList<>(adapter.findAll());
+        this.userAdapter = AdapterProvider.INSTANCE().getUserAdapter();
+        this.users = new CopyOnWriteArrayList<>(userAdapter.findAll());
     }
 
     public void reload() {
         users.clear();
-        users.addAll(adapter.findAll());
+        users.addAll(userAdapter.findAll());
     }
 
     @Override
     public User add(User user) {
-        User saved = adapter.save(user);
+        User saved = userAdapter.save(user);
         users.add(saved);
         return saved;
     }
 
     @Override
     public User update(User user) {
-        User updated = adapter.update(user);
+        User updated = userAdapter.update(user);
         if (updated != null) {
             users.replaceAll(u -> u.getId().equals(updated.getId()) ? updated : u);
         }
@@ -43,7 +43,7 @@ public enum UserLibrary implements Library<User> {
 
     @Override
     public boolean remove(User user) {
-        boolean deleted = adapter.delete(user);
+        boolean deleted = userAdapter.delete(user);
         if (deleted) {
             users.remove(user);
         }
