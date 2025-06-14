@@ -21,9 +21,11 @@ public class CourseRowSection {
                 JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
                 // Only allow opening CourseStrategyWindow if user is not registered
                 if (!isRegisteredCourse(d[0])) {
+
                     new CourseStrategyWindow(topFrame, d[0], d[1]);
                 } else {
                     //dispose();
+                    //TODO: Open CourseDashboard with the course as parameter
                     new CourseDashboard(d[0], d[1]);
                 }
             }));
@@ -32,10 +34,9 @@ public class CourseRowSection {
     }
 
 
-    // Method to check if the user is registered in a course
-    //TODO: Check if the user is registered in the course
     private static boolean isRegisteredCourse(String courseName) {
 
+        //TODO: Check if the course is registered with the type of the object
         List<String> enrolledCourses = Arrays.asList("German", "Modern History", "Java Script");
         return enrolledCourses.contains(courseName);
     }

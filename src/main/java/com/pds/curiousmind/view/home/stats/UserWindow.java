@@ -52,6 +52,7 @@ public class UserWindow extends JFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 new HomeWindow();
+                // TODO: new HomeWindow(user);
                 dispose();
             }
             @Override
@@ -81,15 +82,19 @@ public class UserWindow extends JFrame {
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
-        // Header
-        // TODO: JLabel homeTitle = new JLabel("Hello" + user.getName() + "!"));
-        JLabel homeTitle = new JLabel("Hello Javier!");
+        // HEADER SECTION
+        // TODO: JLabel homeTitle = new JLabel("Hello" + user.getName() +
+        // TODO: Stirng iconPath = user.getIconPath());
+        String iconPath = "icons/button/user.png";
+        JLabel homeTitle = new JLabel(" Hello Javier!");
+        homeTitle.setIcon(loadIcon(iconPath, 30, 30));
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        // TODO: JLabel levelLabel = new JLabel("LEVEL:" + user.getLevel()));
         JLabel levelLabel = new JLabel("LEVEL: 5300");
-        levelLabel.setFont(new Font("SansSerif", Font.PLAIN, 22));
+        levelLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
         levelLabel.setForeground(new Color(80, 80, 80));
         levelLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -99,7 +104,6 @@ public class UserWindow extends JFrame {
         headerPanel.add(levelLabel, BorderLayout.EAST);
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(20));
-
 
 
         // COURSES SECTION

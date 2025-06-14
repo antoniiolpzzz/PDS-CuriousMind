@@ -12,10 +12,11 @@ import java.util.Set;
 
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
+import static com.pds.curiousmind.view.home.course.components.ContentBlockRow.createContentColumnSection;
 
 public class CourseDashboard extends JFrame {
 
-    //TODO: This should receive only the course.
+    //TODO: This should receive Course course
     public CourseDashboard(String title, String iconPath) {
         setTitle("CuriousMind - Course Dashboard");
         setMinimumSize(new Dimension(1200, 650));
@@ -37,7 +38,6 @@ public class CourseDashboard extends JFrame {
         basePanel.add(topPanel, BorderLayout.NORTH);
 
         // Bottom home label
-        //TODO: Add a home icon
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.setOpaque(false);
         JLabel logoutLabel = new JLabel("Home", loadIcon("icons/button/home.jpg", 20, 20), JLabel.LEFT);
@@ -95,15 +95,19 @@ public class CourseDashboard extends JFrame {
 
         JPanel sectionWrapper = new JPanel(new BorderLayout());
         sectionWrapper.setOpaque(false);
-        sectionWrapper.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30)); // Margen izquierdo y derecho
+        sectionWrapper.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
+
+        // CONTENT BLOCKS SECTION
         sectionWrapper.add(sectionTitle("Content blocks"), BorderLayout.CENTER);
         centerPanel.add(sectionWrapper, BorderLayout.NORTH);
-
 
         JPanel scrollContent = new JPanel();
         scrollContent.setLayout(new BoxLayout(scrollContent, BoxLayout.Y_AXIS));
         scrollContent.setOpaque(false);
         scrollContent.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
+
+        //TODO: controller get the content blocks from the course
+        // contentNames = controller.getContentBlocks(courseId);
 
         java.util.List<String> contentNames = java.util.Arrays.asList(
                 "Basic words",
@@ -115,7 +119,7 @@ public class CourseDashboard extends JFrame {
                 "Talk about animals"
         );
         scrollContent.add(Box.createVerticalStrut(20));
-        scrollContent.add(ContentBlockRow.createContentColumnSection(contentNames));
+        scrollContent.add(createContentColumnSection(contentNames));
         scrollContent.add(Box.createVerticalStrut(20));
 
         JScrollPane scrollPane = new JScrollPane(scrollContent);

@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class ContentBlockRow {
 
+    // TODO: Receive Content Blocks list contentBlocks
     public static JPanel createContentColumnSection(java.util.List<String> contentNames) {
         Set<String> completedBlocks = new HashSet<>(Arrays.asList(
                 "Basic words", "Basic sentences", "Introduce yourself"
@@ -19,10 +20,12 @@ public class ContentBlockRow {
         column.setLayout(new BoxLayout(column, BoxLayout.Y_AXIS));
         column.setOpaque(false);
 
+        // TODO: for ( ContentBlock block : contentBlocks ) {
         for (String name : contentNames) {
             boolean isCompleted = completedBlocks.contains(name);
             RoundedLabel label = new RoundedLabel(name);
 
+            //TODO: block.isCompleted();
             if (isCompleted) {
                 label.setLabelBackground(new Color(214, 245, 214));
                 label.setLabelBorderColor(new Color(180, 230, 180));
@@ -38,7 +41,6 @@ public class ContentBlockRow {
                     public void mouseEntered(java.awt.event.MouseEvent e) {
                         label.setLabelBackground(new Color(230, 250, 255));
                     }
-
                     @Override
                     public void mouseExited(java.awt.event.MouseEvent e) {
                         label.setLabelBackground(original);
@@ -46,7 +48,9 @@ public class ContentBlockRow {
 
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        // TODO: lógica al pulsar
+                        // TODO: Send the list of questions of the current content block to the question controller
+                        // new QuestionController(block.getQuestions());
+                        //dispose();
                     }
                 });
             }

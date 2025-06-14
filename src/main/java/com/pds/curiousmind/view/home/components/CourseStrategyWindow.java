@@ -27,7 +27,7 @@ public class CourseStrategyWindow extends JDialog {
         put("History", "Dive into historical events and civilizations.");
     }};
 
-    public CourseStrategyWindow(JFrame parent, String courseName, String courseIconPath) {
+    public CourseStrategyWindow(JFrame parent, String courseName, String courseIconPath) { //TODO: Receive a course object
         super(parent, "Select Strategy", true);
 
         // Set up window properties and focus behavior
@@ -52,6 +52,7 @@ public class CourseStrategyWindow extends JDialog {
 
         JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         titlePanel.setOpaque(false);
+        //TODO: courseName = course.getName ();
         JLabel title = new JLabel(courseName);
         title.setFont(new Font("SansSerif", Font.BOLD, 22));
         title.setIcon(loadIcon(courseIconPath, 28, 28));
@@ -61,6 +62,7 @@ public class CourseStrategyWindow extends JDialog {
         mainPanel.add(Box.createVerticalStrut(3));
 
         // Display course description
+        //TODO: description = course.getDescription();
         String desc = courseDescriptions.getOrDefault(courseName, "Course description not available.");
         JLabel descriptionArea = new JLabel(desc);
         descriptionArea.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -98,13 +100,15 @@ public class CourseStrategyWindow extends JDialog {
             } else {
                 dispose();
                 //TODO: Controller functionality to handle the selected strategy and create registerCourse
+                // controller.createRegisterCourse(course, selectedStrategy[0]);
+                JOptionPane.showMessageDialog(this, "Course registered with strategy: " + selectedStrategy[0]);
             }
         });
 
         cancelButton.addActionListener(e -> dispose());
 
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(260));
+        buttonPanel.add(Box.createHorizontalStrut(250));
         buttonPanel.add(acceptButton);
 
         add(buttonPanel, BorderLayout.SOUTH);

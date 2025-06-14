@@ -98,6 +98,7 @@ public class HomeWindow extends JFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 new UserWindow();
+                // TODO: new UserWindow(user);
                 dispose();
             }
             @Override
@@ -119,6 +120,7 @@ public class HomeWindow extends JFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 new UserWindow();
+                // TODO: new UserWindow(user);
                 dispose();
             }
         });

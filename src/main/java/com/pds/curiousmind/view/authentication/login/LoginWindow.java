@@ -108,16 +108,17 @@ public class LoginWindow extends JFrame {
         rightPanel.add(optionsPanel);
         rightPanel.add(Box.createVerticalStrut(130));
 
-        // Login button
+        //Botón de inicio de sesión
         StyledButton loginButton = new StyledButton("Log in", Color.BLACK, Color.WHITE);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             if (checkFields(usernameField.getText(), passwordField))
             {
-                //TODO: Controler check password and username
-                //if(controler.checkFields(usernameField,passwordField))
+                //TODO: Controler check if the user exists and the password is correct
+                // if(controler.checkFields(usernameField.getText(),passwordField))
                 {
                     dispose();
+                    //new HomeWindow(controler.getUser());
                     new HomeWindow();
                 }
 
