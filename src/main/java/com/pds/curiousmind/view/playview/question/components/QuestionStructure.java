@@ -6,14 +6,13 @@ import com.pds.curiousmind.view.common.StyledButton;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
 import static com.pds.curiousmind.view.playview.question.FillTheGaps.createGapSection;
 import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
 import static com.pds.curiousmind.view.playview.question.Test.createTestPanel;
 import static com.pds.curiousmind.view.playview.question.Translation.createTranslationSection;
 import static com.pds.curiousmind.view.playview.question.components.CreateHeader.createHeader;
-import static com.pds.curiousmind.view.playview.question.components.QuestionBackground.createBackground;
+import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
 
 
 public class QuestionStructure extends JFrame {
@@ -35,7 +34,7 @@ public class QuestionStructure extends JFrame {
         });
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground(title,iconPath);
+        JPanel basePanel =  createBackground(title,iconPath, "exit");
         setContentPane(basePanel);
 
         // RIGHT PANEL

@@ -11,6 +11,7 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.CourseRowSection.createCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
@@ -26,46 +27,9 @@ public class UserWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
-        basePanel.setLayout(new BorderLayout());
+        // BACKGROUND PANEL
+        JPanel basePanel = createBackground("","", "home");
         setContentPane(basePanel);
-
-        // Top bar with app title
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanel.setOpaque(false);
-        JLabel appTitle = new JLabel("CuriousMind");
-        appTitle.setFont(new Font("SansSerif", Font.BOLD, 30));
-        appTitle.setForeground(Color.WHITE);
-        topPanel.add(appTitle);
-        basePanel.add(topPanel, BorderLayout.NORTH);
-
-        // Bottom home label
-        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        bottomPanel.setOpaque(false);
-        JLabel logoutLabel = new JLabel("Home", loadIcon("icons/button/home.jpg", 20, 20), JLabel.LEFT);
-        logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
-        logoutLabel.setForeground(Color.WHITE);
-        logoutLabel.setOpaque(false);
-        logoutLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            Color original = logoutLabel.getForeground();
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e) {
-                new HomeWindow();
-                // TODO: new HomeWindow(user);
-                dispose();
-            }
-            @Override
-            public void mouseEntered(java.awt.event.MouseEvent e) {
-                logoutLabel.setForeground(new Color(150, 150, 150));
-            }
-            @Override
-            public void mouseExited(java.awt.event.MouseEvent e) {
-                logoutLabel.setForeground(original);
-            }
-        });
-        bottomPanel.add(logoutLabel);
-        basePanel.add(bottomPanel, BorderLayout.SOUTH);
 
 
         // Right panel setup
