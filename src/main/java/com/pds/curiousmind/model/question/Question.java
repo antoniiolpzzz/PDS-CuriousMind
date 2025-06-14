@@ -1,5 +1,6 @@
 package com.pds.curiousmind.model.question;
 
+import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.question.option.Option;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -20,6 +21,10 @@ public abstract class Question {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "question_id", nullable = false)
     protected List<Option> options;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "content_block_id", nullable = false)
+    protected ContentBlock contentBlock;
 
     // CONSTRUCTORS
     public Question(String indication, String statement, String correctAnswer, List<Option> options) {
@@ -47,6 +52,7 @@ public abstract class Question {
     public String getStatement() { return statement; }
     public String getCorrectAnswer() { return correctAnswer; }
     public List<Option> getOptions() { return Collections.unmodifiableList(options); }
+    public ContentBlock getContentBlock() { return contentBlock; }
 
     // SETTERS (for JPA)
     public void setId(Long id) { this.id = id; }
@@ -54,6 +60,7 @@ public abstract class Question {
     public void setStatement(String statement) { this.statement = statement; }
     public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
     public void setOptions(List<Option> options) { this.options = options; }
+    public void setContentBlock(ContentBlock contentBlock) { this.contentBlock = contentBlock; }
 
     // METHODS
     public boolean validateAnswer(String answer) {
