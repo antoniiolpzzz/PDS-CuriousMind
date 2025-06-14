@@ -32,7 +32,7 @@ public enum CourseAdapterJPA implements ICourseAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to save entity", e);
+            throw new RuntimeException("Failed to save course", e);
         } finally {
             entityManager.close();
         }
