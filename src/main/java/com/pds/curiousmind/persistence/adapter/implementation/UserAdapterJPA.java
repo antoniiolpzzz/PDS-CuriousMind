@@ -20,13 +20,14 @@ public enum UserAdapterJPA implements IUserAdapter {
     }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             entityManager.persist(user);
             transaction.commit();
+            return user;
         } catch (Exception e) {
             if (transaction.isActive()) {
                 transaction.rollback();
@@ -38,13 +39,14 @@ public enum UserAdapterJPA implements IUserAdapter {
     }
 
     @Override
-    public void update(User user) {
+    public User update(User user) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            entityManager.merge(user);
+            User merged = entityManager.merge(user);
             transaction.commit();
+            return merged;
         } catch (Exception e) {
             if (transaction.isActive()) {
                 transaction.rollback();
@@ -56,7 +58,7 @@ public enum UserAdapterJPA implements IUserAdapter {
     }
 
     @Override
-    public void delete(User user) {
+    public boolean delete(User user) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -64,11 +66,12 @@ public enum UserAdapterJPA implements IUserAdapter {
             User managedUser = entityManager.merge(user);
             entityManager.remove(managedUser);
             transaction.commit();
+            return true;
         } catch (Exception e) {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to delete user", e);
+            return false;
         } finally {
             entityManager.close();
         }

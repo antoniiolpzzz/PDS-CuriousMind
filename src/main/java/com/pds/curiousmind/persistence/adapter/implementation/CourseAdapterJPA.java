@@ -20,13 +20,14 @@ public enum CourseAdapterJPA implements ICourseAdapter {
     }
 
     @Override
-    public void save(Course course) {
+    public Course save(Course course) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             entityManager.persist(course);
             transaction.commit();
+            return course;
         } catch (Exception e) {
             if (transaction.isActive()) {
                 transaction.rollback();
@@ -35,17 +36,17 @@ public enum CourseAdapterJPA implements ICourseAdapter {
         } finally {
             entityManager.close();
         }
-
     }
 
     @Override
-    public void update(Course course) {
+    public Course update(Course course) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            entityManager.merge(course);
+            Course merged = entityManager.merge(course);
             transaction.commit();
+            return merged;
         } catch (Exception e) {
             if (transaction.isActive()) {
                 transaction.rollback();
@@ -54,11 +55,10 @@ public enum CourseAdapterJPA implements ICourseAdapter {
         } finally {
             entityManager.close();
         }
-
     }
 
     @Override
-    public void delete(Course course) {
+    public boolean delete(Course course) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -66,15 +66,15 @@ public enum CourseAdapterJPA implements ICourseAdapter {
             Course managedCourse = entityManager.merge(course);
             entityManager.remove(managedCourse);
             transaction.commit();
+            return true;
         } catch (Exception e) {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to delete entity", e);
+            return false;
         } finally {
             entityManager.close();
         }
-
     }
 
     @Override
