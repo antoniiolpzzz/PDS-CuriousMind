@@ -2,7 +2,6 @@ package com.pds.curiousmind.model.question.option;
 
 import java.util.Objects;
 import jakarta.persistence.*;
-import jakarta.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
