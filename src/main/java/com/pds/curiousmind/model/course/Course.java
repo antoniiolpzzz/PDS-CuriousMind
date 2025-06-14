@@ -41,7 +41,7 @@ public class Course {
     @ElementCollection
     private List<String> availableStrategies;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContentBlock> contentBlocks;
 
     // CONSTRUCTORS

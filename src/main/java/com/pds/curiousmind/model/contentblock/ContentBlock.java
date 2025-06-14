@@ -24,7 +24,7 @@ public class ContentBlock {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contentBlock", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions;
 
     // CONSTRUCTORS
