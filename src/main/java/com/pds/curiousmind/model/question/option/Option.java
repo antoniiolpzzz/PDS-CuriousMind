@@ -1,12 +1,26 @@
 package com.pds.curiousmind.model.question.option;
 
 import java.util.Objects;
+import jakarta.persistence.*;
+import jakarta.persistence.InheritanceType;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Option {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String label;
 
     public Option(String label) {
         this.label = label.trim();
+    }
+
+    public Option() {}
+
+    // GETTERS
+    public Long getId() {
+        return id;
     }
 
     public String getLabel() {
@@ -27,4 +41,3 @@ public class Option {
         return Objects.hash(this.label);
     }
 }
-
