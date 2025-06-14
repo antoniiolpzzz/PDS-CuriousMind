@@ -26,6 +26,13 @@ public class QuestionStructure extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
+        addWindowFocusListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowGainedFocus(java.awt.event.WindowEvent e) {
+                requestFocusInWindow();
+            }
+        });
+
         // BACKGROUND PANEL
         JPanel basePanel = createBackground(title,iconPath);
         setContentPane(basePanel);
@@ -101,7 +108,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "Translation" // Change this to "Translation", "FlashCard", or "Test" to test other types
+                "FillTheGaps" // Change this to "Translation", "FlashCard", or "Test" to test other types
         ));
     }
 
