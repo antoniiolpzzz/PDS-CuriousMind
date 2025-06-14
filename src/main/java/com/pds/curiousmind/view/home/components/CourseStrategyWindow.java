@@ -3,7 +3,7 @@ package com.pds.curiousmind.view.home.components;
 
 import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
-import static com.pds.curiousmind.view.home.components.StrategyButton.createStrategyButton;
+import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -79,9 +79,9 @@ public class CourseStrategyWindow extends JDialog {
         // Track the selected strategy and buttons
         final String[] selectedStrategy = {null};
         final java.util.List<JButton> strategyButtons = new java.util.ArrayList<>();
-        strategyPanel.add(createStrategyButton("Sequential", "icons/strategy/sequential.png", selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createStrategyButton("Random", "icons/strategy/random.png", selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createStrategyButton("Spaced Repetition", "icons/strategy/repetition.png", selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton("Sequential", "icons/strategy/sequential.png", selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton("Random", "icons/strategy/random.png", selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton("Sp. Repetition", "icons/strategy/repetition.png", selectedStrategy, strategyButtons,false));
         mainPanel.add(strategyPanel);
 
         // Bottom panel for Accept/Cancel buttons
@@ -104,7 +104,7 @@ public class CourseStrategyWindow extends JDialog {
         cancelButton.addActionListener(e -> dispose());
 
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(30));
+        buttonPanel.add(Box.createHorizontalStrut(260));
         buttonPanel.add(acceptButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
