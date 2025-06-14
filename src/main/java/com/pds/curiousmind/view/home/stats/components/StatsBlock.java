@@ -1,42 +1,39 @@
 package com.pds.curiousmind.view.home.stats.components;
 
+import com.pds.curiousmind.view.common.RoundedLabel;
+
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
+
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
-// This class displays a stats block with a title, icon, and value for user statistics.
 public class StatsBlock extends JPanel {
 
     public StatsBlock(String title, String value, String iconPath) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setOpaque(false);
 
-        JPanel titlePanel = new JPanel();
-        titlePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
-        titlePanel.setBackground(new Color(230, 230, 230));
-        titlePanel.setMaximumSize(new Dimension(200, 30));
-
-        JLabel titleLabel = new JLabel(title);
+        // Título con icono y fondo gris
+        RoundedLabel titleLabel = new RoundedLabel("  " + title); // espacio para separarlo del icono
+        titleLabel.setLabelBackground(new Color(230, 230, 230));
+        titleLabel.setLabelBorderColor(new Color(200, 200, 200));
         titleLabel.setFont(new Font("SansSerif", Font.PLAIN, 13));
-        titleLabel.setForeground(Color.DARK_GRAY);
-        titleLabel.setIcon(loadIcon(iconPath, 20, 20));
-        titlePanel.add(titleLabel);
+        titleLabel.setMaximumSize(new Dimension(200, 30));
+        titleLabel.setPreferredSize(new Dimension(200, 30));
+        titleLabel.setIcon(loadIcon(iconPath, 18, 18));
 
-        JLabel valueLabel = new JLabel(value, SwingConstants.CENTER);
-        valueLabel.setFont(new Font("SansSerif", Font.BOLD, 14));
-        valueLabel.setOpaque(true);
-        valueLabel.setBackground(new Color(0, 200, 80));
+        // Valor con fondo verde
+        RoundedLabel valueLabel = new RoundedLabel(value);
+        valueLabel.setLabelBackground(new Color(0, 200, 80));
+        valueLabel.setLabelBorderColor(new Color(0, 180, 70));
         valueLabel.setForeground(Color.WHITE);
-        valueLabel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        valueLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        valueLabel.setFont(new Font("SansSerif", Font.BOLD, 14));
+        valueLabel.setHorizontalAlignment(SwingConstants.CENTER);
         valueLabel.setMaximumSize(new Dimension(200, 30));
+        valueLabel.setPreferredSize(new Dimension(200, 30));
 
-        add(titlePanel);
+        add(titleLabel);
         add(Box.createVerticalStrut(5));
         add(valueLabel);
     }
-
-
-
 }

@@ -114,17 +114,29 @@ public class UserWindow extends JFrame {
         rightPanel.add(sectionTitle("Your stats"));
         rightPanel.add(Box.createVerticalStrut(10));
 
-        JPanel statsGrid = new JPanel(new GridLayout(2, 2, 30, 20));
-        statsGrid.setOpaque(false);
-        statsGrid.setMaximumSize(new Dimension(880, 200));
+        JPanel statsWrapper = new JPanel();
+        statsWrapper.setLayout(new BoxLayout(statsWrapper, BoxLayout.Y_AXIS));
+        statsWrapper.setOpaque(false);
 
-        //TODO: Recuperate the user's stats from the database
-        statsGrid.add(new StatsBlock("Best streak", "15 days", "icons/stat/streak.jpg"));
-        statsGrid.add(new StatsBlock("Days of use", "63 days", "icons/stat/days.jpg"));
-        statsGrid.add(new StatsBlock("Completed courses", "2 courses", "icons/stat/courses.jpg"));
-        statsGrid.add(new StatsBlock("Time of use", "15 min/day", "icons/stat/time.jpg"));
+        // Fila 1
+        JPanel row1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
+        row1.setOpaque(false);
+        row1.add(new StatsBlock("Best streak", "15 days", "icons/stat/streak.jpg"));
+        row1.add(new StatsBlock("Days of use", "63 days", "icons/stat/days.jpg"));
 
-        rightPanel.add(statsGrid);
+        // Fila 2
+        JPanel row2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
+        row2.setOpaque(false);
+        row2.add(new StatsBlock("Completed courses", "2 courses", "icons/stat/courses.jpg"));
+        row2.add(new StatsBlock("Time of use", "15 min/day", "icons/stat/time.jpg"));
+
+        // Añadir al panel
+        statsWrapper.add(row1);
+        statsWrapper.add(Box.createVerticalStrut(10));
+        statsWrapper.add(row2);
+
+        rightPanel.add(statsWrapper);
+
 
         setVisible(true);
     }

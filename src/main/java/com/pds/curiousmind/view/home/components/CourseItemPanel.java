@@ -17,17 +17,15 @@ public class CourseItemPanel extends JPanel {
         setOpaque(false);
 
         // Create the main course button with icon and style
-        JButton courseBtn = new JButton(name);
-        courseBtn.setFocusPainted(false);
-        courseBtn.setBackground(new Color(230, 230, 230));
+        StyledButton courseBtn = new StyledButton(name, new Color(230, 230, 230), Color.BLACK);
         courseBtn.setIcon(loadIcon(iconPath, 20, 20));
-        courseBtn.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         courseBtn.setPreferredSize(new Dimension(150, 35));
-        addHoverEffect(courseBtn);
+        courseBtn.setMaximumSize(new Dimension(150, 35)); // para que no se estire si se pone en layouts flexibles
 
         // Handle click event for the course button
         courseBtn.addActionListener(e -> onClick.run());
         add(courseBtn);
+
 
         // Create the share button with icon
         StyledButton shareBtn = new StyledButton("", Color.WHITE, Color.BLACK);

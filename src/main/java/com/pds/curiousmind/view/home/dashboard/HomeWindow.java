@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.dashboard;
 
+import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
 import com.pds.curiousmind.view.home.stats.UserWindow;
@@ -48,9 +49,10 @@ public class HomeWindow extends JFrame {
         logoutLabel.setOpaque(false);
         logoutLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            Color original = logoutLabel.getForeground();
+            final Color original = logoutLabel.getForeground();
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
+                new LoginWindow();
                 dispose();
             }
             @Override
@@ -72,7 +74,7 @@ public class HomeWindow extends JFrame {
         RoundedPanel rightPanel = new RoundedPanel(30);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);
-        rightPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        rightPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
         rightWrapper.add(rightPanel, BorderLayout.CENTER);
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
@@ -84,21 +86,17 @@ public class HomeWindow extends JFrame {
         JLabel homeTitle = new JLabel("Home", SwingConstants.LEFT);
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
-        homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        homeTitle.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         userPanel.setOpaque(false);
 
         // User panel with title and icon
-        JLabel title = new JLabel("Javier");
-        title.setFont(new Font("SansSerif", Font.PLAIN, 16));
-        title.setOpaque(true);
-        title.setBackground(Color.BLACK);
-        title.setForeground(Color.WHITE);
-        title.setHorizontalAlignment(SwingConstants.CENTER);
-        title.setPreferredSize(new Dimension(80, 35));
-        title.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
-        title.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        title.addMouseListener(new java.awt.event.MouseAdapter() {
+        // TODO: retrieve user name and icon from the database
+        StyledButton name = new StyledButton("Javier", Color.BLACK, Color.WHITE);
+        name.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        name.setHorizontalAlignment(SwingConstants.CENTER);
+        name.setPreferredSize(new Dimension(80, 35));
+        name.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 new UserWindow();
@@ -106,14 +104,15 @@ public class HomeWindow extends JFrame {
             }
             @Override
             public void mouseEntered(java.awt.event.MouseEvent e) {
-                title.setBackground(new Color(50, 50, 50));
+                name.setBackground(new Color(50, 50, 50));
             }
             @Override
             public void mouseExited(java.awt.event.MouseEvent e) {
-                title.setBackground(Color.BLACK);
+                name.setBackground(Color.BLACK);
             }
         });
         ImageIcon icon = loadIcon("icons/button/user.png", 35, 35);
+        assert icon != null;
         Image image = icon.getImage();
         JLabel iconLabel = new JLabel(new ImageIcon(image));
         iconLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -124,7 +123,7 @@ public class HomeWindow extends JFrame {
                 dispose();
             }
         });
-        userPanel.add(title);
+        userPanel.add(name);
         userPanel.add(iconLabel);
         headerPanel.add(userPanel, BorderLayout.EAST);
         headerPanel.add(homeTitle, BorderLayout.WEST);
@@ -139,6 +138,7 @@ public class HomeWindow extends JFrame {
                 new String[]{"German", "icons/course/german.png"},
                 new String[]{"Modern History", "icons/course/history.png"},
                 new String[]{"Java Script", "icons/course/js.png"}
+
         ));
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowMyCourses));
@@ -164,19 +164,18 @@ public class HomeWindow extends JFrame {
 
         // Section for creating a new course
         rightPanel.add(sectionTitle("Create your course"));
-        rightPanel.add(Box.createVerticalStrut(15));
-        JPanel createBtnPanel = new JPanel();
-        createBtnPanel.setLayout(new BoxLayout(createBtnPanel, BoxLayout.X_AXIS));
-        createBtnPanel.setOpaque(false);
-        createBtnPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        createBtnPanel.add(Box.createHorizontalStrut(15));
-        StyledButton createButton = new StyledButton("+   Import Json", Color.WHITE, Color.BLACK);
-        createButton.setPreferredSize(new Dimension(200, 40));
-        createButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        addHoverEffect(createButton);
+        rightPanel.add(Box.createVerticalStrut(10));
+        JPanel createBtnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        createBtnPanel.setOpaque(false); // o blanco si lo prefieres
+
+        StyledButton createButton = new StyledButton("+", Color.WHITE, Color.BLACK);
         createButton.addActionListener(e -> new JsonChooserWindow(this));
+
+        createBtnPanel.add(Box.createHorizontalStrut(5));
+        createBtnPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
         createBtnPanel.add(createButton);
         rightPanel.add(createBtnPanel);
+
 
         setVisible(true);
     }

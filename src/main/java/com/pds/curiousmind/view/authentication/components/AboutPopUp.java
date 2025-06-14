@@ -18,7 +18,7 @@ public class AboutPopUp extends JDialog {
         add(panel, BorderLayout.CENTER);
 
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Espacio alrededor del contenido
-        JLabel title = new JLabel("Who are CuriousMinds?", SwingConstants.CENTER);
+        JLabel title = new JLabel("Who is CuriousMind?", SwingConstants.CENTER);
         title.setFont(new Font("SansSerif", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(title);
