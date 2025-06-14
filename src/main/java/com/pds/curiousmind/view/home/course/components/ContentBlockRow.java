@@ -48,8 +48,7 @@ public class ContentBlockRow {
 
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        // TODO: Send the list of questions of the current content block to the question controller
-                        // new QuestionController(block.getQuestions());
+                        //TODO: new QuestionStructure(block);
                         //dispose();
                     }
                 });
