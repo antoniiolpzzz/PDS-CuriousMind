@@ -70,8 +70,9 @@ public class QuestionStructure extends JFrame {
             }
         }
 
-        // Submit button
-        rightPanel.add(Box.createVerticalStrut(20));
+        // Añade espacio flexible antes del botón para empujarlo hacia abajo
+        rightPanel.add(Box.createVerticalGlue());
+
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
         submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -80,7 +81,11 @@ public class QuestionStructure extends JFrame {
             JOptionPane.showMessageDialog(this, "Test submitted successfully!");
         });
         rightPanel.add(submitButton);
+
+        // Espacio inferior para que no toque el borde
         rightPanel.add(Box.createVerticalStrut(10));
+
+
         setVisible(true);
     }
 
@@ -96,7 +101,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "FillTheGaps" // Change this to "Translation", "FlashCard", or "Test" to test other types
+                "Test" // Change this to "Translation", "FlashCard", or "Test" to test other types
         ));
     }
 

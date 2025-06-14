@@ -1,5 +1,7 @@
 package com.pds.curiousmind.view.home.components;
 
+import com.pds.curiousmind.view.common.RoundedPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,7 +11,7 @@ import java.awt.*;
 public class SectionTitle {
 
     public static JPanel sectionTitle(String text) {
-        JPanel panel = new JPanel();
+        JPanel panel = new RoundedPanel(15);
         panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
         panel.setBackground(Color.BLACK);

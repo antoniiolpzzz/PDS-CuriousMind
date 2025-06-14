@@ -32,7 +32,14 @@ public class ContentBlockRow {
                 label.setBackground(new Color(245, 245, 245));
             }
 
-            label.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
+            label.setBorder(BorderFactory.createCompoundBorder(
+                    new javax.swing.border.LineBorder(
+                            isCompleted ? new Color(180, 230, 180) : new Color(200, 200, 200),
+                            2, // grosor
+                            true // redondeado
+                    ),
+                    BorderFactory.createEmptyBorder(10, 18, 10, 18)
+            ));
             label.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
             label.setAlignmentX(Component.LEFT_ALIGNMENT);
 

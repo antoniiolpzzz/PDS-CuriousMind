@@ -1,5 +1,8 @@
 package com.pds.curiousmind.view.common;
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -20,10 +23,18 @@ public class StyledButton extends JButton {
         setMaximumSize(new Dimension(200, 40));
         setPreferredSize(new Dimension(200, 40));
 
+        //Borde redondo para el botón
+        setBorder(new CompoundBorder(
+                new LineBorder(Color.GRAY, 1),
+                new EmptyBorder(5, 10, 5, 10)
+        ));
+
+        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
         normalBorderColor = background.equals(Color.BLACK) ? Color.DARK_GRAY : new Color(200, 200, 200);
         hoverBorderColor = background.equals(Color.BLACK) ? Color.LIGHT_GRAY : new Color(150, 150, 255);
 
-        setBorder(BorderFactory.createLineBorder(normalBorderColor, 1));
+        setBorder(BorderFactory.createLineBorder(normalBorderColor, 1, true));  // Borde redondeado
         addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 setBorder(BorderFactory.createLineBorder(hoverBorderColor, 2));
