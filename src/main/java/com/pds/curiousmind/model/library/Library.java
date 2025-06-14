@@ -10,8 +10,9 @@ import java.util.List;
  */
 public interface Library<T> {
 
-    void add(T object);
-    void remove(T object);
+    T add(T object);
+    boolean remove(T object);
+    T update(T object);
     List<T> getAll();
     T getById(Long id);
 

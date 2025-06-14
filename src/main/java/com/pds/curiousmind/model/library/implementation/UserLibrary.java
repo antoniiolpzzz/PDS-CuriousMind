@@ -2,46 +2,71 @@ package com.pds.curiousmind.model.library.implementation;
 
 import com.pds.curiousmind.model.library.Library;
 import com.pds.curiousmind.model.user.User;
-import java.util.ArrayList;
+import com.pds.curiousmind.persistence.adapter.interfaces.IUserAdapter;
+import com.pds.curiousmind.persistence.provider.AdapterProvider;
+
+import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public enum UserLibrary implements Library<User> {
     INSTANCE;
 
+    private final IUserAdapter adapter;
     private final List<User> users;
 
     UserLibrary() {
-        this.users = new ArrayList<>();
+        this.adapter = AdapterProvider.INSTANCE().getUserAdapter();
+        this.users = new CopyOnWriteArrayList<>(adapter.findAll());
+    }
+
+    public void reload() {
+        users.clear();
+        users.addAll(adapter.findAll());
     }
 
     @Override
-    public void add(User user) {
-        users.add(user);
+    public User add(User user) {
+        User saved = adapter.save(user);
+        users.add(saved);
+        return saved;
     }
 
     @Override
-    public void remove(User user) {
-        users.remove(user);
+    public User update(User user) {
+        User updated = adapter.update(user);
+        if (updated != null) {
+            users.replaceAll(u -> u.getId().equals(updated.getId()) ? updated : u);
+        }
+        return updated;
+    }
+
+    @Override
+    public boolean remove(User user) {
+        boolean deleted = adapter.delete(user);
+        if (deleted) {
+            users.remove(user);
+        }
+        return deleted;
     }
 
     @Override
     public List<User> getAll() {
-        return new ArrayList<>(users);
+        return Collections.unmodifiableList(users);
     }
 
     @Override
     public User getById(Long id) {
         return users.stream()
-                .filter(user -> user.getId().equals(id))
+                .filter(u -> u.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
 
     public User getByUsername(String username) {
         return users.stream()
-                .filter(user -> user.getUsername().equals(username))
+                .filter(u -> u.getUsername().equals(username))
                 .findFirst()
                 .orElse(null);
     }
 }
-

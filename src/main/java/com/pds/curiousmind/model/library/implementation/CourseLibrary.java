@@ -2,28 +2,53 @@ package com.pds.curiousmind.model.library.implementation;
 
 import com.pds.curiousmind.model.library.Library;
 import com.pds.curiousmind.model.course.Course;
-import java.util.ArrayList;
+import com.pds.curiousmind.persistence.adapter.interfaces.ICourseAdapter;
+import com.pds.curiousmind.persistence.provider.AdapterProvider;
+
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public enum CourseLibrary implements Library<Course> {
     INSTANCE;
 
+    private final ICourseAdapter courseAdapter;
     private final List<Course> courses;
 
     CourseLibrary() {
-        this.courses = new ArrayList<>();
+        this.courseAdapter = AdapterProvider.INSTANCE().getCourseAdapter();
+        this.courses = new CopyOnWriteArrayList<>(courseAdapter.findAll());
+    }
+
+    public void reload() {
+        courses.clear();
+        courses.addAll(courseAdapter.findAll());
     }
 
     //METHODS
     @Override
-    public void add(Course course) {
-        courses.add(course);
+    public Course add(Course course) {
+        Course saved = courseAdapter.save(course);
+        courses.add(saved);
+        return saved;
     }
 
     @Override
-    public void remove(Course course) {
-        courses.remove(course);
+    public Course update(Course course) {
+        Course updated = courseAdapter.update(course);
+        if (updated != null) {
+            courses.replaceAll(c -> c.getId().equals(updated.getId()) ? updated : c);
+        }
+        return updated;
+    }
+
+    @Override
+    public boolean remove(Course course) {
+        boolean deleted = courseAdapter.delete(course);
+        if (deleted) {
+            courses.remove(course);
+        }
+        return deleted;
     }
 
     @Override
@@ -45,6 +70,4 @@ public enum CourseLibrary implements Library<Course> {
                 .findFirst()
                 .orElse(null);
     }
-
 }
-
