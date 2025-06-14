@@ -9,6 +9,46 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@NamedEntityGraph(
+    name = "User.fullGraph",
+    attributeNodes = {
+        @NamedAttributeNode("stats"),
+        @NamedAttributeNode(value = "registeredCourses", subgraph = "registeredCoursesGraph")
+    },
+    subgraphs = {
+        @NamedSubgraph(
+            name = "registeredCoursesGraph",
+            attributeNodes = {
+                @NamedAttributeNode(value = "registeredContentBlocks", subgraph = "registeredContentBlocksGraph"),
+                @NamedAttributeNode(value = "course", subgraph = "courseGraph")
+            }
+        ),
+        @NamedSubgraph(
+            name = "registeredContentBlocksGraph",
+            attributeNodes = {
+                @NamedAttributeNode(value = "contentBlock", subgraph = "contentBlockGraph")
+            }
+        ),
+        @NamedSubgraph(
+            name = "contentBlockGraph",
+            attributeNodes = {
+                @NamedAttributeNode(value = "questions", subgraph = "questionGraph")
+            }
+        ),
+        @NamedSubgraph(
+            name = "questionGraph",
+            attributeNodes = {
+                @NamedAttributeNode("options")
+            }
+        ),
+        @NamedSubgraph(
+            name = "courseGraph",
+            attributeNodes = {
+                @NamedAttributeNode(value = "contentBlocks", subgraph = "contentBlockGraph")
+            }
+        )
+    }
+)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

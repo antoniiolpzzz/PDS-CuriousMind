@@ -7,6 +7,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@NamedEntityGraph(
+    name = "Course.fullGraph",
+    attributeNodes = {
+        @NamedAttributeNode(value = "contentBlocks", subgraph = "contentBlockGraph")
+    },
+    subgraphs = {
+        @NamedSubgraph(
+            name = "contentBlockGraph",
+            attributeNodes = {
+                @NamedAttributeNode(value = "questions", subgraph = "questionGraph")
+            }
+        ),
+        @NamedSubgraph(
+            name = "questionGraph",
+            attributeNodes = {
+                @NamedAttributeNode("options")
+            }
+        )
+    }
+)
 @Entity
 @Table(name = "courses")
 public class Course {
