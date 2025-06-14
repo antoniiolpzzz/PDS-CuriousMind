@@ -12,12 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+import static com.pds.curiousmind.view.home.components.CourseRowSection.createCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
 
 public class UserWindow extends JFrame {
 
-    public UserWindow() {
+    public UserWindow() {  // TODO: receive user
 
         setTitle("CuriousMind - Profile");
         setMinimumSize(new Dimension(1200, 650));
@@ -39,7 +40,6 @@ public class UserWindow extends JFrame {
         basePanel.add(topPanel, BorderLayout.NORTH);
 
         // Bottom home label
-        //TODO: Añadir un icono de home
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.setOpaque(false);
         JLabel logoutLabel = new JLabel("Home", loadIcon("icons/button/home.jpg", 20, 20), JLabel.LEFT);
@@ -82,19 +82,30 @@ public class UserWindow extends JFrame {
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
         // Header
+        // TODO: JLabel homeTitle = new JLabel("Hello" + user.getName() + "!"));
         JLabel homeTitle = new JLabel("Hello Javier!");
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        JLabel levelLabel = new JLabel("LEVEL: 5300");
+        levelLabel.setFont(new Font("SansSerif", Font.PLAIN, 22));
+        levelLabel.setForeground(new Color(80, 80, 80));
+        levelLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
         headerPanel.add(homeTitle, BorderLayout.WEST);
+        headerPanel.add(levelLabel, BorderLayout.EAST);
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(20));
 
-        // Courses section
-        //TODO: Retrieve the user's registered courses from the database
+
+
+        // COURSES SECTION
+        //TODO: Controller has to recuperate the registered courses from the user
+        // myCourses = controller.getRegisteredCourses(user.getId());
+        // JPanel rowMyCourses = createCourseRowSection(myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel coursePanel = createCourseRowSection(Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
@@ -119,12 +130,12 @@ public class UserWindow extends JFrame {
         statsWrapper.setOpaque(false);
 
         // Fila 1
+        // TODO: Recuperate the stats from the user
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row1.setOpaque(false);
         row1.add(new StatsBlock("Best streak", "15 days", "icons/stat/streak.jpg"));
         row1.add(new StatsBlock("Days of use", "63 days", "icons/stat/days.jpg"));
 
-        // Fila 2
         JPanel row2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row2.setOpaque(false);
         row2.add(new StatsBlock("Completed courses", "2 courses", "icons/stat/courses.jpg"));
@@ -139,22 +150,6 @@ public class UserWindow extends JFrame {
 
 
         setVisible(true);
-    }
-
-
-    private JPanel createCourseRowSection(List<String[]> courseData) {
-        JPanel row = new JPanel();
-        row.setLayout(new GridLayout(0, 4, 20, -5));
-        row.setOpaque(false);
-
-        for (String[] d : courseData) {
-            row.add(new CourseWithProgressPanel(d[0], d[1], getProgressForCourse(d[0]), () -> {
-                dispose();
-                new CourseDashboard(d[0], d[1]);
-            }));
-
-        }
-        return row;
     }
 
     private int getProgressForCourse(String courseName) {
