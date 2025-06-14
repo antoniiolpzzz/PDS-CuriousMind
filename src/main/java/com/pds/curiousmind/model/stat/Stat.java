@@ -1,40 +1,55 @@
 package com.pds.curiousmind.model.stat;
 
 import com.pds.curiousmind.model.user.User;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@Entity
+@Table(name = "stats")
 public class Stat {
 
     private static final int EXPERIENCE_POINTS_PER_LEVEL = 1000;
 
-    private int experiencePoints;
-    private final Set<LocalDate> entries;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    private int experiencePoints;
+
+    @ElementCollection
+    private Set<LocalDate> entries = new HashSet<>();
+
+    @OneToOne(mappedBy = "stats")
     private User user;
 
-    // CONSTRUCTORS
+    // No-arg constructor for JPA
+    public Stat() {}
+
     public Stat(User user) {
         this.experiencePoints = 0;
-        this.entries = new java.util.TreeSet<>();
+        this.user = user;
     }
 
     // GETTERS AND SETTERS
-    public int getLevel() {
-        return (experiencePoints / EXPERIENCE_POINTS_PER_LEVEL);
-    }
-
-    public int getExperiencePoints() {
-        return experiencePoints % EXPERIENCE_POINTS_PER_LEVEL;
-    }
+    public Long getId() { return id; }
+    public int getLevel() { return (experiencePoints / EXPERIENCE_POINTS_PER_LEVEL); }
+    public int getExperiencePoints() { return experiencePoints % EXPERIENCE_POINTS_PER_LEVEL; }
+    public void setExperiencePoints(int experiencePoints) { this.experiencePoints = experiencePoints; }
+    public Set<LocalDate> getEntries() { return entries; }
+    public void setEntries(Set<LocalDate> entries) { this.entries = entries; }
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 
     public int getCompletedCourses() {
-        return user.getRegisteredCourses().stream()
+        return user != null && user.getRegisteredCourses() != null ?
+            user.getRegisteredCourses().stream()
                 .filter(course -> course.isCompleted())
                 .mapToInt(course -> 1)
-                .sum();
-
+                .sum() : 0;
     }
 
     public int getDaysActive() {
@@ -42,11 +57,14 @@ public class Stat {
     }
 
     public int getBestStreak() {
-        if (entries.isEmpty()) return 0;
+        if (entries == null || entries.isEmpty()) return 0;
         int maxStreak = 1;
         int currentStreak = 1;
         LocalDate previous = null;
-        for (LocalDate current : entries) {
+        // Sort the set for streak calculation
+        List<LocalDate> sortedEntries = new java.util.ArrayList<>(entries);
+        java.util.Collections.sort(sortedEntries);
+        for (LocalDate current : sortedEntries) {
             if (previous != null) {
                 if (previous.plusDays(1).equals(current)) {
                     currentStreak++;
@@ -57,7 +75,7 @@ public class Stat {
             }
             previous = current;
         }
-        return maxStreak;
+        return Math.max(maxStreak, currentStreak);
     }
 
     //METHODS
@@ -77,4 +95,3 @@ public class Stat {
     }
 
 }
-
