@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.course.components;
 
+import com.pds.curiousmind.view.common.RoundedLabel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,57 +9,44 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ContentBlockRow {
-    // Static method to allow usage from other classes (like LoadIcon)
 
     public static JPanel createContentColumnSection(java.util.List<String> contentNames) {
         Set<String> completedBlocks = new HashSet<>(Arrays.asList(
                 "Basic words", "Basic sentences", "Introduce yourself"
-        )); // <--- TODO: check if the content block is completed
+        ));
 
         JPanel column = new JPanel();
         column.setLayout(new BoxLayout(column, BoxLayout.Y_AXIS));
         column.setOpaque(false);
 
         for (String name : contentNames) {
-            JLabel label = new JLabel(name);
-            label.setFont(new Font("SansSerif", Font.PLAIN, 18));
-            label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            label.setOpaque(true);
-
             boolean isCompleted = completedBlocks.contains(name);
+            RoundedLabel label = new RoundedLabel(name);
+
             if (isCompleted) {
-                label.setBackground(new Color(214, 245, 214));
+                label.setLabelBackground(new Color(214, 245, 214));
+                label.setLabelBorderColor(new Color(180, 230, 180));
             } else {
-                label.setBackground(new Color(245, 245, 245));
-            }
+                label.setLabelBackground(new Color(245, 245, 245));
+                label.setLabelBorderColor(new Color(200, 200, 200));
+                label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-            label.setBorder(BorderFactory.createCompoundBorder(
-                    new javax.swing.border.LineBorder(
-                            isCompleted ? new Color(180, 230, 180) : new Color(200, 200, 200),
-                            2, // grosor
-                            true // redondeado
-                    ),
-                    BorderFactory.createEmptyBorder(10, 18, 10, 18)
-            ));
-            label.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
-            label.setAlignmentX(Component.LEFT_ALIGNMENT);
+                Color original = label.getLabelBackground();
 
-            if (!isCompleted) {
                 label.addMouseListener(new java.awt.event.MouseAdapter() {
-                    Color originalBg = label.getBackground();
                     @Override
                     public void mouseEntered(java.awt.event.MouseEvent e) {
-                        label.setBackground(new Color(230, 250, 255));
+                        label.setLabelBackground(new Color(230, 250, 255));
                     }
+
                     @Override
                     public void mouseExited(java.awt.event.MouseEvent e) {
-                        label.setBackground(originalBg);
+                        label.setLabelBackground(original);
                     }
+
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        //dispose();
-                        //TODO: Handle type of the first question of the content block
-                        //TODO: You can only open your current content block or the previous ones
+                        // TODO: lógica al pulsar
                     }
                 });
             }
