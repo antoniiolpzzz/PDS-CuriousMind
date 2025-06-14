@@ -51,7 +51,7 @@ public enum CourseAdapterJPA implements ICourseAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to update entity", e);
+            throw new RuntimeException("Failed to update course", e);
         } finally {
             entityManager.close();
         }
