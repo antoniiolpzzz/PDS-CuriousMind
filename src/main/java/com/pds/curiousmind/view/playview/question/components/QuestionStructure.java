@@ -45,13 +45,13 @@ public class QuestionStructure extends JFrame {
         //Gap for the user to fill with the answer
         switch (type) {
             case "FillTheGaps" -> {
-                JTextField answerField = createGapSection();
-                rightPanel.add(answerField);
+                rightPanel.add(createGapSection());
             }
             case "Translation" -> {
-                JTextField answerField = createTranslationSection();
-                rightPanel.add(answerField);
+                JPanel translationPanel = createTranslationSection();
+                rightPanel.add(translationPanel);
             }
+
             case "FlashCard" -> {
                 //TODO: FlashCard should receive the options of the question.
                 java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
@@ -101,7 +101,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "Test" // Change this to "Translation", "FlashCard", or "Test" to test other types
+                "Translation" // Change this to "Translation", "FlashCard", or "Test" to test other types
         ));
     }
 

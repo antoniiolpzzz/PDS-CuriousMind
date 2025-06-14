@@ -25,7 +25,7 @@ public class CreateHeader {
         headerPanel.add(homeTitle, BorderLayout.WEST);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);
-        rightPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        rightPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(10));
 
@@ -62,7 +62,7 @@ public class CreateHeader {
         questionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         questionLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         rightPanel.add(questionLabel);
-        rightPanel.add(Box.createVerticalStrut(5));
+
 
         return rightPanel;
     }
