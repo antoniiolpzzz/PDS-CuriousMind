@@ -93,8 +93,12 @@ public class CourseDashboard extends JFrame {
         centerPanel.setOpaque(false);
         rightPanel.add(centerPanel, BorderLayout.CENTER);
 
-        JPanel section = sectionTitle("Content blocks");
-        centerPanel.add(section, BorderLayout.NORTH);
+        JPanel sectionWrapper = new JPanel(new BorderLayout());
+        sectionWrapper.setOpaque(false);
+        sectionWrapper.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30)); // Margen izquierdo y derecho
+        sectionWrapper.add(sectionTitle("Content blocks"), BorderLayout.CENTER);
+        centerPanel.add(sectionWrapper, BorderLayout.NORTH);
+
 
         JPanel scrollContent = new JPanel();
         scrollContent.setLayout(new BoxLayout(scrollContent, BoxLayout.Y_AXIS));
