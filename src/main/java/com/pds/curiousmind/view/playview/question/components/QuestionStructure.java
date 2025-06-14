@@ -31,49 +31,47 @@ public class QuestionStructure extends JFrame {
         setContentPane(basePanel);
 
         // RIGHT PANEL
-        JPanel rightWrapper = new JPanel(new BorderLayout());
-        rightWrapper.setOpaque(false);
-        rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
+        // Panel blanco directamente en la derecha
         RoundedPanel rightPanel = new RoundedPanel(30);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);
         rightPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        rightWrapper.add(rightPanel, BorderLayout.CENTER);
-        basePanel.add(rightWrapper, BorderLayout.EAST);
-        rightWrapper.setPreferredSize(new Dimension(950, 0));
+        rightPanel.setPreferredSize(new Dimension(950, 0));
+        basePanel.add(rightPanel, BorderLayout.EAST);
 
         // COMMON HEADER
         rightPanel.add(createHeader(title, iconPath, indication, statement));
 
         //Gap for the user to fill with the answer
-        if(Objects.equals(type, "FillTheGaps")) {
-            JTextField answerField = createGapSection();
-            rightPanel.add(answerField);
+        switch (type) {
+            case "FillTheGaps" -> {
+                JTextField answerField = createGapSection();
+                rightPanel.add(answerField);
+            }
+            case "Translation" -> {
+                JTextField answerField = createTranslationSection();
+                rightPanel.add(answerField);
+            }
+            case "FlashCard" -> {
+                //TODO: FlashCard should receive the options of the question.
+                java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
+                JPanel flashCardPanel = createFlashCard(options);
+                rightPanel.add(flashCardPanel);
+            }
+            case "Test" -> {
+                //TODO: Test should receive the options of the question.
+                java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
+                JPanel testPanel = createTestPanel(options);
+                rightPanel.add(testPanel);
+            }
+            case null, default -> {
+                JOptionPane.showMessageDialog(this, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         }
-        else if(Objects.equals(type, "Translation")) {
-            JTextField answerField = createTranslationSection();
-            rightPanel.add(answerField);
-        }
-        else if(Objects.equals(type, "FlashCard")) {
-            //TODO: FlashCard should receive the options of the question.
-            java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
-            JPanel flashCardPanel = createFlashCard(options);
-            rightPanel.add(flashCardPanel);
-        }
-        else if (Objects.equals(type, "Test")) {
-            //TODO: Test should receive the options of the question.
-            java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
-            JPanel testPanel = createTestPanel(options);
-            rightPanel.add(testPanel);
-        }
-        else {
-            JOptionPane.showMessageDialog(this, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-
 
         // Submit button
+        rightPanel.add(Box.createVerticalStrut(20));
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
         submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -82,8 +80,7 @@ public class QuestionStructure extends JFrame {
             JOptionPane.showMessageDialog(this, "Test submitted successfully!");
         });
         rightPanel.add(submitButton);
-        rightPanel.add(Box.createVerticalStrut(20));
-
+        rightPanel.add(Box.createVerticalStrut(10));
         setVisible(true);
     }
 
@@ -97,10 +94,9 @@ public class QuestionStructure extends JFrame {
         SwingUtilities.invokeLater(() -> new com.pds.curiousmind.view.playview.question.components.QuestionStructure(
                 "German",
                 "icons/course/german.png",
-                "Fill the gap with the correct word",
-                "Wenn ich morgens aufstehe, frühstücke ich ______ und Kekse",
-                "Test"
-
+                "Chose the correct answer",
+                "Witch is the onion?",
+                "FillTheGaps" // Change this to "Translation", "FlashCard", or "Test" to test other types
         ));
     }
 
