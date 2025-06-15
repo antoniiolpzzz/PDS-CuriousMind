@@ -28,7 +28,7 @@ public class UserWindow extends JFrame {
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground("","", "home");
+        JPanel basePanel = createBackground(this,"","", "home");
         setContentPane(basePanel);
 
 
@@ -75,7 +75,7 @@ public class UserWindow extends JFrame {
         // myCourses = controller.getRegisteredCourses(user.getId());
         // JPanel rowMyCourses = createCourseRowSection(myCourses);
         rightPanel.add(sectionTitle("Your courses"));
-        JPanel coursePanel = createCourseRowSection(Arrays.asList(
+        JPanel coursePanel = createCourseRowSection(this, Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
                 new String[]{"Modern History", "icons/course/history.png"},
                 new String[]{"Java Script", "icons/course/js.png"}

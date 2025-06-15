@@ -35,7 +35,7 @@ public class QuestionStructure extends JFrame {
         });
 
         // BACKGROUND PANEL
-        JPanel basePanel =  createBackground(title,iconPath, "exit");
+        JPanel basePanel =  createBackground(this, title,iconPath, "exit");
         setContentPane(basePanel);
 
         // RIGHT PANEL
@@ -107,7 +107,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "FillTheGaps"
+                "Test"
         ));
     }
 

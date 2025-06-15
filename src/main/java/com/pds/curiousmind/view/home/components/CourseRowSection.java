@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CourseRowSection {
 
-    public static JPanel createCourseRowSection(List<String[]> courseData) {
+    public static JPanel createCourseRowSection(JFrame parentFrame, List<String[]> courseData) {
         JPanel row = new JPanel();
         row.setLayout(new GridLayout(0, 4, 20, 15));
         row.setOpaque(false);
@@ -24,7 +24,7 @@ public class CourseRowSection {
 
                     new CourseStrategyWindow(topFrame, d[0], d[1]);
                 } else {
-                    //dispose();
+                    parentFrame.dispose();
                     //TODO: Open CourseDashboard with the course as parameter
                     new CourseDashboard(d[0], d[1]);
                 }

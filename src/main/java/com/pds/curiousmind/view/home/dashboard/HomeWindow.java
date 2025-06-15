@@ -27,7 +27,7 @@ public class HomeWindow extends JFrame {
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground("","", "logout");
+        JPanel basePanel = createBackground(this,"","", "logout");
         setContentPane(basePanel);
 
         // Right panel setup for main content
@@ -102,7 +102,7 @@ public class HomeWindow extends JFrame {
         // myCourses = controller.getRegisteredCourses(user.getId());
         // JPanel rowMyCourses = createCourseRowSection(myCourses);
         rightPanel.add(sectionTitle("Your courses"));
-        JPanel rowMyCourses = createCourseRowSection(Arrays.asList(
+        JPanel rowMyCourses = createCourseRowSection(this, Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
                 new String[]{"Modern History", "icons/course/history.png"},
                 new String[]{"Java Script", "icons/course/js.png"}
@@ -118,7 +118,7 @@ public class HomeWindow extends JFrame {
         // allCourses = controller.getCourse();
         // JPanel rowNewCourses = createCourseRowSection(allCourses);
         rightPanel.add(sectionTitle("New course"));
-        JPanel rowNewCourses = createCourseRowSection(Arrays.asList(
+        JPanel rowNewCourses = createCourseRowSection(this, Arrays.asList(
                 new String[]{"Languages", "icons/course/languages.png"},
                 new String[]{"Sciences", "icons/course/sciences.png"},
                 new String[]{"Grammar", "icons/course/grammar.png"},

@@ -26,7 +26,7 @@ public class CourseDashboard extends JFrame {
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground("","", "home");
+        JPanel basePanel = createBackground(this,"","", "home");
         setContentPane(basePanel);
 
         // RIGHT PANEL SETUP FOR MAIN CONTENT
