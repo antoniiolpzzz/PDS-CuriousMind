@@ -13,7 +13,7 @@ public class Test extends JFrame {
 
 
     public static JPanel createTestPanel(java.util.List<String> options) {
-        JPanel optionsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 30, 0)); // alineación izquierda y separación vertical
+        JPanel optionsPanel = new JPanel();
         optionsPanel.setOpaque(false);
 
         ButtonGroup group = new ButtonGroup();

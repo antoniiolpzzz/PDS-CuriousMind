@@ -22,13 +22,13 @@ public class UserWindow extends JFrame {
     public UserWindow() {  // TODO: receive user
 
         setTitle("CuriousMind - Profile");
-        setMinimumSize(new Dimension(1200, 650));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground("","", "home");
+        JPanel basePanel = createBackground(this,"","", "home");
         setContentPane(basePanel);
 
 
@@ -75,7 +75,7 @@ public class UserWindow extends JFrame {
         // myCourses = controller.getRegisteredCourses(user.getId());
         // JPanel rowMyCourses = createCourseRowSection(myCourses);
         rightPanel.add(sectionTitle("Your courses"));
-        JPanel coursePanel = createCourseRowSection(Arrays.asList(
+        JPanel coursePanel = createCourseRowSection(this, Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
                 new String[]{"Modern History", "icons/course/history.png"},
                 new String[]{"Java Script", "icons/course/js.png"}

@@ -46,7 +46,7 @@ public class CourseItemPanel extends JPanel {
                 try (FileWriter writer = new FileWriter(fileToSave)) {
                     writer.write(name);
                 } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(this, "Error saving file: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Error saving file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
                 }
             }
         });

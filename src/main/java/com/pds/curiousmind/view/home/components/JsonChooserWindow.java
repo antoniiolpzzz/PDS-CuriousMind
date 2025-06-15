@@ -80,14 +80,16 @@ public class JsonChooserWindow extends JDialog {
         StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
         acceptButton.addActionListener(e -> {
             if (selectedJsonFile == null || !selectedJsonFile.getName().toLowerCase().endsWith(".json")) {
-                JOptionPane.showMessageDialog(this, "Please, select a valid JSON file.");
+                JOptionPane.showMessageDialog(null, "Please select a valid JSON file. ", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
             } else {
                 try {
                     //TODO: controller.createCourseFromJson(selectedJsonFile);
-                    JOptionPane.showMessageDialog(this, "Course created successfully!");
+                    JOptionPane.showMessageDialog(null, "Course created successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
                     dispose();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Error creating course: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Error creating course: "+ ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
                     ex.printStackTrace();
                 }
             }
@@ -95,7 +97,7 @@ public class JsonChooserWindow extends JDialog {
         StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
         cancelButton.addActionListener(e -> dispose());
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(250));
+        buttonPanel.add(Box.createHorizontalStrut(50));
         buttonPanel.add(acceptButton);
         cancelButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         buttonPanel.add(Box.createHorizontalStrut(60));

@@ -20,13 +20,13 @@ public class CourseDashboard extends JFrame {
     //TODO: This should receive Course course
     public CourseDashboard(String title, String iconPath) {
         setTitle("CuriousMind - Course Dashboard");
-        setMinimumSize(new Dimension(1200, 650));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground("","", "home");
+        JPanel basePanel = createBackground(this,"","", "home");
         setContentPane(basePanel);
 
         // RIGHT PANEL SETUP FOR MAIN CONTENT

@@ -10,7 +10,7 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class BackgroundComponent {
 
-    public static JPanel createBackground(String title, String iconPath, String type) {
+    public static JPanel createBackground(JFrame parentFrame, String title, String iconPath, String type) {
 
         JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
@@ -30,7 +30,7 @@ public class BackgroundComponent {
         Runnable onClickAction;
         Font labelFont = new Font("SansSerif", Font.PLAIN, 20);
 
-        //TODO: make dispose() work
+        //TODO: change parameters for all the windows - title, iconPath, etc.
 
         switch (type) {
             case "exit":
@@ -66,6 +66,9 @@ public class BackgroundComponent {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 onClickAction.run();
+                if (parentFrame != null) {
+                    parentFrame.dispose();
+                }
             }
             @Override
             public void mouseEntered(java.awt.event.MouseEvent e) {

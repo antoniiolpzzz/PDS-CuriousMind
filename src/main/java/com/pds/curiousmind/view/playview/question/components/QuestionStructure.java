@@ -7,6 +7,7 @@ import com.pds.curiousmind.view.common.StyledButton;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.playview.question.FillTheGaps.createGapSection;
 import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
 import static com.pds.curiousmind.view.playview.question.Test.createTestPanel;
@@ -21,7 +22,7 @@ public class QuestionStructure extends JFrame {
     public QuestionStructure(String title, String iconPath, String indication, String statement, String type) {
 
         setTitle("CuriousMind - Home");
-        setMinimumSize(new Dimension(1200, 650));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -34,7 +35,7 @@ public class QuestionStructure extends JFrame {
         });
 
         // BACKGROUND PANEL
-        JPanel basePanel =  createBackground(title,iconPath, "exit");
+        JPanel basePanel =  createBackground(this, title,iconPath, "exit");
         setContentPane(basePanel);
 
         // RIGHT PANEL
@@ -74,7 +75,8 @@ public class QuestionStructure extends JFrame {
                 rightPanel.add(testPanel);
             }
             case null, default -> {
-                JOptionPane.showMessageDialog(this, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
                 return;
             }
         }
@@ -87,7 +89,8 @@ public class QuestionStructure extends JFrame {
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.addActionListener(e -> {
             //TODO: Handle the submission of the question
-            JOptionPane.showMessageDialog(this, "Test submitted successfully!");
+            JOptionPane.showMessageDialog(null, "Test submitted successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
         });
         rightPanel.add(submitButton);
 
@@ -104,7 +107,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "FillTheGaps"
+                "Test"
         ));
     }
 
