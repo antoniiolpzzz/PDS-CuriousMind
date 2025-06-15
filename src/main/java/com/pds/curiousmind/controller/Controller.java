@@ -87,6 +87,8 @@ public enum Controller {
 
     // **************************** COURSE FUNCTIONS **************************** //
 
+
+
     //GET ALL REGISTERED COURSES OF THE USER
 
     public List<RegisteredCourse> getRegisteredCourses() {
@@ -137,9 +139,17 @@ public enum Controller {
 
     // **************************** QUESTION FUNCTIONS **************************** //
 
+    // VALIDATE THE ANSWER OF A QUESTION
+    public boolean validateAnswer(Question question, String answer) {
+        // Validate the answer of the question
+        // This could involve checking if the answer matches the expected answer for the question
+        return question.validateAnswer(answer);
+    }
+
 
 
     // **************************** GAME MANAGER FUNCTIONS **************************** //
+
 
     // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK
 
@@ -150,7 +160,19 @@ public enum Controller {
         return gameManager.getNextQuestion();
     }
 
+    // GET THE NEXT QUESTION FROM THE GAME MANAGER
 
+    public Question getNextQuestion() {
+        // Get the next question from the game manager
+        return gameManager.getNextQuestion();
+    }
+
+    // END THE GAME
+
+    public void endGame() {
+        // End the game and reset the game manager
+        gameManager.deactivateGame();
+    }
 
 
 

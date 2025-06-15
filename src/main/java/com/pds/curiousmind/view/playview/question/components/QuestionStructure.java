@@ -1,9 +1,15 @@
 package com.pds.curiousmind.view.playview.question.components;
 
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.gameManager.GameManager;
+import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
 import com.pds.curiousmind.view.playview.question.FillTheGaps;
+import com.pds.curiousmind.view.playview.question.FlashCard;
+import com.pds.curiousmind.view.playview.question.Test;
+import com.pds.curiousmind.view.playview.question.Translation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,11 +26,16 @@ import static java.sql.DriverManager.println;
 
 public class QuestionStructure extends JFrame {
 
+    private FillTheGaps.GapSectionResult gapResult;
+    private Translation.TranslationSectionResult translationResult;
+    private FlashCard.FlashCardResult flashCardResult;
+    private Test.TestPanelResult testResult;
 
-    //TODO: This should receive a the atributes of the question and the name and the iconpath of the course
+    //private final Controller controller = Controller.INSTANCE;
+
+    //TODO: This should receive a the atributes of the question and the current course
     public QuestionStructure(String title, String iconPath, String indication, String statement, String type) {
 
-        String answer = "HOLA";
 
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1300, 650));
@@ -57,27 +68,22 @@ public class QuestionStructure extends JFrame {
         //Gap for the user to fill with the answer
         switch (type) {
             case "FillTheGaps" -> {
-                FillTheGaps.GapSectionResult result = FillTheGaps.createGapSection();
-                JPanel panel = result.panel;
-                answer = String.valueOf(result.answerField);
-                rightPanel.add(panel);
+                gapResult = FillTheGaps.createGapSection();
+                rightPanel.add(gapResult.panel);
             }
             case "Translation" -> {
-                JPanel translationPanel = createTranslationSection();
-                rightPanel.add(translationPanel);
+                translationResult = Translation.createTranslationSection();
+                rightPanel.add(translationResult.panel);
             }
-
             case "FlashCard" -> {
-                //TODO: FlashCard should receive the options of the question.
                 java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
-                JPanel flashCardPanel = createFlashCard(options);
-                rightPanel.add(flashCardPanel);
+                flashCardResult = FlashCard.createFlashCard(options);
+                rightPanel.add(flashCardResult.panel);
             }
             case "Test" -> {
-                //TODO: Test should receive the options of the question.
                 java.util.List<String> options = java.util.Arrays.asList("Option 1", "Option 2", "Option 3");
-                JPanel testPanel = createTestPanel(options);
-                rightPanel.add(testPanel);
+                testResult = Test.createTestPanel(options);
+                rightPanel.add(testResult.panel);
             }
             case null, default -> {
                 JOptionPane.showMessageDialog(null, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
@@ -91,13 +97,47 @@ public class QuestionStructure extends JFrame {
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
         submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        String finalAnswer = answer;
         submitButton.addActionListener(e -> {
-            //TODO: Handle the submission of the question
-            // cotroller.validateAnswer(todo)
-            // controller.getSiguientepreugntaaaaa
-            System.out.println("Answer submitted: " + finalAnswer);
-            JOptionPane.showMessageDialog(null, "Test submitted successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+            String submittedAnswer = "";
+            switch (type) {
+                case "FillTheGaps" -> submittedAnswer = gapResult != null ? gapResult.getAnswer() : "";
+                case "Translation" -> submittedAnswer = translationResult != null ? translationResult.getAnswer() : "";
+                case "FlashCard" -> submittedAnswer = flashCardResult != null ? flashCardResult.getAnswer() : "";
+                case "Test" -> submittedAnswer = testResult != null ? testResult.getAnswer() : "";
+            }
+            System.out.println("Answer submitted: " + submittedAnswer);
+            /*
+            if (controller.validateAnswer(question, submittedAnswer)) {
+                JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
+                dispose();
+                Question question = controller.getNextQuestion();
+                if (question == null) {
+                    controller.endGame();
+                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
+                    controller.addExperiencePoints(PUNTOS);
+                    new DashboardView(course);
+                    dispose();
+                }
+                new QuestionStructure(
+                        curse,
+                        question.getIndication(),
+                        question.getStatement(),
+                        question.getType()
+                );
+            } else {
+                //TODO: controller.addFailedQuestion(question);
+                JOptionPane.showMessageDialog(null, "Incorrect answer. Try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                dispose();
+                Question question = controller.getNextQuestion();
+                new QuestionStructure(
+                        curse,
+                        question.getIndication(),
+                        question.getStatement(),
+                        question.getType()
+                );
+            }
+            */
+
         });
         rightPanel.add(submitButton);
 
@@ -114,7 +154,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "FillTheGaps"
+                "Test"
         ));
     }
 
