@@ -154,7 +154,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "Test"
+                "Translation"
         ));
     }
 

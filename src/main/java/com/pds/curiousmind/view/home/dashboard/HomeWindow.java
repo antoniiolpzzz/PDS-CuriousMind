@@ -20,7 +20,7 @@ import java.util.List;
 
 public class HomeWindow extends JFrame {
 
-    public HomeWindow(User user) { //TODO: receive user
+    public HomeWindow() { //TODO: receive user
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

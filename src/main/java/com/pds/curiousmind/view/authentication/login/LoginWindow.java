@@ -136,7 +136,7 @@ public class LoginWindow extends JFrame {
                 if (controller.logIn(usernameField.getText(), new String(passwordField.getPassword()))) {
                     User user = controller.getCurrentUser();
                     dispose();
-                    new HomeWindow(user);
+                    new HomeWindow();
                 }
             }
         });

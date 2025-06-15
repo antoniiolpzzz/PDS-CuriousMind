@@ -30,7 +30,6 @@ public class CourseDashboard extends JFrame {
         setContentPane(basePanel);
 
         // RIGHT PANEL SETUP FOR MAIN CONTENT
-
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
