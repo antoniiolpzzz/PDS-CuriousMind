@@ -19,7 +19,7 @@ public class SignupWindow extends JFrame {
     public SignupWindow() {
         // Configuración de la ventana
         setTitle("CuriousMind - Sign up");
-        setMinimumSize(new Dimension(1300, 600));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);

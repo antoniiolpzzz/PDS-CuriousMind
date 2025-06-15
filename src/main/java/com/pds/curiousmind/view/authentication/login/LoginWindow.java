@@ -22,7 +22,7 @@ public class LoginWindow extends JFrame {
     public LoginWindow() {
         // Window configuration
         setTitle("CuriousMind - Log in");
-        setMinimumSize(new Dimension(1300, 600));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);

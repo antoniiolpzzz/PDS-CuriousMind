@@ -21,7 +21,7 @@ public class HomeWindow extends JFrame {
 
     public HomeWindow() { //TODO: receive user
         setTitle("CuriousMind - Home");
-        setMinimumSize(new Dimension(1200, 650));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);

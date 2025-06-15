@@ -97,7 +97,7 @@ public class JsonChooserWindow extends JDialog {
         StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
         cancelButton.addActionListener(e -> dispose());
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(250));
+        buttonPanel.add(Box.createHorizontalStrut(50));
         buttonPanel.add(acceptButton);
         cancelButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         buttonPanel.add(Box.createHorizontalStrut(60));

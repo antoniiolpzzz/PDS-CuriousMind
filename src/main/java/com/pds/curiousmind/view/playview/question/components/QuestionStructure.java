@@ -22,7 +22,7 @@ public class QuestionStructure extends JFrame {
     public QuestionStructure(String title, String iconPath, String indication, String statement, String type) {
 
         setTitle("CuriousMind - Home");
-        setMinimumSize(new Dimension(1200, 650));
+        setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
