@@ -47,7 +47,7 @@ public class UserWindow extends JFrame {
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
         // HEADER SECTION
-        // TODO: JLabel homeTitle = new JLabel("Hello" + user.getName() +
+        // TODO: JLabel homeTitle = new JLabel("Hello" + user.getName() + "!");
         // TODO: Stirng iconPath = user.getIconPath());
         String iconPath = "icons/button/user.png";
         JLabel homeTitle = new JLabel(" Hello Javier!");
