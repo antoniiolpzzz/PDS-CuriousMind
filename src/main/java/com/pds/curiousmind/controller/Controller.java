@@ -1,17 +1,24 @@
 package com.pds.curiousmind.controller;
 
 import com.pds.curiousmind.model.contentblock.ContentBlock;
+import com.pds.curiousmind.model.contentblock.Difficulty;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.gameManager.GameManager;
-import com.pds.curiousmind.model.library.implementation.CourseLibrary;
-import com.pds.curiousmind.model.library.implementation.UserLibrary;
 import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.question.implementation.FillTheGap;
+import com.pds.curiousmind.model.question.implementation.FlashCard;
+import com.pds.curiousmind.model.question.implementation.Test;
+import com.pds.curiousmind.model.question.implementation.Translate;
+import com.pds.curiousmind.model.question.option.ImageOption;
+import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
 import com.pds.curiousmind.model.user.User;
+import com.pds.curiousmind.view.playview.question.FillTheGaps;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public enum Controller {
@@ -25,10 +32,119 @@ public enum Controller {
     //private final UserLibrary userLibrary = UserLibrary.INSTANCE;
 
 
-    // TODO: QUITAR LA INFORMACIÓN DE PRUEBA:
-    User currentUser = new User("Javi", "Guardiola", "javi@gmail.com", "password123", "Javi44");
+//  ********************** TODO: QUITAR LA INFORMACIÓN DE PRUEBA:  **********************
+User currentUser;
+Course course;
+RegisteredCourse registeredCourse;
+ContentBlock contentBlock;
+RegisteredContentBlock RegisteredContentBlock;
+List<RegisteredCourse> registeredCourses = new java.util.ArrayList<>();
+List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
+List<Course> allCourses = new java.util.ArrayList<>();
 
-    Stat stats = new Stat(currentUser);
+static {
+    // Crear usuario y cursos
+    INSTANCE.currentUser = new User("JaviGuardiola", "javi@gmail.com", "password123", "Javi44");
+    INSTANCE.course = new Course("Java Basics", "Learn the basics of Java programming.", "icons/course/js.png", new ArrayList<>(), new ArrayList<>());
+    Course course2 = new Course("Music", "Learn the basics of music", "icons/course/history.png", new ArrayList<>(), new ArrayList<>());
+    Course course3 = new Course("German", "Introduction to German.", "icons/course/german.png", new ArrayList<>(), new ArrayList<>());
+
+    List<Question> questions = new ArrayList<>();
+
+  List<Option> testOptions = new ArrayList<>();
+    testOptions.add(new Option("Madrid"));
+    testOptions.add(new Option("Barcelona"));
+    testOptions.add(new Option("Valencia"));
+    testOptions.add(new Option("Seville"));
+
+    List<Option> flashCardOptions = new ArrayList<>();
+    flashCardOptions.add(new ImageOption("Apfel", "icons/course/comida-sana.png"));
+    flashCardOptions.add(new ImageOption("Karotte", "icons/course/zanahoria.png"));
+    flashCardOptions.add(new ImageOption("Zwiebel", "icons/course/cebolla.png"));
+
+    List<Option> translateOptions = new ArrayList<>();
+    translateOptions.add(new Option("The"));
+    translateOptions.add(new Option("green"));
+    translateOptions.add(new Option("sheep"));
+    translateOptions.add(new Option("blue"));
+    translateOptions.add(new Option("table"));
+    translateOptions.add(new Option("are"));
+    translateOptions.add(new Option("is"));
+    translateOptions.add(new Option("dog"));
+
+    Question fillTheGaps = new FillTheGap(
+            "Complete the sentence:",
+            "The ___ is the satellite of the Earth.",
+            "moon"
+    );
+
+    Question test = new Test(
+            "Select the capital of Spain:",
+            "What is the capital of Spain?",
+            "Madrid",
+            testOptions
+    );
+
+    Question translation = new Translate(
+            "Translate to English:",
+            "El perro es azul",
+            "The dog is blue",
+            translateOptions
+    );
+
+    Question flashcard = new FlashCard(
+            "Choose the correct answer:",
+            "Where is the onion?",
+            "Zwiebel",
+            flashCardOptions
+    );
+
+    questions.add(fillTheGaps);
+    questions.add(test);
+    questions.add(translation);
+    questions.add(flashcard);
+
+    Difficulty difficulty = Difficulty.EASY;
+
+    INSTANCE.contentBlock = new ContentBlock(
+            "Basic Vocabulary",
+            questions,
+            difficulty,
+            INSTANCE.course
+    );
+
+    INSTANCE.RegisteredContentBlock = new RegisteredContentBlock(
+            INSTANCE.contentBlock
+    );
+    // Añadir cursos a la lista de todos los cursos
+    INSTANCE.allCourses.add(INSTANCE.course);
+    INSTANCE.allCourses.add(course2);
+    INSTANCE.allCourses.add(course3);
+
+    // Crear cursos registrados
+    INSTANCE.registeredCourse = new RegisteredCourse(INSTANCE.currentUser, INSTANCE.course, "SHUFFLED");
+
+    // Añadir cursos registrados a la lista
+    INSTANCE.registeredCourses.add(INSTANCE.registeredCourse);
+
+    // Asignar cursos registrados al usuario
+    INSTANCE.currentUser.setRegisteredCourses(INSTANCE.registeredCourses);
+
+    // Asignar contenido bloque registrado al curso registrado
+    List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
+    registeredContentBlocks.add(INSTANCE.RegisteredContentBlock);
+    INSTANCE.registeredCourses.get(0).setRegisteredContentBlocks(registeredContentBlocks);
+}
+
+
+    //GET CURRENT REGISTERED COURSE
+    public RegisteredCourse getCurrentRegisteredCourse() {
+        // Return the first registered course for simplicity
+        // In a real application, you might want to handle multiple registered courses differently
+        return currentUser.getRegisteredCourses().isEmpty() ? null : currentUser.getRegisteredCourses().get(0);
+    }
+
+    //  ********************** TODO: QUITAR LA INFORMACIÓN DE PRUEBA:  **********************
 
 
     // INITIALIZATION OF THE LIBRARIES AND ADAPTERS
@@ -40,10 +156,15 @@ public enum Controller {
 
     // **************************** USER FUNCTIONS **************************** //
 
+
+
     // GET CURRENT USER
     public User getCurrentUser() {
         return currentUser;
     }
+
+
+
 
     // **************************** STATS FUNCTIONS **************************** //
 
@@ -58,6 +179,12 @@ public enum Controller {
     public void addExperiencePoints(int points) {
         // Add the specified points to the current user's experience
         getUserStats().addExperiencePoints(points);
+    }
+
+    // GET LEVEL OF THE USER
+
+    public int getUserLevel() {
+        return getUserStats().getLevel();
     }
 
 
@@ -93,7 +220,6 @@ public enum Controller {
     // **************************** COURSE FUNCTIONS **************************** //
 
 
-
     //GET ALL REGISTERED COURSES OF THE USER
 
     public List<RegisteredCourse> getRegisteredCourses() {
@@ -105,9 +231,9 @@ public enum Controller {
 
     public List<Course> getAllCourses() {
 
-        //List<Course> courses = courselibrary.getAll();
+        // TODO: List<Course> courses = courselibrary.getAll();
 
-        return null;
+        return allCourses;
     }
 
     // CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
@@ -122,6 +248,7 @@ public enum Controller {
 
     public Course createCourseFromJson(File jsonFile) {
         // Read the JSON file and convert it to a Course object
+        // Add the new course to the course library or database
         // This could involve using a library like Gson or Jackson to deserialize the JSON into a Course object
         return null;
     }
@@ -129,10 +256,10 @@ public enum Controller {
 
     // CREATE REGISTERES COURSE FROM A COURSE AND ITS STRATEGY
 
-    public RegisteredCourse createRegisteredCourse(Course course, String strategy) {
+    public void createRegisteredCourse(Course course, String strategy) {
         // Create a new RegisteredCourse object with the provided course and strategy
         // This could involve setting the course, strategy, and any other necessary fields
-        return new RegisteredCourse(currentUser, course, strategy);
+        new RegisteredCourse(currentUser, course, strategy);
     }
 
 
