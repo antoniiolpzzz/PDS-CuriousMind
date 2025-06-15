@@ -53,7 +53,7 @@ public class ContentBlockRow {
                         //TODO: Question question = controller.initializeGameManager(course, block);
                         Question question = block.getQuestions().get(3);
                         //pritn del tipo de pregunta
-                        new QuestionStructure(course, question.getIndication(), question.getStatement(), question.getOptions(), question.getType());
+                        new QuestionStructure(course, question);
                         parentFrame.dispose();
                     }
                 });

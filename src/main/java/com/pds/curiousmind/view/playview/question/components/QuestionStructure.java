@@ -4,11 +4,13 @@ package com.pds.curiousmind.view.playview.question.components;
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.gameManager.GameManager;
 import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.question.implementation.FillTheGap;
 import com.pds.curiousmind.model.question.option.ImageOption;
 import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.home.course.CourseDashboard;
 import com.pds.curiousmind.view.playview.question.FillTheGaps;
 import com.pds.curiousmind.view.playview.question.FlashCard;
 import com.pds.curiousmind.view.playview.question.Test;
@@ -30,13 +32,22 @@ import static java.sql.DriverManager.println;
 
 public class QuestionStructure extends JFrame {
 
+
+    private static final int PUNTOS = 100;  //TODO: The points should depend on the content block difficulty
+
     private FillTheGaps.GapSectionResult gapResult;
     private Translation.TranslationSectionResult translationResult;
     private FlashCard.FlashCardResult flashCardResult;
     private Test.TestPanelResult testResult;
     private static final Controller controller = Controller.INSTANCE;
 
-    public QuestionStructure(RegisteredCourse course, String indication, String statement, List<Option> options, String type) {
+    public QuestionStructure(RegisteredCourse course, Question question) {
+
+        String indication = question.getIndication();
+        String statement = question.getStatement();
+        List<Option> options = question.getOptions();
+        String type = question.getType();
+
 
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1300, 650));
@@ -112,37 +123,34 @@ public class QuestionStructure extends JFrame {
                 case "Test" -> submittedAnswer = testResult != null ? testResult.getAnswer() : "";
             }
             System.out.println("Answer submitted: " + submittedAnswer);
-            /*
+
             if (controller.validateAnswer(question, submittedAnswer)) {
                 JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
                 dispose();
-                Question question = controller.getNextQuestion();
-                if (question == null) {
+                Question nextQuestion = controller.getNextQuestion();
+                if (nextQuestion == null) {
                     controller.endGame();
                     JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
                     controller.addExperiencePoints(PUNTOS);
-                    new DashboardView(course);
+                    new CourseDashboard(course);
                     dispose();
                 }
+                assert nextQuestion != null;
                 new QuestionStructure(
-                        curse,
-                        question.getIndication(),
-                        question.getStatement(),
-                        question.getType()
+                        course,
+                        nextQuestion
                 );
             } else {
-                //TODO: controller.addFailedQuestion(question);
-                JOptionPane.showMessageDialog(null, "Incorrect answer. Try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                controller.addFailedQuestion(question);
+                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
                 dispose();
-                Question question = controller.getNextQuestion();
+                Question nextQuestion = controller.getNextQuestion();
                 new QuestionStructure(
-                        curse,
-                        question.getIndication(),
-                        question.getStatement(),
-                        question.getType()
+                        course,
+                        nextQuestion
                 );
             }
-            */
+
 
         });
         rightPanel.add(submitButton);
@@ -160,19 +168,16 @@ public class QuestionStructure extends JFrame {
 
         //Crear una lista de tipo Option para la prueba
 
-        List<Option> options = List.of(
-                new Option("Option 1"),
-                new Option("Option 2"),
-                new Option("Option 3"),
-                new Option("Option 4")
+        Question question = new FillTheGap(
+                "Complete the sentence:",
+                "The ___ is the satellite of the Earth.",
+                "moon"
         );
+
 
         SwingUtilities.invokeLater(() -> new com.pds.curiousmind.view.playview.question.components.QuestionStructure(
                 course,
-                "Chose the correct answer",
-                "Witch is the onion?",
-                options,
-                "Test"
+                question
         ));
     }
 

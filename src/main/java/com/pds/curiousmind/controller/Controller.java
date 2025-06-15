@@ -304,8 +304,15 @@ static {
     public void endGame() {
         // End the game and reset the game manager
         gameManager.deactivateGame();
+
     }
 
+    // ADD A FAILED QUESTION TO THE GAME MANAGER
+    public void addFailedQuestion(Question question) {
+        // Add a failed question to the game manager
+        gameManager.addFailedQuestion(question);
+        //TODO: This should handle the lives number of the user
+    }
 
 
 
