@@ -68,6 +68,6 @@ public abstract class Question {
     }
 
     public String getType() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }
