@@ -1,6 +1,12 @@
 package com.pds.curiousmind.view.home.course.components;
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.common.RoundedLabel;
+import com.pds.curiousmind.view.playview.question.components.QuestionStructure;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,23 +16,19 @@ import java.util.Set;
 
 public class ContentBlockRow {
 
-    // TODO: Receive a RegisteredContentBlock list contentBlocks
-    public static JPanel createContentColumnSection(JFrame parentFrama, java.util.List<String> contentNames) {
-        Set<String> completedBlocks = new HashSet<>(Arrays.asList(
-                "Basic words", "Basic sentences", "Introduce yourself"
-        ));
+    private static final Controller controller = Controller.INSTANCE;
+
+    public static JPanel createContentColumnSection(JFrame parentFrame, RegisteredCourse course, java.util.List<RegisteredContentBlock> contentBlocks) {
+
 
         JPanel column = new JPanel();
         column.setLayout(new BoxLayout(column, BoxLayout.Y_AXIS));
         column.setOpaque(false);
 
-        // TODO: for ( ContentBlock block : contentBlocks ) {
-        for (String name : contentNames) {
-            boolean isCompleted = completedBlocks.contains(name);
-            RoundedLabel label = new RoundedLabel(name); //TODO: block.getName());
+        for ( RegisteredContentBlock block : contentBlocks ) {
+            RoundedLabel label = new RoundedLabel(block.getName());
 
-            //TODO: block.isCompleted();
-            if (isCompleted) {
+            if (block.isCompleted()) {
                 label.setLabelBackground(new Color(214, 245, 214));
                 label.setLabelBorderColor(new Color(180, 230, 180));
             } else {
@@ -48,9 +50,11 @@ public class ContentBlockRow {
 
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        //TODO: question = controller.inicializarGameManager(course, block);
-                        // new QuestionStructure(courseName, iconPath, question.getIndication(), question.getStatement(), question.getOptions(), question.getType());
-                        //parentframe.dispose();
+                        //TODO: Question question = controller.initializeGameManager(course, block);
+                        Question question = block.getQuestions().get(3);
+                        //pritn del tipo de pregunta
+                        new QuestionStructure(course, question.getIndication(), question.getStatement(), question.getOptions(), question.getType());
+                        parentFrame.dispose();
                     }
                 });
             }

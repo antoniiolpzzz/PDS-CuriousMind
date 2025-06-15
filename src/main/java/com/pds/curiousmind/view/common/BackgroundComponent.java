@@ -1,5 +1,7 @@
 package com.pds.curiousmind.view.common;
 
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.home.course.CourseDashboard;
 import com.pds.curiousmind.view.home.dashboard.HomeWindow;
@@ -11,7 +13,7 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 public class BackgroundComponent {
 
     // TODO: This function should receive user, course and a parent frame to dispose it correctly.
-    public static JPanel createBackground(JFrame parentFrame, String title, String iconPath, String type) {
+    public static JPanel createBackground(JFrame parentFrame, User user, RegisteredCourse course, String type) {
 
         JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
         basePanel.setLayout(new BorderLayout());
@@ -37,12 +39,12 @@ public class BackgroundComponent {
             case "exit":
                 labelText = "Exit";
                 labelIcon = loadIcon("icons/button/logout.jpg", 20, 20);
-                onClickAction = () -> new CourseDashboard(title, iconPath);
+                onClickAction = () -> new CourseDashboard(course);
                 break;
             case "home":
                 labelText = "Home";
                 labelIcon = loadIcon("icons/button/home.jpg", 20, 20);
-                onClickAction = HomeWindow::new;
+                onClickAction = () -> new HomeWindow(user);
                 break;
             case "logout":
                 labelText = "Logout";
