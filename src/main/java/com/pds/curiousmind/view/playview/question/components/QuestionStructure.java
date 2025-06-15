@@ -3,6 +3,7 @@ package com.pds.curiousmind.view.playview.question.components;
 
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.playview.question.FillTheGaps;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +15,16 @@ import static com.pds.curiousmind.view.playview.question.Test.createTestPanel;
 import static com.pds.curiousmind.view.playview.question.Translation.createTranslationSection;
 import static com.pds.curiousmind.view.playview.question.components.CreateHeader.createHeader;
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
+import static java.sql.DriverManager.println;
 
 
 public class QuestionStructure extends JFrame {
 
-    //TODO: This should receive only the content block.
+
+    //TODO: This should receive a the atributes of the question and the name and the iconpath of the course
     public QuestionStructure(String title, String iconPath, String indication, String statement, String type) {
+
+        String answer = "HOLA";
 
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1300, 650));
@@ -49,13 +54,13 @@ public class QuestionStructure extends JFrame {
         // COMMON HEADER
         rightPanel.add(createHeader(title, iconPath, indication, statement));
 
-        //TODO: Question controller should receive the block and show the questions
-        // questionController.showQuestions(block.getQuestions());
-
         //Gap for the user to fill with the answer
         switch (type) {
             case "FillTheGaps" -> {
-                rightPanel.add(createGapSection());
+                FillTheGaps.GapSectionResult result = FillTheGaps.createGapSection();
+                JPanel panel = result.panel;
+                answer = String.valueOf(result.answerField);
+                rightPanel.add(panel);
             }
             case "Translation" -> {
                 JPanel translationPanel = createTranslationSection();
@@ -76,7 +81,6 @@ public class QuestionStructure extends JFrame {
             }
             case null, default -> {
                 JOptionPane.showMessageDialog(null, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
-
                 return;
             }
         }
@@ -87,10 +91,13 @@ public class QuestionStructure extends JFrame {
         StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
         submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        String finalAnswer = answer;
         submitButton.addActionListener(e -> {
             //TODO: Handle the submission of the question
+            // cotroller.validateAnswer(todo)
+            // controller.getSiguientepreugntaaaaa
+            System.out.println("Answer submitted: " + finalAnswer);
             JOptionPane.showMessageDialog(null, "Test submitted successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
-
         });
         rightPanel.add(submitButton);
 
@@ -107,7 +114,7 @@ public class QuestionStructure extends JFrame {
                 "icons/course/german.png",
                 "Chose the correct answer",
                 "Witch is the onion?",
-                "Test"
+                "FillTheGaps"
         ));
     }
 

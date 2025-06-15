@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.stats;
 
+import com.pds.curiousmind.model.gameManager.GameManager;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 import com.pds.curiousmind.view.home.stats.components.CourseWithProgressPanel;
@@ -72,7 +73,7 @@ public class UserWindow extends JFrame {
 
         // COURSES SECTION
         //TODO: Controller has to recuperate the registered courses from the user
-        // myCourses = controller.getRegisteredCourses(user);
+        // myCourses = controller.getRegisteredCourses();
         // JPanel rowMyCourses = createCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel coursePanel = createCourseRowSection(Arrays.asList(

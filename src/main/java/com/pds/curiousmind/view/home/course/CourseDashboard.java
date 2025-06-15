@@ -78,7 +78,6 @@ public class CourseDashboard extends JFrame {
 
         //TODO: controller get the content blocks from the course
         // contenblocks = course.getContentBlocks();
-        // contentNames = contenblocks.stream().map(ContentBlock::getName).toList();
 
         java.util.List<String> contentNames = java.util.Arrays.asList(
                 "Basic words",
@@ -90,7 +89,8 @@ public class CourseDashboard extends JFrame {
                 "Talk about animals"
         );
         scrollContent.add(Box.createVerticalStrut(20));
-        scrollContent.add(createContentColumnSection(contentNames));
+        //TODO: Should send the current course name and iconpath with its list of content blocks
+        scrollContent.add(createContentColumnSection(this, contentNames));
         scrollContent.add(Box.createVerticalStrut(20));
 
         JScrollPane scrollPane = new JScrollPane(scrollContent);

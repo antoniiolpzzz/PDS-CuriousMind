@@ -129,7 +129,7 @@ public class LoginWindow extends JFrame {
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             if (checkFields(usernameField.getText(), passwordField)) {
-                //TODO: if (controller.checkFields(usernameField.getText(), passwordField.getPassword())) {
+                //TODO: if (controller.logIn(usernameField.getText(), passwordField.getPassword())) {
                     dispose();
                     new HomeWindow();
             }

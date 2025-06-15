@@ -11,7 +11,7 @@ import java.util.Set;
 public class ContentBlockRow {
 
     // TODO: Receive a RegisteredContentBlock list contentBlocks
-    public static JPanel createContentColumnSection(java.util.List<String> contentNames) {
+    public static JPanel createContentColumnSection(JFrame parentFrama, java.util.List<String> contentNames) {
         Set<String> completedBlocks = new HashSet<>(Arrays.asList(
                 "Basic words", "Basic sentences", "Introduce yourself"
         ));
@@ -23,7 +23,7 @@ public class ContentBlockRow {
         // TODO: for ( ContentBlock block : contentBlocks ) {
         for (String name : contentNames) {
             boolean isCompleted = completedBlocks.contains(name);
-            RoundedLabel label = new RoundedLabel(name);
+            RoundedLabel label = new RoundedLabel(name); //TODO: block.getName());
 
             //TODO: block.isCompleted();
             if (isCompleted) {
@@ -48,8 +48,9 @@ public class ContentBlockRow {
 
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        //TODO: new QuestionStructure(block);
-                        //dispose();
+                        //TODO: question = controller.inicializarGameManager(course, block);
+                        // new QuestionStructure(courseName, iconPath, question.getIndication(), question.getStatement(), question.getOptions(), question.getType());
+                        //parentframe.dispose();
                     }
                 });
             }
