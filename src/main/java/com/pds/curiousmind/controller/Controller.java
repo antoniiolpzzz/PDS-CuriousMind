@@ -19,12 +19,16 @@ public enum Controller {
 
     // GLOBAL VARIABLES
 
-    private User currentUser;
+    //private User currentUser;
     private final GameManager gameManager = GameManager.INSTANCE;
-    private final CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
-    private final UserLibrary userLibrary = UserLibrary.INSTANCE;
+    //private final CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
+    //private final UserLibrary userLibrary = UserLibrary.INSTANCE;
 
 
+    // TODO: QUITAR LA INFORMACIÓN DE PRUEBA:
+    User currentUser = new User("Javi", "Guardiola", "javi@gmail.com", "password123", "Javi44");
+
+    Stat stats = new Stat(currentUser);
 
 
     // INITIALIZATION OF THE LIBRARIES AND ADAPTERS
@@ -36,7 +40,10 @@ public enum Controller {
 
     // **************************** USER FUNCTIONS **************************** //
 
-
+    // GET CURRENT USER
+    public User getCurrentUser() {
+        return currentUser;
+    }
 
     // **************************** STATS FUNCTIONS **************************** //
 
@@ -63,8 +70,6 @@ public enum Controller {
     public boolean logIn(String username, String password) {
 
         //Check in the database if the user exists and the password is correct
-
-        // If the user exists, set the currentUser variable to the user object;
 
         // Register the user entry in the app
         getUserStats().logEntry();

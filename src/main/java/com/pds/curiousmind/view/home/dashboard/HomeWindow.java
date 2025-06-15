@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.dashboard;
 
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class HomeWindow extends JFrame {
 
-    public HomeWindow() { //TODO: receive user
+    public HomeWindow(User user) { //TODO: receive user
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

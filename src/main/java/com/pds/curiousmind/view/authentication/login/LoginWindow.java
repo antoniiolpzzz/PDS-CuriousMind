@@ -1,5 +1,7 @@
 package com.pds.curiousmind.view.authentication.login;
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.authentication.signup.SignupWindow;
 import com.pds.curiousmind.view.authentication.components.*;
 import com.pds.curiousmind.view.common.BackgroundPanel;
@@ -17,6 +19,8 @@ public class LoginWindow extends JFrame {
     private final JTextField usernameField;
     private final JPasswordField passwordField;
     private final JCheckBox showPasswordCheckBox;
+
+    private final Controller controller = Controller.INSTANCE;
 
     // TODO: look for a robot (mascot)
     public LoginWindow() {
@@ -129,9 +133,11 @@ public class LoginWindow extends JFrame {
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             if (checkFields(usernameField.getText(), passwordField)) {
-                //TODO: if (controller.logIn(usernameField.getText(), passwordField.getPassword())) {
+                if (controller.logIn(usernameField.getText(), new String(passwordField.getPassword()))) {
+                    User user = controller.getCurrentUser();
                     dispose();
-                    new HomeWindow();
+                    new HomeWindow(user);
+                }
             }
         });
         buttonsPanel.add(loginButton);
