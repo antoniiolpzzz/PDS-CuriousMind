@@ -39,6 +39,7 @@ public class Course {
     private String imageURL;
 
     @ElementCollection
+    @CollectionTable(name = "course_strategies", joinColumns = @JoinColumn(name = "course_id"))
     private List<String> availableStrategies;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
