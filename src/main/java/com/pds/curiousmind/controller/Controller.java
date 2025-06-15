@@ -3,6 +3,8 @@ package com.pds.curiousmind.controller;
 import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.gameManager.GameManager;
+import com.pds.curiousmind.model.library.implementation.CourseLibrary;
+import com.pds.curiousmind.model.library.implementation.UserLibrary;
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
@@ -12,13 +14,17 @@ import com.pds.curiousmind.model.user.User;
 import java.io.File;
 import java.util.List;
 
-public class Controller {
-
+public enum Controller {
+    INSTANCE;
 
     // GLOBAL VARIABLES
 
     private User currentUser;
     GameManager gameManager = GameManager.INSTANCE;
+    private CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
+    private UserLibrary userLibrary = UserLibrary.INSTANCE;
+
+
 
 
     // INITIALIZATION OF THE LIBRARIES AND ADAPTERS
