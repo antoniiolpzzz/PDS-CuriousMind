@@ -9,7 +9,7 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class StatsBlock extends JPanel {
 
-    public StatsBlock(String title, String value, String iconPath) {
+    public StatsBlock(String title, int value, String iconPath) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setOpaque(false);
 
@@ -23,7 +23,7 @@ public class StatsBlock extends JPanel {
         titleLabel.setIcon(loadIcon(iconPath, 18, 18));
 
         // Valor con fondo verde
-        RoundedLabel valueLabel = new RoundedLabel(value);
+        RoundedLabel valueLabel = new RoundedLabel(String.valueOf(value));
         valueLabel.setLabelBackground(new Color(0, 200, 80));
         valueLabel.setLabelBorderColor(new Color(0, 180, 70));
         valueLabel.setForeground(Color.WHITE);
