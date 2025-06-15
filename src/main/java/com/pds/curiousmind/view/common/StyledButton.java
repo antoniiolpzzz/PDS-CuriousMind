@@ -19,7 +19,7 @@ public class StyledButton extends JButton {
         setOpaque(false);
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         setFont(new Font("SansSerif", Font.PLAIN, 14));
-        setPreferredSize(new Dimension(90, 35));
+        setPreferredSize(new Dimension(190, 35));
 
 
         setBorder(new EmptyBorder(5, 12, 5, 12)); // padding interno
