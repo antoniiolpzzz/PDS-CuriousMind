@@ -35,7 +35,7 @@ public class UserWindow extends JFrame {
         // Right panel setup
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
-        rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
+        rightWrapper.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
 
         RoundedPanel rightPanel = new RoundedPanel(30);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
@@ -75,7 +75,7 @@ public class UserWindow extends JFrame {
         // myCourses = controller.getRegisteredCourses(user);
         // JPanel rowMyCourses = createCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
-        JPanel coursePanel = createCourseRowSection(this, Arrays.asList(
+        JPanel coursePanel = createCourseRowSection(Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
                 new String[]{"Modern History", "icons/course/history.png"},
                 new String[]{"Java Script", "icons/course/js.png"}
@@ -84,6 +84,7 @@ public class UserWindow extends JFrame {
         courseScroll.setPreferredSize(new Dimension(880, 230));
         courseScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         courseScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        courseScroll.setBackground(Color.WHITE);
         courseScroll.setBorder(null);
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(courseScroll);
@@ -124,8 +125,23 @@ public class UserWindow extends JFrame {
         setVisible(true);
     }
 
+    private JPanel createCourseRowSection(List<String[]> courseData) {
+        JPanel row = new JPanel();
+        row.setLayout(new GridLayout(0, 4, 0, -5));
+        row.setOpaque(false);
+
+        for (String[] d : courseData) { //TODO: Return a real Course
+            row.add(new CourseWithProgressPanel(d[0], d[1], getProgressForCourse(d[0]), () -> {
+                dispose();
+                new CourseDashboard(d[0], d[1]);
+            }));
+
+        }
+        return row;
+    }
+
     private int getProgressForCourse(String courseName) {
-        //TODO: Recuperate the course progress course.getProgress();
+        //TODO: Recuperate the course progress from the database
         return switch (courseName) {
             case "German" -> 30;
             case "Modern History" -> 80;

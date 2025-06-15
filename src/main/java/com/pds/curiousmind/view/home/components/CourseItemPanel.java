@@ -34,6 +34,8 @@ public class CourseItemPanel extends JPanel {
         addHoverEffect(shareBtn);
         add(shareBtn);
 
+        setBackground(Color.WHITE);
+
         shareBtn.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setDialogTitle("Save course name");

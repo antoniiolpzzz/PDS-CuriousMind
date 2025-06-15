@@ -34,6 +34,8 @@ public class CourseRowSection {
     }
 
 
+
+
     private static boolean isRegisteredCourse(String courseName) {
 
         //TODO: Check if the course is registered with the type of the object
