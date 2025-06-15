@@ -2,10 +2,12 @@ package com.pds.curiousmind.model.question.implementation;
 
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.question.option.Option;
+import jakarta.persistence.Entity;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Entity
 public class Translate extends Question {
 
     public static final String DELIMITER = " ";
@@ -18,4 +20,7 @@ public class Translate extends Question {
                 .forEach(this.options::add);
     }
 
+    public Translate() {
+        super();
+    }
 }
