@@ -143,6 +143,9 @@ public class SignupWindow extends JFrame {
                     dispose();
                     new LoginWindow();
                 }
+//                else {
+//                    JOptionPane.showMessageDialog(null, "Error creating account. Please try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+//                }
 
             }
         });

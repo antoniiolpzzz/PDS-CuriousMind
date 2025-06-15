@@ -74,7 +74,7 @@ public class CourseDashboard extends JFrame {
         scrollContent.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
 
         //TODO: controller get the content blocks from the course
-        // contentNames = controller.getContentBlocks(courseId);
+        // contentNames = controller.getContentBlocks(courseId); ????? or contentNames = course.getContentBlocks();
 
         java.util.List<String> contentNames = java.util.Arrays.asList(
                 "Basic words",

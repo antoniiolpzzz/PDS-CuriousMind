@@ -12,7 +12,7 @@ import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 
 public class CourseItemPanel extends JPanel {
-    public CourseItemPanel(String name, String iconPath, Runnable onClick) {
+    public CourseItemPanel(String name, String iconPath, Runnable onClick) { //TODO: recevive a course object
         setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
         setOpaque(false);
 
@@ -37,8 +37,8 @@ public class CourseItemPanel extends JPanel {
         shareBtn.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setDialogTitle("Save course name");
-            // TODO: Implement controller functionality to get the course name and return a Json File
-            // File jsonFile = controller.getJsonFromCourse(name);
+            //TODO: Implement controller functionality to get the course name and return a Json File
+            // File jsonFile = controller.getJsonFromCourse(course);
             fileChooser.setSelectedFile(new java.io.File(name + ".txt"));
             int userSelection = fileChooser.showSaveDialog(this);
             if (userSelection == JFileChooser.APPROVE_OPTION) {

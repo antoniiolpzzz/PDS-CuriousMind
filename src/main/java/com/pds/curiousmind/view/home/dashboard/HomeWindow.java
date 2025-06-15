@@ -100,7 +100,7 @@ public class HomeWindow extends JFrame {
 
         //TODO: Controller has to recuperate the registered courses from the user
         // myCourses = controller.getRegisteredCourses(user.getId());
-        // JPanel rowMyCourses = createCourseRowSection(myCourses);
+        // JPanel rowMyCourses = createCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel rowMyCourses = createCourseRowSection(this, Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
@@ -115,8 +115,8 @@ public class HomeWindow extends JFrame {
         // ALL COURSES SECTION
 
         //TODO: Controller has to recuperate all the courses from the database
-        // allCourses = controller.getCourse();
-        // JPanel rowNewCourses = createCourseRowSection(allCourses);
+        // allCourses = controller.getAllCourses();
+        // JPanel rowNewCourses = createCourseRowSection(this, allCourses);
         rightPanel.add(sectionTitle("New course"));
         JPanel rowNewCourses = createCourseRowSection(this, Arrays.asList(
                 new String[]{"Languages", "icons/course/languages.png"},

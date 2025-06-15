@@ -72,8 +72,8 @@ public class UserWindow extends JFrame {
 
         // COURSES SECTION
         //TODO: Controller has to recuperate the registered courses from the user
-        // myCourses = controller.getRegisteredCourses(user.getId());
-        // JPanel rowMyCourses = createCourseRowSection(myCourses);
+        // myCourses = controller.getRegisteredCourses(this, user);
+        // JPanel rowMyCourses = createCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel coursePanel = createCourseRowSection(this, Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
@@ -89,7 +89,11 @@ public class UserWindow extends JFrame {
         rightPanel.add(courseScroll);
         rightPanel.add(Box.createVerticalStrut(10));
 
-        // Stats section
+        // STATS SECTION
+
+        //TODO: Get the stats from the user
+        // Stat stats = controller.getUserStats(user);
+
         rightPanel.add(sectionTitle("Your stats"));
         rightPanel.add(Box.createVerticalStrut(10));
 
@@ -98,7 +102,6 @@ public class UserWindow extends JFrame {
         statsWrapper.setOpaque(false);
 
         // Fila 1
-        // TODO: Recuperate the stats from the user
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row1.setOpaque(false);
         row1.add(new StatsBlock("Best streak", "15 days", "icons/stat/streak.jpg"));
@@ -121,7 +124,7 @@ public class UserWindow extends JFrame {
     }
 
     private int getProgressForCourse(String courseName) {
-        //TODO: Recuperate the course progress from the database
+        //TODO: Recuperate the course progress from the database ---> course.getProgress();
         return switch (courseName) {
             case "German" -> 30;
             case "Modern History" -> 80;
