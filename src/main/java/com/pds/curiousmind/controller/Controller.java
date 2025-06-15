@@ -2,6 +2,9 @@ package com.pds.curiousmind.controller;
 
 import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.gameManager.GameManager;
+import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
 import com.pds.curiousmind.model.user.User;
@@ -15,10 +18,10 @@ public class Controller {
     // GLOBAL VARIABLES
 
     private User currentUser;
+    GameManager gameManager = GameManager.INSTANCE;
+
 
     // INITIALIZATION OF THE LIBRARIES AND ADAPTERS
-
-
 
 
     // INITIALIZATION OF THE CONTROLLER
@@ -32,22 +35,34 @@ public class Controller {
     // **************************** STATS FUNCTIONS **************************** //
 
     // GET USER STATS
-    public Stat getUserStats(User user) {
-        return user.getStats();
+
+    public Stat getUserStats() {
+        return currentUser.getStats();
     }
 
+    // ADD EXPERIENCE POINTS TO THE USER
 
+    public void addExperiencePoints(int points) {
+        // Add the specified points to the current user's experience
+        getUserStats().addExperiencePoints(points);
+    }
 
 
 
 
     // **************************** AUTHENTICATION FUNCTIONS **************************** //
 
-    // CHECK FIELDS FOR THE USER TO LOG IN
+    // CHECK FIELDS FOR THE USER AND LOG IN
 
-    public boolean checkFields(String username, String password) {
+    public boolean logIn(String username, String password) {
 
         //Check in the database if the user exists and the password is correct
+
+        // If the user exists, set the currentUser variable to the user object;
+
+        // Register the user entry in the app
+        getUserStats().logEntry();
+
         return true;
     }
 
@@ -68,9 +83,9 @@ public class Controller {
 
     //GET ALL REGISTERED COURSES OF THE USER
 
-    public List<RegisteredCourse> getRegisteredCourses(User user) {
+    public List<RegisteredCourse> getRegisteredCourses() {
 
-        return user.getRegisteredCourses();
+        return currentUser.getRegisteredCourses();
     }
 
     //GET ALL COURSES IN THE DATABASE
@@ -82,7 +97,7 @@ public class Controller {
         return null;
     }
 
-    // CREATE A JSON FILE FROM A COURSE
+    // CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
 
     public File getJsonFromCourse(Course course) {
         // Convert the course object to a JSON file and return it
@@ -90,7 +105,7 @@ public class Controller {
         return null;
     }
 
-    // CREATE COURSE FROM A JSON FILE
+    // CREATE COURSE FROM A JSON FILE (DESERIALIZATION)
 
     public Course createCourseFromJson(File jsonFile) {
         // Read the JSON file and convert it to a Course object
@@ -108,11 +123,9 @@ public class Controller {
     }
 
 
-    // **************************** JSON FUNCTIONS **************************** //
-
-
 
     // **************************** CONTENT BLOCK FUNCTIONS **************************** //
+
 
 
 
@@ -122,7 +135,14 @@ public class Controller {
 
     // **************************** GAME MANAGER FUNCTIONS **************************** //
 
+    // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK
 
+    public Question initializeGameManager(RegisteredCourse course, RegisteredContentBlock contentBlock) {
+
+        gameManager.initializeGame(course,contentBlock);
+
+        return gameManager.getNextQuestion();
+    }
 
 
 
