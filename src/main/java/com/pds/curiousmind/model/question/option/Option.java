@@ -1,10 +1,21 @@
 package com.pds.curiousmind.model.question.option;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.util.Objects;
 import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "type"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Option.class, name = "option"),
+    @JsonSubTypes.Type(value = ImageOption.class, name = "imageoption")
+})
 public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
