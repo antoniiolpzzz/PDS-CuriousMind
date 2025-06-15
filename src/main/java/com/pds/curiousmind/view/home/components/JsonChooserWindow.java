@@ -12,7 +12,9 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class JsonChooserWindow extends JDialog {
 
-    private StyledButton openButton;
+    private final StyledButton openButton;
+    private File selectedJsonFile;
+
 
     public JsonChooserWindow(JFrame parent) {
         super(parent, "Create Course", true);
@@ -61,8 +63,8 @@ public class JsonChooserWindow extends JDialog {
             JFileChooser fileChooser = new JFileChooser();
             int result = fileChooser.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
-                openButton.setText(selectedFile.getName());
+                selectedJsonFile = fileChooser.getSelectedFile();
+                openButton.setText(selectedJsonFile.getName());
             }
         });
         mainPanel.add(openButton);
@@ -77,18 +79,23 @@ public class JsonChooserWindow extends JDialog {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
         acceptButton.addActionListener(e -> {
-            if (openButton.getText().equals("Open file explorer") || !openButton.getText().toLowerCase().endsWith(".json")) {
-                JOptionPane.showMessageDialog(this, "Please, select JSON file.");
+            if (selectedJsonFile == null || !selectedJsonFile.getName().toLowerCase().endsWith(".json")) {
+                JOptionPane.showMessageDialog(this, "Please, select a valid JSON file.");
             } else {
-                System.out.println("Selected File: " + openButton.getText());
-                //TODO: Controller functionality to handle the JSON file and create the course
-                dispose();
+                try {
+                    //TODO: controller.createCourseFromJson(selectedJsonFile);
+                    JOptionPane.showMessageDialog(this, "Course created successfully!");
+                    dispose();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, "Error creating course: " + ex.getMessage());
+                    ex.printStackTrace();
+                }
             }
         });
         StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
         cancelButton.addActionListener(e -> dispose());
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(260));
+        buttonPanel.add(Box.createHorizontalStrut(250));
         buttonPanel.add(acceptButton);
         cancelButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         buttonPanel.add(Box.createHorizontalStrut(60));

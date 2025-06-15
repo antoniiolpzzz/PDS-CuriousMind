@@ -4,11 +4,12 @@ import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
 import com.pds.curiousmind.view.home.stats.UserWindow;
-import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
+
+import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
+import static com.pds.curiousmind.view.home.components.CourseRowSection.createCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import com.pds.curiousmind.view.common.StyledButton;
-import com.pds.curiousmind.view.home.course.CourseDashboard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,54 +19,16 @@ import java.util.List;
 
 public class HomeWindow extends JFrame {
 
-    public HomeWindow() {
+    public HomeWindow() { //TODO: receive user
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1200, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
-        // Set up the main background panel
-        JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
-        basePanel.setLayout(new BorderLayout());
+        // BACKGROUND PANEL
+        JPanel basePanel = createBackground("","", "logout");
         setContentPane(basePanel);
-
-        // Top bar with app title
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanel.setOpaque(false);
-        JLabel appTitle = new JLabel("CuriousMind");
-        appTitle.setFont(new Font("SansSerif", Font.BOLD, 30));
-        appTitle.setForeground(Color.WHITE);
-        topPanel.add(appTitle);
-        basePanel.add(topPanel, BorderLayout.NORTH);
-
-        // Bottom left log out label
-        //TODO: Añadir un icono de log out
-        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        bottomPanel.setOpaque(false);
-        JLabel logoutLabel = new JLabel("Log out", loadIcon("icons/button/logout.jpg", 20, 20), JLabel.LEFT);
-        logoutLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
-        logoutLabel.setForeground(Color.WHITE);
-        logoutLabel.setOpaque(false);
-        logoutLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            final Color original = logoutLabel.getForeground();
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e) {
-                new LoginWindow();
-                dispose();
-            }
-            @Override
-            public void mouseEntered(java.awt.event.MouseEvent e) {
-                logoutLabel.setForeground(new Color(150, 150, 150));
-            }
-            @Override
-            public void mouseExited(java.awt.event.MouseEvent e) {
-                logoutLabel.setForeground(original);
-            }
-        });
-        bottomPanel.add(logoutLabel);
-        basePanel.add(bottomPanel, BorderLayout.SOUTH);
 
         // Right panel setup for main content
         JPanel rightWrapper = new JPanel(new BorderLayout());
@@ -91,7 +54,7 @@ public class HomeWindow extends JFrame {
         userPanel.setOpaque(false);
 
         // User panel with title and icon
-        // TODO: retrieve user name and icon from the database
+        //TODO: StyledButton name = new StyledButton(user.getName(), Color.BLACK, Color.WHITE);
         StyledButton name = new StyledButton("Javier", Color.BLACK, Color.WHITE);
         name.setFont(new Font("SansSerif", Font.PLAIN, 16));
         name.setHorizontalAlignment(SwingConstants.CENTER);
@@ -100,6 +63,7 @@ public class HomeWindow extends JFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 new UserWindow();
+                // TODO: new UserWindow(user);
                 dispose();
             }
             @Override
@@ -111,7 +75,8 @@ public class HomeWindow extends JFrame {
                 name.setBackground(Color.BLACK);
             }
         });
-        ImageIcon icon = loadIcon("icons/button/user.png", 35, 35);
+        String iconPath = "icons/button/user.png"; //TODO: iconpath = user.getIconPath()
+        ImageIcon icon = loadIcon(iconPath, 35, 35);
         assert icon != null;
         Image image = icon.getImage();
         JLabel iconLabel = new JLabel(new ImageIcon(image));
@@ -120,6 +85,7 @@ public class HomeWindow extends JFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 new UserWindow();
+                // TODO: new UserWindow(user);
                 dispose();
             }
         });
@@ -130,22 +96,28 @@ public class HomeWindow extends JFrame {
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(20));
 
-        // Add course sections and scroll panels
+        // YOUR COURSES SECTION
 
-        //TODO: Controller has to recuperate the registered courses from the database
+        //TODO: Controller has to recuperate the registered courses from the user
+        // myCourses = controller.getRegisteredCourses(user.getId());
+        // JPanel rowMyCourses = createCourseRowSection(myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel rowMyCourses = createCourseRowSection(Arrays.asList(
                 new String[]{"German", "icons/course/german.png"},
                 new String[]{"Modern History", "icons/course/history.png"},
                 new String[]{"Java Script", "icons/course/js.png"}
-
         ));
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowMyCourses));
         rightPanel.add(Box.createVerticalStrut(20));
-        rightPanel.add(sectionTitle("New course"));
 
-        //TODO: Controller has to recuperate the all created courses from the database
+
+        // ALL COURSES SECTION
+
+        //TODO: Controller has to recuperate all the courses from the database
+        // allCourses = controller.getCourse();
+        // JPanel rowNewCourses = createCourseRowSection(allCourses);
+        rightPanel.add(sectionTitle("New course"));
         JPanel rowNewCourses = createCourseRowSection(Arrays.asList(
                 new String[]{"Languages", "icons/course/languages.png"},
                 new String[]{"Sciences", "icons/course/sciences.png"},
@@ -158,11 +130,13 @@ public class HomeWindow extends JFrame {
                 new String[]{"Music", "icons/course/music.png"},
                 new String[]{"Programming", "icons/course/programming.png"}
         ));
+
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowNewCourses));
         rightPanel.add(Box.createVerticalStrut(20));
 
-        // Section for creating a new course
+        // IMPORT COURSE SECTION
+
         rightPanel.add(sectionTitle("Create your course"));
         rightPanel.add(Box.createVerticalStrut(10));
         JPanel createBtnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
@@ -179,35 +153,6 @@ public class HomeWindow extends JFrame {
 
         setVisible(true);
     }
-
-    // Helper to create a row of course panels
-    private JPanel createCourseRowSection(List<String[]> courseData) {
-        JPanel row = new JPanel();
-        row.setLayout(new GridLayout(0, 4, 20, 15));
-        row.setOpaque(false);
-        for (String[] d : courseData) {
-            row.add(new CourseItemPanel(d[0], d[1], () -> {
-                JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(row);
-                // Only allow opening CourseStrategyWindow if user is not registered
-                if (!isRegisteredCourse(d[0])) {
-                    new CourseStrategyWindow(topFrame, d[0], d[1]);
-                } else {
-                    dispose();
-                    new CourseDashboard(d[0], d[1]);
-                }
-            }));
-        }
-        return row;
-    }
-
-     // Method to check if the user is registered in a course
-    //TODO: Check if the user is registered in the course
-    private boolean isRegisteredCourse(String courseName) {
-
-        List<String> enrolledCourses = Arrays.asList("German", "Modern History", "Java Script");
-        return enrolledCourses.contains(courseName);
-    }
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(HomeWindow::new);

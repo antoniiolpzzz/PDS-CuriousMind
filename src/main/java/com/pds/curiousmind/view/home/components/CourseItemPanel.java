@@ -20,14 +20,13 @@ public class CourseItemPanel extends JPanel {
         StyledButton courseBtn = new StyledButton(name, new Color(230, 230, 230), Color.BLACK);
         courseBtn.setIcon(loadIcon(iconPath, 20, 20));
         courseBtn.setPreferredSize(new Dimension(150, 35));
-        courseBtn.setMaximumSize(new Dimension(150, 35)); // para que no se estire si se pone en layouts flexibles
-
-        // Handle click event for the course button
+        courseBtn.setMaximumSize(new Dimension(150, 35));
         courseBtn.addActionListener(e -> onClick.run());
         add(courseBtn);
 
+        //SHARE BUTTON
 
-        // Create the share button with icon
+        //TODO: Implement the functionality to save a couse to Json file
         StyledButton shareBtn = new StyledButton("", Color.WHITE, Color.BLACK);
         shareBtn.setIcon(loadIcon("icons/button/share.png", 18, 18));
         shareBtn.setPreferredSize(new Dimension(35, 35));
@@ -35,12 +34,11 @@ public class CourseItemPanel extends JPanel {
         addHoverEffect(shareBtn);
         add(shareBtn);
 
-
-        // Handle click event for the share button and save course name to file
         shareBtn.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setDialogTitle("Save course name");
-            // TODO: Implement the share functionality to save to Json file of the course
+            // TODO: Implement controller functionality to get the course name and return a Json File
+            // File jsonFile = controller.getJsonFromCourse(name);
             fileChooser.setSelectedFile(new java.io.File(name + ".txt"));
             int userSelection = fileChooser.showSaveDialog(this);
             if (userSelection == JFileChooser.APPROVE_OPTION) {
