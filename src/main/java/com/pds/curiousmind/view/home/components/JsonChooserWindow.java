@@ -1,6 +1,9 @@
 package com.pds.curiousmind.view.home.components;
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +17,11 @@ public class JsonChooserWindow extends JDialog {
 
     private final StyledButton openButton;
     private File selectedJsonFile;
+    private static final Controller controller = Controller.INSTANCE;
 
 
-    public JsonChooserWindow(JFrame parent) {
+
+    public JsonChooserWindow(JFrame parent, User user) {
         super(parent, "Create Course", true);
 
         setLayout(new BorderLayout());
@@ -84,9 +89,11 @@ public class JsonChooserWindow extends JDialog {
 
             } else {
                 try {
-                    //TODO: controller.createCourseFromJson(selectedJsonFile);
+                    controller.createCourseFromJson(selectedJsonFile); //TODO: Check if the course is created successfully
                     JOptionPane.showMessageDialog(null, "Course created successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
                     dispose();
+                    new HomeWindow(user);
+
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error creating course: "+ ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
 
@@ -95,7 +102,10 @@ public class JsonChooserWindow extends JDialog {
             }
         });
         StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
-        cancelButton.addActionListener(e -> dispose());
+        cancelButton.addActionListener(e -> {
+            dispose();
+            new HomeWindow(user);
+        });
         buttonPanel.add(cancelButton);
         buttonPanel.add(Box.createHorizontalStrut(50));
         buttonPanel.add(acceptButton);

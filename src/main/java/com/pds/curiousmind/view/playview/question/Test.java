@@ -1,49 +1,51 @@
-package com.pds.curiousmind.view.playview.question;
 
-            import com.pds.curiousmind.view.common.RoundedPanel;
-            import com.pds.curiousmind.view.common.StyledButton;
+                        package com.pds.curiousmind.view.playview.question;
 
-            import javax.swing.*;
-            import java.awt.*;
-            import java.util.List;
-            import java.util.ArrayList;
+                        import com.pds.curiousmind.model.question.option.Option;
+                        import com.pds.curiousmind.view.common.RoundedPanel;
+                        import com.pds.curiousmind.view.common.StyledButton;
 
-            public class Test extends JFrame {
+                        import javax.swing.*;
+                        import java.awt.*;
+                        import java.util.List;
+                        import java.util.ArrayList;
 
-                public static class TestPanelResult {
-                    public final JPanel panel;
-                    private final String[] selectedOption;
+                        public class Test extends JFrame {
 
-                    public TestPanelResult(JPanel panel, String[] selectedOption) {
-                        this.panel = panel;
-                        this.selectedOption = selectedOption;
-                    }
+                            public static class TestPanelResult {
+                                public final JPanel panel;
+                                private final String[] selectedOption;
 
-                    public String getAnswer() {
-                        return selectedOption[0];
-                    }
-                }
+                                public TestPanelResult(JPanel panel, String[] selectedOption) {
+                                    this.panel = panel;
+                                    this.selectedOption = selectedOption;
+                                }
 
-                public static TestPanelResult createTestPanel(List<String> options) {
-                    JPanel optionsPanel = new JPanel();
-                    optionsPanel.setOpaque(false);
+                                public String getAnswer() {
+                                    return selectedOption[0];
+                                }
+                            }
 
-                    ButtonGroup group = new ButtonGroup();
-                    final String[] selectedOption = {null};
+                            public static TestPanelResult createTestPanel(List<Option> options) {
+                                JPanel optionsPanel = new JPanel();
+                                optionsPanel.setOpaque(false);
 
-                    for (String option : options) {
-                        JToggleButton optionButton = new JToggleButton(option);
-                        optionButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
-                        optionButton.setBackground(new Color(245, 245, 245));
-                        optionButton.setHorizontalAlignment(SwingConstants.LEFT);
-                        optionButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                        optionButton.setPreferredSize(new Dimension(830, 40));
-                        group.add(optionButton);
-                        optionsPanel.add(optionButton);
+                                ButtonGroup group = new ButtonGroup();
+                                final String[] selectedOption = {null};
 
-                        optionButton.addActionListener(e -> selectedOption[0] = option);
-                    }
+                                for (Option option : options) {
+                                    JToggleButton optionButton = new JToggleButton(option.getLabel());
+                                    optionButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
+                                    optionButton.setBackground(new Color(245, 245, 245));
+                                    optionButton.setHorizontalAlignment(SwingConstants.LEFT);
+                                    optionButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                                    optionButton.setPreferredSize(new Dimension(830, 40));
+                                    group.add(optionButton);
+                                    optionsPanel.add(optionButton);
 
-                    return new TestPanelResult(optionsPanel, selectedOption);
-                }
-            }
+                                    optionButton.addActionListener(e -> selectedOption[0] = option.getLabel());
+                                }
+
+                                return new TestPanelResult(optionsPanel, selectedOption);
+                            }
+                        }
