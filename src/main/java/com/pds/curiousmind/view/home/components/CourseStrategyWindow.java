@@ -1,6 +1,8 @@
 package com.pds.curiousmind.view.home.components;
 
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
@@ -13,21 +15,10 @@ import java.util.Map;
 
 public class CourseStrategyWindow extends JDialog {
 
-    // Static map for course descriptions
-    //TODO: Receive real courses with their details
-    private static final Map<String, String> courseDescriptions = new HashMap<>() {{
-        put("German", "Learn basic to advanced German language skills.");
-        put("Modern History", "Explore major events from the 19th and 20th centuries.");
-        put("Java Script", "Master JavaScript for dynamic web development.");
-        put("Languages", "Study different languages around the world.");
-        put("Sciences", "Understand core scientific concepts and discoveries.");
-        put("Grammar", "Improve your grammar and writing skills.");
-        put("Music", "Explore music theory, instruments, and history.");
-        put("Programming", "Learn to code in different programming languages.");
-        put("History", "Dive into historical events and civilizations.");
-    }};
+    private static final Controller controller = Controller.INSTANCE;
 
-    public CourseStrategyWindow(JFrame parent, String courseName, String courseIconPath) { //TODO: Receive a course object
+
+    public CourseStrategyWindow(JFrame parent, Course course) {
         super(parent, "Select Strategy", true);
 
         // Set up window properties and focus behavior
@@ -52,19 +43,18 @@ public class CourseStrategyWindow extends JDialog {
 
         JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         titlePanel.setOpaque(false);
-        //TODO: courseName = course.getName ();
+        String courseName = course.getName ();
         JLabel title = new JLabel(courseName);
         title.setFont(new Font("SansSerif", Font.BOLD, 22));
-        title.setIcon(loadIcon(courseIconPath, 28, 28));
+        title.setIcon(loadIcon(course.getImageURL(), 28, 28));
         titlePanel.add(title);
         mainPanel.add(titlePanel);
 
         mainPanel.add(Box.createVerticalStrut(3));
 
         // Display course description
-        //TODO: description = course.getDescription();
-        String desc = courseDescriptions.getOrDefault(courseName, "Course description not available.");
-        JLabel descriptionArea = new JLabel(desc);
+        String description = course.getDescription();
+        JLabel descriptionArea = new JLabel(description);
         descriptionArea.setAlignmentX(Component.CENTER_ALIGNMENT);
         descriptionArea.setFont(new Font("SansSerif", Font.PLAIN, 13));
         mainPanel.add(descriptionArea);
@@ -100,8 +90,7 @@ public class CourseStrategyWindow extends JDialog {
 
             } else {
                 dispose();
-                //TODO: Controller functionality to handle the selected strategy and create registerCourse
-                // controller.createRegisterCourse(course, selectedStrategy[0]);
+                controller.createRegisteredCourse(course, selectedStrategy[0]);
                 JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             }
         });
