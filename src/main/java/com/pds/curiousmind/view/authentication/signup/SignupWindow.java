@@ -12,9 +12,13 @@ import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class SignupWindow extends JFrame {
-    private JTextField fullNameField, emailField;
-    private JPasswordField passwordField, confirmPasswordField;
-    private JCheckBox showPasswordBox1, showPasswordBox2;
+    private final JTextField fullNameField;
+    private final JTextField emailField;
+    private final JTextField usernameField;
+    private final JPasswordField passwordField;
+    private final JPasswordField confirmPasswordField;
+    private final JCheckBox showPasswordBox1;
+    private final JCheckBox showPasswordBox2;
 
     public SignupWindow() {
         // Configuración de la ventana
@@ -82,6 +86,13 @@ public class SignupWindow extends JFrame {
         rightPanel.add(fullNameField);
         rightPanel.add(Box.createVerticalStrut(15));
 
+        // Campos del formulario
+        usernameField = new JTextField();
+        usernameField.setBorder(BorderFactory.createTitledBorder("Username"));
+        usernameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        rightPanel.add(usernameField);
+        rightPanel.add(Box.createVerticalStrut(15));
+
         emailField = new JTextField();
         emailField.setBorder(BorderFactory.createTitledBorder("Email Address"));
         emailField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
@@ -124,10 +135,10 @@ public class SignupWindow extends JFrame {
         StyledButton createButton = new StyledButton("Create account", Color.BLACK, Color.WHITE);
         createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         createButton.addActionListener(e -> {
-            if (checkFields(fullNameField.getText(), emailField.getText(), passwordField, confirmPasswordField))
+            if (checkFields(fullNameField.getText(), usernameField.getText(), emailField.getText(), passwordField, confirmPasswordField))
             {
                 //TODO: Controller logic to handle signup
-                // if (controller.signup(fullNameField.getText(), emailField.getText(), passwordField.getPassword())) {
+                // if (controller.signup(fullNameField.getText(),usernameField.getText(),emailField.getText(), passwordField.getPassword())) {
                 {
                     dispose();
                     new LoginWindow();
@@ -181,8 +192,8 @@ public class SignupWindow extends JFrame {
     }
 
 
-    public boolean checkFields(String fullName, String email, JPasswordField password, JPasswordField confirmPassword) {
-        if (fullName.isEmpty() || email.isEmpty() || password.getPassword().length == 0 || confirmPassword.getPassword().length == 0) {
+    public boolean checkFields(String fullName, String username, String email, JPasswordField password, JPasswordField confirmPassword) {
+        if (fullName.isEmpty() || username.isEmpty()  || email.isEmpty() || password.getPassword().length == 0 || confirmPassword.getPassword().length == 0) {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             return false;
         }

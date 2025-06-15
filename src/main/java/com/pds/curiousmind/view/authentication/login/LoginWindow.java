@@ -129,9 +129,9 @@ public class LoginWindow extends JFrame {
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             if (checkFields(usernameField.getText(), passwordField)) {
-                // TODO: Validar credenciales
-                dispose();
-                new HomeWindow();
+                //TODO: if (controller.checkFields(usernameField.getText(), passwordField.getPassword())) {
+                    dispose();
+                    new HomeWindow();
             }
         });
         buttonsPanel.add(loginButton);
@@ -157,9 +157,7 @@ public class LoginWindow extends JFrame {
         JPanel centeredButtonsWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         centeredButtonsWrapper.setOpaque(false);
         centeredButtonsWrapper.add(buttonsPanel);
-
-        // Agregar espaciador y luego panel de botones centrado
-        rightPanel.add(Box.createVerticalGlue());  // Empuja hacia abajo
+        rightPanel.add(Box.createVerticalGlue());
         rightPanel.add(centeredButtonsWrapper);
 
 
