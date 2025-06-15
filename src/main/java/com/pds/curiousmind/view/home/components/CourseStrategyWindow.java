@@ -96,12 +96,13 @@ public class CourseStrategyWindow extends JDialog {
 
         acceptButton.addActionListener(e -> {
             if (selectedStrategy[0] == null) {
-                JOptionPane.showMessageDialog(this, "Please, select a strategy.");
+                JOptionPane.showMessageDialog(null, "Please select a strategy.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
             } else {
                 dispose();
                 //TODO: Controller functionality to handle the selected strategy and create registerCourse
                 // controller.createRegisterCourse(course, selectedStrategy[0]);
-                JOptionPane.showMessageDialog(this, "Course registered with strategy: " + selectedStrategy[0]);
+                JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             }
         });
 

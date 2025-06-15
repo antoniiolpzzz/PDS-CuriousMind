@@ -9,6 +9,8 @@ import com.pds.curiousmind.view.common.BackgroundPanel;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
 
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
 public class SignupWindow extends JFrame {
     private JTextField fullNameField, emailField;
     private JPasswordField passwordField, confirmPasswordField;
@@ -88,11 +90,12 @@ public class SignupWindow extends JFrame {
 
         passwordField = new JPasswordField();
         passwordField.setBorder(BorderFactory.createTitledBorder("Password"));
-        passwordField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        Dimension fixedFieldSize = new Dimension(160, 40);
+        passwordField.setMaximumSize(fixedFieldSize);
 
         confirmPasswordField = new JPasswordField();
         confirmPasswordField.setBorder(BorderFactory.createTitledBorder("Confirm Password"));
-        confirmPasswordField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        confirmPasswordField.setMaximumSize(fixedFieldSize);
 
         JPanel passwordPanel = new JPanel(new GridLayout(2, 2, 10, 5));
         passwordPanel.setOpaque(false);
@@ -132,15 +135,6 @@ public class SignupWindow extends JFrame {
 
             }
         });
-        rightPanel.add(createButton);
-
-        // Espaciado y etiqueta "Or"
-        rightPanel.add(Box.createVerticalStrut(15));
-        JLabel orLabel = new JLabel("Or", SwingConstants.CENTER);
-        orLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        orLabel.setForeground(Color.GRAY);
-        rightPanel.add(orLabel);
-        rightPanel.add(Box.createVerticalStrut(15));
 
         // Botón de inicio de sesión
         StyledButton backButton = new StyledButton("Log in", new Color(240, 240, 240), Color.BLACK);
@@ -149,7 +143,38 @@ public class SignupWindow extends JFrame {
             dispose();
             new LoginWindow();
         });
-        rightPanel.add(backButton);
+
+
+        // Panel vertical con botones y "Or"
+        JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.Y_AXIS));
+        buttonsPanel.setOpaque(false);
+
+// Botón crear cuenta
+        createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonsPanel.add(createButton);
+        buttonsPanel.add(Box.createVerticalStrut(15));
+
+// Label "Or"
+        JLabel orLabel = new JLabel("Or", SwingConstants.CENTER);
+        orLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        orLabel.setForeground(Color.GRAY);
+        buttonsPanel.add(orLabel);
+        buttonsPanel.add(Box.createVerticalStrut(15));
+
+// Botón volver al login
+        backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonsPanel.add(backButton);
+
+// Contenedor centrado
+        JPanel centeredButtonsWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        centeredButtonsWrapper.setOpaque(false);
+        centeredButtonsWrapper.add(buttonsPanel);
+
+// Añadir glue para empujar hacia abajo y después los botones
+        rightPanel.add(Box.createVerticalGlue());
+        rightPanel.add(centeredButtonsWrapper);
+
 
         pack();
         setVisible(true);
@@ -158,11 +183,11 @@ public class SignupWindow extends JFrame {
 
     public boolean checkFields(String fullName, String email, JPasswordField password, JPasswordField confirmPassword) {
         if (fullName.isEmpty() || email.isEmpty() || password.getPassword().length == 0 || confirmPassword.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             return false;
         }
         if (!new String(password.getPassword()).equals(new String(confirmPassword.getPassword()))) {
-            JOptionPane.showMessageDialog(this, "Passwords do not match.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Passwords do not match", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             return false;
         }
         return true;

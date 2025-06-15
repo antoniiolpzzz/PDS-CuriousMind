@@ -7,6 +7,7 @@ import com.pds.curiousmind.view.common.StyledButton;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.playview.question.FillTheGaps.createGapSection;
 import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
 import static com.pds.curiousmind.view.playview.question.Test.createTestPanel;
@@ -74,7 +75,8 @@ public class QuestionStructure extends JFrame {
                 rightPanel.add(testPanel);
             }
             case null, default -> {
-                JOptionPane.showMessageDialog(this, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
                 return;
             }
         }
@@ -87,7 +89,8 @@ public class QuestionStructure extends JFrame {
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.addActionListener(e -> {
             //TODO: Handle the submission of the question
-            JOptionPane.showMessageDialog(this, "Test submitted successfully!");
+            JOptionPane.showMessageDialog(null, "Test submitted successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+
         });
         rightPanel.add(submitButton);
 

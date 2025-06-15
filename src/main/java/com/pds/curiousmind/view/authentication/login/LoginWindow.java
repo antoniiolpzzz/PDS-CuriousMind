@@ -11,11 +11,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
 public class LoginWindow extends JFrame {
     private final JTextField usernameField;
     private final JPasswordField passwordField;
     private final JCheckBox showPasswordCheckBox;
 
+    // TODO: look for a robot (mascot)
     public LoginWindow() {
         // Window configuration
         setTitle("CuriousMind - Log in");
@@ -50,13 +53,12 @@ public class LoginWindow extends JFrame {
         welcomeLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
         topBar.add(welcomeLabel, BorderLayout.SOUTH);
 
-        // Right-aligned buttons
         JPanel navButtons = new JPanel();
         navButtons.setOpaque(false);
         navButtons.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 0));
         NavigationBar navBar = new NavigationBar("Log in");
         basePanel.add(navBar, BorderLayout.NORTH);
-        topBar.add(navButtons, BorderLayout.CENTER);
+        topBar.add(navButtons, BorderLayout.WEST);
         basePanel.add(topBar);
 
         // Right panel for the login form
@@ -76,7 +78,14 @@ public class LoginWindow extends JFrame {
         rightWrapper.setPreferredSize(new Dimension(370, 0));
 
         // Login form title
-        JLabel loginTitle = new JLabel("Log in");
+        JLabel loginTitle = new JLabel("Log in", SwingConstants.CENTER);
+        loginTitle.setFont(new Font("SansSerif", Font.BOLD, 24));
+        loginTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        loginTitle.setMaximumSize(new Dimension(Integer.MAX_VALUE, loginTitle.getPreferredSize().height));
+        loginTitle.setHorizontalAlignment(SwingConstants.CENTER);
+
+        rightPanel.add(loginTitle);
+
         loginTitle.setFont(new Font("SansSerif", Font.BOLD, 24));
         loginTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         rightPanel.add(loginTitle);
@@ -95,55 +104,66 @@ public class LoginWindow extends JFrame {
         rightPanel.add(passwordField);
         rightPanel.add(Box.createVerticalStrut(10));
 
-        // Options panel to show password
-        JPanel optionsPanel = new JPanel(new BorderLayout());
-        optionsPanel.setOpaque(false);
         showPasswordCheckBox = new JCheckBox("Show password");
+        showPasswordCheckBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         showPasswordCheckBox.setOpaque(false);
         showPasswordCheckBox.setForeground(Color.GRAY);
         showPasswordCheckBox.addActionListener((ActionEvent e) -> {
             passwordField.setEchoChar(showPasswordCheckBox.isSelected() ? (char) 0 : '\u2022');
         });
-        optionsPanel.add(showPasswordCheckBox, BorderLayout.WEST);
-        rightPanel.add(optionsPanel);
-        rightPanel.add(Box.createVerticalStrut(130));
+        rightPanel.add(showPasswordCheckBox);
+        rightPanel.add(Box.createVerticalGlue());  // Esto empuja lo siguiente hacia abajo
 
-        //Botón de inicio de sesión
+
+
+        // Espaciador que empuja los botones hacia abajo
+        rightPanel.add(Box.createVerticalGlue());
+
+        // Panel vertical para Log in, "Or", Sign up
+        JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.Y_AXIS));
+        buttonsPanel.setOpaque(false);
+
+        // Botón Log in
         StyledButton loginButton = new StyledButton("Log in", Color.BLACK, Color.WHITE);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
-            if (checkFields(usernameField.getText(), passwordField))
-            {
-                //TODO: Controler check if the user exists and the password is correct
-                // if(controler.checkFields(usernameField.getText(),passwordField))
-                {
-                    dispose();
-                    //new HomeWindow(controler.getUser());
-                    new HomeWindow();
-                }
-
+            if (checkFields(usernameField.getText(), passwordField)) {
+                // TODO: Validar credenciales
+                dispose();
+                new HomeWindow();
             }
-
         });
-        rightPanel.add(loginButton);
+        buttonsPanel.add(loginButton);
+        buttonsPanel.add(Box.createVerticalStrut(15));
 
-        // Spacing and "Or" label
-        rightPanel.add(Box.createVerticalStrut(15));
+        // Label "Or"
         JLabel orLabel = new JLabel("Or", SwingConstants.CENTER);
         orLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         orLabel.setForeground(Color.GRAY);
-        rightPanel.add(orLabel);
-        rightPanel.add(Box.createVerticalStrut(15));
+        buttonsPanel.add(orLabel);
+        buttonsPanel.add(Box.createVerticalStrut(15));
 
-        // Sign up button
+        // Botón Sign up
         StyledButton signupButton = new StyledButton("Sign up", new Color(240, 240, 240), Color.BLACK);
         signupButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         signupButton.addActionListener(e -> {
             new SignupWindow();
             dispose();
         });
-        rightPanel.add(signupButton);
+        buttonsPanel.add(signupButton);
+
+        // Contenedor centrado
+        JPanel centeredButtonsWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        centeredButtonsWrapper.setOpaque(false);
+        centeredButtonsWrapper.add(buttonsPanel);
+
+        // Agregar espaciador y luego panel de botones centrado
+        rightPanel.add(Box.createVerticalGlue());  // Empuja hacia abajo
+        rightPanel.add(centeredButtonsWrapper);
+
+
+
 
         pack();
         setVisible(true);
@@ -151,7 +171,7 @@ public class LoginWindow extends JFrame {
 
     public boolean checkFields(String username, JPasswordField password) {
         if (username.isEmpty() || password.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             return false;
         }
         return true;
