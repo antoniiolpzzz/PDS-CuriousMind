@@ -20,9 +20,9 @@ public enum Controller {
     // GLOBAL VARIABLES
 
     private User currentUser;
-    GameManager gameManager = GameManager.INSTANCE;
-    private CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
-    private UserLibrary userLibrary = UserLibrary.INSTANCE;
+    private final GameManager gameManager = GameManager.INSTANCE;
+    private final CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
+    private final UserLibrary userLibrary = UserLibrary.INSTANCE;
 
 
 
