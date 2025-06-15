@@ -26,7 +26,7 @@ public class CourseItemPanel extends JPanel {
 
         //SHARE BUTTON
 
-        //TODO: Implement the functionality to save a couse to Json file
+        //TODO: Implement the functionality to save a course to Json file
         StyledButton shareBtn = new StyledButton("", Color.WHITE, Color.BLACK);
         shareBtn.setIcon(loadIcon("icons/button/share.png", 18, 18));
         shareBtn.setPreferredSize(new Dimension(35, 35));

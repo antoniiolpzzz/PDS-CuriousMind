@@ -10,6 +10,7 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class BackgroundComponent {
 
+    // TODO: This function should receive user, course and a parent frame to dispose it correctly.
     public static JPanel createBackground(JFrame parentFrame, String title, String iconPath, String type) {
 
         JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");

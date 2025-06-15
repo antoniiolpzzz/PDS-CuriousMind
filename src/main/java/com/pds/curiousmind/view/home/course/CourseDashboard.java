@@ -17,7 +17,7 @@ import static com.pds.curiousmind.view.home.course.components.ContentBlockRow.cr
 
 public class CourseDashboard extends JFrame {
 
-    //TODO: This should receive Course course
+    //TODO: This should receive RegisteredCourse course
     public CourseDashboard(String title, String iconPath) {
         setTitle("CuriousMind - Course Dashboard");
         setMinimumSize(new Dimension(1300, 650));
@@ -47,7 +47,10 @@ public class CourseDashboard extends JFrame {
         headerPanel.setOpaque(false);
         headerPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 10, 30));
 
-        // Header
+        // HEADER SECTION
+
+        //TODO: JLabel homeTitle = new JLabel(course.getName());
+        // String iconPath = course.getImageURL();
         JLabel homeTitle = new JLabel(title);
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
@@ -74,7 +77,8 @@ public class CourseDashboard extends JFrame {
         scrollContent.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
 
         //TODO: controller get the content blocks from the course
-        // contentNames = controller.getContentBlocks(courseId); ????? or contentNames = course.getContentBlocks();
+        // contenblocks = course.getContentBlocks();
+        // contentNames = contenblocks.stream().map(ContentBlock::getName).toList();
 
         java.util.List<String> contentNames = java.util.Arrays.asList(
                 "Basic words",

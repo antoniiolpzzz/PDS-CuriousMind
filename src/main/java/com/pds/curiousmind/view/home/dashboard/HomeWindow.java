@@ -99,7 +99,7 @@ public class HomeWindow extends JFrame {
         // YOUR COURSES SECTION
 
         //TODO: Controller has to recuperate the registered courses from the user
-        // myCourses = controller.getRegisteredCourses(user.getId());
+        // myCourses = controller.getRegisteredCourses(user);
         // JPanel rowMyCourses = createCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel rowMyCourses = createCourseRowSection(this, Arrays.asList(

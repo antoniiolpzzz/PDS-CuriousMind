@@ -72,7 +72,7 @@ public class UserWindow extends JFrame {
 
         // COURSES SECTION
         //TODO: Controller has to recuperate the registered courses from the user
-        // myCourses = controller.getRegisteredCourses(this, user);
+        // myCourses = controller.getRegisteredCourses(user);
         // JPanel rowMyCourses = createCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
         JPanel coursePanel = createCourseRowSection(this, Arrays.asList(
@@ -93,6 +93,7 @@ public class UserWindow extends JFrame {
 
         //TODO: Get the stats from the user
         // Stat stats = controller.getUserStats(user);
+
 
         rightPanel.add(sectionTitle("Your stats"));
         rightPanel.add(Box.createVerticalStrut(10));
@@ -124,7 +125,7 @@ public class UserWindow extends JFrame {
     }
 
     private int getProgressForCourse(String courseName) {
-        //TODO: Recuperate the course progress from the database ---> course.getProgress();
+        //TODO: Recuperate the course progress course.getProgress();
         return switch (courseName) {
             case "German" -> 30;
             case "Modern History" -> 80;

@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class ContentBlockRow {
 
-    // TODO: Receive Content Blocks list contentBlocks
+    // TODO: Receive a RegisteredContentBlock list contentBlocks
     public static JPanel createContentColumnSection(java.util.List<String> contentNames) {
         Set<String> completedBlocks = new HashSet<>(Arrays.asList(
                 "Basic words", "Basic sentences", "Introduce yourself"

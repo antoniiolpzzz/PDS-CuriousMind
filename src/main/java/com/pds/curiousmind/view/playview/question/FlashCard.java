@@ -26,7 +26,3 @@ public class FlashCard extends JFrame {
         }
 
     }
-
-
-//Show the options
-

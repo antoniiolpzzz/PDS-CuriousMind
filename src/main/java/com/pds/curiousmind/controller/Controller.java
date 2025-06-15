@@ -70,24 +70,16 @@ public class Controller {
 
     public List<RegisteredCourse> getRegisteredCourses(User user) {
 
-        List<RegisteredCourse> registeredCourses = null;
-
-        user.getRegisteredCourses().forEach(registeredCourse -> {
-            registeredCourses.add(registeredCourse);
-        });
-
-        return registeredCourses;
+        return user.getRegisteredCourses();
     }
 
     //GET ALL COURSES IN THE DATABASE
 
     public List<Course> getAllCourses() {
 
-        List<Course> courses = null;
-
         //List<Course> courses = courselibrary.getAll();
 
-        return courses;
+        return null;
     }
 
     // CREATE A JSON FILE FROM A COURSE
