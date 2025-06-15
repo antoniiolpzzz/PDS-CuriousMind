@@ -15,7 +15,7 @@ public class AdapterProviderJPA extends AdapterProvider {
 
     private final EntityManagerFactory entityManagerFactory;
 
-    private AdapterProviderJPA() {
+    protected AdapterProviderJPA() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         CourseAdapterJPA.INSTANCE.setEntityManagerFactory(entityManagerFactory);
         UserAdapterJPA.INSTANCE.setEntityManagerFactory(entityManagerFactory);
