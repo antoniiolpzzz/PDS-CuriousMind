@@ -126,7 +126,7 @@ Para compartir un curso, CuriousMind te da la posibilidad de guardar un archivo 
 en tu explorador de archivos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente) o la ventana de Información de Usuario.
-2. Pulsa el botón  <img src="images/share.png" width="20"/> que se encuentra a la derecha de cada botón de curso.  
+2. Pulsa el botón  <img src="Images/share.png" width="10"/> que se encuentra a la derecha de cada botón de curso.  
    📸 *---imagen del botón---*
 
 3. Se abrirá una ventana con tu explorador de archivos y podrás guardar en fichero con el curso.  
