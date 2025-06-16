@@ -39,7 +39,7 @@ public class CourseItemPanel extends JPanel {
         //SHARE BUTTON
 
         StyledButton shareBtn = new StyledButton("", Color.WHITE, Color.BLACK);
-        shareBtn.setIcon(loadIcon("icons/button/share.png", 18, 18));
+        shareBtn.setIcon(loadIcon(ICON_SHARE, 18, 18));
         shareBtn.setPreferredSize(new Dimension(35, 35));
         shareBtn.setFocusPainted(false);
         addHoverEffect(shareBtn);
@@ -77,7 +77,7 @@ public class CourseItemPanel extends JPanel {
                             "Error al guardar el archivo: " + ex.getMessage(),
                             "Error",
                             JOptionPane.ERROR_MESSAGE,
-                            loadIcon("icons/pet/enfadado.png", 60, 60)
+                            loadIcon(ICON_ANGRY, 60, 60)
                     );
                 }
             }
