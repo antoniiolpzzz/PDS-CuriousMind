@@ -70,7 +70,6 @@ Como se observa en la imagen, esta ventana incluye además botones "extra" a mod
 
 
 
-
 ---
 
 ### 2. Registro de usuario (Signup)
@@ -87,46 +86,110 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
 
    - Sign Up: Este botón indica que nos encontramos en la ventana Sign Up.
 
----
 
-### 3. Página principal (Home)
-
-- Visualiza los cursos disponibles.
-- Accede a tus cursos inscritos.
-- Botón para **crear un nuevo curso**.
-
-📸 *[Captura de la pantalla principal]*
 
 ---
 
-### 4. Vista de curso
+### 3.  Ventana Menu Principal (Home)
 
-- Muestra los bloques de contenido del curso.
-- Puedes avanzar bloque a bloque.
+La pantalla Home actúa como el menú principal de la aplicación, desde donde el usuario puede acceder a las diferentes secciones.
 
-📸 *[Captura del curso en ejecución]*
+En esta ventana se incluyen los siguientes elementos principales:
+- El nombre de la aplicación **CuriousMind** en la parte superior izquierda.
+- Botones destacados en la parte central con acceso directo a:
+  - Profile
+  - Courses
+  - Settings
+  - Exit
 
----
+Estos botones están acompañados de iconos visuales que facilitan la navegación. El botón Logout <img src="Images/logout.png" width="10"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
-### 5. Bloques de contenido y preguntas
-
-- Lee el contenido del bloque.
-- Contesta preguntas tipo test para avanzar.
-
-📸 *[Ejemplo de una pregunta]*
-
----
-
-### 6. Perfil y estadísticas
-
-- Consulta tu progreso por curso.
-- Visualiza número de preguntas acertadas, cursos completados, etc.
-
-📸 *[Captura de la vista de perfil]*
+📸 Ventana Home
 
 ---
 
-## Cómo crear una cuenta
+### 4. Ventana Información de Usuario (UserWindow)
+
+La pantalla Profile muestra la vista de usuario una vez iniciada sesión. Se presenta una bienvenida personalizada con el nombre del usuario (por ejemplo, "Hello Javi44!") junto con el nivel actual del usuario, visible en la parte superior derecha (LEVEL: 0).
+
+En esta ventana se divide la información en dos secciones principales:
+
+**1. Your courses:**  
+Aquí se muestran los cursos en los que el usuario está inscrito. En el ejemplo, se presenta el curso de **Alemán (German)** con su respectiva bandera. Incluye también una barra de progreso visual que indica el avance en dicho curso.
+
+**2. Your stats:**  
+Estadísticas del uso de la aplicación, distribuidas en cuatro métricas clave:
+- 🏆 Best streak: racha de uso más larga (en días).
+- 📅 Days of use: número total de días en los que se ha utilizado la app.
+- ✅ Completed courses: cantidad de cursos terminados por el usuario.
+- ⏱ Time of use: tiempo total de uso acumulado.
+
+Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home**.
+
+📸 Ventana Profile
+
+
+
+### 5.  Ventana Pregunta de Traducción (Translate)
+
+Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado (en este caso, Alemán). Está diseñada para evaluar la comprensión del idioma mediante la traducción de frases.
+
+Elementos principales:
+
+- En la parte superior aparece el idioma actual (German), acompañado de la bandera correspondiente 🇩🇪.
+- Sección temática: muestra el tema que se está trabajando, en este caso **Food Vocabulary**.
+- Instrucción del ejercicio: "Translate to English".
+- Frase en español a traducir: **"El perro es azul"**.
+- Zona de respuesta: área donde el usuario debe construir la frase correcta en inglés seleccionando palabras entre múltiples opciones. Algunas son útiles (is, blue, dog), otras son distractores (iron, pencil, cat…).
+- Botón **Submit** al final para comprobar si la respuesta es correcta.
+
+En la parte inferior izquierda también se encuentra el botón **Exit**, que permite salir del ejercicio.
+
+📸 Ventana Translate to English
+
+### 6.  Ventana Pregunta de Rellenar Huecos (FillTheGap)
+
+Esta pantalla pertenece a una de las actividades interactivas del curso de idiomas seleccionado (en este caso, Alemán 🇩🇪), dentro del tema **Food Vocabulary**. El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
+
+Elementos principales de la interfaz:
+
+- En la parte superior se muestra claramente el idioma del curso activo (**German**) junto a su bandera.
+- Se indica el tipo de ejercicio con la instrucción: **"Complete the sentence"**.
+- A continuación aparece la frase incompleta:  
+  **"The ___ is the satellite of the Earth."**
+- Debajo se encuentra una caja de texto vacía donde el usuario debe escribir la palabra que falta (en este caso, "moon").
+- Al final del ejercicio hay un botón **Submit** que el usuario pulsa para enviar su respuesta y verificar si es correcta.
+
+Como es habitual, en la parte inferior izquierda está disponible el botón **Exit**, que permite abandonar el ejercicio actual y volver al menú.
+
+📸 Ventana Complete the sentence
+
+### 7.  Ventana Pregunta de Selección (FlashCard)
+
+Esta ventana forma parte de las actividades interactivas del módulo de vocabulario del idioma activo (en este caso, Alemán 🇩🇪), dentro del tema **Food Vocabulary**. El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
+
+Elementos destacados:
+
+- En la parte superior se muestra el idioma seleccionado (**German**) con su respectiva bandera, además del nombre del tema ("Food Vocabulary").
+- Se indica la instrucción del ejercicio: **"Choose the correct answer:"**, seguida de la pregunta:  
+  **"Where is the onion?"**
+- Debajo aparecen tres imágenes correspondientes a distintas palabras del vocabulario:
+  - 🍎 Apfel (manzana)
+  - 🥕 Karotte (zanahoria)
+  - 🧅 Zwiebel (cebolla)
+- El usuario debe seleccionar la imagen que representa la palabra correcta (en este caso, "Zwiebel" para cebolla).
+- Tras la selección, se pulsa el botón **Submit** para validar la respuesta y continuar.
+
+En la parte inferior izquierda se mantiene visible el botón **Exit**, que permite salir del ejercicio en cualquier momento.
+
+📸 Ventana Choose the correct answer
+
+### 8.  Ventana Pregunta tipo Test (Test)
+
+
+## Funcionalidad de la Aplicación
+
+### 1. Cómo crear una cuenta
 
 Para registrarte en CuriousMind y comenzar a utilizar la aplicación, sigue estos pasos:
 
@@ -145,7 +208,7 @@ Una vez completado el registro, serás redirigido automáticamente a la pantalla
 
 ---
 
-## Cómo iniciar sesión
+### 2. Cómo Iniciar Sesión
 
 Para acceder a tu cuenta en CuriousMind, sigue estos pasos:
 
@@ -164,7 +227,7 @@ Una vez iniciado sesión correctamente, accederás a la ventana **Home**, donde 
 ---
 
 
-## Cómo crear un curso
+### 3. Cómo crear un curso
 
 Para crear un curso, CuriousMind te da la posibilidad de importar un archivo `.json` (con el curso en cuestión)  
 desde tu explorador de archivos. Para ello:
@@ -184,7 +247,7 @@ Una vez completados estos pasos, la aplicación creará el nuevo curso y lo most
 
 ---
 
-## Cómo compartir un curso
+### 4. Cómo compartir un curso
 
 Para compartir un curso, CuriousMind te da la posibilidad de guardar un archivo `.json` (con el curso en cuestión)  
 en tu explorador de archivos. Para ello:
@@ -201,7 +264,7 @@ Una vez completados estos pasos, el curso estará guardado en tu sistema local y
 
 ---
 
-## Cómo inscribirse en un curso
+### 5. Cómo inscribirse en un curso
 
 Para incribirte en un curso al que no te has inscrito ya, CuriousMind te da la posibilidad de elegir entre los cursos  
 ya creados en la aplicación y participar en ellos. Para ello:
