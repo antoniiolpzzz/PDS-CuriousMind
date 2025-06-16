@@ -22,10 +22,10 @@ public class ImageButton {
 
         if(isCard){
              button = new JButton(loadIcon(iconPath, 180, 180));
-            label.setFont(new Font("SansSerif", Font.PLAIN, 25));
+            label.setFont(new Font(FONT_NAME, Font.PLAIN, 25));
         } else {
              button = new JButton(loadIcon(iconPath, 70, 70));
-            label.setFont(new Font("SansSerif", Font.PLAIN, 12));
+            label.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
         }
         button.setFocusPainted(false);
         button.setBackground(Color.WHITE);
