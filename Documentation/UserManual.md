@@ -100,14 +100,68 @@ Brief description of the purpose of the app and what users can do with it.
 
 ---
 
-## How to Create a Course
 
-1. On the home screen, click **“Create course”**.
-2. Enter the course name, description, and content blocks.
-3. Optionally, add questions to each block.
-4. Save the course and share it with other users.
+
+## Cómo crear un curso
+
+Para crear un curso, CuriousMind te da la posibilidad de importar un archivo `.json` (con el curso en cuestión)  
+desde tu explorador de archivos. Para ello:
+
+1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).
+2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Crear Tu Curso"*.  
+   📸 *---imagen del botón---*
+
+3. Se abrirá una ventana como la siguiente:  
+   📸 *---imagen de la ventana windowchooser---*
+
+4. Añade el archivo `.json` y pulsa **Aceptar**.
+
+Una vez completados estos pasos, la aplicación creará el nuevo curso y lo mostrará en la sección *"Nuevo Curso"*.
 
 ---
+
+## Cómo compartir un curso
+
+Para compartir un curso, CuriousMind te da la posibilidad de guardar un archivo `.json` (con el curso en cuestión)  
+en tu explorador de archivos. Para ello:
+
+1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente) o la ventana de Información de Usuario.
+2. Pulsa el botón  <img src="images/share.png" width="20"/> que se encuentra a la derecha de cada botón de curso.  
+   📸 *---imagen del botón---*
+
+3. Se abrirá una ventana con tu explorador de archivos y podrás guardar en fichero con el curso.  
+
+4. Elige la carpeta destino y pulsa **Guardar**.
+
+Una vez completados estos pasos, el curso estará guardado en tu sistema local y podrás compartirlo a otros usuarios.
+
+---
+
+## Cómo inscribirse en un curso
+
+Para incribirte en un curso al que no te has inscrito ya, CuriousMind te da la posibilidad de elegir entre los cursos  
+ya creados en la aplicación y participar en ellos. Para ello:
+
+1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).
+2. Pulsa el botón en cualquiera de los botones de cursos que se encuentran en la sección *"Nuevo Curso"*.  
+   📸 *---imagen del botón---*
+
+3. Se abrirá una ventana como la siguiente en la cual debemos escoger la estrategia que queremos seguir en el curso:  
+   📸 *---imagen de la strategywindow---*
+
+   Las estrategias sirven para personalizar la forma de aparición de las preguntas, entre ellas tenemos:
+   - Secuencial: donde las preguntas aparecen en orden normal una detrás de otra.
+   - Aleatorio: las preguntas aparecen desordenadas cada vez que entras a los bloques de contenidos del curso.
+   - Repetición Espaciada: cada 3 preguntas, la primera de esas tres se repite para afianzar los conocimientos.
+
+4. Una vez elegida la estrategia, pulsa el botón **Aceptar** y serás redirigido a la ventana de Home.
+
+Una vez completados estos pasos, el curso estará accesible en la sección *"Mis Cursos"* tanto en la ventana Home como en la ventana de Usuario.
+
+
+4. Una vez elegida la estrategia, pulsa el botón **Aceptar** y serás redirigido a la ventana de Home.
+
+Una vez completados estos pasos, el curso estará accesible en la sección *"Mis Cursos"* tanto en la ventana Home como en la ventana de Usuario. 
 
 ## Frequently Asked Questions
 
