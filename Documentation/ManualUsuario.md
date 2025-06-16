@@ -87,32 +87,35 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
    - Sign Up: Este botón indica que nos encontramos en la ventana Sign Up.
 
 
-
 ---
 
 ### 3.  Ventana Menu Principal (Home)
 
-La pantalla Home actúa como el menú principal de la aplicación, esta ventana esta dividida en tres secciones principales:
+La pantalla *Home* actúa como el menú principal de la aplicación, esta ventana esta dividida en tres secciones principales:
 
 - *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos.
 - *New Course*: Donde se encuentran todos los cursos de la aplicación y tenemos la posibilidad de compartirlos e inscribirnos en ellos.
+- 👉 Para más detalles, consulta [Cómo crear un curso](#3-Cómo-Compartir-un-Curso).
 - *Create New Course*: Este apartado te permite crear un curso a partir de la importación del mismo.
-  👉 Para más detalles, consulta [Cómo crear un curso](#3-cómo-crear-un-curso).
+  👉 Para más detalles, consulta [Cómo crear un curso](#3-Cómo-Crear-un-Curso).
 
-Estos botones están acompañados de iconos visuales que facilitan la navegación. El botón Logout <img src="Images/logout.png" width="10"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
+  📸 Ventana Home ![Home screen](Images/home.png)
 
-📸 Ventana Home
+Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario* explicada en el apartado siguiente.
+El botón *Logout* <img src="Images/logout.png" width="10"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
+
+  📸 Ventana Home Botón de User ![Home screen](Images/homeUserBotton.png)
 
 ---
 
 ### 4. Ventana Información de Usuario (UserWindow)
 
-La pantalla Profile muestra la vista de usuario una vez iniciada sesión. Se presenta una bienvenida personalizada con el nombre del usuario (por ejemplo, "Hello Javi44!") junto con el nivel actual del usuario, visible en la parte superior derecha (LEVEL: 0).
+La pantalla de *UserWindow* muestra información de usuario una vez iniciada sesión. Se presenta una bienvenida personalizada con el nombre del usuario junto con el nivel actual del usuario.
 
 En esta ventana se divide la información en dos secciones principales:
 
 **1. Your courses:**  
-Aquí se muestran los cursos en los que el usuario está inscrito. En el ejemplo, se presenta el curso de **Alemán (German)** con su respectiva bandera. Incluye también una barra de progreso visual que indica el avance en dicho curso.
+Aquí se muestran los cursos en los que el usuario está inscrito. Incluye también una barra de progreso visual que indica el avance en dicho curso.
 
 **2. Your stats:**  
 Estadísticas del uso de la aplicación, distribuidas en cuatro métricas clave:
@@ -121,7 +124,7 @@ Estadísticas del uso de la aplicación, distribuidas en cuatro métricas clave:
 - ✅ Completed courses: cantidad de cursos terminados por el usuario.
 - ⏱ Time of use: tiempo total de uso acumulado.
 
-Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home**.
+Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="10"/>.
 
 📸 Ventana Profile
 
