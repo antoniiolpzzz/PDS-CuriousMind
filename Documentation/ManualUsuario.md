@@ -51,7 +51,7 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 - Introduce tu correo y contraseña.
 - Pulsa en **"Iniciar sesión"** para acceder.
 
-📸 
+📸 ![Login screen](/images/login.png)
 
 ---
 
