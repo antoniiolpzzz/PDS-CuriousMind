@@ -5,6 +5,7 @@ import com.pds.curiousmind.model.question.option.Option;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 
@@ -30,6 +31,7 @@ public class Translation {
     }
 
     public static TranslationSectionResult createTranslationSection(List<Option> options) {
+
         JPanel translationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 30, 0));
         translationPanel.setOpaque(false);
 
@@ -45,8 +47,12 @@ public class Translation {
 
         translationPanel.add(scrollPane);
 
-        // Obtener los labels de las opciones recibidas
-        List<String> wordOptions = options.stream()
+        List<Option> shuffledOptions = new ArrayList<>(options);
+        Collections.shuffle(shuffledOptions);
+
+        // Resto del código igual, pero usa shuffledOptions en vez de options
+        // ...
+        List<String> wordOptions = shuffledOptions.stream()
                 .map(Option::getLabel)
                 .toList();
 
