@@ -92,15 +92,12 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
 
 ### 3.  Ventana Menu Principal (Home)
 
-La pantalla Home actúa como el menú principal de la aplicación, desde donde el usuario puede acceder a las diferentes secciones.
+La pantalla Home actúa como el menú principal de la aplicación, esta ventana esta dividida en tres secciones principales:
 
-En esta ventana se incluyen los siguientes elementos principales:
-- El nombre de la aplicación **CuriousMind** en la parte superior izquierda.
-- Botones destacados en la parte central con acceso directo a:
-  - Profile
-  - Courses
-  - Settings
-  - Exit
+- *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos.
+- *New Course*: Donde se encuentran todos los cursos de la aplicación y tenemos la posibilidad de compartirlos e inscribirnos en ellos.
+- *Create New Course*: Este apartado te permite crear un curso a partir de la importación del mismo.
+  👉 Para más detalles, consulta [Cómo crear un curso](#3-cómo-crear-un-curso).
 
 Estos botones están acompañados de iconos visuales que facilitan la navegación. El botón Logout <img src="Images/logout.png" width="10"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
