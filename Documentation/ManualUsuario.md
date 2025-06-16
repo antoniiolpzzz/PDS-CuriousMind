@@ -8,11 +8,20 @@
 4. [Pantallas principales](#pantallas-principales)
    - [1. Pantalla de Inicio de sesión (Login)](#1-pantalla-de-inicio-de-sesión-login)
    - [2. Registro de usuario (Signup)](#2-registro-de-usuario-signup)
-   - [3. Página principal (Home)](#3-página-principal-home)
-   - [4. Vista de curso](#4-vista-de-curso)
-   - [5. Bloques de contenido y preguntas](#5-bloques-de-contenido-y-preguntas)
-   - [6. Perfil y estadísticas](#6-perfil-y-estadísticas)
-5. [Cómo crear un curso](#cómo-crear-un-curso)
+   - [3. Ventana Menu Principal (Home)](#3--ventana-menu-principal-home)
+   - [4. Ventana Información de Usuario (UserWindow)](#4-ventana-información-de-usuario-userwindow)
+   - [5. Ventana Principal del Curso (CourseDashboard)](#5-ventana-principal-del-curso-coursedashboard)
+   - [6. Ventana Pregunta de Traducción (Translate)](#6--ventana-pregunta-de-traducción-translate)
+   - [7. Ventana Pregunta de Rellenar Huecos (FillTheGap)](#7--ventana-pregunta-de-rellenar-huecos-fillthegap)
+   - [8. Ventana Pregunta de Selección (FlashCard)](#8--ventana-pregunta-de-selección-flashcard)
+   - [9. Ventana Pregunta tipo Test (Test)](#9--ventana-pregunta-tipo-test-test)
+5. [Funcionalidad de la Aplicación](#funcionalidad-de-la-aplicación)
+   - [1. Cómo crear una cuenta](#1-cómo-crear-una-cuenta)
+   - [2. Cómo Iniciar Sesión](#2-cómo-iniciar-sesión)
+   - [3. Cómo crear un curso](#3-cómo-crear-un-curso)
+   - [4. Cómo compartir un curso](#4-cómo-compartir-un-curso)
+   - [5. Cómo inscribirse en un curso](#5-cómo-inscribirse-en-un-curso)
+   - [6. Cómo completar un curso](#6-cómo-completar-un-curso)
 6. [Preguntas frecuentes](#preguntas-frecuentes)
 7. [Contacto y soporte](#contacto-y-soporte)
 
@@ -102,7 +111,7 @@ La pantalla *Home* actúa como el menú principal de la aplicación, esta ventan
   📸 Ventana Home ![Home screen](Images/home.png)
 
 Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario* explicada en el apartado siguiente.
-El botón *Logout* <img src="Images/logout.png" width="10"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
+El botón *Logout* <img src="Images/logout.png" width="15"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
   📸 Ventana Home Botón de User ![Home screen](Images/homeUserBotton.png)
 
@@ -124,68 +133,134 @@ Estadísticas del uso de la aplicación, distribuidas en cuatro métricas clave:
 - ✅ Completed courses: cantidad de cursos terminados por el usuario.
 - ⏱ Time of use: tiempo total de uso acumulado.
 
-Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="10"/>.
+Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="15" height="15"/>.
 
-📸 Ventana Profile
+  📸 Ventana Información de Usuario ![UserWindow screen](Images/userWindow.png)
 
+---
 
+### 5. Ventana Principal del Curso (CourseDashboard)
 
-### 5.  Ventana Pregunta de Traducción (Translate)
+La pantalla principal de cada curso tiene una cabecera con el título y la imagen del mismo así como la lista de sus bloques de contenidos.
+Cabe destacar que encontraremos de color verde los bloques de contenidos del curso que ya hayan sido completados por el usuario.
+Esta diferenciación de color mencionada con anterioridad se debe a que el usuario no puede repetir un bloque de contenidos que ya ha sido completado.
 
-Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado (en este caso, Alemán). Está diseñada para evaluar la comprensión del idioma mediante la traducción de frases.
+📸 Ventana Home del Curso ![CourseDashboard screen](Images/CourseDashboard.png)
+
+Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="15" height="15"/>.
+
+---
+
+### 6.  Ventana Pregunta de Traducción (Translate)
+
+Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es que el usuario traduzca una frase con palabras dadas como opciones.
+
+📸 Ventana Pregunta Traducción ![Translate screen](Images/translate.png)
 
 Elementos principales:
 
-- En la parte superior aparece el idioma actual (German), acompañado de la bandera correspondiente 🇩🇪.
-- Sección temática: muestra el tema que se está trabajando, en este caso **Food Vocabulary**.
-- Instrucción del ejercicio: "Translate to English".
-- Frase en español a traducir: **"El perro es azul"**.
-- Zona de respuesta: área donde el usuario debe construir la frase correcta en inglés seleccionando palabras entre múltiples opciones. Algunas son útiles (is, blue, dog), otras son distractores (iron, pencil, cat…).
-- Botón **Submit** al final para comprobar si la respuesta es correcta.
+- En la parte superior aparece el idioma actual (German), acompañado de la bandera correspondiente.
+- Sección temática: muestra el tema que se está trabajando, es decir, el nombre del bloque de contenidos seleccionado.
+- Enunciado e indicación de lo que hay que hacer.
+- Zona de respuesta: área donde el usuario debe construir la frase correcta en seleccionando palabras entre múltiples opciones.
 
-En la parte inferior izquierda también se encuentra el botón **Exit**, que permite salir del ejercicio.
+   📸 Ventana Pregunta Traducción ![Translate screen](Images/translateAnswer.png)
+  
+- Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
-📸 Ventana Translate to English
+📸 Ventanas Fallo y Acierto
+<p align="center">
+  <img src="Images/failTranslate.png" width="400"/>
+  <img src="Images/correctTranslate.png" width="400"/>
+</p>
 
-### 6.  Ventana Pregunta de Rellenar Huecos (FillTheGap)
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
-Esta pantalla pertenece a una de las actividades interactivas del curso de idiomas seleccionado (en este caso, Alemán 🇩🇪), dentro del tema **Food Vocabulary**. El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
+---
+
+### 7.  Ventana Pregunta de Rellenar Huecos (FillTheGap)
+
+Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
+
+📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/FillTheGap.png)
 
 Elementos principales de la interfaz:
 
-- En la parte superior se muestra claramente el idioma del curso activo (**German**) junto a su bandera.
-- Se indica el tipo de ejercicio con la instrucción: **"Complete the sentence"**.
-- A continuación aparece la frase incompleta:  
-  **"The ___ is the satellite of the Earth."**
-- Debajo se encuentra una caja de texto vacía donde el usuario debe escribir la palabra que falta (en este caso, "moon").
-- Al final del ejercicio hay un botón **Submit** que el usuario pulsa para enviar su respuesta y verificar si es correcta.
+- En la parte superior aparece el idioma actual (German), acompañado de la bandera correspondiente.
+- Sección temática: muestra el tema que se está trabajando, es decir, el nombre del bloque de contenidos seleccionado.
+- Enunciado e indicación de lo que hay que hacer.
+- Debajo se encuentra una caja de texto vacía donde el usuario debe escribir la palabra que falta.
 
-Como es habitual, en la parte inferior izquierda está disponible el botón **Exit**, que permite abandonar el ejercicio actual y volver al menú.
+  📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/FillTheGapAnswer.png)
 
-📸 Ventana Complete the sentence
+- Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
-### 7.  Ventana Pregunta de Selección (FlashCard)
 
-Esta ventana forma parte de las actividades interactivas del módulo de vocabulario del idioma activo (en este caso, Alemán 🇩🇪), dentro del tema **Food Vocabulary**. El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
+
+📸 Ventanas Fallo y Acierto
+<p align="center">
+  <img src="Images/failFill.png" width="400"/>
+  <img src="Images/correctFill.png" width="400"/>
+</p>
+
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
+
+---
+
+### 8.  Ventana Pregunta de Selección (FlashCard)
+
+Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
+
+📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/Flashcard.png)
 
 Elementos destacados:
 
-- En la parte superior se muestra el idioma seleccionado (**German**) con su respectiva bandera, además del nombre del tema ("Food Vocabulary").
-- Se indica la instrucción del ejercicio: **"Choose the correct answer:"**, seguida de la pregunta:  
-  **"Where is the onion?"**
-- Debajo aparecen tres imágenes correspondientes a distintas palabras del vocabulario:
-  - 🍎 Apfel (manzana)
-  - 🥕 Karotte (zanahoria)
-  - 🧅 Zwiebel (cebolla)
-- El usuario debe seleccionar la imagen que representa la palabra correcta (en este caso, "Zwiebel" para cebolla).
-- Tras la selección, se pulsa el botón **Submit** para validar la respuesta y continuar.
+- En la parte superior aparece el idioma actual (German), acompañado de la bandera correspondiente.
+- Sección temática: muestra el tema que se está trabajando, es decir, el nombre del bloque de contenidos seleccionado.
+- Enunciado e indicación de lo que hay que hacer.
+- Debajo aparecen tres imágenes correspondientes con sus correspondientes nombres.
+- El usuario debe seleccionar la imagen que representa la palabra correcta.
 
-En la parte inferior izquierda se mantiene visible el botón **Exit**, que permite salir del ejercicio en cualquier momento.
+  📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/FlashcardAnswer.png)
+  
+- Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
-📸 Ventana Choose the correct answer
+📸 Ventanas Fallo y Acierto
+<p align="center">
+  <img src="Images/failFlashCard.png" width="400"/>
+  <img src="Images/correctFlashCard.png" width="400"/>
+</p>
 
-### 8.  Ventana Pregunta tipo Test (Test)
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
+---
+
+### 9.  Ventana Pregunta tipo Test (Test)
+
+Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es que el usuario responda una pregunta tipo test seleccionando la opción correcta.
+
+📸 Ventana Pregunta Test ![Test screen](Images/Test.png)
+
+Elementos destacados:
+
+- En la parte superior aparece el idioma actual (German), acompañado de la bandera correspondiente.
+- Sección temática: muestra el tema que se está trabajando, es decir, el nombre del bloque de contenidos seleccionado.
+- Enunciado e indicación de lo que hay que hacer.
+- Debajo aparecen las opciones de respuesta de entre las cuales el usuario debe seleccionar la respuesta correcta.
+
+📸 Ventana Pregunta Test ![Test screen](Images/TestAnswer.png)
+  
+- Botón **Submit** al final para comprobar si la respuesta es correcta o no.
+
+📸 Ventanas Fallo y Acierto
+<p align="center">
+  <img src="Images/failTest.png" width="400"/>
+  <img src="Images/correctTest.png" width="400"/>
+</p>
+
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
+
+---
 
 ## Funcionalidad de la Aplicación
 
@@ -290,21 +365,26 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
+
+### 6. Cómo completar un curso
+
+
 ---
+
 
 ## Preguntas frecuentes
 
-**¿Puedo editar un curso después de crearlo?**  
-(Sí / No / En desarrollo...)
-
-**¿Puedo eliminar mi cuenta?**  
-(Sí, desde el perfil...)
-
 **¿La app guarda mi progreso automáticamente?**  
-(Sí / No...)
+Sí, todos tus cambios se guardan y además la aplicación es capaz de guardar el momento en el que te conectas cada día para poder registrar tus estadíticas.
+
+**En caso de salir de un bloque de contenidos iniciado ¿Al volver a entrar recupero la pregunta por la que iba?**  
+No, si sales de un bloque de contenidos iniciado, como en la mayoría de aplicaciones relacionadas con el aprendizaje interactivo, debes iniciar de nuevo ese bloque.
 
 **¿Puedo volver a inscribirme en un curso del que ya estoy inscrito?**  
 No, una vez que te has inscrito en un curso, este aparece en la sección *"Mis Cursos"* y no es posible volver a inscribirse nuevamente.  
+
+**¿Puedo volver a realizar un bloque de contenidos que ya he completado?**  
+No, una vez que completas con éxito un bloque de contenidos de un curso no se puede volver a hacer y quedará marcado en verde en la ventana principal del curso.
 
 
 ---
