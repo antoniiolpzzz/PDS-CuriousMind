@@ -62,8 +62,14 @@ Como se observa en la imagen, esta ventana incluye además botones "extra" a mod
    - Contact: Indica las diferentes formas de contactarnos para cualquier tema, ya sea sobre mejoras, sobre dudas...
    - Log in: Este botón indica que nos encontramos en la ventana Log in.
 
-📸 Ventana About Us ![AboutUs screen](Images/aboutus.png)
-📸 Ventana Contact ![Contact screen](Images/contact.png)
+📸 Ventanas About Us y Contact
+<p align="center">
+  <img src="Images/aboutus.png" width="400"/>
+  <img src="Images/contact.png" width="400"/>
+</p>
+
+
+
 
 ---
 
@@ -131,8 +137,9 @@ Para registrarte en CuriousMind y comenzar a utilizar la aplicación, sigue esto
    - Tu **correo electrónico**  
    - Tu **contraseña**  
    - Vuelve a introducir la **contraseña** para confirmarla (debe coincidir con la anterior).  
-3. Pulsa el botón **"Sign Up"**.  
-   📸 Ventana SignUp ![SignUp screen](Images/signUpFilled.png)
+3. Pulsa el botón **"Sign Up"**.
+
+📸 Ventana SignUp ![SignUp screen](Images/signupFilled.png)
 
 Una vez completado el registro, serás redirigido automáticamente a la pantalla de **Login** para que introduzcas tus credenciales y accedas a la aplicación.
 
@@ -145,7 +152,12 @@ Para acceder a tu cuenta en CuriousMind, sigue estos pasos:
 1. Abre la aplicación.  
 2. En la pantalla de **Login**, introduce tu **nombre de usuario** y tu **contraseña** en los campos correspondientes.  
 3. Pulsa el botón **"Login"** para entrar en la aplicación.  
-   📸 Ventana LogIn ![Login screen](Images/loginFilled.png)
+
+📸 Ventanas Log in (con y sin contraseña oculta)
+<p align="center">
+  <img src="Images/loginFilled.png" width="500"/>
+  <img src="Images/loginFilledPassw.png" width="500"/>
+</p>
 
 Una vez iniciado sesión correctamente, accederás a la ventana **Home**, donde podrás ver tus cursos, crear nuevos o inscribirte en los existentes.
 
@@ -159,10 +171,12 @@ desde tu explorador de archivos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).  
 2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Create your Course"*.  
-   📸 Botón Importar Curso ![Import screen](Images/importCourse.png)
+
+📸 Botón Importar Curso ![Import screen](Images/importCourse.png)
 
 3. Se abrirá una ventana como la siguiente:  
-   📸 Importar Curso ![Json screen](Images/jsonchooser.png)
+
+📸 Importar Curso ![Json screen](Images/jsonchooser.png)
 
 4. Añade el archivo `.json` y pulsa **Accept**.  
 
@@ -176,8 +190,9 @@ Para compartir un curso, CuriousMind te da la posibilidad de guardar un archivo 
 en tu explorador de archivos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente) o la ventana de Información de Usuario.  
-2. Pulsa el botón <img src="images/share.png" width="20"/> que se encuentra a la derecha de cada botón de curso.  
-   📸 Botón Compartir ![Share screen](Images/ShareButton.png) 
+2. Pulsa el botón <img src="Images/share.png" width="10"/> que se encuentra a la derecha de cada botón de curso.  
+
+📸 Botón Compartir ![Share screen](Images/ShareButton.png) 
 
 3. Se abrirá una ventana con tu explorador de archivos y podrás guardar el fichero con el curso.  
 4. Elige la carpeta destino y pulsa de **Guardar**.  
@@ -193,10 +208,12 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).  
 2. Pulsa el botón en cualquiera de los botones de cursos que se encuentran en la sección *"New Course"*.  
-   📸 Botón de Curso ![CourseButton screen](Images/CourseButton.png)
+
+📸 Botón de Curso ![CourseButton screen](Images/CourseButton.png)
 
 3. Se abrirá una ventana como la siguiente en la cual debemos escoger la estrategia que queremos seguir en el curso:  
-   📸 Ventana Estrategia ![Login screen](Images/strategy.png)
+
+📸 Ventana Estrategia ![Login screen](Images/strategy.png)
  
 
    Las estrategias sirven para personalizar la forma de aparición de las preguntas, entre ellas tenemos:
@@ -205,7 +222,8 @@ ya creados en la aplicación y participar en ellos. Para ello:
    - **Repetición Espaciada**: cada 3 preguntas, la primera de esas tres se repite para afianzar los conocimientos.
 
 4. Una vez elegida la estrategia, pulsa el botón **Accept** y serás redirigido a la ventana de Home.
-   📸 Estrategia Seleccionada ![Login screen](Images/strategySelected.png) 
+
+📸 Estrategia Seleccionada ![Login screen](Images/strategySelected.png) 
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
