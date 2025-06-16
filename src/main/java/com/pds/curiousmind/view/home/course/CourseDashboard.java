@@ -105,7 +105,7 @@ public class CourseDashboard extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crea un usuario de prueba o recupera el usuario de otra forma
-            RegisteredCourse course = controller.getCurrentRegisteredCourse();
+            RegisteredCourse course = controller.getRegisteredCourses().get(0);
             new CourseDashboard(course);
         });
     }

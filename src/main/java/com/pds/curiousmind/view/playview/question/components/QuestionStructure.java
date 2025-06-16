@@ -118,7 +118,7 @@ public class QuestionStructure extends JFrame {
                 JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
                 Question nextQuestion = controller.getNextQuestion();
                 if (nextQuestion == null) {
-                    controller.endGame();
+                    //TODO: controller.endGame();
                     controller.addExperiencePoints(difficulty);
                     JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/completado.png", 60, 60));
                     new CourseDashboard(course);
@@ -165,7 +165,7 @@ public class QuestionStructure extends JFrame {
 
     public static void main(String[] args) {
 
-        RegisteredCourse course = controller.getCurrentRegisteredCourse();
+        RegisteredCourse course = controller.getRegisteredCourses().get(0);
 
         //Crear una lista de tipo Option para la prueba
 

@@ -140,7 +140,7 @@ public enum Controller {
         INSTANCE.registeredCourses.get(0).setRegisteredContentBlocks(registeredContentBlocks);
     }
 
-    //**** TODO: QUITAR LA INFORMACIÓN DE PRUEBA:  ******************************************************
+    //**** TODO: QUITAR LOS CASOS DE PRUEBA  ******************************************************
 
 
 

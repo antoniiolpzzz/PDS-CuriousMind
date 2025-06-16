@@ -96,7 +96,7 @@ public class LoginWindow extends JFrame {
 
         // Username and password fields
         usernameField = new JTextField();
-        usernameField.setBorder(BorderFactory.createTitledBorder("Username or email"));
+        usernameField.setBorder(BorderFactory.createTitledBorder("Username"));
         usernameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         rightPanel.add(usernameField);
         rightPanel.add(Box.createVerticalStrut(10));
@@ -136,6 +136,10 @@ public class LoginWindow extends JFrame {
                     User user = controller.getCurrentUser();
                     dispose();
                     new HomeWindow(user);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
                 }
             }
         });
