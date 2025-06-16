@@ -65,9 +65,9 @@ public enum Controller {
 
         List<Option> testOptions = new ArrayList<>();
         testOptions.add(new Option("Madrid"));
-        testOptions.add(new Option("Barcelona"));
-        testOptions.add(new Option("Valencia"));
-        testOptions.add(new Option("Seville"));
+        testOptions.add(new Option("Berlin"));
+        testOptions.add(new Option("Paris"));
+        testOptions.add(new Option("Lisboa"));
 
         List<Option> flashCardOptions = new ArrayList<>();
         flashCardOptions.add(new ImageOption("Apfel", "icons/course/comida-sana.png"));
@@ -86,20 +86,20 @@ public enum Controller {
 
         Question fillTheGaps = new FillTheGap(
                 "Complete the sentence:",
-                "The ___ is the satellite of the Earth.",
-                "moon"
+                "Ich esse _____ und Kaffee",
+                "Milch"
         );
 
         Question test = new Test(
-                "Select the capital of Spain:",
-                "What is the capital of Spain?",
-                "Madrid",
+                "Select the correct answer",
+                "What is the capital of German?",
+                "Munich",
                 testOptions
         );
 
         Question translation = new Translate(
                 "Translate to English:",
-                "El perro es azul",
+                "Der Hund ist blau",
                 "The dog is blue",
                 translateOptions
         );
@@ -119,14 +119,14 @@ public enum Controller {
         Difficulty difficulty = Difficulty.EASY;
 
         INSTANCE.contentBlock = new ContentBlock(
-                "Basic Vocabulary",
+                "Your first words",
                 questions,
                 difficulty,
                 INSTANCE.course
         );
 
         INSTANCE.contentBlock2 = new ContentBlock(
-                "Food Vocabulary",
+                "Basic Vocabulary",
                 questions,
                 difficulty,
                 INSTANCE.course
@@ -164,8 +164,8 @@ public enum Controller {
       entries.add(LocalDate.parse("2023-10-01"));
       entries.add(LocalDate.parse("2023-10-02"));
       entries.add(LocalDate.parse("2023-10-03"));
-      entries.add(LocalDate.parse("2023-10-04"));
-      entries.add(LocalDate.parse("2023-10-05"));
+      entries.add(LocalDate.parse("2023-10-14"));
+      entries.add(LocalDate.parse("2023-10-25"));
       stats.setEntries(new HashSet<>(entries));
 
         stats.setExperiencePoints(6300);
