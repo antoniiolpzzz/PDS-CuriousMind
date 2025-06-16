@@ -70,7 +70,7 @@ public class ContentBlockRow {
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
                         // TODO: Use controller to initialize the game manager for the block
-                        Question question = block.getQuestions().get(2);
+                        Question question = block.getQuestions().get(3);
                         new QuestionStructure(course, question, block.getName(), block.getDifficulty());
                         parentFrame.dispose();
                     }
