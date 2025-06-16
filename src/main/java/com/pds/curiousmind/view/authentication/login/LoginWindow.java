@@ -1,5 +1,7 @@
 package com.pds.curiousmind.view.authentication.login;
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.authentication.signup.SignupWindow;
 import com.pds.curiousmind.view.authentication.components.*;
 import com.pds.curiousmind.view.common.BackgroundPanel;
@@ -18,7 +20,8 @@ public class LoginWindow extends JFrame {
     private final JPasswordField passwordField;
     private final JCheckBox showPasswordCheckBox;
 
-    // TODO: look for a robot (mascot)
+    private final Controller controller = Controller.INSTANCE;
+
     public LoginWindow() {
         // Window configuration
         setTitle("CuriousMind - Log in");
@@ -93,7 +96,7 @@ public class LoginWindow extends JFrame {
 
         // Username and password fields
         usernameField = new JTextField();
-        usernameField.setBorder(BorderFactory.createTitledBorder("Username or email"));
+        usernameField.setBorder(BorderFactory.createTitledBorder("Username"));
         usernameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         rightPanel.add(usernameField);
         rightPanel.add(Box.createVerticalStrut(10));
@@ -129,9 +132,15 @@ public class LoginWindow extends JFrame {
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             if (checkFields(usernameField.getText(), passwordField)) {
-                // TODO: Validar credenciales
-                dispose();
-                new HomeWindow();
+                if (controller.logIn(usernameField.getText(), new String(passwordField.getPassword()))) {
+                    User user = controller.getCurrentUser();
+                    dispose();
+                    new HomeWindow(user);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                }
             }
         });
         buttonsPanel.add(loginButton);
@@ -157,9 +166,7 @@ public class LoginWindow extends JFrame {
         JPanel centeredButtonsWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         centeredButtonsWrapper.setOpaque(false);
         centeredButtonsWrapper.add(buttonsPanel);
-
-        // Agregar espaciador y luego panel de botones centrado
-        rightPanel.add(Box.createVerticalGlue());  // Empuja hacia abajo
+        rightPanel.add(Box.createVerticalGlue());
         rightPanel.add(centeredButtonsWrapper);
 
 

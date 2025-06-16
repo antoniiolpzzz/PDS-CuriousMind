@@ -1,5 +1,9 @@
 package com.pds.curiousmind.view.home.course;
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 import com.pds.curiousmind.view.home.course.components.ContentBlockRow;
@@ -8,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
@@ -17,20 +22,22 @@ import static com.pds.curiousmind.view.home.course.components.ContentBlockRow.cr
 
 public class CourseDashboard extends JFrame {
 
-    //TODO: This should receive Course course
-    public CourseDashboard(String title, String iconPath) {
+    private static final Controller controller = Controller.INSTANCE;
+
+    public CourseDashboard(RegisteredCourse course) {
         setTitle("CuriousMind - Course Dashboard");
         setMinimumSize(new Dimension(1300, 650));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
+        User user = controller.getCurrentUser();
+
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground(this,"","", "home");
+        JPanel basePanel = createBackground(this,user, null, "home");
         setContentPane(basePanel);
 
         // RIGHT PANEL SETUP FOR MAIN CONTENT
-
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
@@ -47,8 +54,10 @@ public class CourseDashboard extends JFrame {
         headerPanel.setOpaque(false);
         headerPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 10, 30));
 
-        // Header
-        JLabel homeTitle = new JLabel(title);
+        // HEADER SECTION
+
+        String iconPath = course.getImageURL();
+        JLabel homeTitle = new JLabel(course.getName());
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setIcon(loadIcon(iconPath, 24, 24));
@@ -73,20 +82,11 @@ public class CourseDashboard extends JFrame {
         scrollContent.setOpaque(false);
         scrollContent.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
 
-        //TODO: controller get the content blocks from the course
-        // contentNames = controller.getContentBlocks(courseId);
 
-        java.util.List<String> contentNames = java.util.Arrays.asList(
-                "Basic words",
-                "Basic sentences",
-                "Introduce yourself",
-                "Food Vocabulary",
-                "Talk to your friends",
-                "Describe people",
-                "Talk about animals"
-        );
+        List<RegisteredContentBlock> contenblocks = course.getRegisteredContentBlocks();
+
         scrollContent.add(Box.createVerticalStrut(20));
-        scrollContent.add(createContentColumnSection(contentNames));
+        scrollContent.add(createContentColumnSection(this, course, contenblocks));
         scrollContent.add(Box.createVerticalStrut(20));
 
         JScrollPane scrollPane = new JScrollPane(scrollContent);
@@ -101,7 +101,12 @@ public class CourseDashboard extends JFrame {
         setVisible(true);
     }
 
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new CourseDashboard("German", "icons/course/german.png"));
+        SwingUtilities.invokeLater(() -> {
+            // Crea un usuario de prueba o recupera el usuario de otra forma
+            RegisteredCourse course = controller.getRegisteredCourses().get(0);
+            new CourseDashboard(course);
+        });
     }
 }

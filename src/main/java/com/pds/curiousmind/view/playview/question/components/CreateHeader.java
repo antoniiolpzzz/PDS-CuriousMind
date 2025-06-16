@@ -1,5 +1,8 @@
 package com.pds.curiousmind.view.playview.question.components;
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
 
 import javax.swing.*;
@@ -12,16 +15,21 @@ import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle
 
 public class CreateHeader {
 
-    public static JPanel createHeader(String title, String iconPath, String indication, String statement) {
+
+    public static JPanel createHeader(RegisteredCourse course, String indication, String statement, String blockName) {
+
+
+        Controller controller = Controller.INSTANCE;
+
 
         JPanel rightPanel = new JPanel();
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
         headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
-        JLabel homeTitle = new JLabel(title, SwingConstants.LEFT);
+        JLabel homeTitle = new JLabel(course.getName(), SwingConstants.LEFT);
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
-        homeTitle.setIcon(loadIcon(iconPath, 24, 24));
+        homeTitle.setIcon(loadIcon(course.getImageURL(), 24, 24));
         headerPanel.add(homeTitle, BorderLayout.WEST);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);
@@ -31,14 +39,13 @@ public class CreateHeader {
 
 
         // Section title for the content block
-        //TODO: Reucuperate the name of the content block from the content block object
-        rightPanel.add(sectionTitle("--Name of the content block--"));
+        rightPanel.add(sectionTitle(blockName));
         rightPanel.add(Box.createVerticalStrut(10));
 
 
         //Progress bar related with de number of questions answered
 
-        JProgressBar progressBar = new RoundedProgressBar(getProgressForCourse());
+        JProgressBar progressBar = new RoundedProgressBar(controller.getBlockProgress());
         progressBar.setStringPainted(true);
         progressBar.setFont(new Font("SansSerif", Font.PLAIN, 16));
         progressBar.setForeground(new Color(76, 175, 80)); // Green color
@@ -67,9 +74,4 @@ public class CreateHeader {
         return rightPanel;
     }
 
-    private static int getProgressForCourse() {
-        //TODO: Recuperate the progress of the content block related with the number of questions answered
-        return 30; // Example value, this should be dynamic based on actual progress
-
-    }
 }

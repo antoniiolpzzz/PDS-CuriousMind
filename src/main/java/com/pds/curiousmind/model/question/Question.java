@@ -67,4 +67,7 @@ public abstract class Question {
         return this.correctAnswer.equalsIgnoreCase(answer.trim());
     }
 
+    public String getType() {
+        return this.getClass().getSimpleName();
+    }
 }

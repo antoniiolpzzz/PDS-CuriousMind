@@ -1,32 +1,54 @@
 package com.pds.curiousmind.view.playview.question;
 
-import javax.swing.*;
-import java.awt.*;
-import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
+                            import com.pds.curiousmind.model.question.option.ImageOption;
+                            import com.pds.curiousmind.model.question.option.Option;
+                            import javax.swing.*;
+                            import java.awt.*;
+                            import java.util.List;
+                            import java.util.ArrayList;
+                            import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
 
+                            public class FlashCard {
 
-public class FlashCard extends JFrame {
+                                public static class FlashCardResult {
+                                    public final JPanel panel;
+                                    private final String[] selectedLabel;
 
-        public static JPanel createFlashCard(java.util.List<String> options) {
+                                    public FlashCardResult(JPanel panel, String[] selectedLabel) {
+                                        this.panel = panel;
+                                        this.selectedLabel = selectedLabel;
+                                    }
 
-            JPanel cardPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 10));
-            cardPanel.setOpaque(false);
+                                    public String getAnswer() {
+                                        return selectedLabel[0];
+                                    }
+                                }
 
-            final String[] selectedCard = {null};
-            final java.util.List<JButton> cardButtons = new java.util.ArrayList<>();
+                                public static FlashCardResult createFlashCard(List<Option> options) {
+                                    JPanel cardPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 10));
+                                    cardPanel.setOpaque(false);
 
-            //TODO: Recuperate the options of the question and use them to create the button.
+                                    final String[] selectedLabel = {null};
+                                    final ArrayList<JButton> cardButtons = new ArrayList<>();
 
-            cardPanel.add(createImageButton("Zwiebel", "icons/course/cebolla.png", selectedCard, cardButtons, true));
-            cardPanel.add(createImageButton("Karotte", "icons/course/zanahoria.png", selectedCard, cardButtons, true));
-            cardPanel.add(createImageButton("Apfel", "icons/course/comida-sana.png", selectedCard, cardButtons, true));
+                                    for (Option option : options) {
+                                        String label = option.getLabel();
+                                        String imgUrl = (option instanceof ImageOption imageOption) ? imageOption.getImageURL() : "icons/button/history.jpg";
+                                        JPanel buttonPanel = createImageButton(label, imgUrl, selectedLabel, cardButtons, true);
+                                        cardPanel.add(buttonPanel);
+                                    }
 
+                                    // Añadir listeners para resaltar el botón seleccionado
+                                    for (JButton button : cardButtons) {
+                                        button.addActionListener(e -> {
+                                            selectedLabel[0] = button.getText();
+                                            for (JButton btn : cardButtons) {
+                                                btn.setBackground(Color.WHITE);
+                                            }
+                                            button.setBackground(new Color(230, 250, 255));
+                                        });
+                                    }
 
-            return cardPanel;
-        }
-
-    }
-
-
-//Show the options
-
+                                    return new FlashCardResult(cardPanel, selectedLabel);
+                                }
+                            }
