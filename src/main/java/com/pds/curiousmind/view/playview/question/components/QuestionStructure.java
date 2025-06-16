@@ -21,6 +21,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.playview.question.FillTheGaps.createGapSection;
 import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
@@ -48,7 +49,7 @@ public class QuestionStructure extends JFrame {
         String type = question.getType();
 
         setTitle("CuriousMind - Home");
-        setMinimumSize(new Dimension(1300, 650));
+        setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -94,7 +95,7 @@ public class QuestionStructure extends JFrame {
                 rightPanel.add(testResult.panel);
             }
             case null, default -> {
-                JOptionPane.showMessageDialog(null, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                JOptionPane.showMessageDialog(null, "Unknown question type: " + type, "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
                 return;
             }
         }
@@ -102,8 +103,8 @@ public class QuestionStructure extends JFrame {
         //SUBMIT BUTTON
 
         rightPanel.add(Box.createVerticalGlue());
-        StyledButton submitButton = new StyledButton("Submit", Color.BLACK, Color.WHITE);
-        submitButton.setFont(new Font("SansSerif", Font.BOLD, 18));
+        StyledButton submitButton = new StyledButton(SUBMIT_LABEL, Color.BLACK, Color.WHITE);
+        submitButton.setFont(new Font(FONT_NAME, Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.addActionListener(e -> {
             String submittedAnswer = "";
@@ -115,12 +116,12 @@ public class QuestionStructure extends JFrame {
             }
 
             if (controller.validateAnswer(question, submittedAnswer)) {
-                JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
+                JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_HAPPY, 60, 60));
                 Question nextQuestion = controller.getNextQuestion();
                 if (nextQuestion == null) {
                     //TODO: controller.endGame();
                     controller.addExperiencePoints(difficulty);
-                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/completado.png", 60, 60));
+                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETE, 60, 60));
                     new CourseDashboard(course);
                     dispose();
                 }
@@ -136,7 +137,7 @@ public class QuestionStructure extends JFrame {
 
             } else {
                 controller.addFailedQuestion(question);
-                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/fallo.png", 60, 60));
+                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
                 dispose();
                 //TODO:  Question nextQuestion = controller.getNextQuestion();
                 Question nextQuestion = new FillTheGap(

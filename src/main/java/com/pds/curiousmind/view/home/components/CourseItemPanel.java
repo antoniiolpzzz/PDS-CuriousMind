@@ -2,20 +2,16 @@ package com.pds.curiousmind.view.home.components;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.course.Course;
-import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 
@@ -39,7 +35,7 @@ public class CourseItemPanel extends JPanel {
         //SHARE BUTTON
 
         StyledButton shareBtn = new StyledButton("", Color.WHITE, Color.BLACK);
-        shareBtn.setIcon(loadIcon("icons/button/share.png", 18, 18));
+        shareBtn.setIcon(loadIcon(ICON_SHARE, 18, 18));
         shareBtn.setPreferredSize(new Dimension(35, 35));
         shareBtn.setFocusPainted(false);
         addHoverEffect(shareBtn);
@@ -77,7 +73,7 @@ public class CourseItemPanel extends JPanel {
                             "Error al guardar el archivo: " + ex.getMessage(),
                             "Error",
                             JOptionPane.ERROR_MESSAGE,
-                            loadIcon("icons/pet/enfadado.png", 60, 60)
+                            loadIcon(ICON_ANGRY, 60, 60)
                     );
                 }
             }

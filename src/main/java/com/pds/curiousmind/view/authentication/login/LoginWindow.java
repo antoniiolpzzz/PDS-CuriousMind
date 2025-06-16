@@ -13,8 +13,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
+/**
+ * LoginWindow is the main window for user authentication.
+ * It provides the UI for logging in and navigating to the sign-up window.
+ */
 public class LoginWindow extends JFrame {
     private final JTextField usernameField;
     private final JPasswordField passwordField;
@@ -22,35 +27,38 @@ public class LoginWindow extends JFrame {
 
     private final Controller controller = Controller.INSTANCE;
 
+    /**
+     * Constructs the login window, sets up the UI components and event listeners.
+     */
     public LoginWindow() {
         // Window configuration
         setTitle("CuriousMind - Log in");
-        setMinimumSize(new Dimension(1300, 650));
+        setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
         // Background panel with image
-        BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
+        BackgroundPanel basePanel = new BackgroundPanel(BACKGROUND_IMAGE_PATH);
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
-        // Top panel with navigation buttons
+        // Top panel with navigation buttons and title
         JPanel topBar = new JPanel();
         topBar.setLayout(new BorderLayout());
         topBar.setOpaque(false);
         topBar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         // Application title
-        JLabel titleLabel = new JLabel("CuriousMind");
-        titleLabel.setFont(new Font("SansSerif", Font.BOLD, 30));
+        JLabel titleLabel = new JLabel(APP_TITLE);
+        titleLabel.setFont(new Font(FONT_NAME, Font.BOLD, 30));
         titleLabel.setForeground(Color.WHITE);
         topBar.add(titleLabel, BorderLayout.NORTH);
         topBar.add(Box.createHorizontalStrut(500));
 
         // Welcome label
-        JLabel welcomeLabel = new JLabel("WELCOME BACK!");
-        welcomeLabel.setFont(new Font("SansSerif", Font.BOLD, 35));
+        JLabel welcomeLabel = new JLabel(LOGIN_WELCOME);
+        welcomeLabel.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         welcomeLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
@@ -59,7 +67,7 @@ public class LoginWindow extends JFrame {
         JPanel navButtons = new JPanel();
         navButtons.setOpaque(false);
         navButtons.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 0));
-        NavigationBar navBar = new NavigationBar("Log in");
+        NavigationBar navBar = new NavigationBar(LOGIN_LABEL);
         basePanel.add(navBar, BorderLayout.NORTH);
         topBar.add(navButtons, BorderLayout.WEST);
         basePanel.add(topBar);
@@ -81,15 +89,15 @@ public class LoginWindow extends JFrame {
         rightWrapper.setPreferredSize(new Dimension(370, 0));
 
         // Login form title
-        JLabel loginTitle = new JLabel("Log in", SwingConstants.CENTER);
-        loginTitle.setFont(new Font("SansSerif", Font.BOLD, 24));
+        JLabel loginTitle = new JLabel(LOGIN_LABEL, SwingConstants.CENTER);
+        loginTitle.setFont(new Font(FONT_NAME, Font.BOLD, 24));
         loginTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginTitle.setMaximumSize(new Dimension(Integer.MAX_VALUE, loginTitle.getPreferredSize().height));
         loginTitle.setHorizontalAlignment(SwingConstants.CENTER);
 
         rightPanel.add(loginTitle);
 
-        loginTitle.setFont(new Font("SansSerif", Font.BOLD, 24));
+        loginTitle.setFont(new Font(FONT_NAME, Font.BOLD, 24));
         loginTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         rightPanel.add(loginTitle);
         rightPanel.add(Box.createVerticalStrut(25));
@@ -102,12 +110,12 @@ public class LoginWindow extends JFrame {
         rightPanel.add(Box.createVerticalStrut(10));
 
         passwordField = new JPasswordField();
-        passwordField.setBorder(BorderFactory.createTitledBorder("Password"));
+        passwordField.setBorder(BorderFactory.createTitledBorder(PASSWORD_LABEL));
         passwordField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         rightPanel.add(passwordField);
         rightPanel.add(Box.createVerticalStrut(10));
 
-        showPasswordCheckBox = new JCheckBox("Show password");
+        showPasswordCheckBox = new JCheckBox(SHOW_PASSWORD_LABEL);
         showPasswordCheckBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         showPasswordCheckBox.setOpaque(false);
         showPasswordCheckBox.setForeground(Color.GRAY);
@@ -115,20 +123,19 @@ public class LoginWindow extends JFrame {
             passwordField.setEchoChar(showPasswordCheckBox.isSelected() ? (char) 0 : '\u2022');
         });
         rightPanel.add(showPasswordCheckBox);
-        rightPanel.add(Box.createVerticalGlue());  // Esto empuja lo siguiente hacia abajo
-
-
-
-        // Espaciador que empuja los botones hacia abajo
         rightPanel.add(Box.createVerticalGlue());
 
-        // Panel vertical para Log in, "Or", Sign up
+        rightPanel.add(Box.createVerticalGlue());
+
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.Y_AXIS));
         buttonsPanel.setOpaque(false);
 
-        // Botón Log in
-        StyledButton loginButton = new StyledButton("Log in", Color.BLACK, Color.WHITE);
+        /**
+         * Handles the login button action.
+         * If credentials are valid, opens the HomeWindow; otherwise, shows an error dialog.
+         */
+        StyledButton loginButton = new StyledButton(LOGIN_LABEL, Color.BLACK, Color.WHITE);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
             if (checkFields(usernameField.getText(), passwordField)) {
@@ -139,7 +146,7 @@ public class LoginWindow extends JFrame {
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
                 }
             }
         });
@@ -153,8 +160,11 @@ public class LoginWindow extends JFrame {
         buttonsPanel.add(orLabel);
         buttonsPanel.add(Box.createVerticalStrut(15));
 
-        // Botón Sign up
-        StyledButton signupButton = new StyledButton("Sign up", new Color(240, 240, 240), Color.BLACK);
+        /**
+         * Handles the sign up button action.
+         * Opens the SignupWindow for new user registration.
+         */
+        StyledButton signupButton = new StyledButton(SIGNUP_LABEL, new Color(240, 240, 240), Color.BLACK);
         signupButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         signupButton.addActionListener(e -> {
             new SignupWindow();
@@ -162,28 +172,37 @@ public class LoginWindow extends JFrame {
         });
         buttonsPanel.add(signupButton);
 
-        // Contenedor centrado
+        // Centered container for buttons
         JPanel centeredButtonsWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         centeredButtonsWrapper.setOpaque(false);
         centeredButtonsWrapper.add(buttonsPanel);
         rightPanel.add(Box.createVerticalGlue());
         rightPanel.add(centeredButtonsWrapper);
 
-
-
-
         pack();
         setVisible(true);
     }
 
+    /**
+     * Checks if the username and password fields are filled.
+     * Shows an error dialog if any field is empty.
+     *
+     * @param username The entered username.
+     * @param password The password field.
+     * @return true if both fields are filled, false otherwise.
+     */
     public boolean checkFields(String username, JPasswordField password) {
         if (username.isEmpty() || password.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
             return false;
         }
         return true;
     }
 
+    /**
+     * Main method to launch the login window.
+     * @param args Command line arguments.
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(LoginWindow::new);
     }

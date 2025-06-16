@@ -1,51 +1,56 @@
+package com.pds.curiousmind.view.playview.question;
 
-                        package com.pds.curiousmind.view.playview.question;
+import com.pds.curiousmind.model.question.option.Option;
+import com.pds.curiousmind.view.common.RoundedPanel;
+import com.pds.curiousmind.view.common.StyledButton;
 
-                        import com.pds.curiousmind.model.question.option.Option;
-                        import com.pds.curiousmind.view.common.RoundedPanel;
-                        import com.pds.curiousmind.view.common.StyledButton;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+import java.util.ArrayList;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 
-                        import javax.swing.*;
-                        import java.awt.*;
-                        import java.util.List;
-                        import java.util.ArrayList;
 
-                        public class Test extends JFrame {
+public class Test extends JFrame {
 
-                            public static class TestPanelResult {
-                                public final JPanel panel;
-                                private final String[] selectedOption;
+    // *****************************************************************************************
+    // **************************** TEST FUNCTIONS **************************** //
+    // *****************************************************************************************
 
-                                public TestPanelResult(JPanel panel, String[] selectedOption) {
-                                    this.panel = panel;
-                                    this.selectedOption = selectedOption;
-                                }
+    public static class TestPanelResult {
+        public final JPanel panel;
+        private final String[] selectedOption;
 
-                                public String getAnswer() {
-                                    return selectedOption[0];
-                                }
-                            }
+        public TestPanelResult(JPanel panel, String[] selectedOption) {
+            this.panel = panel;
+            this.selectedOption = selectedOption;
+        }
 
-                            public static TestPanelResult createTestPanel(List<Option> options) {
-                                JPanel optionsPanel = new JPanel();
-                                optionsPanel.setOpaque(false);
+        public String getAnswer() {
+            return selectedOption[0];
+        }
+    }
 
-                                ButtonGroup group = new ButtonGroup();
-                                final String[] selectedOption = {null};
+    public static TestPanelResult createTestPanel(List<Option> options) {
+        JPanel optionsPanel = new JPanel();
+        optionsPanel.setOpaque(false);
 
-                                for (Option option : options) {
-                                    JToggleButton optionButton = new JToggleButton(option.getLabel());
-                                    optionButton.setFont(new Font("SansSerif", Font.PLAIN, 15));
-                                    optionButton.setBackground(new Color(245, 245, 245));
-                                    optionButton.setHorizontalAlignment(SwingConstants.LEFT);
-                                    optionButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                                    optionButton.setPreferredSize(new Dimension(830, 40));
-                                    group.add(optionButton);
-                                    optionsPanel.add(optionButton);
+        ButtonGroup group = new ButtonGroup();
+        final String[] selectedOption = {null};
 
-                                    optionButton.addActionListener(e -> selectedOption[0] = option.getLabel());
-                                }
+        for (Option option : options) {
+            JToggleButton optionButton = new JToggleButton(option.getLabel());
+            optionButton.setFont(new Font(FONT_NAME, Font.PLAIN, 15));
+            optionButton.setBackground(new Color(245, 245, 245));
+            optionButton.setHorizontalAlignment(SwingConstants.LEFT);
+            optionButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            optionButton.setPreferredSize(new Dimension(830, 40));
+            group.add(optionButton);
+            optionsPanel.add(optionButton);
 
-                                return new TestPanelResult(optionsPanel, selectedOption);
-                            }
-                        }
+            optionButton.addActionListener(e -> selectedOption[0] = option.getLabel());
+        }
+
+        return new TestPanelResult(optionsPanel, selectedOption);
+    }
+}

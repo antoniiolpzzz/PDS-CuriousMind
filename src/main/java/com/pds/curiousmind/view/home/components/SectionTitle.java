@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.components;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import com.pds.curiousmind.view.common.RoundedPanel;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class SectionTitle {
         panel.setBackground(Color.BLACK);
         JLabel label = new JLabel(text);
         label.setForeground(Color.WHITE);
-        label.setFont(new Font("SansSerif", Font.BOLD, 14));
+        label.setFont(new Font(FONT_NAME, Font.BOLD, 14));
         panel.add(label);
         return panel;
     }

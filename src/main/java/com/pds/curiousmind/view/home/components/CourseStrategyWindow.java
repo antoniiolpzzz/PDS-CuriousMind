@@ -4,6 +4,8 @@ package com.pds.curiousmind.view.home.components;
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.view.common.StyledButton;
+
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
 
@@ -30,7 +32,7 @@ public class CourseStrategyWindow extends JDialog {
         });
 
         setLayout(new BorderLayout());
-        setSize(480, 320);
+        setSize(POPUP_WIDTH, POPUP_HEIGHT);
         setResizable(false);
         setLocationRelativeTo(parent);
 
@@ -45,7 +47,7 @@ public class CourseStrategyWindow extends JDialog {
         titlePanel.setOpaque(false);
         String courseName = course.getName ();
         JLabel title = new JLabel(courseName);
-        title.setFont(new Font("SansSerif", Font.BOLD, 22));
+        title.setFont(new Font(FONT_NAME, Font.BOLD, 22));
         title.setIcon(loadIcon(course.getImageURL(), 28, 28));
         titlePanel.add(title);
         mainPanel.add(titlePanel);
@@ -56,24 +58,24 @@ public class CourseStrategyWindow extends JDialog {
         String description = course.getDescription();
         JLabel descriptionArea = new JLabel(description);
         descriptionArea.setAlignmentX(Component.CENTER_ALIGNMENT);
-        descriptionArea.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        descriptionArea.setFont(new Font(FONT_NAME, Font.PLAIN, 13));
         mainPanel.add(descriptionArea);
 
         mainPanel.add(Box.createVerticalStrut(10));
 
         // Panel for strategy selection buttons
         JPanel strategyPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 10));
-        JLabel stratLabel = new JLabel("Strategy");
-        stratLabel.setFont(new Font("SansSerif", Font.BOLD, 16));
+        JLabel stratLabel = new JLabel(FONT_NAME);
+        stratLabel.setFont(new Font(FONT_NAME, Font.BOLD, 16));
         stratLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(stratLabel);
         strategyPanel.setOpaque(false);
         // Track the selected strategy and buttons
         final String[] selectedStrategy = {null};
         final java.util.List<JButton> strategyButtons = new java.util.ArrayList<>();
-        strategyPanel.add(createImageButton("Sequential", "icons/strategy/sequential.png", selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createImageButton("Random", "icons/strategy/random.png", selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createImageButton("Sp. Repetition", "icons/strategy/repetition.png", selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton("Sequential", ICON_STRATEGY_SEQUENTIAL, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton("Random", ICON_STRATEGY_RANDOM, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton("Sp. Repetition", ICON_STRATEGY_REPETITON, selectedStrategy, strategyButtons,false));
         mainPanel.add(strategyPanel);
 
         // Bottom panel for Accept/Cancel buttons
@@ -81,8 +83,8 @@ public class CourseStrategyWindow extends JDialog {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         buttonPanel.setBackground(Color.WHITE);
 
-        StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
-        StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
+        StyledButton acceptButton = new StyledButton(ACCEPT_LABEL, Color.WHITE, Color.BLACK);
+        StyledButton cancelButton = new StyledButton(CANCEL_LABEL, Color.WHITE, Color.BLACK);
 
         acceptButton.addActionListener(e -> {
             if (selectedStrategy[0] == null) {

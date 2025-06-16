@@ -5,28 +5,34 @@ import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.common.*;
-import com.pds.curiousmind.view.home.dashboard.HomeWindow;
-import com.pds.curiousmind.view.home.course.components.ContentBlockRow;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.home.course.components.ContentBlockRow.createContentColumnSection;
 
+/**
+ * CourseDashboard is the main window for displaying a course's details and its content blocks.
+ * It sets up the UI layout, including the course header and a scrollable list of content blocks.
+ */
 public class CourseDashboard extends JFrame {
 
     private static final Controller controller = Controller.INSTANCE;
 
+    /**
+     * Constructs the CourseDashboard window for a given course.
+     * Initializes the UI components, including the background, header, and content block list.
+     *
+     * @param course The registered course to display.
+     */
     public CourseDashboard(RegisteredCourse course) {
         setTitle("CuriousMind - Course Dashboard");
-        setMinimumSize(new Dimension(1300, 650));
+        setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -58,7 +64,7 @@ public class CourseDashboard extends JFrame {
 
         String iconPath = course.getImageURL();
         JLabel homeTitle = new JLabel(course.getName());
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setIcon(loadIcon(iconPath, 24, 24));
         headerPanel.add(homeTitle, BorderLayout.WEST);
@@ -82,7 +88,6 @@ public class CourseDashboard extends JFrame {
         scrollContent.setOpaque(false);
         scrollContent.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
 
-
         List<RegisteredContentBlock> contenblocks = course.getRegisteredContentBlocks();
 
         scrollContent.add(Box.createVerticalStrut(20));
@@ -101,10 +106,15 @@ public class CourseDashboard extends JFrame {
         setVisible(true);
     }
 
-
+    /**
+     * Main method for testing the CourseDashboard window.
+     * Launches the dashboard for the first registered course.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            // Crea un usuario de prueba o recupera el usuario de otra forma
+            // Creates a test user or retrieves the user in another way
             RegisteredCourse course = controller.getRegisteredCourses().get(0);
             new CourseDashboard(course);
         });

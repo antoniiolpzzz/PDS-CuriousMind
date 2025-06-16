@@ -10,6 +10,7 @@ import com.pds.curiousmind.view.common.BackgroundPanel;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class SignupWindow extends JFrame {
@@ -29,7 +30,7 @@ public class SignupWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
+        BackgroundPanel basePanel = new BackgroundPanel(BACKGROUND_IMAGE_PATH);
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
@@ -38,14 +39,14 @@ public class SignupWindow extends JFrame {
         topBar.setOpaque(false);
         topBar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
-        JLabel titleLabel = new JLabel("CuriousMind");
-        titleLabel.setFont(new Font("SansSerif", Font.BOLD, 30));
+        JLabel titleLabel = new JLabel(APP_TITLE);
+        titleLabel.setFont(new Font(FONT_NAME, Font.BOLD, 30));
         titleLabel.setForeground(Color.WHITE);
         topBar.add(titleLabel, BorderLayout.NORTH);
         topBar.add(Box.createHorizontalStrut(500));
 
-        JLabel welcomeLabel = new JLabel("WELCOME!");
-        welcomeLabel.setFont(new Font("SansSerif", Font.BOLD, 35));
+        JLabel welcomeLabel = new JLabel(SIGNUP_WELCOME);
+        welcomeLabel.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         welcomeLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
@@ -54,7 +55,7 @@ public class SignupWindow extends JFrame {
         JPanel navButtons = new JPanel();
         navButtons.setOpaque(false);
         navButtons.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 0));
-        NavigationBar navBar = new NavigationBar("Sign up");
+        NavigationBar navBar = new NavigationBar(SIGNUP_LABEL);
         basePanel.add(navBar, BorderLayout.NORTH);
         topBar.add(navButtons, BorderLayout.CENTER);
         basePanel.add(topBar);
@@ -71,8 +72,8 @@ public class SignupWindow extends JFrame {
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(370, 0));
 
-        JLabel signupTitle = new JLabel("Sign up");
-        signupTitle.setFont(new Font("SansSerif", Font.BOLD, 24));
+        JLabel signupTitle = new JLabel(SIGNUP_LABEL);
+        signupTitle.setFont(new Font(FONT_NAME, Font.BOLD, 24));
         signupTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         rightPanel.add(signupTitle);
         rightPanel.add(Box.createVerticalStrut(25));
@@ -96,7 +97,7 @@ public class SignupWindow extends JFrame {
         rightPanel.add(Box.createVerticalStrut(15));
 
         passwordField = new JPasswordField();
-        passwordField.setBorder(BorderFactory.createTitledBorder("Password"));
+        passwordField.setBorder(BorderFactory.createTitledBorder(PASSWORD_LABEL));
         Dimension fixedFieldSize = new Dimension(160, 40);
         passwordField.setMaximumSize(fixedFieldSize);
 
@@ -109,13 +110,13 @@ public class SignupWindow extends JFrame {
         passwordPanel.add(passwordField);
         passwordPanel.add(confirmPasswordField);
 
-        showPasswordBox1 = new JCheckBox("Show password");
+        showPasswordBox1 = new JCheckBox(SHOW_PASSWORD_LABEL);
         showPasswordBox1.setOpaque(false);
         showPasswordBox1.setForeground(Color.GRAY);
         showPasswordBox1.addActionListener(e ->
                 passwordField.setEchoChar(showPasswordBox1.isSelected() ? (char) 0 : '\u2022'));
 
-        showPasswordBox2 = new JCheckBox("Show password");
+        showPasswordBox2 = new JCheckBox(SHOW_PASSWORD_LABEL);
         showPasswordBox2.setOpaque(false);
         showPasswordBox2.setForeground(Color.GRAY);
         showPasswordBox2.addActionListener(e ->
@@ -139,12 +140,12 @@ public class SignupWindow extends JFrame {
                     dispose();
                     new LoginWindow();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error creating account. Please try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                    JOptionPane.showMessageDialog(null, "Error creating account. Please try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
                 }
             }
         });
 
-        StyledButton backButton = new StyledButton("Log in", new Color(240, 240, 240), Color.BLACK);
+        StyledButton backButton = new StyledButton(LOGIN_LABEL, new Color(240, 240, 240), Color.BLACK);
         backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         backButton.addActionListener(e -> {
             dispose();
@@ -181,11 +182,11 @@ public class SignupWindow extends JFrame {
 
     public boolean checkFields(String fullName, String username, String email, JPasswordField password, JPasswordField confirmPassword) {
         if (fullName.isEmpty() || username.isEmpty()  || email.isEmpty() || password.getPassword().length == 0 || confirmPassword.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
             return false;
         }
         if (!new String(password.getPassword()).equals(new String(confirmPassword.getPassword()))) {
-            JOptionPane.showMessageDialog(null, "Passwords do not match", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+            JOptionPane.showMessageDialog(null, "Passwords do not match", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
             return false;
         }
         return true;

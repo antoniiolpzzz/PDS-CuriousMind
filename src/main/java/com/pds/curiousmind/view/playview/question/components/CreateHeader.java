@@ -1,15 +1,13 @@
 package com.pds.curiousmind.view.playview.question.components;
 
 import com.pds.curiousmind.controller.Controller;
-import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
 
 import javax.swing.*;
-        import java.awt.*;
-        import java.util.List;
+import java.awt.*;
 
-import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
@@ -27,7 +25,7 @@ public class CreateHeader {
         headerPanel.setOpaque(false);
         headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         JLabel homeTitle = new JLabel(course.getName(), SwingConstants.LEFT);
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setIcon(loadIcon(course.getImageURL(), 24, 24));
         headerPanel.add(homeTitle, BorderLayout.WEST);
@@ -47,7 +45,7 @@ public class CreateHeader {
 
         JProgressBar progressBar = new RoundedProgressBar(controller.getBlockProgress());
         progressBar.setStringPainted(true);
-        progressBar.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        progressBar.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
         progressBar.setForeground(new Color(76, 175, 80)); // Green color
         progressBar.setBackground(new Color(245, 245, 245));
         progressBar.setAlignmentX(Component.CENTER_ALIGNMENT);
