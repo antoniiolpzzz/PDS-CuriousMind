@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class LoginWindow extends JFrame {
@@ -31,7 +32,7 @@ public class LoginWindow extends JFrame {
         setResizable(true);
 
         // Background panel with image
-        BackgroundPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
+        BackgroundPanel basePanel = new BackgroundPanel(BACKGROUND_IMAGE_PATH);
         basePanel.setLayout(new BorderLayout());
         setContentPane(basePanel);
 
