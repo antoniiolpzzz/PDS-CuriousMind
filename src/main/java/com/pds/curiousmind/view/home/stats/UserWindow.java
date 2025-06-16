@@ -17,8 +17,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
-import static com.pds.curiousmind.view.home.components.CourseRowSection.createCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
 
@@ -29,7 +29,7 @@ public class UserWindow extends JFrame {
     public UserWindow(User user) {
 
         setTitle("CuriousMind - Profile");
-        setMinimumSize(new Dimension(1300, 650));
+        setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -57,13 +57,13 @@ public class UserWindow extends JFrame {
         JLabel homeTitle = new JLabel("Hello " + user.getUsername() + "!");
         String iconPath = controller.getUserPhoto();
         homeTitle.setIcon(loadIcon(iconPath, 30, 30));
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         int level = controller.getUserLevel();
         JLabel levelLabel = new JLabel("LEVEL: " + level);
-        levelLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
+        levelLabel.setFont(new Font(FONT_NAME, Font.BOLD, 22));
         levelLabel.setForeground(new Color(80, 80, 80));
         levelLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -103,13 +103,13 @@ public class UserWindow extends JFrame {
         // Fila 1
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row1.setOpaque(false);
-        row1.add(new StatsBlock("Best streak", stats.getBestStreak(), "icons/stat/streak.jpg"));
-        row1.add(new StatsBlock("Days of use", stats.getEntries().size(), "icons/stat/days.jpg"));
+        row1.add(new StatsBlock("Best streak", stats.getBestStreak(), ICON_STREAK));
+        row1.add(new StatsBlock("Days of use", stats.getEntries().size(), ICON_DAY));
 
         JPanel row2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row2.setOpaque(false);
-        row2.add(new StatsBlock("Completed courses", stats.getCompletedCourses(), "icons/stat/courses.jpg"));
-        row2.add(new StatsBlock("Time of use", 15, "icons/stat/time.jpg"));
+        row2.add(new StatsBlock("Completed courses", stats.getCompletedCourses(), ICON_COURSES));
+        row2.add(new StatsBlock("Time of use", 15, ICON_TIME));
         //TODO: Value of time of use
 
         statsWrapper.add(row1);

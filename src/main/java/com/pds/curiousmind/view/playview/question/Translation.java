@@ -1,98 +1,102 @@
 package com.pds.curiousmind.view.playview.question;
 
-                    import com.pds.curiousmind.model.question.option.Option;
+import com.pds.curiousmind.model.question.option.Option;
 
-                    import javax.swing.*;
-                    import java.awt.*;
-                    import java.util.ArrayList;
-                    import java.util.List;
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-                    public class Translation {
+public class Translation {
 
-                        public static class TranslationSectionResult {
-                            public final JPanel panel;
-                            private final List<String> selectedWords;
+    // *****************************************************************************************
+    // **************************** TRANSLATION FUNCTIONS **************************************
+    // *****************************************************************************************
 
-                            public TranslationSectionResult(JPanel panel, List<String> selectedWords) {
-                                this.panel = panel;
-                                this.selectedWords = selectedWords;
-                            }
+    public static class TranslationSectionResult {
+        public final JPanel panel;
+        private final List<String> selectedWords;
 
-                            public String getAnswer() {
-                                return String.join(" ", selectedWords);
-                            }
-                        }
+        public TranslationSectionResult(JPanel panel, List<String> selectedWords) {
+            this.panel = panel;
+            this.selectedWords = selectedWords;
+        }
 
-                        public static TranslationSectionResult createTranslationSection(List<Option> options) {
-                            JPanel translationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 30, 0));
-                            translationPanel.setOpaque(false);
+        public String getAnswer() {
+            return String.join(" ", selectedWords);
+        }
+    }
 
-                            JPanel answerInnerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
-                            answerInnerPanel.setBackground(new Color(240, 240, 240));
-                            answerInnerPanel.setOpaque(true);
+    public static TranslationSectionResult createTranslationSection(List<Option> options) {
+        JPanel translationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 30, 0));
+        translationPanel.setOpaque(false);
 
-                            JScrollPane scrollPane = new JScrollPane(answerInnerPanel,
-                                    JScrollPane.VERTICAL_SCROLLBAR_NEVER,
-                                    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                            scrollPane.setPreferredSize(new Dimension(830, 60));
-                            scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        JPanel answerInnerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        answerInnerPanel.setBackground(new Color(240, 240, 240));
+        answerInnerPanel.setOpaque(true);
 
-                            translationPanel.add(scrollPane);
+        JScrollPane scrollPane = new JScrollPane(answerInnerPanel,
+                JScrollPane.VERTICAL_SCROLLBAR_NEVER,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setPreferredSize(new Dimension(830, 60));
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
-                            // Obtener los labels de las opciones recibidas
-                            List<String> wordOptions = options.stream()
-                                    .map(Option::getLabel)
-                                    .toList();
+        translationPanel.add(scrollPane);
 
-                            JPanel optionsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
-                            optionsPanel.setOpaque(false);
-                            optionsPanel.setPreferredSize(new Dimension(830, 100));
+        // Obtener los labels de las opciones recibidas
+        List<String> wordOptions = options.stream()
+                .map(Option::getLabel)
+                .toList();
 
-                            List<JButton> optionButtons = new ArrayList<>();
-                            List<String> selectedWords = new ArrayList<>();
+        JPanel optionsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        optionsPanel.setOpaque(false);
+        optionsPanel.setPreferredSize(new Dimension(830, 100));
 
-                            for (String word : wordOptions) {
-                                JButton wordButton = new JButton(word);
-                                wordButton.setFont(new Font("SansSerif", Font.PLAIN, 14));
-                                wordButton.setFocusPainted(false);
-                                wordButton.setBackground(Color.WHITE);
-                                wordButton.setForeground(Color.BLACK);
-                                wordButton.setBorder(BorderFactory.createLineBorder(new Color(180, 180, 180), 1));
-                                wordButton.setPreferredSize(new Dimension(90, 35));
+        List<JButton> optionButtons = new ArrayList<>();
+        List<String> selectedWords = new ArrayList<>();
 
-                                optionButtons.add(wordButton);
+        for (String word : wordOptions) {
+            JButton wordButton = new JButton(word);
+            wordButton.setFont(new Font("SansSerif", Font.PLAIN, 14));
+            wordButton.setFocusPainted(false);
+            wordButton.setBackground(Color.WHITE);
+            wordButton.setForeground(Color.BLACK);
+            wordButton.setBorder(BorderFactory.createLineBorder(new Color(180, 180, 180), 1));
+            wordButton.setPreferredSize(new Dimension(90, 35));
 
-                                wordButton.addActionListener(e -> {
-                                    wordButton.setVisible(false);
+            optionButtons.add(wordButton);
 
-                                    JButton selectedButton = new JButton(word);
-                                    selectedButton.setFont(new Font("SansSerif", Font.PLAIN, 14));
-                                    selectedButton.setFocusPainted(false);
-                                    selectedButton.setBackground(new Color(220, 220, 220));
-                                    selectedButton.setForeground(Color.BLACK);
-                                    selectedButton.setBorder(BorderFactory.createLineBorder(new Color(160, 160, 160), 1));
-                                    selectedButton.setPreferredSize(new Dimension(90, 35));
+            wordButton.addActionListener(e -> {
+                wordButton.setVisible(false);
 
-                                    selectedWords.add(word);
+                JButton selectedButton = new JButton(word);
+                selectedButton.setFont(new Font(FONT_NAME, Font.PLAIN, 14));
+                selectedButton.setFocusPainted(false);
+                selectedButton.setBackground(new Color(220, 220, 220));
+                selectedButton.setForeground(Color.BLACK);
+                selectedButton.setBorder(BorderFactory.createLineBorder(new Color(160, 160, 160), 1));
+                selectedButton.setPreferredSize(new Dimension(90, 35));
 
-                                    selectedButton.addActionListener(evt -> {
-                                        answerInnerPanel.remove(selectedButton);
-                                        wordButton.setVisible(true);
-                                        selectedWords.remove(word);
-                                        answerInnerPanel.revalidate();
-                                        answerInnerPanel.repaint();
-                                    });
+                selectedWords.add(word);
 
-                                    answerInnerPanel.add(selectedButton);
-                                    answerInnerPanel.revalidate();
-                                    answerInnerPanel.repaint();
-                                });
+                selectedButton.addActionListener(evt -> {
+                    answerInnerPanel.remove(selectedButton);
+                    wordButton.setVisible(true);
+                    selectedWords.remove(word);
+                    answerInnerPanel.revalidate();
+                    answerInnerPanel.repaint();
+                });
 
-                                optionsPanel.add(wordButton);
-                            }
+                answerInnerPanel.add(selectedButton);
+                answerInnerPanel.revalidate();
+                answerInnerPanel.repaint();
+            });
 
-                            translationPanel.add(optionsPanel);
+            optionsPanel.add(wordButton);
+        }
 
-                            return new TranslationSectionResult(translationPanel, selectedWords);
-                        }
-                    }
+        translationPanel.add(optionsPanel);
+
+        return new TranslationSectionResult(translationPanel, selectedWords);
+    }
+}
