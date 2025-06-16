@@ -6,6 +6,8 @@ import java.util.List;
 
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 
 // This class creates a styled button for selecting a course strategy.
 public class ImageButton {

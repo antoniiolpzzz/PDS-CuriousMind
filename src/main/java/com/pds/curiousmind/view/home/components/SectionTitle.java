@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.home.components;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import com.pds.curiousmind.view.common.RoundedPanel;
 
 import javax.swing.*;

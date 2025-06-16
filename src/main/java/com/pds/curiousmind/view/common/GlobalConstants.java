@@ -12,7 +12,9 @@ public class GlobalConstants {
     public static final int POPUP_HEIGHT = 320;
     public static final String LOGIN_LABEL = "Log in";
     public static final String SIGNUP_LABEL = "Sign up";
+
     public static final String FONT_NAME = "SansSerif ";
+
     public static final String ICON_ANGRY = "icons/pet/enfadado.png";
     public static final String ICON_HAPPY = "icons/pet/feliz.png";
     public static final String ICON_FAIL = "icons/pet/fallo.png";

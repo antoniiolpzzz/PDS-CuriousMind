@@ -1,6 +1,8 @@
 package com.pds.curiousmind.view.home.stats.components;
 
         import com.pds.curiousmind.view.common.RoundedLabel;
+        import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 
         import javax.swing.*;
         import java.awt.*;

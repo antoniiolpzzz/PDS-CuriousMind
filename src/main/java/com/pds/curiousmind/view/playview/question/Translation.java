@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 
 public class Translation {
 

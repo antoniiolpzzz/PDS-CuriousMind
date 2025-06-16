@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 
 public class Test extends JFrame {
 

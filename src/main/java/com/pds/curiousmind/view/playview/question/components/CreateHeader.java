@@ -1,15 +1,13 @@
 package com.pds.curiousmind.view.playview.question.components;
 
 import com.pds.curiousmind.controller.Controller;
-import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
 
 import javax.swing.*;
-        import java.awt.*;
-        import java.util.List;
+import java.awt.*;
 
-import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 

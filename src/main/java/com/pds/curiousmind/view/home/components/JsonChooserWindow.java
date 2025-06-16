@@ -92,7 +92,7 @@ public class JsonChooserWindow extends JDialog {
             } else {
                 try {
                     if (controller.createCourseFromJson(selectedJsonFile) != null) {
-                        JOptionPane.showMessageDialog(null, "¡Curso creado correctamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETADO, 60, 60));
+                        JOptionPane.showMessageDialog(null, "¡Curso creado correctamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETE, 60, 60));
                         dispose();
                         new HomeWindow(user);
                     } else {

@@ -2,6 +2,8 @@ package com.pds.curiousmind.view.common;
 
 import javax.swing.*;
 import java.awt.*;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 
 public class RoundedLabel extends JLabel {
     private Color backgroundColor = new Color(245, 245, 245);

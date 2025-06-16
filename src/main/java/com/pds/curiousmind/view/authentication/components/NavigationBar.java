@@ -4,8 +4,10 @@ package com.pds.curiousmind.view.authentication.components;
         import java.awt.*;
         import java.awt.event.*;
         import java.awt.event.MouseEvent;
+        import static com.pds.curiousmind.view.common.GlobalConstants.*;
 
-        /**
+
+/**
          * NavigationBar provides a navigation panel with links to "About Us", "Contact", and the current page.
          * It highlights the selected section and opens pop-ups for About and Contact.
          */

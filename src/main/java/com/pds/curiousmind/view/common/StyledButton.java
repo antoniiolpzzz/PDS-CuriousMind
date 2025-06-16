@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
+
 /**
  * StyledButton is a custom JButton with rounded corners, custom border colors,
  * and hover effects for a modern UI appearance.
