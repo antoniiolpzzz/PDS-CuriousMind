@@ -17,7 +17,9 @@ import com.pds.curiousmind.model.stat.Stat;
 import com.pds.curiousmind.model.user.User;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public enum Controller {
@@ -41,17 +43,23 @@ public enum Controller {
     Course course;
     RegisteredCourse registeredCourse;
     ContentBlock contentBlock;
+    ContentBlock contentBlock2;
     RegisteredContentBlock RegisteredContentBlock;
+    RegisteredContentBlock RegisteredContentBlock2;
     List<RegisteredCourse> registeredCourses = new java.util.ArrayList<>();
     List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
     List<Course> allCourses = new java.util.ArrayList<>();
 
+
+
     static {
+
+
         // Crear usuario y cursos
         INSTANCE.currentUser = new User("JaviGuardiola", "javi@gmail.com", "password123", "Javi44");
-        INSTANCE.course = new Course("Java Basics", "Learn the basics of Java programming.", "icons/course/js.png", new ArrayList<>(), new ArrayList<>());
-        Course course2 = new Course("Music", "Learn the basics of music", "icons/course/history.png", new ArrayList<>(), new ArrayList<>());
-        Course course3 = new Course("German", "Introduction to German.", "icons/course/german.png", new ArrayList<>(), new ArrayList<>());
+        INSTANCE.course = new Course("German", "Introduction to German.", "icons/course/german.png", new ArrayList<>(), new ArrayList<>());
+        Course course2 = new Course("Music", "Learn the basics of music", "icons/course/music.png", new ArrayList<>(), new ArrayList<>());
+        Course course3 = new Course("Java", "Learn the basics of the Java programming", "icons/course/js.png", new ArrayList<>(), new ArrayList<>());
 
         List<Question> questions = new ArrayList<>();
 
@@ -117,8 +125,18 @@ public enum Controller {
                 INSTANCE.course
         );
 
+        INSTANCE.contentBlock2 = new ContentBlock(
+                "Food Vocabulary",
+                questions,
+                difficulty,
+                INSTANCE.course
+        );
+
         INSTANCE.RegisteredContentBlock = new RegisteredContentBlock(
                 INSTANCE.contentBlock
+        );
+        INSTANCE.RegisteredContentBlock2 = new RegisteredContentBlock(
+                INSTANCE.contentBlock2
         );
         // Añadir cursos a la lista de todos los cursos
         INSTANCE.allCourses.add(INSTANCE.course);
@@ -132,13 +150,28 @@ public enum Controller {
 
         // Asignar cursos registrados al usuario
         INSTANCE.currentUser.setRegisteredCourses(INSTANCE.registeredCourses);
-
+        INSTANCE.RegisteredContentBlock.setCompleted(true);
         // Asignar contenido bloque registrado al curso registrado
         List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
         registeredContentBlocks.add(INSTANCE.RegisteredContentBlock);
+        registeredContentBlocks.add(INSTANCE.RegisteredContentBlock2);
         INSTANCE.registeredCourses.get(0).setRegisteredContentBlocks(registeredContentBlocks);
-    }
 
+        Stat stats = new Stat(INSTANCE.currentUser);
+
+      // Haz una lista de tipo LocalDate con una simulación de fechas en las que el usuario ha entrado
+      List<LocalDate> entries = new ArrayList<>();
+      entries.add(LocalDate.parse("2023-10-01"));
+      entries.add(LocalDate.parse("2023-10-02"));
+      entries.add(LocalDate.parse("2023-10-03"));
+      entries.add(LocalDate.parse("2023-10-04"));
+      entries.add(LocalDate.parse("2023-10-05"));
+      stats.setEntries(new HashSet<>(entries));
+
+        stats.setExperiencePoints(630);
+
+        INSTANCE.currentUser.setStats(stats);
+    }
     //**** TODO: QUITAR LOS CASOS DE PRUEBA  ******************************************************
 
 
@@ -178,8 +211,8 @@ public enum Controller {
 
         int points = switch (difficulty) {
             case EASY -> 100;
-            case MEDIUM -> 200;
-            case HARD -> 300;
+            case MEDIUM -> 300;
+            case HARD -> 500;
         };
         getUserStats().addExperiencePoints(points);
     }
@@ -254,7 +287,10 @@ public enum Controller {
 //                allCourses.add(course);
 //            }
 //        }
-        return allCourses;
+        //TODO: las dos siguientes lineas son para la prueba, quitarlas
+        List<Course> allCourses = new ArrayList<>(this.allCourses);
+        allCourses.removeIf(course -> course.getName().equals("German"));
+        return allCourses ;
     }
 
     // TODO: CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
