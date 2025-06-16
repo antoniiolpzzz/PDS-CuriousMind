@@ -100,7 +100,7 @@ public class CourseStrategyWindow extends JDialog {
         cancelButton.addActionListener(e -> dispose());
 
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(50));
+        buttonPanel.add(Box.createHorizontalStrut(60));
         buttonPanel.add(acceptButton);
 
         add(buttonPanel, BorderLayout.SOUTH);

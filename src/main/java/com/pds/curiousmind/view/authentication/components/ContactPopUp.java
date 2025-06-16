@@ -3,6 +3,9 @@ package com.pds.curiousmind.view.authentication.components;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.POPUP_HEIGHT;
+import static com.pds.curiousmind.view.common.GlobalConstants.POPUP_WIDTH;
+
 /**
  * ContactPopUp displays contact information for CuriousMind.
  * It shows a dialog with phone and email details.
@@ -18,7 +21,7 @@ public class ContactPopUp extends JDialog {
     public ContactPopUp(JFrame parent) {
         super(parent, "Contact", true);
         setUndecorated(false);
-        setSize(400, 300); // Default width and height
+        setSize(POPUP_WIDTH, POPUP_HEIGHT); // Default width and height
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
