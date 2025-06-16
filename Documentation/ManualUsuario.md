@@ -1,4 +1,4 @@
-# 📘 Manual de Usuario — *CuriousMind*
+# 📘 Manual de Usuario — CuriousMind
 
 ## Índice
 
@@ -18,10 +18,11 @@
 
 ---
 
-## ¿Qué es *CuriousMind*?
+## ¿Qué es CuriousMind?
 
-Breve explicación de para qué sirve la app y qué permite hacer al usuario.  
-(Ejemplo: plataforma de aprendizaje personalizada para crear y completar cursos de distintos temas, como idiomas o música).
+CuriousMind es una aplicación de escritorio dirigida a todo tipo de público cuyo objetivo es dar servicio a los usuarios para aprender o reforzar contenidos sobre cualquier tipo de ámbito. La aplicaión se estructura en cursos diferentes, que podrán ser cursos por defecto proporcionados por los desarrolladores de CuriousMind, o cursos propios creados por el usuario. 
+
+Esta aplicación es un programa interactivo que hace que aprender idiomas, música, historia o incluso lenguajes de programación sea mucho más visual y entretenido que simplemente leer libros o buscar información online. Cuenta con distintos tipos de preguntas como tipo test, preguntas de rellenar huecos, juegos visuales con flashcards o incluso preguntas de traducción para los idiomas, que harán que el aprendizaje se convierta en algo más dinámico y divertido. 
 
 ---
 
@@ -50,7 +51,7 @@ Breve explicación de para qué sirve la app y qué permite hacer al usuario.
 - Introduce tu correo y contraseña.
 - Pulsa en **"Iniciar sesión"** para acceder.
 
-📸 *[Aquí puedes insertar una captura]*
+📸 
 
 ---
 
@@ -102,20 +103,10 @@ Breve explicación de para qué sirve la app y qué permite hacer al usuario.
 
 ## Cómo crear un curso
 
-Para crear un curso, CuriousMind te da la posibilidad de importar un archivo `.json` (con el curso en cuestión)  
-desde tu explorador de archivos. Para ello:
-
-1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).
-2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Crear Tu Curso"*.  
-   📸 *---imagen del botón---*
-
-3. Se abrirá una ventana similar a la siguiente:  
-   📸 *---imagen de la ventana windowchooser---*
-
-4. Añade el archivo `.json` y pulsa **Aceptar**.
-
-Una vez completados estos pasos, la aplicación creará el nuevo curso y lo mostrará en la sección *"Nuevo Curso"*.
-
+1. En la pantalla principal, haz clic en **“Crear curso”**.
+2. Introduce el nombre del curso, descripción y bloques de contenido.
+3. Añade preguntas por cada bloque si lo deseas.
+4. Guarda el curso y compártelo con otros usuarios.
 
 ---
 
