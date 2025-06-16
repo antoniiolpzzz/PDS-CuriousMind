@@ -21,9 +21,9 @@
    - [3. Cómo crear un curso](#3-cómo-crear-un-curso)
    - [4. Cómo compartir un curso](#4-cómo-compartir-un-curso)
    - [5. Cómo inscribirse en un curso](#5-cómo-inscribirse-en-un-curso)
-   - [6. Cómo completar un curso](#6-cómo-completar-un-curso)
-6. [Preguntas frecuentes](#preguntas-frecuentes)
-7. [Contacto y soporte](#contacto-y-soporte)
+7. [Funcionamiento de los Cursos](#reglas-y-funcionamiento-del-curso)
+8. [Preguntas frecuentes](#preguntas-frecuentes)
+9. [Contacto y soporte](#contacto-y-soporte)
 
 ---
 
@@ -38,13 +38,13 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 ## Requisitos del sistema
 
 - Sistema operativo: (ej. Windows / macOS / Linux)
-- Java: Versión XX o superior
+- Java version: 1.8.0 
 - IntelliJ IDEA (si se ejecuta desde código fuente)
-- Maven: Versión XX
+- Maven: Versión XX //TODO
 
 ---
 
-## Instalación y ejecución
+## Instalación y ejecución //TODO
 
 1. Clona o descarga el repositorio.
 2. Abre el proyecto en IntelliJ IDEA.
@@ -102,11 +102,13 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
 
 La pantalla *Home* actúa como el menú principal de la aplicación, esta ventana esta dividida en tres secciones principales:
 
-- *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos. 👉 Para más detalles, consulta [Cómo compartir un curso](#4-cómo-compartir-un-curso).
+- *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos. 
 - *New Course*: Donde se encuentran todos los cursos de la aplicación y tenemos la posibilidad de compartirlos e inscribirnos en ellos.
 - *Create New Course*: Este apartado te permite crear un curso a partir de la importación del mismo.
 
 👉 Para más detalles, consulta [Cómo crear un curso](#3-cómo-crear-un-curso).
+
+👉 Para más detalles, consulta [Cómo compartir un curso](#4-cómo-compartir-un-curso).
 
   📸 Ventana Home ![Home screen](Images/home.png)
 
@@ -194,7 +196,6 @@ Elementos principales de la interfaz:
   📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/FillTheGapAnswer.png)
 
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
-
 
 
 📸 Ventanas Fallo y Acierto
@@ -365,9 +366,72 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
+## Reglas y Funcionamiento de un Curso
 
 ### 6. Cómo completar un curso
 
+Una vez te hayas inscrito en un curso, ¡es hora de completarlo! ✅ Para ello, necesitas superar **todos los bloques de contenido** que componen el curso y responder correctamente a **todas las preguntas** de cada bloque.
+
+Para completar un curso, sigue estos pasos:
+
+1. Dirígete a la ventana **Home** o a la ventana **UserWindow**.
+2. En la sección *"My Courses"*, pulsa el botón del curso que quieras continuar.  
+
+📸 Curso Inscrito  
+![MyCourseButton screen](Images/MyCourseButton.png)
+
+3. Serás llevado a la ventana del curso (**CourseDashboard**), donde podrás ver todos los bloques de contenido disponibles.  
+Pulsa en uno de ellos para comenzar.  
+
+📸 Bloques de Contenido  
+![ContentBlock screen](Images/ContentBlock.png)
+
+---
+
+### ⛔ Sistema de vidas
+
+Al iniciar un bloque, comenzarás con **3 vidas ❤️❤️❤️**. Esto significa que puedes fallar hasta **3 preguntas**.  
+- Si fallas una cuarta ❌, serás **expulsado** del bloque y tendrás que **empezar desde el principio** de ese bloque.
+
+📌 *¡Ten cuidado! Cada fallo cuenta.*
+
+---
+
+### 🔄 Salirte a mitad de un bloque
+
+Si decides salir del bloque antes de terminarlo (cerrando la app o saliendo al menú del curso):  
+- **Perderás el progreso actual**, y **cuando vuelvas a entrar a ese bloque empezarás de cero**.  
+
+🔁 *Es mejor terminar lo que empiezas antes de salir del bloque.*
+
+---
+
+### 🧠 Tipos de preguntas y orden
+
+- El **tipo de pregunta** dentro de cada bloque es **aleatorio**: puede tocarte traducir, rellenar huecos, elegir la tarjeta Flashcard, o resolver un test.  
+- El **orden de las preguntas** depende de la **estrategia que elegiste** al inscribirte en el curso:
+  - **Secuencial** ➡️ preguntas en orden.
+  - **Aleatorio** 🔀 ➡️ cada intento tiene orden distinto.
+  - **Repetición Espaciada** ♻️ ➡️ se refuerzan conocimientos repitiendo preguntas.
+
+---
+
+### 🎯 Puntos, dificultad y niveles
+
+Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).  
+- Al completar un bloque, recibirás **puntos** en función de su dificultad:
+  - Fácil ⭐ → 100 puntos
+  - Medio ⚙️ → 300 puntos
+  - Difícil 🔥 → 500 puntos
+
+🏆 Los puntos te ayudan a **aumentar tu nivel como estudiante** en CuriousMind. Cuantos más bloques completes, más nivel tendrás **(1 nivel = 1000 puntos)**.
+
+---
+
+Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque se marcará como **completado** 🎉, ya no lo podrás volver a hacer, y aparecerá de color verde en el menú del curso.
+
+📸 Curso Completado  
+![CompletedCourse screen](Images/CompletedCourse.png)
 
 ---
 
