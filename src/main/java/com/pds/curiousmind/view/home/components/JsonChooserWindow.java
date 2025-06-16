@@ -114,7 +114,7 @@ public class JsonChooserWindow extends JDialog {
             new HomeWindow(user);
         });
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(50));
+        buttonPanel.add(Box.createHorizontalStrut(60));
         buttonPanel.add(acceptButton);
         cancelButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         buttonPanel.add(Box.createHorizontalStrut(60));
