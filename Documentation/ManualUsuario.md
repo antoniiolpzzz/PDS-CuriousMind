@@ -102,15 +102,15 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
 
 La pantalla *Home* actúa como el menú principal de la aplicación, esta ventana esta dividida en tres secciones principales:
 
-- *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos.
+- *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos. 👉 Para más detalles, consulta [Cómo compartir un curso](#4-cómo-compartir-un-curso).
 - *New Course*: Donde se encuentran todos los cursos de la aplicación y tenemos la posibilidad de compartirlos e inscribirnos en ellos.
-- 👉 Para más detalles, consulta [Cómo crear un curso](#3-Cómo-Compartir-un-Curso).
 - *Create New Course*: Este apartado te permite crear un curso a partir de la importación del mismo.
-  👉 Para más detalles, consulta [Cómo crear un curso](#3-Cómo-Crear-un-Curso).
+
+👉 Para más detalles, consulta [Cómo crear un curso](#3-cómo-crear-un-curso).
 
   📸 Ventana Home ![Home screen](Images/home.png)
 
-Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario* explicada en el apartado siguiente.
+Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario*.
 El botón *Logout* <img src="Images/logout.png" width="15"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
   📸 Ventana Home Botón de User ![Home screen](Images/homeUserBotton.png)
@@ -307,7 +307,7 @@ Una vez iniciado sesión correctamente, accederás a la ventana **Home**, donde 
 Para crear un curso, CuriousMind te da la posibilidad de importar un archivo `.json` (con el curso en cuestión)  
 desde tu explorador de archivos. Para ello:
 
-1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).  
+1. Dirígete a la ventana **Home**.  
 2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Create your Course"*.  
 
 📸 Botón Importar Curso ![Import screen](Images/importCourse.png)
@@ -327,7 +327,7 @@ Una vez completados estos pasos, la aplicación creará el nuevo curso y lo most
 Para compartir un curso, CuriousMind te da la posibilidad de guardar un archivo `.json` (con el curso en cuestión)  
 en tu explorador de archivos. Para ello:
 
-1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente) o la ventana de Información de Usuario.  
+1. Dirígete a la ventana **Home** o la ventana de Información de Usuario.  
 2. Pulsa el botón <img src="Images/share.png" width="10"/> que se encuentra a la derecha de cada botón de curso.  
 
 📸 Botón Compartir ![Share screen](Images/ShareButton.png) 
@@ -344,7 +344,7 @@ Una vez completados estos pasos, el curso estará guardado en tu sistema local y
 Para incribirte en un curso al que no te has inscrito ya, CuriousMind te da la posibilidad de elegir entre los cursos  
 ya creados en la aplicación y participar en ellos. Para ello:
 
-1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).  
+1. Dirígete a la ventana **Home**.
 2. Pulsa el botón en cualquiera de los botones de cursos que se encuentran en la sección *"New Course"*.  
 
 📸 Botón de Curso ![CourseButton screen](Images/CourseButton.png)
