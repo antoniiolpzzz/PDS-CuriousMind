@@ -14,11 +14,11 @@ public class RegisteredContentBlock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "registered_course_id", nullable = false)
     private RegisteredCourse registeredCourse;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "content_block_id", nullable = false)
     private ContentBlock contentBlock;
 
@@ -29,6 +29,11 @@ public class RegisteredContentBlock {
     public RegisteredContentBlock() {}
 
     public RegisteredContentBlock(ContentBlock contentBlock) {
+        this.contentBlock = contentBlock;
+        this.isCompleted = false;
+    }
+    public RegisteredContentBlock(RegisteredCourse registeredCourse, ContentBlock contentBlock) {
+        this.registeredCourse = registeredCourse;
         this.contentBlock = contentBlock;
         this.isCompleted = false;
     }

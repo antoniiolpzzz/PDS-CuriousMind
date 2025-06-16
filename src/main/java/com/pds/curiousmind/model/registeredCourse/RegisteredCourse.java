@@ -2,6 +2,7 @@ package com.pds.curiousmind.model.registeredCourse;
 
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -16,28 +17,32 @@ public class RegisteredCourse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    private String strategyID;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "strategy", nullable = false)
+    private StrategyType strategy;
 
-    @OneToMany(mappedBy = "registeredCourse", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "registeredCourse", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
 
     // No-arg constructor for JPA
     public RegisteredCourse() {}
 
-    public RegisteredCourse(User user, Course course, String strategyID) {
+    public RegisteredCourse(User user, Course course, StrategyType strategy) {
         this.user = user;
         this.course = course;
-        this.strategyID = strategyID;
+        this.strategy = strategy;
         this.registeredContentBlocks = course.getContentBlocks().stream()
-            .map(RegisteredContentBlock::new)
+            .map(cb -> {
+                return new RegisteredContentBlock(this, cb);
+            })
             .collect(Collectors.toCollection(ArrayList::new));
     }
 
@@ -45,12 +50,12 @@ public class RegisteredCourse {
     public Long getId() { return id; }
     public User getUser() { return user; }
     public Course getCourse() { return course; }
-    public String getStrategyID() { return strategyID; }
+    public StrategyType getStrategy() { return strategy; }
     public List<RegisteredContentBlock> getRegisteredContentBlocks() { return Collections.unmodifiableList(registeredContentBlocks); }
 
     // SETTERS
     public void setUser(User user) { this.user = user; }
-    public void setStrategyID(String strategyID) { this.strategyID = strategyID; }
+    public void setStrategy(StrategyType strategyID) { this.strategy = strategyID; }
     public void setRegisteredContentBlocks(List<RegisteredContentBlock> registeredContentBlocks) { this.registeredContentBlocks = registeredContentBlocks; }
     public void setCourse(Course course) { this.course = course; }
 
