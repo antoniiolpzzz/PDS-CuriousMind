@@ -51,9 +51,9 @@ public class ContentBlockRow {
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
                         //TODO: Question question = controller.initializeGameManager(course, block);
-                        Question question = block.getQuestions().get(3);
+                        Question question = block.getQuestions().get(1);
                         //pritn del tipo de pregunta
-                        new QuestionStructure(course, question);
+                        new QuestionStructure(course, question, block.getName());
                         parentFrame.dispose();
                     }
                 });

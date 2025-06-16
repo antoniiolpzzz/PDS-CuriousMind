@@ -12,7 +12,6 @@ import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class BackgroundComponent {
 
-    // TODO: This function should receive user, course and a parent frame to dispose it correctly.
     public static JPanel createBackground(JFrame parentFrame, User user, RegisteredCourse course, String type) {
 
         JPanel basePanel = new BackgroundPanel("icons/background/background.jpg");
@@ -32,8 +31,6 @@ public class BackgroundComponent {
         Icon labelIcon;
         Runnable onClickAction;
         Font labelFont = new Font("SansSerif", Font.PLAIN, 20);
-
-        //TODO: change parameters for all the windows - title, iconPath, etc.
 
         switch (type) {
             case "exit":

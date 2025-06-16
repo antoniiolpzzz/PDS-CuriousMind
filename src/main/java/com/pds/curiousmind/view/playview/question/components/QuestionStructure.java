@@ -41,7 +41,7 @@ public class QuestionStructure extends JFrame {
     private Test.TestPanelResult testResult;
     private static final Controller controller = Controller.INSTANCE;
 
-    public QuestionStructure(RegisteredCourse course, Question question) {
+    public QuestionStructure(RegisteredCourse course, Question question, String blockName) {
 
         String indication = question.getIndication();
         String statement = question.getStatement();
@@ -75,7 +75,7 @@ public class QuestionStructure extends JFrame {
         basePanel.add(rightPanel, BorderLayout.EAST);
 
         // COMMON HEADER
-        rightPanel.add(createHeader(course.getName(), course.getImageURL(), indication, statement));
+        rightPanel.add(createHeader(course, indication, statement,blockName));
 
         //Gap for the user to fill with the answer
         switch (type) {
@@ -138,7 +138,8 @@ public class QuestionStructure extends JFrame {
                     dispose();
                     new QuestionStructure(
                             course,
-                            nextQuestion
+                            nextQuestion,
+                            blockName
                     );
                 }
 
@@ -154,7 +155,8 @@ public class QuestionStructure extends JFrame {
                 );
                 new QuestionStructure(
                         course,
-                        nextQuestion
+                        nextQuestion,
+                        blockName
                 );
             }
 
@@ -184,7 +186,8 @@ public class QuestionStructure extends JFrame {
 
         SwingUtilities.invokeLater(() -> new com.pds.curiousmind.view.playview.question.components.QuestionStructure(
                 course,
-                question
+                question,
+                "Basic Astronomy Questions"
         ));
     }
 

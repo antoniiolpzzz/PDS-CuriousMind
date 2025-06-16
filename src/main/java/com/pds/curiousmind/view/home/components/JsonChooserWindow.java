@@ -89,10 +89,15 @@ public class JsonChooserWindow extends JDialog {
 
             } else {
                 try {
-                    controller.createCourseFromJson(selectedJsonFile); //TODO: Check if the course is created successfully
-                    JOptionPane.showMessageDialog(null, "Course created successfully!", "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
-                    dispose();
-                    new HomeWindow(user);
+                    if (controller.createCourseFromJson(selectedJsonFile) != null) {
+                        JOptionPane.showMessageDialog(null, "¡Curso creado correctamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                        dispose();
+                        new HomeWindow(user);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error al crear el curso.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                        dispose();
+                        new HomeWindow(user);
+                    }
 
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error creating course: "+ ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));

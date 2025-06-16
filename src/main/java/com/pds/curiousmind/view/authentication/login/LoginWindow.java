@@ -22,7 +22,6 @@ public class LoginWindow extends JFrame {
 
     private final Controller controller = Controller.INSTANCE;
 
-    // TODO: look for a robot (mascot)
     public LoginWindow() {
         // Window configuration
         setTitle("CuriousMind - Log in");

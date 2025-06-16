@@ -282,6 +282,14 @@ static {
 
     // **************************** GAME MANAGER FUNCTIONS **************************** //
 
+    // GET THE NUMBER OF QUESTIONS ANSWERED IN A THE GAME
+
+    public int getBlockProgress() {
+        // Get the number of questions answered in the game
+        // This could involve checking the game manager or user stats for the number of questions answered
+        //return (gameManager.totalQuestions() - gameManager.questionsLeft()) / gameManager.totalQuestions() * 100;
+        return 30;
+    }
 
     // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK
 
