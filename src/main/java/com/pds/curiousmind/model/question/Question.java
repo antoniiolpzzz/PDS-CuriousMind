@@ -16,8 +16,11 @@ public abstract class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "indication", nullable = false)
     protected String indication;
+    @Column(name = "statement", nullable = false)
     protected String statement;
+    @Column(name = "correct_answer", nullable = false)
     protected String correctAnswer;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
@@ -46,17 +49,27 @@ public abstract class Question {
 
     // GETTERS
     public Long getId() { return id; }
+
     public String getIndication() { return indication; }
+
     public String getStatement() { return statement; }
+
     public String getCorrectAnswer() { return correctAnswer; }
+
     public List<Option> getOptions() { return Collections.unmodifiableList(options); }
+
 
     // SETTERS (for JPA)
     public void setId(Long id) { this.id = id; }
+
     public void setIndication(String indication) { this.indication = indication; }
+
     public void setStatement(String statement) { this.statement = statement; }
+
     public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
+
     public void setOptions(List<Option> options) { this.options = options; }
+
 
     // METHODS
     public boolean validateAnswer(String answer) {

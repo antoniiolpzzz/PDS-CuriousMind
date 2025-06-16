@@ -1,10 +1,13 @@
 package com.pds.curiousmind.model.user;
 
+import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -54,20 +57,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "full_name", nullable = false)
     private String fullName;
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "stat_id", nullable = false, unique = true)
     private Stat stats;
 
     // FOTO DE USUARIO -> API "https://www.dicebear.com"
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<RegisteredCourse> registeredCourses = new ArrayList<>();
 
     // No-arg constructor for JPA
@@ -81,20 +85,40 @@ public class User {
         this.stats = new Stat(this);
     }
 
-    // GETTERS AND SETTERS
+    // GETTERS
     public Long getId() { return id; }
+
     public String getFullName() { return fullName; }
-    public void setFullName(String firstName) { this.fullName = firstName; }
+
     public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+
     public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+
+    public String getPassword() { return password; }
+
     public Stat getStats() { return stats; }
+
+
+    // SETTERS
+    public void setEmail(String email) { this.email = email; }
+
+    public void setFullName(String firstName) { this.fullName = firstName; }
+
+    public void setPassword(String password) { this.password = password; }
+
+    public void setUsername(String username) { this.username = username; }
+
     public void setStats(Stat stats) { this.stats = stats; }
 
-    //METHODS
-    public List<RegisteredCourse> getRegisteredCourses() { return registeredCourses; }
     public void setRegisteredCourses(List<RegisteredCourse> registeredCourses) { this.registeredCourses = registeredCourses; }
+
+
+    //METHODS
+    public List<RegisteredCourse> getRegisteredCourses() { return Collections.unmodifiableList(registeredCourses); }
+
+    public void registerInCourse(Course course, StrategyType strategy) {
+        RegisteredCourse registeredCourse = new RegisteredCourse(this, course, strategy);
+        this.registeredCourses.add(registeredCourse);
+    }
+
 }

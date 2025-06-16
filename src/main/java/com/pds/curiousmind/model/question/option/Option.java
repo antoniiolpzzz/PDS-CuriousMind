@@ -12,11 +12,13 @@ public class Option {
     private Long id;
     private String label;
 
+    // CONSTRUCTORS
     public Option(String label) {
         this.label = label.trim();
     }
 
     public Option() {}
+
 
     // GETTERS
     public Long getId() {
@@ -25,6 +27,13 @@ public class Option {
 
     public String getLabel() {
         return label;
+    }
+
+
+    // SETTERS
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     //COMMON OVERRIDES

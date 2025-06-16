@@ -14,9 +14,11 @@ public class ContentBlock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "difficulty", nullable = false)
     private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
@@ -36,7 +38,7 @@ public class ContentBlock {
 
     // GETTERS
     public Long getId() {
-        return id;
+return id;
     }
 
     public String getName() {
@@ -70,3 +72,4 @@ public class ContentBlock {
     }
 
 }
+

@@ -25,7 +25,7 @@ public class RegisteredCourse {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "strategy", nullable = false)
     private StrategyType strategy;
 
@@ -48,21 +48,33 @@ public class RegisteredCourse {
 
     // GETTERS
     public Long getId() { return id; }
+
     public User getUser() { return user; }
+
     public Course getCourse() { return course; }
+
     public StrategyType getStrategy() { return strategy; }
+
     public List<RegisteredContentBlock> getRegisteredContentBlocks() { return Collections.unmodifiableList(registeredContentBlocks); }
+
 
     // SETTERS
     public void setUser(User user) { this.user = user; }
+
     public void setStrategy(StrategyType strategyID) { this.strategy = strategyID; }
+
     public void setRegisteredContentBlocks(List<RegisteredContentBlock> registeredContentBlocks) { this.registeredContentBlocks = registeredContentBlocks; }
+
     public void setCourse(Course course) { this.course = course; }
 
-    // METHODS
+
+    // ADDITIONAL METHODS
     public String getName() { return this.course != null ? this.course.getName() : null; }
+
     public String getDescription() { return this.course != null ? this.course.getDescription() : null; }
+
     public String getImageURL() { return this.course != null ? this.course.getImageURL() : null; }
+
     public double getProgress() {
         return this.registeredContentBlocks.isEmpty() ? 0.0 :
                 ((double) getCompletedBlocksCount() * 100.0 / registeredContentBlocks.size());
@@ -71,7 +83,9 @@ public class RegisteredCourse {
     public boolean isCompleted() {
         return getCompletedBlocksCount() == registeredContentBlocks.size();
     }
+
     public int getCompletedBlocksCount() {
         return (int) registeredContentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
     }
+
 }

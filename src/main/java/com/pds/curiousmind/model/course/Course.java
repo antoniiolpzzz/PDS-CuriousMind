@@ -33,14 +33,17 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "image_url")
     private String imageURL;
 
     @ElementCollection
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @CollectionTable(name = "course_strategies", joinColumns = @JoinColumn(name = "course_id"))
-    @Column(nullable = false)
+    @Column(name = "available_strategy", nullable = false)
     private Set<StrategyType> availableStrategies;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
