@@ -21,9 +21,10 @@ public class Stat {
     private int experiencePoints;
 
     @ElementCollection
+    @CollectionTable(name = "stat_entries", joinColumns = @JoinColumn(name = "stat_id"))
     private Set<LocalDate> entries = new HashSet<>();
 
-    @OneToOne(mappedBy = "stats")
+    @OneToOne(mappedBy = "stats", optional = false)
     private User user;
 
     // No-arg constructor for JPA
@@ -57,11 +58,11 @@ public class Stat {
     }
 
     public int getBestStreak() {
+        //TODO: This need to be revised
         if (entries == null || entries.isEmpty()) return 0;
         int maxStreak = 1;
         int currentStreak = 1;
         LocalDate previous = null;
-        // Sort the set for streak calculation
         List<LocalDate> sortedEntries = new java.util.ArrayList<>(entries);
         java.util.Collections.sort(sortedEntries);
         for (LocalDate current : sortedEntries) {

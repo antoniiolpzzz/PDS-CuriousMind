@@ -63,7 +63,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Stat stats;
 
     // FOTO DE USUARIO -> API "https://www.dicebear.com"
@@ -78,8 +78,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
-        // TODO: Initialize stats with a new Stat object
-        //  because it cant be done this way here due to jpa apparently
         this.stats = new Stat(this);
     }
 
