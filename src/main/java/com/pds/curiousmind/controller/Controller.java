@@ -127,7 +127,6 @@ public enum Controller {
 
         // Crear cursos registrados
         INSTANCE.registeredCourse = new RegisteredCourse(INSTANCE.currentUser, INSTANCE.course, "SHUFFLED");
-
         // Añadir cursos registrados a la lista
         INSTANCE.registeredCourses.add(INSTANCE.registeredCourse);
 
@@ -249,6 +248,12 @@ public enum Controller {
 
     public List<Course> getAllCourses() {
         // TODO: List<Course> allCourses = courselibrary.getAll();
+//        List<Course> allCourses = new ArrayList<>();
+//        for (Course course : this.allCourses) {
+//            if (!(course instanceof RegisteredCourse)) {
+//                allCourses.add(course);
+//            }
+//        }
         return allCourses;
     }
 
