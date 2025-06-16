@@ -48,17 +48,29 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ### 1. Pantalla de Inicio de sesión (Login)
 
-- Introduce tu correo y contraseña.
-- Pulsa en **"Iniciar sesión"** para acceder.
+La pantalla Login muestra el formulario de inicio de sesión, el cual consta de nombre de usuario (*username*) y contraseña (*password*). Hemos añadido la opción de "mostrar contraseña" para evitar fallos o errores al escribir (*show password*).
+Incorpora dos botones diferentes:
 
-📸 ![Login screen](/images/login.png)
+   - Log in: Una vez relleno el formulario, se pulsa este botón para acceder al menú principal de la aplicación
+   - Sign up: Si es la primera vez que accedemos a CuriousMind, se pulsa este botón para crear nuestra cuenta desde cero. 
+
+📸 Ventana LogIn ![Login screen](Images/login.png)
+
+Como se observa en la imagen, esta ventana incluye además botones "extra" a modo de barra superior:
+
+   - About us: Muestra una ventana de información acerca del equipo de desarrollo de CuriousMind.
+   - Contact: Indica las diferentes formas de contactarnos para cualquier tema, ya sea sobre mejoras, sobre dudas...
+   - Log in: Este botón indica que nos encontramos en la ventana Log in.
+
+📸 Ventana About Us ![AboutUs screen](Images/aboutus.png)
+📸 Ventana Contact ![Contact screen](Images/contact.png)
 
 ---
 
 ### 2. Registro de usuario (Signup)
 
-- Rellena los campos requeridos.
-- Pulsa **"Registrarse"** para crear tu cuenta.
+La ventana Signup muestra el formulario de creación de cuenta, el cual consta de nombre de usuario (*username*) y contraseña (*password*). Hemos añadido la opción de "mostrar contraseña" para evitar fallos o errores al escribir (*show password*).
+Incorpora dos botones diferentes:
 
 📸 *[Captura del formulario de registro]*
 
