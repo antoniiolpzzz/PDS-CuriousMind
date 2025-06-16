@@ -132,7 +132,7 @@ Para registrarte en CuriousMind y comenzar a utilizar la aplicación, sigue esto
    - Tu **contraseña**  
    - Vuelve a introducir la **contraseña** para confirmarla (debe coincidir con la anterior).  
 3. Pulsa el botón **"Sign Up"**.  
-   📸 *---imagen de la pantalla de registro---*  
+   📸 Ventana SignUp ![SignUp screen](Images/signUpFilled.png)
 
 Una vez completado el registro, serás redirigido automáticamente a la pantalla de **Login** para que introduzcas tus credenciales y accedas a la aplicación.
 
@@ -145,7 +145,7 @@ Para acceder a tu cuenta en CuriousMind, sigue estos pasos:
 1. Abre la aplicación.  
 2. En la pantalla de **Login**, introduce tu **nombre de usuario** y tu **contraseña** en los campos correspondientes.  
 3. Pulsa el botón **"Login"** para entrar en la aplicación.  
-   📸 *---imagen de la pantalla de login---*  
+   📸 Ventana LogIn ![Login screen](Images/loginFilled.png)
 
 Una vez iniciado sesión correctamente, accederás a la ventana **Home**, donde podrás ver tus cursos, crear nuevos o inscribirte en los existentes.
 
@@ -158,15 +158,15 @@ Para crear un curso, CuriousMind te da la posibilidad de importar un archivo `.j
 desde tu explorador de archivos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).  
-2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Crear Tu Curso"*.  
-   📸 *---imagen del botón---*  
+2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Create your Course"*.  
+   📸 Botón Importar Curso ![Import screen](Images/importCourse.png)
 
 3. Se abrirá una ventana como la siguiente:  
-   📸 Importar Curso ![Login screen](Images/jsonchooser.png)
+   📸 Importar Curso ![Json screen](Images/jsonchooser.png)
 
-4. Añade el archivo `.json` y pulsa **Aceptar**.  
+4. Añade el archivo `.json` y pulsa **Accept**.  
 
-Una vez completados estos pasos, la aplicación creará el nuevo curso y lo mostrará en la sección *"Nuevo Curso"*.  
+Una vez completados estos pasos, la aplicación creará el nuevo curso y lo mostrará en la sección *"New Course"*.  
 
 ---
 
@@ -177,10 +177,10 @@ en tu explorador de archivos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente) o la ventana de Información de Usuario.  
 2. Pulsa el botón <img src="images/share.png" width="20"/> que se encuentra a la derecha de cada botón de curso.  
-   📸 *---imagen del botón---*  
+   📸 Botón Compartir ![Share screen](Images/ShareButton.png) 
 
 3. Se abrirá una ventana con tu explorador de archivos y podrás guardar el fichero con el curso.  
-4. Elige la carpeta destino y pulsa **Guardar**.  
+4. Elige la carpeta destino y pulsa de **Guardar**.  
 
 Una vez completados estos pasos, el curso estará guardado en tu sistema local y podrás compartirlo con otros usuarios.
 
@@ -192,8 +192,8 @@ Para incribirte en un curso al que no te has inscrito ya, CuriousMind te da la p
 ya creados en la aplicación y participar en ellos. Para ello:
 
 1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).  
-2. Pulsa el botón en cualquiera de los botones de cursos que se encuentran en la sección *"Nuevo Curso"*.  
-   📸 *---imagen del botón---*  
+2. Pulsa el botón en cualquiera de los botones de cursos que se encuentran en la sección *"New Course"*.  
+   📸 Botón de Curso ![CourseButton screen](Images/CourseButton.png)
 
 3. Se abrirá una ventana como la siguiente en la cual debemos escoger la estrategia que queremos seguir en el curso:  
    📸 Ventana Estrategia ![Login screen](Images/strategy.png)
@@ -204,10 +204,10 @@ ya creados en la aplicación y participar en ellos. Para ello:
    - **Aleatorio**: las preguntas aparecen desordenadas cada vez que entras a los bloques de contenidos del curso.  
    - **Repetición Espaciada**: cada 3 preguntas, la primera de esas tres se repite para afianzar los conocimientos.
 
-4. Una vez elegida la estrategia, pulsa el botón **Aceptar** y serás redirigido a la ventana de Home.
+4. Una vez elegida la estrategia, pulsa el botón **Accept** y serás redirigido a la ventana de Home.
    📸 Estrategia Seleccionada ![Login screen](Images/strategySelected.png) 
 
-Una vez completados estos pasos, el curso estará accesible en la sección *"Mis Cursos"* tanto en la ventana Home como en la ventana de Usuario.
+Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
 ---
 
