@@ -156,6 +156,14 @@ static {
 
     // **************************** USER FUNCTIONS **************************** //
 
+    // GET USER PHOTO BY API
+
+    public String getUserPhoto() {
+        // Return the URL or path to the user's photo
+        // This could involve fetching from a database or an API
+        //TODO: User photo ??  -> return currentUser.getPhotoUrl();
+        return "icons/button/user.png";
+    }
 
 
     // GET CURRENT USER
@@ -176,8 +184,13 @@ static {
 
     // ADD EXPERIENCE POINTS TO THE USER
 
-    public void addExperiencePoints(int points) {
+    public void addExperiencePoints(Difficulty difficulty) {
         // Add the specified points to the current user's experience
+        int points = switch (difficulty) {
+            case EASY -> 100;
+            case MEDIUM -> 200;
+            case HARD -> 300;
+        };
         getUserStats().addExperiencePoints(points);
     }
 

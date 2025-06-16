@@ -2,6 +2,7 @@ package com.pds.curiousmind.view.playview.question.components;
 
 
 import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.contentblock.Difficulty;
 import com.pds.curiousmind.model.gameManager.GameManager;
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.question.implementation.FillTheGap;
@@ -33,21 +34,18 @@ import static java.sql.DriverManager.println;
 public class QuestionStructure extends JFrame {
 
 
-    private static final int POINTS = 100;  //TODO: The points should depend on the content block difficulty
-
     private FillTheGaps.GapSectionResult gapResult;
     private Translation.TranslationSectionResult translationResult;
     private FlashCard.FlashCardResult flashCardResult;
     private Test.TestPanelResult testResult;
     private static final Controller controller = Controller.INSTANCE;
 
-    public QuestionStructure(RegisteredCourse course, Question question, String blockName) {
+    public QuestionStructure(RegisteredCourse course, Question question, String blockName, Difficulty difficulty) {
 
         String indication = question.getIndication();
         String statement = question.getStatement();
         List<Option> options = question.getOptions();
         String type = question.getType();
-
 
         setTitle("CuriousMind - Home");
         setMinimumSize(new Dimension(1300, 650));
@@ -84,7 +82,7 @@ public class QuestionStructure extends JFrame {
                 rightPanel.add(gapResult.panel);
             }
             case "Translate" -> {
-                translationResult = createTranslationSection(options);
+                translationResult = Translation.createTranslationSection(options);
                 rightPanel.add(translationResult.panel);
             }
             case "FlashCard" -> {
@@ -129,7 +127,7 @@ public class QuestionStructure extends JFrame {
                 Question nextQuestion = controller.getNextQuestion();
                 if (nextQuestion == null) {
                     controller.endGame();
-                    controller.addExperiencePoints(POINTS);
+                    controller.addExperiencePoints(difficulty);
                     JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
                     new CourseDashboard(course);
                     dispose();
@@ -139,7 +137,8 @@ public class QuestionStructure extends JFrame {
                     new QuestionStructure(
                             course,
                             nextQuestion,
-                            blockName
+                            blockName,
+                            difficulty
                     );
                 }
 
@@ -156,7 +155,8 @@ public class QuestionStructure extends JFrame {
                 new QuestionStructure(
                         course,
                         nextQuestion,
-                        blockName
+                        blockName,
+                        difficulty
                 );
             }
 
@@ -183,11 +183,13 @@ public class QuestionStructure extends JFrame {
                 "moon"
         );
 
+        Difficulty difficulty = Difficulty.EASY;
 
         SwingUtilities.invokeLater(() -> new com.pds.curiousmind.view.playview.question.components.QuestionStructure(
                 course,
                 question,
-                "Basic Astronomy Questions"
+                "Basic Astronomy Questions",
+                difficulty
         ));
     }
 
