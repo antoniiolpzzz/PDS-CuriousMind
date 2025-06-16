@@ -168,7 +168,7 @@ public enum Controller {
       entries.add(LocalDate.parse("2023-10-05"));
       stats.setEntries(new HashSet<>(entries));
 
-        stats.setExperiencePoints(630);
+        stats.setExperiencePoints(6300);
 
         INSTANCE.currentUser.setStats(stats);
     }
