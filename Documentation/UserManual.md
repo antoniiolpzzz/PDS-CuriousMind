@@ -1,131 +1,130 @@
-# 📘 Manual de Usuario — *CuriousMind*
+# 📘 User Manual — *CuriousMind*
 
-## Índice
+## Table of Contents
 
-1. [¿Qué es CuriousMind?](#qué-es-curiousmind)
-2. [Requisitos del sistema](#requisitos-del-sistema)
-3. [Instalación y ejecución](#instalación-y-ejecución)
-4. [Pantallas principales](#pantallas-principales)
-   - [1. Pantalla de Inicio de sesión (Login)](#1-pantalla-de-inicio-de-sesión-login)
-   - [2. Registro de usuario (Signup)](#2-registro-de-usuario-signup)
-   - [3. Página principal (Home)](#3-página-principal-home)
-   - [4. Vista de curso](#4-vista-de-curso)
-   - [5. Bloques de contenido y preguntas](#5-bloques-de-contenido-y-preguntas)
-   - [6. Perfil y estadísticas](#6-perfil-y-estadísticas)
-5. [Cómo crear un curso](#cómo-crear-un-curso)
-6. [Preguntas frecuentes](#preguntas-frecuentes)
-7. [Contacto y soporte](#contacto-y-soporte)
-
----
-
-## ¿Qué es *CuriousMind*?
-
-Breve explicación de para qué sirve la app y qué permite hacer al usuario.  
-(Ejemplo: plataforma de aprendizaje personalizada para crear y completar cursos de distintos temas, como idiomas o música).
+1. [What is CuriousMind?](#what-is-curiousmind)
+2. [System Requirements](#system-requirements)
+3. [Installation and Launch](#installation-and-launch)
+4. [Main Screens](#main-screens)
+   - [1. Login Screen](#1-login-screen)
+   - [2. Signup Screen](#2-signup-screen)
+   - [3. Home Screen](#3-home-screen)
+   - [4. Course View](#4-course-view)
+   - [5. Content Blocks and Questions](#5-content-blocks-and-questions)
+   - [6. Profile and Statistics](#6-profile-and-statistics)
+5. [How to Create a Course](#how-to-create-a-course)
+6. [Frequently Asked Questions](#frequently-asked-questions)
+7. [Contact and Support](#contact-and-support)
 
 ---
 
-## Requisitos del sistema
+## What is *CuriousMind*?
 
-- Sistema operativo: (ej. Windows / macOS / Linux)
-- Java: Versión XX o superior
-- IntelliJ IDEA (si se ejecuta desde código fuente)
-- Maven: Versión XX
+Brief description of the purpose of the app and what users can do with it.  
+(e.g., A personalized learning platform for creating and taking courses on topics like languages or music.)
 
 ---
 
-## Instalación y ejecución
+## System Requirements
 
-1. Clona o descarga el repositorio.
-2. Abre el proyecto en IntelliJ IDEA.
-3. Ejecuta la clase `App.java`.
-4. Se abrirá la interfaz principal de la aplicación.
-
----
-
-## Pantallas principales
-
-### 1. Pantalla de Inicio de sesión (Login)
-
-- Introduce tu correo y contraseña.
-- Pulsa en **"Iniciar sesión"** para acceder.
-
-📸 *[Aquí puedes insertar una captura]*
+- Operating System: (e.g., Windows / macOS / Linux)
+- Java: Version XX or higher
+- IntelliJ IDEA (if running from source code)
+- Maven: Version XX
 
 ---
 
-### 2. Registro de usuario (Signup)
+## Installation and Launch
 
-- Rellena los campos requeridos.
-- Pulsa **"Registrarse"** para crear tu cuenta.
-
-📸 *[Captura del formulario de registro]*
-
----
-
-### 3. Página principal (Home)
-
-- Visualiza los cursos disponibles.
-- Accede a tus cursos inscritos.
-- Botón para **crear un nuevo curso**.
-
-📸 *[Captura de la pantalla principal]*
+1. Clone or download the repository.
+2. Open the project in IntelliJ IDEA.
+3. Run the `App.java` class.
+4. The application's main interface will open.
 
 ---
 
-### 4. Vista de curso
+## Main Screens
 
-- Muestra los bloques de contenido del curso.
-- Puedes avanzar bloque a bloque.
+### 1. Login Screen
 
-📸 *[Captura del curso en ejecución]*
+- Enter your email and password.
+- Click **"Log in"** to access your account.
 
----
-
-### 5. Bloques de contenido y preguntas
-
-- Lee el contenido del bloque.
-- Contesta preguntas tipo test para avanzar.
-
-📸 *[Ejemplo de una pregunta]*
+📸 *[Insert screenshot here]*
 
 ---
 
-### 6. Perfil y estadísticas
+### 2. Signup Screen
 
-- Consulta tu progreso por curso.
-- Visualiza número de preguntas acertadas, cursos completados, etc.
+- Fill in the required fields.
+- Click **"Sign up"** to create your account.
 
-📸 *[Captura de la vista de perfil]*
-
----
-
-## Cómo crear un curso
-
-1. En la pantalla principal, haz clic en **“Crear curso”**.
-2. Introduce el nombre del curso, descripción y bloques de contenido.
-3. Añade preguntas por cada bloque si lo deseas.
-4. Guarda el curso y compártelo con otros usuarios.
+📸 *[Screenshot of the signup form]*
 
 ---
 
-## Preguntas frecuentes
+### 3. Home Screen
 
-**¿Puedo editar un curso después de crearlo?**  
-(Sí / No / En desarrollo...)
+- View available courses.
+- Access your enrolled courses.
+- Click the **"Create course"** button to make a new one.
 
-**¿Puedo eliminar mi cuenta?**  
-(Sí, desde el perfil...)
-
-**¿La app guarda mi progreso automáticamente?**  
-(Sí / No...)
+📸 *[Screenshot of the home screen]*
 
 ---
 
-## Contacto y soporte
+### 4. Course View
 
-Para dudas, sugerencias o errores, puedes contactar con el equipo de desarrollo en:  
-📧 correo@ejemplo.com
+- Displays the content blocks for the selected course.
+- Navigate through each block sequentially.
+
+📸 *[Screenshot of a course in progress]*
 
 ---
 
+### 5. Content Blocks and Questions
+
+- Read the block content.
+- Answer multiple-choice questions to continue.
+
+📸 *[Example of a question screen]*
+
+---
+
+### 6. Profile and Statistics
+
+- View your progress per course.
+- See number of correct answers, completed courses, and more.
+
+📸 *[Profile screen capture]*
+
+---
+
+## How to Create a Course
+
+1. On the home screen, click **“Create course”**.
+2. Enter the course name, description, and content blocks.
+3. Optionally, add questions to each block.
+4. Save the course and share it with other users.
+
+---
+
+## Frequently Asked Questions
+
+**Can I edit a course after creating it?**  
+(Yes / No / Coming soon...)
+
+**Can I delete my account?**  
+(Yes, from the profile page...)
+
+**Is my progress saved automatically?**  
+(Yes / No...)
+
+---
+
+## Contact and Support
+
+For questions, suggestions, or bug reports, contact the development team at:  
+📧 example@email.com
+
+---
