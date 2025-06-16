@@ -390,7 +390,7 @@ Pulsa en uno de ellos para comenzar.
 
 ### ⛔ Sistema de vidas
 
-Al iniciar un bloque, comenzarás con **3 vidas ❤️❤️❤️**. Esto significa que puedes fallar hasta **3 preguntas**.  
+Al iniciar un bloque, comenzarás con **5 vidas ❤️❤️❤️**. Esto significa que puedes fallar hasta **3 preguntas**.  
 - Si fallas una cuarta ❌, serás **expulsado** del bloque y tendrás que **empezar desde el principio** de ese bloque.
 
 📌 *¡Ten cuidado! Cada fallo cuenta.*
