@@ -33,7 +33,7 @@ import static java.sql.DriverManager.println;
 public class QuestionStructure extends JFrame {
 
 
-    private static final int PUNTOS = 100;  //TODO: The points should depend on the content block difficulty
+    private static final int POINTS = 100;  //TODO: The points should depend on the content block difficulty
 
     private FillTheGaps.GapSectionResult gapResult;
     private Translation.TranslationSectionResult translationResult;
@@ -126,25 +126,32 @@ public class QuestionStructure extends JFrame {
 
             if (controller.validateAnswer(question, submittedAnswer)) {
                 JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
-                dispose();
                 Question nextQuestion = controller.getNextQuestion();
                 if (nextQuestion == null) {
                     controller.endGame();
+                    controller.addExperiencePoints(POINTS);
                     JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
-                    controller.addExperiencePoints(PUNTOS);
                     new CourseDashboard(course);
                     dispose();
                 }
-                assert nextQuestion != null;
-                new QuestionStructure(
-                        course,
-                        nextQuestion
-                );
+                else {
+                    dispose();
+                    new QuestionStructure(
+                            course,
+                            nextQuestion
+                    );
+                }
+
             } else {
                 controller.addFailedQuestion(question);
                 JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
                 dispose();
-                Question nextQuestion = controller.getNextQuestion();
+                //TODO:  Question nextQuestion = controller.getNextQuestion();
+                Question nextQuestion = new FillTheGap(
+                        "Complete the sentence:",
+                        "The ___ is the satellite of the Earth.",
+                        "moon"
+                );
                 new QuestionStructure(
                         course,
                         nextQuestion

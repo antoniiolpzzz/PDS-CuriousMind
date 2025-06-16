@@ -20,7 +20,7 @@ public class CourseRowSection {
         row.setLayout(new GridLayout(0, 4, 20, 15));
         row.setOpaque(false);
         for (RegisteredCourse rc : courseData) {
-            row.add(new RegisteredCourseItemPanel(rc, () -> {
+            row.add(new CourseItemPanel(rc.getCourse(), () -> {
                 new CourseDashboard(rc);
                 parentFrame.dispose(); // Cierra la ventana actual
             }));
