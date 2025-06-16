@@ -9,6 +9,7 @@ import com.pds.curiousmind.view.home.components.*;
 import com.pds.curiousmind.view.home.stats.UserWindow;
 
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.home.components.CourseRowSection.createCourseRowSection;
 import static com.pds.curiousmind.view.home.components.CourseRowSection.createRegisteredCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;

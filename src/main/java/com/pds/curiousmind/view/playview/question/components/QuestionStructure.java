@@ -121,7 +121,7 @@ public class QuestionStructure extends JFrame {
                 if (nextQuestion == null) {
                     //TODO: controller.endGame();
                     controller.addExperiencePoints(difficulty);
-                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETADO, 60, 60));
+                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETE, 60, 60));
                     new CourseDashboard(course);
                     dispose();
                 }
@@ -137,7 +137,7 @@ public class QuestionStructure extends JFrame {
 
             } else {
                 controller.addFailedQuestion(question);
-                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FALLO, 60, 60));
+                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
                 dispose();
                 //TODO:  Question nextQuestion = controller.getNextQuestion();
                 Question nextQuestion = new FillTheGap(

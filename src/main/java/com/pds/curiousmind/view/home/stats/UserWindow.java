@@ -13,7 +13,6 @@ import com.pds.curiousmind.view.home.course.CourseDashboard;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;

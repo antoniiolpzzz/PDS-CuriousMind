@@ -3,6 +3,8 @@ package com.pds.curiousmind.view.authentication.components;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 /**
  * AboutPopUp displays information about the creators of CuriousMind.
  * It shows a dialog with team member photos and a brief description.
