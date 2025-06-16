@@ -162,7 +162,7 @@ desde tu explorador de archivos. Para ello:
    📸 *---imagen del botón---*  
 
 3. Se abrirá una ventana como la siguiente:  
-   📸 *---imagen de la ventana windowchooser---*  
+   📸 Importar Curso ![Login screen](Images/jsonchooser.png)
 
 4. Añade el archivo `.json` y pulsa **Aceptar**.  
 
@@ -196,14 +196,16 @@ ya creados en la aplicación y participar en ellos. Para ello:
    📸 *---imagen del botón---*  
 
 3. Se abrirá una ventana como la siguiente en la cual debemos escoger la estrategia que queremos seguir en el curso:  
-   📸 *---imagen de la strategywindow---*  
+   📸 Ventana Estrategia ![Login screen](Images/strategy.png)
+ 
 
    Las estrategias sirven para personalizar la forma de aparición de las preguntas, entre ellas tenemos:
    - **Secuencial**: donde las preguntas aparecen en orden normal una detrás de otra.  
    - **Aleatorio**: las preguntas aparecen desordenadas cada vez que entras a los bloques de contenidos del curso.  
    - **Repetición Espaciada**: cada 3 preguntas, la primera de esas tres se repite para afianzar los conocimientos.
 
-4. Una vez elegida la estrategia, pulsa el botón **Aceptar** y serás redirigido a la ventana de Home.  
+4. Una vez elegida la estrategia, pulsa el botón **Aceptar** y serás redirigido a la ventana de Home.
+   📸 Estrategia Seleccionada ![Login screen](Images/strategySelected.png) 
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"Mis Cursos"* tanto en la ventana Home como en la ventana de Usuario.
 
