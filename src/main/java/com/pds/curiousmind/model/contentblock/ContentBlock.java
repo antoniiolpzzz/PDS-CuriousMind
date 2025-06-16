@@ -1,6 +1,5 @@
 package com.pds.curiousmind.model.contentblock;
 
-import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.question.Question;
 import jakarta.persistence.*;
 
@@ -20,11 +19,8 @@ public class ContentBlock {
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "course_id", nullable = false)
-    private Course course;
-
-    @OneToMany(mappedBy = "contentBlock", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "content_block_id", nullable = false)
     private List<Question> questions;
 
     // CONSTRUCTORS
@@ -32,11 +28,10 @@ public class ContentBlock {
         this.questions = new ArrayList<>();
     }
 
-    public ContentBlock(String name, List<Question> questions, Difficulty difficultyLevel, Course course) {
+    public ContentBlock(String name, List<Question> questions, Difficulty difficultyLevel) {
         this.name = name;
         this.questions = new ArrayList<>(questions);
         this.difficulty = difficultyLevel;
-        this.course = course;
     }
 
     // GETTERS
@@ -56,9 +51,6 @@ public class ContentBlock {
         return difficulty;
     }
 
-    public Course getCourse() {
-        return course;
-    }
 
     // SETTERS
     public void setId(Long id) {
@@ -77,7 +69,4 @@ public class ContentBlock {
         this.difficulty = difficulty;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 }
