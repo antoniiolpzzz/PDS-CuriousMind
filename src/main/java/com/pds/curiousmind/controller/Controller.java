@@ -63,14 +63,14 @@ static {
     flashCardOptions.add(new ImageOption("Zwiebel", "icons/course/cebolla.png"));
 
     List<Option> translateOptions = new ArrayList<>();
-    translateOptions.add(new Option("The"));
+    translateOptions.add(new Option("New"));
     translateOptions.add(new Option("green"));
     translateOptions.add(new Option("sheep"));
-    translateOptions.add(new Option("blue"));
+    translateOptions.add(new Option("iron"));
     translateOptions.add(new Option("table"));
     translateOptions.add(new Option("are"));
-    translateOptions.add(new Option("is"));
-    translateOptions.add(new Option("dog"));
+    translateOptions.add(new Option("pencil"));
+    translateOptions.add(new Option("cat"));
 
     Question fillTheGaps = new FillTheGap(
             "Complete the sentence:",

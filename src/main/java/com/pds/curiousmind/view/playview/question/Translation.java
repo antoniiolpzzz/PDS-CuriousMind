@@ -22,7 +22,7 @@ package com.pds.curiousmind.view.playview.question;
                                 return String.join(" ", selectedWords);
                             }
                         }
-                        //TODO: muestra dos veces cada opción.
+
                         public static TranslationSectionResult createTranslationSection(List<Option> options) {
                             JPanel translationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 30, 0));
                             translationPanel.setOpaque(false);
