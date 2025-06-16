@@ -21,7 +21,7 @@
    - [3. Cómo crear un curso](#3-cómo-crear-un-curso)
    - [4. Cómo compartir un curso](#4-cómo-compartir-un-curso)
    - [5. Cómo inscribirse en un curso](#5-cómo-inscribirse-en-un-curso)
-7. [Funcionamiento de los Cursos](#reglas-y-funcionamiento-del-curso)
+7. [Funcionamiento de los Cursos](#funcionamiento-de-los-cursos)
 8. [Preguntas frecuentes](#preguntas-frecuentes)
 9. [Contacto y soporte](#contacto-y-soporte)
 
@@ -366,7 +366,7 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
-## Reglas y Funcionamiento de un Curso
+## Funcionamiento de los Cursos
 
 ### 6. Cómo completar un curso
 
