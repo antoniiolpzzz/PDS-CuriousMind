@@ -69,10 +69,17 @@ Como se observa en la imagen, esta ventana incluye además botones "extra" a mod
 
 ### 2. Registro de usuario (Signup)
 
-La ventana Signup muestra el formulario de creación de cuenta, el cual consta de nombre de usuario (*username*) y contraseña (*password*). Hemos añadido la opción de "mostrar contraseña" para evitar fallos o errores al escribir (*show password*).
+La ventana Signup muestra el formulario de creación de cuenta, el cual consta de nombre completo (*fullname*), nombre de usuario (*username*), dirección de correo electrónico (*email address*) y contraseña (*password* y *confirm password*). Manteniendo la opcion de "mostrar contraseña", en esta ventana la incorporamos por duplicado, al tener dos campos de contraseña: elegir y confirmar. 
 Incorpora dos botones diferentes:
 
-📸 *[Captura del formulario de registro]*
+   - Create Account: Una vez relleno el formulario, se pulsa este botón para crear la cuenta almacenándola en la base de datos. Al hacer click sobre este botón, se te redirigirá a la ventana LogIn para iniciar sesión con tus nuevos datos.
+   - Log in: Si ya tenías una cuenta, puedes pulsar sobre este botón para volver a la ventana LogIn e iniciar sesión con tus datos. 
+
+📸 Ventana SignUp ![SignUp screen](Images/signup.png)
+
+Mantiene los botones comentados anteriormente de la barra superior, con la ligera diferencia del tercero: 
+
+   - Sign Up: Este botón indica que nos encontramos en la ventana Sign Up.
 
 ---
 
