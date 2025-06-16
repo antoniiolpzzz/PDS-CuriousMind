@@ -1,11 +1,10 @@
 package com.pds.curiousmind.model.course;
 
 import com.pds.curiousmind.model.contentblock.ContentBlock;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @NamedEntityGraph(
     name = "Course.fullGraph",
@@ -39,27 +38,30 @@ public class Course {
     private String imageURL;
 
     @ElementCollection
+    @Enumerated(EnumType.STRING)
     @CollectionTable(name = "course_strategies", joinColumns = @JoinColumn(name = "course_id"))
-    private List<String> availableStrategies;
+    @Column(nullable = false)
+    private Set<StrategyType> availableStrategies;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "course_id", nullable = false)
     private List<ContentBlock> contentBlocks;
 
     // CONSTRUCTORS
     public Course() {
-        this.availableStrategies = new ArrayList<>();
+        this.availableStrategies = new HashSet<>();
         this.contentBlocks = new ArrayList<>();
     }
 
-    public Course(String name, String description, String imageURL, List<String> strategies, List<ContentBlock> contentBlocks) {
+    public Course(String name, String description, String imageURL, List<StrategyType> strategies, List<ContentBlock> contentBlocks) {
         this.name = name;
         this.description = description;
         this.imageURL = imageURL;
-        this.availableStrategies = new ArrayList<>(strategies);
+        this.availableStrategies = new HashSet<>(strategies);
         this.contentBlocks = new ArrayList<>(contentBlocks);
     }
 
-    public Course(String name, String imageURL, List<String> strategies, List<ContentBlock> contentBlocks) {
+    public Course(String name, String imageURL, List<StrategyType> strategies, List<ContentBlock> contentBlocks) {
         this(name, null, imageURL, strategies, contentBlocks);
     }
 
@@ -84,11 +86,12 @@ public class Course {
         return Collections.unmodifiableList(contentBlocks);
     }
 
-    public List<String> getAvailableStrategies() {
-        return Collections.unmodifiableList(availableStrategies);
+    public Set<StrategyType> getAvailableStrategies() {
+        return Collections.unmodifiableSet(availableStrategies);
     }
 
-    // SETTERS (for JPA and updates)
+
+    // SETTERS
     public void setId(Long id) {
         this.id = id;
     }
@@ -109,7 +112,7 @@ public class Course {
         this.contentBlocks = contentBlocks;
     }
 
-    public void setAvailableStrategies(List<String> availableStrategies) {
+    public void setAvailableStrategies(Set<StrategyType> availableStrategies) {
         this.availableStrategies = availableStrategies;
     }
 }
