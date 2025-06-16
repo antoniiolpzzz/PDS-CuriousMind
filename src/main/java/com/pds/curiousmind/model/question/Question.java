@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Collections;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "question_type", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "questions")
 public abstract class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +20,9 @@ public abstract class Question {
     protected String statement;
     protected String correctAnswer;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "question_id", nullable = false)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "question_id")
     protected List<Option> options;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "content_block_id", nullable = false)
-    protected ContentBlock contentBlock;
 
     // CONSTRUCTORS
     public Question(String indication, String statement, String correctAnswer, List<Option> options) {
@@ -52,7 +50,6 @@ public abstract class Question {
     public String getStatement() { return statement; }
     public String getCorrectAnswer() { return correctAnswer; }
     public List<Option> getOptions() { return Collections.unmodifiableList(options); }
-    public ContentBlock getContentBlock() { return contentBlock; }
 
     // SETTERS (for JPA)
     public void setId(Long id) { this.id = id; }
@@ -60,7 +57,6 @@ public abstract class Question {
     public void setStatement(String statement) { this.statement = statement; }
     public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
     public void setOptions(List<Option> options) { this.options = options; }
-    public void setContentBlock(ContentBlock contentBlock) { this.contentBlock = contentBlock; }
 
     // METHODS
     public boolean validateAnswer(String answer) {
