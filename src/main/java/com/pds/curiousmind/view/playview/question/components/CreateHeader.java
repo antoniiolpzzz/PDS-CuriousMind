@@ -27,7 +27,7 @@ public class CreateHeader {
         headerPanel.setOpaque(false);
         headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         JLabel homeTitle = new JLabel(course.getName(), SwingConstants.LEFT);
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setIcon(loadIcon(course.getImageURL(), 24, 24));
         headerPanel.add(homeTitle, BorderLayout.WEST);
@@ -47,7 +47,7 @@ public class CreateHeader {
 
         JProgressBar progressBar = new RoundedProgressBar(controller.getBlockProgress());
         progressBar.setStringPainted(true);
-        progressBar.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        progressBar.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
         progressBar.setForeground(new Color(76, 175, 80)); // Green color
         progressBar.setBackground(new Color(245, 245, 245));
         progressBar.setAlignmentX(Component.CENTER_ALIGNMENT);

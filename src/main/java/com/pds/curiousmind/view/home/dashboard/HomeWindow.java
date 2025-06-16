@@ -29,7 +29,7 @@ public class HomeWindow extends JFrame {
     public HomeWindow(User user) {
 
         setTitle("CuriousMind - Home");
-        setMinimumSize(new Dimension(1300, 650));
+        setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -55,7 +55,7 @@ public class HomeWindow extends JFrame {
         headerPanel.setOpaque(false);
         headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         JLabel homeTitle = new JLabel("Home", SwingConstants.LEFT);
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
@@ -64,7 +64,7 @@ public class HomeWindow extends JFrame {
         // USER PANEL INFORMATION
 
         String username = (user != null && user.getUsername() != null) ? user.getUsername() : "Invitado";        StyledButton name = new StyledButton(username, Color.BLACK, Color.WHITE);
-        name.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        name.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
         name.setHorizontalAlignment(SwingConstants.CENTER);
         name.setPreferredSize(new Dimension(80, 35));
         name.addMouseListener(new java.awt.event.MouseAdapter() {

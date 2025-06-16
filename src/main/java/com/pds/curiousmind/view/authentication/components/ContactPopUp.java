@@ -3,11 +3,22 @@ package com.pds.curiousmind.view.authentication.components;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * ContactPopUp displays contact information for CuriousMind.
+ * It shows a dialog with phone and email details.
+ */
 public class ContactPopUp extends JDialog {
+
+    /**
+     * Constructs the ContactPopUp dialog.
+     * Sets up the layout and displays contact details.
+     *
+     * @param parent The parent JFrame for modal positioning.
+     */
     public ContactPopUp(JFrame parent) {
         super(parent, "Contact", true);
         setUndecorated(false);
-        setSize(500, 220);
+        setSize(400, 300); // Default width and height
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
@@ -16,14 +27,13 @@ public class ContactPopUp extends JDialog {
         panel.setBackground(Color.WHITE);
         add(panel, BorderLayout.CENTER);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Espacio alrededor del contenido
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel title = new JLabel("How to contact CuriousMind", SwingConstants.CENTER);
         title.setFont(new Font("SansSerif", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(title);
         panel.add(Box.createVerticalStrut(20));
-
 
         JLabel phone = new JLabel("Phone Number: 645729425",
                 resizeIcon("icons/contact/phone.png", 32, 32), JLabel.LEFT);
@@ -39,6 +49,14 @@ public class ContactPopUp extends JDialog {
         panel.add(email);
     }
 
+    /**
+     * Loads and scales an image icon from the given path.
+     *
+     * @param path The resource path to the image.
+     * @param width The desired width.
+     * @param height The desired height.
+     * @return The scaled ImageIcon.
+     */
     private ImageIcon resizeIcon(String path, int width, int height) {
         ImageIcon originalIcon = new ImageIcon(getClass().getClassLoader().getResource(path));
         Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
