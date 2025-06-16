@@ -8,7 +8,7 @@ public class GlobalConstants {
     public static final String SIGNUP_WELCOME = "WELCOME!";
     public static final int WINDOW_WIDTH = 1300;
     public static final int WINDOW_HEIGHT = 650;
-    public static final int POPUP_WIDTH = 480;
+    public static final int POPUP_WIDTH = 500;
     public static final int POPUP_HEIGHT = 320;
     public static final String LOGIN_LABEL = "Log in";
     public static final String SIGNUP_LABEL = "Sign up";
@@ -38,9 +38,9 @@ public class GlobalConstants {
     public static final String SHOW_PASSWORD_LABEL = "Show Password";
     public static final String PASSWORD_LABEL = "Password";
 
-    public static final String ICON_STRATEGY_SEQUENTIAL = "icons/strategies/sequential.png";
-    public static final String ICON_STRATEGY_RANDOM = "icons/strategies/random.png";
-    public static final String ICON_STRATEGY_REPETITON = "icons/strategies/repetition.png";
+    public static final String ICON_STRATEGY_SEQUENTIAL = "icons/strategy/sequential.png";
+    public static final String ICON_STRATEGY_RANDOM = "icons/strategy/random.png";
+    public static final String ICON_STRATEGY_REPETITON = "icons/strategy/repetition.png";
 
 
 
