@@ -55,8 +55,7 @@ public class UserWindow extends JFrame {
 
         // HEADER SECTION
         JLabel homeTitle = new JLabel("Hello " + user.getUsername() + "!");
-        // TODO: Stirng iconPath = user.getIconPath());
-        String iconPath = "icons/button/user.png";
+        String iconPath = controller.getUserPhoto();
         homeTitle.setIcon(loadIcon(iconPath, 30, 30));
         homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);

@@ -14,7 +14,6 @@ package com.pds.curiousmind.view.playview.question;
                     this.answerField = answerField;
                 }
 
-                // Método para obtener la respuesta como String
                 public String getAnswer() {
                     return answerField.getText();
                 }

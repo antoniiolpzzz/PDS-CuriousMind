@@ -82,7 +82,7 @@ public class HomeWindow extends JFrame {
                 name.setBackground(Color.BLACK);
             }
         });
-        String iconPath = "icons/button/user.png"; //TODO: iconpath = user.getIconPath()
+        String  iconPath = controller.getUserPhoto();
         ImageIcon icon = loadIcon(iconPath, 35, 35);
         assert icon != null;
         Image image = icon.getImage();
