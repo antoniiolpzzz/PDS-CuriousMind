@@ -102,10 +102,20 @@ Breve explicación de para qué sirve la app y qué permite hacer al usuario.
 
 ## Cómo crear un curso
 
-1. En la pantalla principal, haz clic en **“Crear curso”**.
-2. Introduce el nombre del curso, descripción y bloques de contenido.
-3. Añade preguntas por cada bloque si lo deseas.
-4. Guarda el curso y compártelo con otros usuarios.
+Para crear un curso, CuriousMind te da la posibilidad de importar un archivo `.json` (con el curso en cuestión)  
+desde tu explorador de archivos. Para ello:
+
+1. Dirígete a la ventana **Home** (explicada en el apartado correspondiente).
+2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Crear Tu Curso"*.  
+   📸 *---imagen del botón---*
+
+3. Se abrirá una ventana similar a la siguiente:  
+   📸 *---imagen de la ventana windowchooser---*
+
+4. Añade el archivo `.json` y pulsa **Aceptar**.
+
+Una vez completados estos pasos, la aplicación creará el nuevo curso y lo mostrará en la sección *"Nuevo Curso"*.
+
 
 ---
 
