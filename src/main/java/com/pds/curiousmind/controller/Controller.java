@@ -51,7 +51,7 @@ static {
 
     List<Question> questions = new ArrayList<>();
 
-  List<Option> testOptions = new ArrayList<>();
+    List<Option> testOptions = new ArrayList<>();
     testOptions.add(new Option("Madrid"));
     testOptions.add(new Option("Barcelona"));
     testOptions.add(new Option("Valencia"));
@@ -154,7 +154,8 @@ static {
 
 
 
-    // **************************** USER FUNCTIONS **************************** //
+//***********************************************  USER FUNCTIONS *********************************************** //
+
 
     // GET USER PHOTO BY API
 
@@ -174,7 +175,7 @@ static {
 
 
 
-    // **************************** STATS FUNCTIONS **************************** //
+//***********************************************  STATS FUNCTIONS *********************************************** //
 
     // GET USER STATS
 

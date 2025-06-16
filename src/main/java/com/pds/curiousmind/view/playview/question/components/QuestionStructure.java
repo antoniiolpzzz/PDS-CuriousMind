@@ -86,13 +86,6 @@ public class QuestionStructure extends JFrame {
                 rightPanel.add(translationResult.panel);
             }
             case "FlashCard" -> {
-                options.forEach(option -> {
-                    if (option instanceof ImageOption imageOption) {
-                        System.out.println("Option: " + imageOption.getLabel() + ", Image: " + imageOption.getImageURL());
-                    } else {
-                        System.out.println("Option: " + option.getLabel() + ", Image: none");
-                    }
-                });
                 flashCardResult = createFlashCard(options);
                 rightPanel.add(flashCardResult.panel);
             }
@@ -120,7 +113,6 @@ public class QuestionStructure extends JFrame {
                 case "FlashCard" -> submittedAnswer = flashCardResult != null ? flashCardResult.getAnswer() : "";
                 case "Test" -> submittedAnswer = testResult != null ? testResult.getAnswer() : "";
             }
-            System.out.println("Answer submitted: " + submittedAnswer);
 
             if (controller.validateAnswer(question, submittedAnswer)) {
                 JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
@@ -128,7 +120,7 @@ public class QuestionStructure extends JFrame {
                 if (nextQuestion == null) {
                     controller.endGame();
                     controller.addExperiencePoints(difficulty);
-                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
+                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/completado.png", 60, 60));
                     new CourseDashboard(course);
                     dispose();
                 }
@@ -144,7 +136,7 @@ public class QuestionStructure extends JFrame {
 
             } else {
                 controller.addFailedQuestion(question);
-                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/fallo.png", 60, 60));
                 dispose();
                 //TODO:  Question nextQuestion = controller.getNextQuestion();
                 Question nextQuestion = new FillTheGap(
