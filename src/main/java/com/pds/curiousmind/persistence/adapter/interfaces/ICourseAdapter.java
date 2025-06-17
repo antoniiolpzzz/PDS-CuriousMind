@@ -9,4 +9,3 @@ public interface ICourseAdapter extends IAdapter<Course> {
 
     List<Course> findByName(String name);
 }
-

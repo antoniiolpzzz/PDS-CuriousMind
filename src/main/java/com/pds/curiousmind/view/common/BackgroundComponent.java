@@ -1,5 +1,6 @@
 package com.pds.curiousmind.view.common;
 
+import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.authentication.login.LoginWindow;
@@ -13,6 +14,8 @@ import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public class BackgroundComponent {
+
+    static Controller controller = Controller.INSTANCE;
 
     public static JPanel createBackground(JFrame parentFrame, User user, RegisteredCourse course, String type) {
 
@@ -38,7 +41,10 @@ public class BackgroundComponent {
             case "exit":
                 labelText = "Exit";
                 labelIcon = loadIcon(ICON_LOGOUT, 20, 20);
-                onClickAction = () -> new CourseDashboard(course);
+                onClickAction = () -> {
+                    new CourseDashboard(course);
+                    controller.endGame();
+                };
                 break;
             case "home":
                 labelText = "Home";

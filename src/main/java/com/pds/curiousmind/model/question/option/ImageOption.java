@@ -21,4 +21,5 @@ public class ImageOption extends Option {
     public String getImageURL() {
         return imageURL;
     }
+
 }

@@ -5,10 +5,9 @@ import com.pds.curiousmind.persistence.adapter.interfaces.ICourseAdapter;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.EntityGraph;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 public enum CourseAdapterJPA implements ICourseAdapter {
     INSTANCE;
@@ -78,11 +77,10 @@ public enum CourseAdapterJPA implements ICourseAdapter {
     }
 
     @Override
-    public Course findById(Long id) {
+    public Optional<Course> findById(Long id) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            EntityGraph<?> graph = entityManager.getEntityGraph("Course.fullGraph");
-            return entityManager.find(Course.class, id, Map.of("jakarta.persistence.fetchgraph", graph));
+            return Optional.ofNullable(entityManager.find(Course.class, id));
         } finally {
             entityManager.close();
         }
@@ -92,9 +90,8 @@ public enum CourseAdapterJPA implements ICourseAdapter {
     public List<Course> findAll() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            EntityGraph<?> graph = entityManager.getEntityGraph("Course.fullGraph");
+            // Removed entity graph to avoid MultipleBagFetchException
             return entityManager.createQuery("SELECT c FROM Course c", Course.class)
-                .setHint("jakarta.persistence.fetchgraph", graph)
                 .getResultList();
         } finally {
             entityManager.close();
@@ -105,10 +102,8 @@ public enum CourseAdapterJPA implements ICourseAdapter {
     public List<Course> findByName(String name) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            EntityGraph<?> graph = entityManager.getEntityGraph("Course.fullGraph");
             return entityManager.createQuery("SELECT c FROM Course c WHERE c.name = :name", Course.class)
                 .setParameter("name", name)
-                .setHint("jakarta.persistence.fetchgraph", graph)
                 .getResultList();
         } finally {
             entityManager.close();

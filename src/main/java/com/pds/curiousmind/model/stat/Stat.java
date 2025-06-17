@@ -18,12 +18,14 @@ public class Stat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "experience_points", nullable = false)
     private int experiencePoints;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "stat_entries",joinColumns = @JoinColumn(name = "stat_id"))
     private Set<LocalDate> entries = new HashSet<>();
 
-    @OneToOne(mappedBy = "stats")
+    @OneToOne(mappedBy = "stats", optional = false)
     private User user;
 
     // No-arg constructor for JPA
@@ -34,16 +36,27 @@ public class Stat {
         this.user = user;
     }
 
-    // GETTERS AND SETTERS
+    // GETTERS
     public Long getId() { return id; }
-    public int getLevel() { return (experiencePoints / EXPERIENCE_POINTS_PER_LEVEL); }
-    public int getExperiencePoints() { return experiencePoints % EXPERIENCE_POINTS_PER_LEVEL; }
-    public void setExperiencePoints(int experiencePoints) { this.experiencePoints = experiencePoints; }
-    public Set<LocalDate> getEntries() { return entries; }
-    public void setEntries(Set<LocalDate> entries) { this.entries = entries; }
+
     public User getUser() { return user; }
+
+    public int getLevel() { return (experiencePoints / EXPERIENCE_POINTS_PER_LEVEL); }
+
+    public int getExperiencePoints() { return experiencePoints % EXPERIENCE_POINTS_PER_LEVEL; }
+
+
+    // SETTERS
+    public void setExperiencePoints(int experiencePoints) { this.experiencePoints = experiencePoints; }
+
+    public Set<LocalDate> getEntries() { return entries; }
+
+    public void setEntries(Set<LocalDate> entries) { this.entries = entries; }
+
     public void setUser(User user) { this.user = user; }
 
+
+    // ADDITIONAL METHODS
     public int getCompletedCourses() {
         return user != null && user.getRegisteredCourses() != null ?
             user.getRegisteredCourses().stream()
@@ -57,11 +70,11 @@ public class Stat {
     }
 
     public int getBestStreak() {
+        //TODO: This need to be revised
         if (entries == null || entries.isEmpty()) return 0;
         int maxStreak = 1;
         int currentStreak = 1;
         LocalDate previous = null;
-        // Sort the set for streak calculation
         List<LocalDate> sortedEntries = new java.util.ArrayList<>(entries);
         java.util.Collections.sort(sortedEntries);
         for (LocalDate current : sortedEntries) {
@@ -78,7 +91,6 @@ public class Stat {
         return Math.max(maxStreak, currentStreak);
     }
 
-    //METHODS
     public boolean addExperiencePoints(int experiencePoints) {
         if (experiencePoints < 0) {
             return false;
