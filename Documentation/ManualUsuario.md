@@ -452,7 +452,7 @@ Contiene ejemplos realistas del flujo de la aplicación, ideal para testing func
 
 En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distintos niveles de dificultad y tipos de preguntas. A continuación, se describen brevemente:
 
-1. **Curso de Alemán **  
+1. **Curso de Alemán 🇩🇪**  
    Incluye bloques de contenido con dificultades variadas (fácil, medio y difícil).  
    Las preguntas son de tipo aleatorio: rellenar huecos, elegir imágenes, opción múltiple, etc.
 
