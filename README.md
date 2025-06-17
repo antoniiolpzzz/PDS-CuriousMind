@@ -12,7 +12,7 @@ _An innovative learning platform for curious minds_
    <a href="#-about" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; 
    background: linear-gradient(135deg,rgb(160, 193, 98),rgb(136, 149, 18)); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">📖 About</a>
   <a href="#-features" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">✨ Features</a>
-  <a href="#-getting-started" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #7ac29a, #5daf82); border-radius: 20px; box-shadow: 0 2px 4px rgba(122, 194, 154, 0.3); transition: transform 0.2s, box-shadow 0.2s;">🚀 Getting Started</a><a href="#user-manual" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">👤 User Manual</a>
+  <a href="#-getting-started" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #7ac29a, #5daf82); border-radius: 20px; box-shadow: 0 2px 4px rgba(122, 194, 154, 0.3); transition: transform 0.2s, box-shadow 0.2s;">🚀 Getting Started</a><a href="#-user-manual" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">👤 User Manual</a><a href="#-use-cases" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;"> 📲Use Cases</a>
   <a href="#-contributing" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #9b6ddf, #7b4fc9); border-radius: 20px; box-shadow: 0 2px 4px rgba(155, 109, 223, 0.3); transition: transform 0.2s, box-shadow 0.2s;">🤝 Contributing</a>
   <a href="#-license" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #ff7676, #ff5252); border-radius: 20px; box-shadow: 0 2px 4px rgba(255, 118, 118, 0.3); transition: transform 0.2s, box-shadow 0.2s;">📄 License</a>
 </div>
@@ -102,6 +102,20 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 ## 👤 User Manual
 
 Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual 
+
+## 📲 Use Cases
+
+Click [_here_](https://github.com/mrcdslpz) to go to our detailed Use cases, including:
+
+1. CDU 001
+2. CDU 002
+3. CDU 003
+4. CDU 004
+5. CDU 005
+6. CDU 006
+7. CDU 007
+8. CDU 008
+9. CDU 009
 
 ## 🤝 Contributing
 
