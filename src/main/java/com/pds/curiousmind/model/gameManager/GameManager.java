@@ -5,7 +5,6 @@ import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.strategy.Strategy;
 import com.pds.curiousmind.model.strategy.provider.StrategyProvider;
-import com.pds.curiousmind.model.user.User;
 
 import java.util.List;
 
@@ -76,7 +75,7 @@ public enum GameManager {
 
     public int getCurrentProgress() {
         return questionIterator != null ?
-                ((questionIterator.getTotalQuestions() - questionIterator.getQuestionsLeft()) * 100) / questionIterator.getTotalQuestions()
+                ((questionIterator.getTotalQuestions() - (questionIterator.getQuestionsLeft()+1)) * 100) / questionIterator.getTotalQuestions()
                 : 0;
     }
 

@@ -134,7 +134,8 @@ public enum Controller {
 
     public File getJsonFromCourse(Course course) {
         // Use the CourseMapperService to convert the Course object to a JSON file
-        return CourseMapperService.INSTANCE.fromEntity(course, CourseFormat.JSON);
+        //TODO: DO THIS CORRECTLY
+        return CourseMapperService.INSTANCE.fromEntity(course, CourseFormat.YAML);
     }
 
     // TODO: CREATE COURSE FROM A JSON FILE (DESERIALIZATION)
