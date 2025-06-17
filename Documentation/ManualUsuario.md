@@ -112,12 +112,12 @@ La pantalla *Home* actúa como el menú principal de la aplicación, esta ventan
 
 👉 Para más detalles, consulta [Cómo compartir un curso](#4-cómo-compartir-un-curso).
 
-  📸 Ventana Home ![Home screen](Images/home.png)
+  📸 Ventana Home ![Home screen](Images/UserManual/home.png)
 
 Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario*.
 El botón *Logout* <img src="Images/logout.png" width="15"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
-  📸 Ventana Home Botón de User ![Home screen](Images/homeUserButton.png)
+  📸 Ventana Home Botón de User ![Home screen](Images/UserManual/homeUserButton.png)
 
 ---
 
@@ -159,7 +159,7 @@ Además, incorpora en la parte inferior izquierda un botón de navegación para 
 
 Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es que el usuario traduzca una frase con palabras dadas como opciones.
 
-📸 Ventana Pregunta Traducción ![Translate screen](Images/translate.png)
+📸 Ventana Pregunta Traducción ![Translate screen](Images/UserManual/translate.png)
 
 Elementos principales:
 
@@ -168,14 +168,14 @@ Elementos principales:
 - Enunciado e indicación de lo que hay que hacer.
 - Zona de respuesta: área donde el usuario debe construir la frase correcta en seleccionando palabras entre múltiples opciones.
 
-   📸 Ventana Pregunta Traducción ![Translate screen](Images/translateAnswer.png)
+   📸 Ventana Pregunta Traducción ![Translate screen](Images/UserManual/translateAnswer.png)
   
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failTranslate.png" height="200" style="vertical-align: middle;"/>
-  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/failTranslate.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
 
@@ -187,7 +187,7 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
 
-📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/FillTheGap.png)
+📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGap.png)
 
 Elementos principales de la interfaz:
 
@@ -196,15 +196,15 @@ Elementos principales de la interfaz:
 - Enunciado e indicación de lo que hay que hacer.
 - Debajo se encuentra una caja de texto vacía donde el usuario debe escribir la palabra que falta.
 
-  📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/FillTheGapAnswer.png)
+  📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGapAnswer.png)
 
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failFill.png" height="200" style="vertical-align: middle;"/>
-  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/failFill.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
 
@@ -216,7 +216,7 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
 
-📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/Flashcard.png)
+📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/Flashcard.png)
 
 Elementos destacados:
 
@@ -226,14 +226,14 @@ Elementos destacados:
 - Debajo aparecen tres imágenes correspondientes con sus correspondientes nombres.
 - El usuario debe seleccionar la imagen que representa la palabra correcta.
 
-  📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/FlashcardAnswer.png)
+  📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/FlashcardAnswer.png)
   
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failFlashCard.png" height="200" style="vertical-align: middle;"/>
-  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/failFlashCard.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -244,7 +244,7 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es que el usuario responda una pregunta tipo test seleccionando la opción correcta.
 
-📸 Ventana Pregunta Test ![Test screen](Images/Test.png)
+📸 Ventana Pregunta Test ![Test screen](Images/UserManual/Test.png)
 
 Elementos destacados:
 
@@ -253,14 +253,14 @@ Elementos destacados:
 - Enunciado e indicación de lo que hay que hacer.
 - Debajo aparecen las opciones de respuesta de entre las cuales el usuario debe seleccionar la respuesta correcta.
 
-📸 Ventana Pregunta Test ![Test screen](Images/TestAnswer.png)
+📸 Ventana Pregunta Test ![Test screen](Images/UserManual/TestAnswer.png)
   
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failTest.png" height="200" style="vertical-align: middle;"/>
-  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/failTest.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/UserManual/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -315,7 +315,7 @@ desde tu explorador de archivos. Para ello:
 1. Dirígete a la ventana **Home**.  
 2. Pulsa el botón **"+"** que se encuentra en la parte inferior, en la sección *"Create your Course"*.  
 
-📸 Botón Importar Curso ![Import screen](Images/importCourse.png)
+📸 Botón Importar Curso ![Import screen](Images/UserManual/importCourse.png)
 
 3. Se abrirá una ventana como la siguiente:  
 
@@ -335,7 +335,7 @@ en tu explorador de archivos. Para ello:
 1. Dirígete a la ventana **Home** o la ventana de Información de Usuario.  
 2. Pulsa el botón <img src="Images/share.png" width="10"/> que se encuentra a la derecha de cada botón de curso.  
 
-📸 Botón Compartir ![Share screen](Images/ShareButton.png) 
+📸 Botón Compartir ![Share screen](Images/UserManual/ShareButton.png) 
 
 3. Se abrirá una ventana con tu explorador de archivos y podrás guardar el fichero con el curso.  
 4. Elige la carpeta destino y pulsa de **Guardar**.  
@@ -352,11 +352,11 @@ ya creados en la aplicación y participar en ellos. Para ello:
 1. Dirígete a la ventana **Home**.
 2. Pulsa el botón en cualquiera de los botones de cursos que se encuentran en la sección *"New Course"*.  
 
-📸 Botón de Curso ![CourseButton screen](Images/CourseButton.png)
+📸 Botón de Curso ![CourseButton screen](Images/UserManual/CourseButton.png)
 
 3. Se abrirá una ventana como la siguiente en la cual debemos escoger la estrategia que queremos seguir en el curso:  
 
-📸 Ventana Estrategia ![Login screen](Images/Strategy.png)  
+📸 Ventana Estrategia ![Login screen](Images/UserManual/Strategy.png)  
  
 
    Las estrategias sirven para personalizar la forma de aparición de las preguntas, entre ellas tenemos:
@@ -366,7 +366,7 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 4. Una vez elegida la estrategia, pulsa el botón **Accept** y serás redirigido a la ventana de Home.
 
-📸 Estrategia Seleccionada ![Login screen](Images/selectedStrategy.png) 
+📸 Estrategia Seleccionada ![Login screen](Images/UserManual/selectedStrategy.png) 
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
@@ -388,7 +388,7 @@ Para completar un curso, sigue estos pasos:
 Pulsa en uno de ellos para comenzar.  
 
 📸 Bloques de Contenido  
-![ContentBlock screen](Images/ContentBlock.png)
+![ContentBlock screen](Images/UserManual/ContentBlock.png)
 
 ---
 
@@ -431,7 +431,7 @@ Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).
 
 🏆 Los puntos te ayudan a **aumentar tu nivel como estudiante** en CuriousMind. Cuantos más bloques completes, más nivel tendrás **(1 nivel = 1000 puntos)**.
 
-![Completed Content Block screen](Images/contentFinal.png)
+![Completed Content Block screen](Images/UserManual/contentFinal.png)
 
 ---
 
