@@ -3,7 +3,7 @@
 ## Índice
 
 1. [¿Qué es CuriousMind?](#qué-es-curiousmind)
-2. [Requisitos del sistema](#requisitos-del-sistema)
+2. [Requisitos del sistema](#requisitos-para-el-funcionamiento)
 3. [Instalación y ejecución](#instalación-y-ejecución)
 4. [Pantallas principales](#pantallas-principales)
    - [1. Pantalla de Inicio de sesión (Login)](#1-pantalla-de-inicio-de-sesión-login)
@@ -36,7 +36,7 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ---
 
-## Requisitos del sistema
+## Requisitos para el funcionamiento
 
 - Sistema operativo: (ej. Windows / macOS / Linux)
 - Java version: 1.8.0 
@@ -45,8 +45,9 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ---
 
-## Instalación y ejecución //TODO
+## Instalación y ejecución 
 
+//TODO
 1. Clona o descarga el repositorio.
 2. Abre el proyecto en IntelliJ IDEA.
 3. Ejecuta la clase `App.java`.
@@ -393,8 +394,9 @@ Pulsa en uno de ellos para comenzar.
 
 ### ⛔ Sistema de vidas
 
-Al iniciar un bloque, comenzarás con **5 vidas ❤️❤️❤️**. Esto significa que puedes fallar hasta **3 preguntas**.  
-- Si fallas una cuarta ❌, serás **expulsado** del bloque y tendrás que **empezar desde el principio** de ese bloque.
+Al iniciar un bloque, comenzarás con **5 vidas ❤️❤️❤️❤️❤️**. Esto significa que puedes fallar hasta **5 preguntas**.  
+- Si fallas una sexta ❌, serás **expulsado** del bloque y tendrás que **empezar desde el principio** de ese bloque.
+- Además, las preguntas que falles mientras completas un bloque serán **repetidas al final** del mismo para afianzar contenidos.
 
 📌 *¡Ten cuidado! Cada fallo cuenta.*
 
@@ -484,9 +486,6 @@ Se incluye un **usuario de ejemplo** con el siguiente estado:
   
 - Inscrito en **3 cursos** (Alemán, Música y C++).
 - Ha **completado 1 curso ✅**.
-
----
-
 
 ---
 
