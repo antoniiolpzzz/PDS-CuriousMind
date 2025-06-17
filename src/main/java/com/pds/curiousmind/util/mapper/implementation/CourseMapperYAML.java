@@ -1,5 +1,6 @@
 package com.pds.curiousmind.util.mapper.implementation;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.pds.curiousmind.model.course.Course;
@@ -7,6 +8,7 @@ import com.pds.curiousmind.util.mapper.interfaces.ICourseMapper;
 import java.io.File;
 import java.io.IOException;
 
+@JsonIgnoreProperties({"id"})
 public class CourseMapperYAML implements ICourseMapper<File> {
     private final ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
 
@@ -28,11 +30,15 @@ public class CourseMapperYAML implements ICourseMapper<File> {
             throw new IllegalArgumentException("Course entity must not be null");
         }
         try {
+            objectMapper.addMixIn(Object.class, IgnoreIdMixin.class);
             File tempFile = File.createTempFile("course", ".yaml");
-            objectMapper.writeValue(tempFile, entity);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(tempFile, entity);
             return tempFile;
         } catch (IOException e) {
             throw new RuntimeException("Failed to convert Course to YAML file", e);
         }
     }
+
+    @JsonIgnoreProperties({"id"})
+    private static class IgnoreIdMixin {}
 }
