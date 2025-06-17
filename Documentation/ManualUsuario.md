@@ -115,7 +115,7 @@ La pantalla *Home* actúa como el menú principal de la aplicación, esta ventan
 Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario*.
 El botón *Logout* <img src="Images/logout.png" width="15"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
-  📸 Ventana Home Botón de User ![Home screen](Images/homeUserBotton.png)
+  📸 Ventana Home Botón de User ![Home screen](Images/homeUserButton.png)
 
 ---
 
@@ -173,7 +173,7 @@ Elementos principales:
 📸 Ventanas Fallo y Acierto
 <p align="center">
   <img src="Images/failTranslate.png" width="400"/>
-  <img src="Images/correctTranslate.png" width="400"/>
+  <img src="Images/correct.png" width="400"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -201,7 +201,7 @@ Elementos principales de la interfaz:
 📸 Ventanas Fallo y Acierto
 <p align="center">
   <img src="Images/failFill.png" width="400"/>
-  <img src="Images/correctFill.png" width="400"/>
+  <img src="Images/correct.png" width="400"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -229,7 +229,7 @@ Elementos destacados:
 📸 Ventanas Fallo y Acierto
 <p align="center">
   <img src="Images/failFlashCard.png" width="400"/>
-  <img src="Images/correctFlashCard.png" width="400"/>
+  <img src="Images/correct.png" width="400"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -256,7 +256,7 @@ Elementos destacados:
 📸 Ventanas Fallo y Acierto
 <p align="center">
   <img src="Images/failTest.png" width="400"/>
-  <img src="Images/correctTest.png" width="400"/>
+  <img src="Images/correct.png" width="400"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -425,6 +425,8 @@ Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).
   - Difícil 🔥 → 500 puntos
 
 🏆 Los puntos te ayudan a **aumentar tu nivel como estudiante** en CuriousMind. Cuantos más bloques completes, más nivel tendrás **(1 nivel = 1000 puntos)**.
+
+![Completed Content Block screen](Images/contentFinal.png)
 
 ---
 
