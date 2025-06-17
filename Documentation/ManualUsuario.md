@@ -172,9 +172,10 @@ Elementos principales:
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failTranslate.png" width="400"/>
-  <img src="Images/correct.png" width="400"/>
+  <img src="Images/failTranslate.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
+
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
@@ -200,9 +201,10 @@ Elementos principales de la interfaz:
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failFill.png" width="400"/>
-  <img src="Images/correct.png" width="400"/>
+  <img src="Images/failFill.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
+
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
@@ -228,8 +230,8 @@ Elementos destacados:
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failFlashCard.png" width="400"/>
-  <img src="Images/correct.png" width="400"/>
+  <img src="Images/failFlashCard.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
@@ -255,8 +257,8 @@ Elementos destacados:
 
 📸 Ventanas Fallo y Acierto
 <p align="center">
-  <img src="Images/failTest.png" width="400"/>
-  <img src="Images/correct.png" width="400"/>
+  <img src="Images/failTest.png" height="200" style="vertical-align: middle;"/>
+  <img src="Images/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
 En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
