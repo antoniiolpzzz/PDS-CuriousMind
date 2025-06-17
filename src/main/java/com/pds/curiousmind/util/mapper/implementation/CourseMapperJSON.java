@@ -1,35 +1,37 @@
 package com.pds.curiousmind.util.mapper.implementation;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.util.mapper.interfaces.ICourseMapper;
+import java.io.File;
+import java.io.IOException;
 
-public class CourseMapperJSON implements ICourseMapper<String> {
+public class CourseMapperJSON implements ICourseMapper<File> {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public Course toEntity(String data) {
-        if (data == null || data.isBlank()) {
-            throw new IllegalArgumentException("Input JSON data must not be null or blank");
+    public Course toEntity(File file) {
+        if (file == null || !file.exists()) {
+            throw new IllegalArgumentException("Input JSON file must not be null and must exist");
         }
         try {
-            return objectMapper.readValue(data, Course.class);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException("Failed to parse JSON to Course", e);
+            return objectMapper.readValue(file, Course.class);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to parse JSON file to Course", e);
         }
     }
 
     @Override
-    public String fromEntity(Course entity) {
+    public File fromEntity(Course entity) {
         if (entity == null) {
             throw new IllegalArgumentException("Course entity must not be null");
         }
         try {
-            return objectMapper.writeValueAsString(entity);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException("Failed to convert Course to JSON", e);
+            File tempFile = File.createTempFile("course", ".json");
+            objectMapper.writeValue(tempFile, entity);
+            return tempFile;
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to convert Course to JSON file", e);
         }
     }
-
 }
