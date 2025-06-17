@@ -77,10 +77,6 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 - Mobile-responsive design
 - Offline learning capability
 
-## 👤 User Manual
-
-Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual 
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -103,6 +99,9 @@ Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual
    ```bash
    mvn clean install
    ```
+## 👤 User Manual
+
+Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual 
 
 ## 🤝 Contributing
 
