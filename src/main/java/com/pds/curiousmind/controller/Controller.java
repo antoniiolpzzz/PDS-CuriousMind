@@ -14,6 +14,7 @@ import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
 
 import java.io.File;
@@ -112,9 +113,8 @@ public enum Controller {
 
         INSTANCE.contentBlock = new ContentBlock(
                 "Basic Vocabulary",
-                questions,
                 difficulty,
-                INSTANCE.course
+                questions
         );
 
         INSTANCE.RegisteredContentBlock = new RegisteredContentBlock(
@@ -126,7 +126,7 @@ public enum Controller {
         INSTANCE.allCourses.add(course3);
 
         // Crear cursos registrados
-        INSTANCE.registeredCourse = new RegisteredCourse(INSTANCE.currentUser, INSTANCE.course, "SHUFFLED");
+        INSTANCE.registeredCourse = new RegisteredCourse(INSTANCE.currentUser, INSTANCE.course, StrategyType.SHUFFLED);
 
         // Añadir cursos registrados a la lista
         INSTANCE.registeredCourses.add(INSTANCE.registeredCourse);
@@ -266,7 +266,7 @@ public enum Controller {
 
     // CREATE REGISTERED COURSE FROM A COURSE AND ITS STRATEGY
 
-    public void createRegisteredCourse(Course course, String strategy) {
+    public void createRegisteredCourse(Course course, StrategyType strategy) {
         new RegisteredCourse(currentUser, course, strategy);
     }
 

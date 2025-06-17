@@ -5,10 +5,9 @@ import com.pds.curiousmind.persistence.adapter.interfaces.IUserAdapter;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.EntityGraph;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 public enum UserAdapterJPA implements IUserAdapter {
     INSTANCE;
@@ -78,11 +77,10 @@ public enum UserAdapterJPA implements IUserAdapter {
     }
 
     @Override
-    public User findById(Long id) {
+    public Optional<User> findById(Long id) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            EntityGraph<?> graph = entityManager.getEntityGraph("User.fullGraph");
-            return entityManager.find(User.class, id, Map.of("jakarta.persistence.fetchgraph", graph));
+            return Optional.ofNullable(entityManager.find(User.class, id));
         } finally {
             entityManager.close();
         }
@@ -92,9 +90,8 @@ public enum UserAdapterJPA implements IUserAdapter {
     public List<User> findAll() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            EntityGraph<?> graph = entityManager.getEntityGraph("User.fullGraph");
+            // Removed entity graph to avoid MultipleBagFetchException
             return entityManager.createQuery("SELECT u FROM User u", User.class)
-                .setHint("jakarta.persistence.fetchgraph", graph)
                 .getResultList();
         } finally {
             entityManager.close();
@@ -102,16 +99,15 @@ public enum UserAdapterJPA implements IUserAdapter {
     }
 
     @Override
-    public User findByUsername(String username) {
+    public Optional<User> findByUsername(String username) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            EntityGraph<?> graph = entityManager.getEntityGraph("User.fullGraph");
-            List<User> results = entityManager.createQuery(
+            return entityManager.createQuery(
                 "SELECT u FROM User u WHERE u.username = :username", User.class)
                 .setParameter("username", username)
-                .setHint("jakarta.persistence.fetchgraph", graph)
-                .getResultList();
-            return results.isEmpty() ? null : results.get(0);
+                .getResultList()
+                .stream()
+                .findFirst();
         } finally {
             entityManager.close();
         }

@@ -3,6 +3,7 @@ package com.pds.curiousmind.view.home.components;
 
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.view.common.StyledButton;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
@@ -73,9 +74,9 @@ public class CourseStrategyWindow extends JDialog {
         // Track the selected strategy and buttons
         final String[] selectedStrategy = {null};
         final java.util.List<JButton> strategyButtons = new java.util.ArrayList<>();
-        strategyPanel.add(createImageButton("Sequential", ICON_STRATEGY_SEQUENTIAL, selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createImageButton("Random", ICON_STRATEGY_RANDOM, selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createImageButton("Sp. Repetition", ICON_STRATEGY_REPETITON, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton(StrategyType.SEQUENTIAL.toString(), ICON_STRATEGY_SEQUENTIAL, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton(StrategyType.SHUFFLED.toString(), ICON_STRATEGY_RANDOM, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton(StrategyType.SPACED_REPETITION.toString(), ICON_STRATEGY_REPETITON, selectedStrategy, strategyButtons,false));
         mainPanel.add(strategyPanel);
 
         // Bottom panel for Accept/Cancel buttons
@@ -92,7 +93,7 @@ public class CourseStrategyWindow extends JDialog {
 
             } else {
                 dispose();
-                controller.createRegisteredCourse(course, selectedStrategy[0]);
+                controller.createRegisteredCourse(course, StrategyType.valueOf(selectedStrategy[0]));
                 JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             }
         });
