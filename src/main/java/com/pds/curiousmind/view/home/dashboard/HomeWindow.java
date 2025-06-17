@@ -64,10 +64,11 @@ public class HomeWindow extends JFrame {
 
         // USER PANEL INFORMATION
 
-        String username = (user != null && user.getUsername() != null) ? user.getUsername() : "Invitado";        StyledButton name = new StyledButton(username, Color.BLACK, Color.WHITE);
+        String username = (user != null && user.getUsername() != null) ? user.getUsername() : "Invitado";
+        StyledButton name = new StyledButton(username, Color.BLACK, Color.WHITE);
         name.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
         name.setHorizontalAlignment(SwingConstants.CENTER);
-        name.setPreferredSize(new Dimension(80, 35));
+        name.setPreferredSize(new Dimension(120, 35));
         name.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -115,9 +116,9 @@ public class HomeWindow extends JFrame {
 
         // ALL COURSES SECTION
 
+        rightPanel.add(sectionTitle("New course"));
         List<Course> allCourses = controller.getAllCourses();
         JPanel rowNewCourses = createCourseRowSection(this, allCourses);
-        rightPanel.add(sectionTitle("New course"));
 
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowNewCourses));

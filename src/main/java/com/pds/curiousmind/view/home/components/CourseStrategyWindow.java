@@ -66,7 +66,7 @@ public class CourseStrategyWindow extends JDialog {
 
         // Panel for strategy selection buttons
         JPanel strategyPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 10));
-        JLabel stratLabel = new JLabel(FONT_NAME);
+        JLabel stratLabel = new JLabel("Select strategy:");
         stratLabel.setFont(new Font(FONT_NAME, Font.BOLD, 16));
         stratLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(stratLabel);

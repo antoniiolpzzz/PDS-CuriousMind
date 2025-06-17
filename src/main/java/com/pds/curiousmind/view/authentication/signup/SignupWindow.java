@@ -12,6 +12,8 @@ import com.pds.curiousmind.view.common.StyledButton;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+import java.util.regex.*;
+
 
 public class SignupWindow extends JFrame {
     private JTextField fullNameField;
@@ -189,6 +191,16 @@ public class SignupWindow extends JFrame {
             JOptionPane.showMessageDialog(null, "Passwords do not match", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
             return false;
         }
+        if (!new String(password.getPassword()).matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")) {
+            JOptionPane.showMessageDialog(null, "Incorrect Password, Password must have Capital letters, letters and numbers.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
+            return false;
+        }
+        if (!email.matches("^[^@\\s]+@[^@\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "The email format is name@domain.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
+            return false;
+        }
+
+
         return true;
     }
 
