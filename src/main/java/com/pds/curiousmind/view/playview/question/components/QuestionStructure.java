@@ -18,6 +18,7 @@ import com.pds.curiousmind.view.playview.question.Translation;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
@@ -101,6 +102,7 @@ public class QuestionStructure extends JFrame {
         submitButton.setFont(new Font(FONT_NAME, Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.addActionListener(e -> {
+
             String submittedAnswer = "";
             switch (type) {
                 case "FillTheGap" -> submittedAnswer = gapResult != null ? gapResult.getAnswer() : "";
@@ -108,19 +110,33 @@ public class QuestionStructure extends JFrame {
                 case "FlashCard" -> submittedAnswer = flashCardResult != null ? flashCardResult.getAnswer() : "";
                 case "Test" -> submittedAnswer = testResult != null ? testResult.getAnswer() : "";
             }
+            if(!Objects.equals(submittedAnswer, "")){
+                if (controller.validateAnswer(question, submittedAnswer)) {
+                    JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_HAPPY, 60, 60));
+                    Question nextQuestion = controller.getNextQuestion();
+                    if (nextQuestion == null) {
+                        controller.completeContentBlock(difficulty);
+                        controller.endGame();
+                        JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETE, 60, 60));
+                        new CourseDashboard(course);
+                        dispose();
+                    }
+                    else {
+                        dispose();
+                        new QuestionStructure(
+                                course,
+                                nextQuestion,
+                                blockName,
+                                difficulty
+                        );
+                    }
 
-            if (controller.validateAnswer(question, submittedAnswer)) {
-                JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_HAPPY, 60, 60));
-                Question nextQuestion = controller.getNextQuestion();
-                if (nextQuestion == null) {
-                    controller.completeContentBlock(difficulty);
-                    controller.endGame();
-                    JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETE, 60, 60));
-                    new CourseDashboard(course);
+                } else {
+                    controller.addFailedQuestion(question);
+                    JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
                     dispose();
-                }
-                else {
-                    dispose();
+                    Question nextQuestion = controller.getNextQuestion();
+
                     new QuestionStructure(
                             course,
                             nextQuestion,
@@ -129,19 +145,12 @@ public class QuestionStructure extends JFrame {
                     );
                 }
 
-            } else {
-                controller.addFailedQuestion(question);
-                JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
-                dispose();
-                Question nextQuestion = controller.getNextQuestion();
-
-                new QuestionStructure(
-                        course,
-                        nextQuestion,
-                        blockName,
-                        difficulty
-                );
             }
+            else {
+                JOptionPane.showMessageDialog(null, "Please select an option.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+            }
+
+
 
 
         });
