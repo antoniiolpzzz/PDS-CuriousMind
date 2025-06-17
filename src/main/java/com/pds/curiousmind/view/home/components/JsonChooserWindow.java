@@ -28,6 +28,7 @@ public class JsonChooserWindow extends JDialog {
 
         setLayout(new BorderLayout());
         setSize(POPUP_WIDTH, POPUP_HEIGHT);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(parent);
 

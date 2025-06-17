@@ -22,6 +22,7 @@ public class ContactPopUp extends JDialog {
         super(parent, "Contact", true);
         setUndecorated(false);
         setSize(POPUP_WIDTH, POPUP_HEIGHT); // Default width and height
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 

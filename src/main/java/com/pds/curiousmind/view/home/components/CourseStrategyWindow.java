@@ -25,6 +25,8 @@ public class CourseStrategyWindow extends JDialog {
 
     public CourseStrategyWindow(JFrame parent, Course course, User user) {
         super(parent, "Select Strategy", true);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
 
         // Set up window properties and focus behavior
         addWindowFocusListener(new java.awt.event.WindowAdapter() {
