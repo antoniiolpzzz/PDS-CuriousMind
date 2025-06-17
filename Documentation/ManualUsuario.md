@@ -3,7 +3,7 @@
 ## Índice
 
 1. [¿Qué es CuriousMind?](#qué-es-curiousmind)
-2. [Requisitos del sistema](#requisitos-para-el-funcionamiento)
+2. [Requisitos para el funcionamiento](#requisitos-para-el-funcionamiento)
 3. [Instalación y ejecución](#instalación-y-ejecución)
 4. [Pantallas principales](#pantallas-principales)
    - [1. Pantalla de Inicio de sesión (Login)](#1-pantalla-de-inicio-de-sesión-login)
