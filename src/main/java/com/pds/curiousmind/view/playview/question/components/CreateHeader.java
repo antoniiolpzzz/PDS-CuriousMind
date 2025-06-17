@@ -2,6 +2,8 @@ package com.pds.curiousmind.view.playview.question.components;
 
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.home.stats.UserWindow;
 import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
 
 import javax.swing.*;
@@ -34,6 +36,10 @@ public class CreateHeader {
         rightPanel.setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(10));
+
+
+        JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+        userPanel.setOpaque(false);
 
 
         // Section title for the content block

@@ -30,6 +30,17 @@ public class GlobalConstants {
     public static final String ICON_DAY = "icons/stat/days.jpg";
     public static final String ICON_TIME = "icons/stat/time.jpg";
     public static final String ICON_COURSES = "icons/stat/courses.jpg";
+    public static final String ICON_STAR1 = "icons/course/star1.png";
+    public static final String ICON_STAR2 = "icons/course/star2.png";
+    public static final String ICON_STAR3 = "icons/course/star3.png";
+    public static final String ICON_LIFE1 = "icons/course/life1.png";
+    public static final String ICON_LIFE2 = "icons/course/life2.png";
+    public static final String ICON_LIFE3 = "icons/course/life3.png";
+    public static final String ICON_LIFE4 = "icons/course/life4.png";
+    public static final String ICON_LIFE5 = "icons/course/life5.png";
+
+
+
 
     public static final String ACCEPT_LABEL = "Accept";
     public static final String CANCEL_LABEL = "Cancel";
