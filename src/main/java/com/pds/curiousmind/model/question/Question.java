@@ -1,11 +1,26 @@
 package com.pds.curiousmind.model.question;
 
-import com.pds.curiousmind.model.contentblock.ContentBlock;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.pds.curiousmind.model.question.option.Option;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+
+
+
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "type"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = com.pds.curiousmind.model.question.implementation.Test.class, name = "test"),
+    @JsonSubTypes.Type(value = com.pds.curiousmind.model.question.implementation.Translate.class, name = "translate"),
+    @JsonSubTypes.Type(value = com.pds.curiousmind.model.question.implementation.FlashCard.class, name = "flashcard"),
+    @JsonSubTypes.Type(value = com.pds.curiousmind.model.question.implementation.FillTheGap.class, name = "fillthegap")
+})
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

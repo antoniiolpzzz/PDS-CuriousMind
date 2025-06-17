@@ -121,4 +121,9 @@ public class User {
         this.registeredCourses.add(registeredCourse);
     }
 
+    public boolean addExperiencePoints(int points) {
+        return this.stats.addExperiencePoints(points);
+
+    }
+
 }

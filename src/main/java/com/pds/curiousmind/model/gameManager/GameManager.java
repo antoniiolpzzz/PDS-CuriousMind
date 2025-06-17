@@ -3,6 +3,9 @@ package com.pds.curiousmind.model.gameManager;
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.model.strategy.Strategy;
+import com.pds.curiousmind.model.strategy.provider.StrategyProvider;
+import com.pds.curiousmind.model.user.User;
 
 import java.util.List;
 
@@ -13,9 +16,12 @@ public enum GameManager {
     private RegisteredContentBlock currentContentBlock;
     private QuestionIterator questionIterator;
 
+    private final StrategyProvider strategyProvider;
+
     //CONSTRUCTOR
     GameManager() {
         //TODO: This need a StrategyProvider to fetch the right strategy for processing questions
+        this.strategyProvider = StrategyProvider.INSTANCE;
         this.currentCourse = null;
         this.currentContentBlock = null;
         this.questionIterator = null;
@@ -34,9 +40,9 @@ public enum GameManager {
     public void initializeGame(RegisteredCourse course, RegisteredContentBlock contentBlock){
         this.currentCourse = course;
         this.currentContentBlock = contentBlock;
-        List<Question> processedQuestions;//TODO: get the strategy from the course (use a factory or resolver here)
-                                            //TODO: to process the questions as expected
-        //this.questionIterator = new QuestionIterator(processedQuestions);
+        Strategy currentStrategy = strategyProvider.getStrategy(course.getStrategy());
+        List<Question> processedQuestions = currentStrategy.getProcessedQuestions(contentBlock);
+        this.questionIterator = new QuestionIterator(processedQuestions);
     }
 
     public void deactivateGame() {
@@ -60,6 +66,18 @@ public enum GameManager {
         if (questionIterator != null && question != null) {
             questionIterator.addFailedQuestion(question);
         }
+    }
+
+    public void markBlockAsCompleted() {
+        if (currentContentBlock != null) {
+            currentContentBlock.markAsCompleted();
+        }
+    }
+
+    public int getCurrentProgress() {
+        return questionIterator != null ?
+                ((questionIterator.getTotalQuestions() - questionIterator.getQuestionsLeft()) * 100) / questionIterator.getTotalQuestions()
+                : 0;
     }
 
     public int totalQuestions() {

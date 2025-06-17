@@ -21,8 +21,8 @@ public class Stat {
     @Column(name = "experience_points", nullable = false)
     private int experiencePoints;
 
-    @ElementCollection
-    @CollectionTable(name = "stat_entries", joinColumns = @JoinColumn(name = "stat_id"))
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "stat_entries",joinColumns = @JoinColumn(name = "stat_id"))
     private Set<LocalDate> entries = new HashSet<>();
 
     @OneToOne(mappedBy = "stats", optional = false)
