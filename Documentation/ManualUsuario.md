@@ -22,8 +22,9 @@
    - [4. Cómo compartir un curso](#4-cómo-compartir-un-curso)
    - [5. Cómo inscribirse en un curso](#5-cómo-inscribirse-en-un-curso)
 7. [Funcionamiento de los Cursos](#funcionamiento-de-los-cursos)
-8. [Preguntas frecuentes](#preguntas-frecuentes)
-9. [Contacto y soporte](#contacto-y-soporte)
+8. [Pruebas y Testing ](#pruebas-y-testing)
+9. [Preguntas frecuentes](#preguntas-frecuentes)
+10. [Contacto y soporte](#contacto-y-soporte)
 
 ---
 
@@ -44,7 +45,7 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ---
 
-## Instalación y ejecución 
+## Instalación y ejecución //TODO
 
 1. Clona o descarga el repositorio.
 2. Abre el proyecto en IntelliJ IDEA.
@@ -436,6 +437,54 @@ Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque 
 
 📸 Curso Completado  
 ![CompletedCourse screen](Images/CompletedCourse.png)
+
+---
+## Pruebas y testing
+
+### 🧪 Base de datos para pruebas y testing
+
+CuriousMind incluye una base de datos pensada para pruebas y desarrollo que sirve para comprobar el correcto funcionamiento de la aplicación.  
+Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: XXXXXX TODO XXXXXX.
+
+---
+
+### 📚 Cursos disponibles
+
+En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distintos niveles de dificultad y tipos de preguntas. A continuación, se describen brevemente:
+
+1. **Curso de Alemán **  
+   Incluye bloques de contenido con dificultades variadas (fácil, medio y difícil).  
+   Las preguntas son de tipo aleatorio: rellenar huecos, elegir imágenes, opción múltiple, etc.
+
+2. **Curso de Matemáticas 📐**  
+   Contiene bloques orientados a lógica, cálculo y resolución de problemas.  
+   Las preguntas mezclan texto, ecuaciones y elección de respuestas.
+
+3. **Curso de Historia Mundial 🌍**  
+   Con bloques temáticos por época histórica.  
+   Incluye preguntas tipo línea de tiempo, asociación de conceptos e imágenes históricas.
+
+4. **Curso de Ciencia y Naturaleza 🔬**  
+   Dividido en bloques por temas (biología, física, ecología…).  
+   Las preguntas usan imágenes, opciones múltiples y textos breves para reforzar conceptos.
+
+5. **Curso de Programación 💻**  
+   Con bloques centrados en fundamentos de código (condicionales, bucles, funciones…).  
+   Preguntas basadas en elección de fragmentos de código correctos, completar sintaxis, y lógica de programación.
+
+
+---
+
+### 👤 Usuario de prueba
+
+Se incluye un **usuario de ejemplo** con el siguiente estado:
+
+- Inscrito en **2 cursos** (Alemán y Música).
+- Ha **completado 1 curso ✅**.
+- Tiene **nivel 6 🎯**.
+
+---
+
 
 ---
 
