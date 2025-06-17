@@ -108,7 +108,7 @@ public class UserWindow extends JFrame {
         JPanel row2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row2.setOpaque(false);
         row2.add(new StatsBlock("Completed Courses", stats.getCompletedCourses(), ICON_COURSES));
-        row2.add(new StatsBlock("Experience Points", (int)stats.getTimeSpent(), ICON_TIME)); //TODO: Check it works
+        row2.add(new StatsBlock("Time of use", (int)stats.getTimeSpent(), ICON_TIME)); //TODO: Check it works
 
         statsWrapper.add(row1);
         statsWrapper.add(Box.createVerticalStrut(10));
