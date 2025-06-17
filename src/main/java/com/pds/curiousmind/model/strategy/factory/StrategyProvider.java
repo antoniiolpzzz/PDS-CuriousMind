@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public enum StrategyFactory {
+public enum StrategyProvider {
     INSTANCE;
 
     private static final String PACKAGE_NAME = "com.pds.curiousmind.model.strategy.implementation";
     private final Map<StrategyType, Strategy> strategies = new HashMap<>();
 
-    StrategyFactory() {
+    StrategyProvider() {
         Reflections reflections = new Reflections(PACKAGE_NAME);
         Set<Class<? extends Strategy>> strategyClasses = reflections.getSubTypesOf(Strategy.class);
         for (Class<? extends Strategy> strategy : strategyClasses) {

@@ -2,15 +2,14 @@ package com.pds.curiousmind.model.question;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.question.option.Option;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+
+
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
@@ -22,22 +21,26 @@ import java.util.Collections;
     @JsonSubTypes.Type(value = com.pds.curiousmind.model.question.implementation.FlashCard.class, name = "flashcard"),
     @JsonSubTypes.Type(value = com.pds.curiousmind.model.question.implementation.FillTheGap.class, name = "fillthegap")
 })
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "question_type", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "questions")
 public abstract class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "indication", nullable = false)
     protected String indication;
+    @Column(name = "statement", nullable = false)
     protected String statement;
+    @Column(name = "correct_answer", nullable = false)
     protected String correctAnswer;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "question_id", nullable = false)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "question_id")
     protected List<Option> options;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "content_block_id", nullable = false)
-    protected ContentBlock contentBlock;
 
     // CONSTRUCTORS
     public Question(String indication, String statement, String correctAnswer, List<Option> options) {
@@ -61,23 +64,34 @@ public abstract class Question {
 
     // GETTERS
     public Long getId() { return id; }
+
     public String getIndication() { return indication; }
+
     public String getStatement() { return statement; }
+
     public String getCorrectAnswer() { return correctAnswer; }
+
     public List<Option> getOptions() { return Collections.unmodifiableList(options); }
-    public ContentBlock getContentBlock() { return contentBlock; }
+
 
     // SETTERS (for JPA)
     public void setId(Long id) { this.id = id; }
+
     public void setIndication(String indication) { this.indication = indication; }
+
     public void setStatement(String statement) { this.statement = statement; }
+
     public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
+
     public void setOptions(List<Option> options) { this.options = options; }
-    public void setContentBlock(ContentBlock contentBlock) { this.contentBlock = contentBlock; }
+
 
     // METHODS
     public boolean validateAnswer(String answer) {
         return this.correctAnswer.equalsIgnoreCase(answer.trim());
     }
 
+    public String getType() {
+        return this.getClass().getSimpleName();
+    }
 }

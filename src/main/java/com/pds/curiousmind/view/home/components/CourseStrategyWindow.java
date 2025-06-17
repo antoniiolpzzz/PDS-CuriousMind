@@ -1,7 +1,12 @@
 package com.pds.curiousmind.view.home.components;
 
 
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.view.common.StyledButton;
+
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
 
@@ -13,21 +18,10 @@ import java.util.Map;
 
 public class CourseStrategyWindow extends JDialog {
 
-    // Static map for course descriptions
-    //TODO: Receive real courses with their details
-    private static final Map<String, String> courseDescriptions = new HashMap<>() {{
-        put("German", "Learn basic to advanced German language skills.");
-        put("Modern History", "Explore major events from the 19th and 20th centuries.");
-        put("Java Script", "Master JavaScript for dynamic web development.");
-        put("Languages", "Study different languages around the world.");
-        put("Sciences", "Understand core scientific concepts and discoveries.");
-        put("Grammar", "Improve your grammar and writing skills.");
-        put("Music", "Explore music theory, instruments, and history.");
-        put("Programming", "Learn to code in different programming languages.");
-        put("History", "Dive into historical events and civilizations.");
-    }};
+    private static final Controller controller = Controller.INSTANCE;
 
-    public CourseStrategyWindow(JFrame parent, String courseName, String courseIconPath) { //TODO: Receive a course object
+
+    public CourseStrategyWindow(JFrame parent, Course course) {
         super(parent, "Select Strategy", true);
 
         // Set up window properties and focus behavior
@@ -39,7 +33,7 @@ public class CourseStrategyWindow extends JDialog {
         });
 
         setLayout(new BorderLayout());
-        setSize(480, 320);
+        setSize(POPUP_WIDTH, POPUP_HEIGHT);
         setResizable(false);
         setLocationRelativeTo(parent);
 
@@ -52,38 +46,37 @@ public class CourseStrategyWindow extends JDialog {
 
         JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         titlePanel.setOpaque(false);
-        //TODO: courseName = course.getName ();
+        String courseName = course.getName ();
         JLabel title = new JLabel(courseName);
-        title.setFont(new Font("SansSerif", Font.BOLD, 22));
-        title.setIcon(loadIcon(courseIconPath, 28, 28));
+        title.setFont(new Font(FONT_NAME, Font.BOLD, 22));
+        title.setIcon(loadIcon(course.getImageURL(), 28, 28));
         titlePanel.add(title);
         mainPanel.add(titlePanel);
 
         mainPanel.add(Box.createVerticalStrut(3));
 
         // Display course description
-        //TODO: description = course.getDescription();
-        String desc = courseDescriptions.getOrDefault(courseName, "Course description not available.");
-        JLabel descriptionArea = new JLabel(desc);
+        String description = course.getDescription();
+        JLabel descriptionArea = new JLabel(description);
         descriptionArea.setAlignmentX(Component.CENTER_ALIGNMENT);
-        descriptionArea.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        descriptionArea.setFont(new Font(FONT_NAME, Font.PLAIN, 13));
         mainPanel.add(descriptionArea);
 
         mainPanel.add(Box.createVerticalStrut(10));
 
         // Panel for strategy selection buttons
         JPanel strategyPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 25, 10));
-        JLabel stratLabel = new JLabel("Strategy");
-        stratLabel.setFont(new Font("SansSerif", Font.BOLD, 16));
+        JLabel stratLabel = new JLabel(FONT_NAME);
+        stratLabel.setFont(new Font(FONT_NAME, Font.BOLD, 16));
         stratLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(stratLabel);
         strategyPanel.setOpaque(false);
         // Track the selected strategy and buttons
         final String[] selectedStrategy = {null};
         final java.util.List<JButton> strategyButtons = new java.util.ArrayList<>();
-        strategyPanel.add(createImageButton("Sequential", "icons/strategy/sequential.png", selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createImageButton("Random", "icons/strategy/random.png", selectedStrategy, strategyButtons,false));
-        strategyPanel.add(createImageButton("Sp. Repetition", "icons/strategy/repetition.png", selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton(StrategyType.SEQUENTIAL.toString(), ICON_STRATEGY_SEQUENTIAL, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton(StrategyType.SHUFFLED.toString(), ICON_STRATEGY_RANDOM, selectedStrategy, strategyButtons,false));
+        strategyPanel.add(createImageButton(StrategyType.SPACED_REPETITION.toString(), ICON_STRATEGY_REPETITON, selectedStrategy, strategyButtons,false));
         mainPanel.add(strategyPanel);
 
         // Bottom panel for Accept/Cancel buttons
@@ -91,8 +84,8 @@ public class CourseStrategyWindow extends JDialog {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         buttonPanel.setBackground(Color.WHITE);
 
-        StyledButton acceptButton = new StyledButton("Accept", Color.WHITE, Color.BLACK);
-        StyledButton cancelButton = new StyledButton("Cancel", Color.WHITE, Color.BLACK);
+        StyledButton acceptButton = new StyledButton(ACCEPT_LABEL, Color.WHITE, Color.BLACK);
+        StyledButton cancelButton = new StyledButton(CANCEL_LABEL, Color.WHITE, Color.BLACK);
 
         acceptButton.addActionListener(e -> {
             if (selectedStrategy[0] == null) {
@@ -100,8 +93,7 @@ public class CourseStrategyWindow extends JDialog {
 
             } else {
                 dispose();
-                //TODO: Controller functionality to handle the selected strategy and create registerCourse
-                // controller.createRegisterCourse(course, selectedStrategy[0]);
+                controller.createRegisteredCourse(course, StrategyType.valueOf(selectedStrategy[0]));
                 JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
             }
         });
@@ -109,7 +101,7 @@ public class CourseStrategyWindow extends JDialog {
         cancelButton.addActionListener(e -> dispose());
 
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(50));
+        buttonPanel.add(Box.createHorizontalStrut(60));
         buttonPanel.add(acceptButton);
 
         add(buttonPanel, BorderLayout.SOUTH);

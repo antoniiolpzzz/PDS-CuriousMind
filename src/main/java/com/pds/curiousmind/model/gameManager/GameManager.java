@@ -15,6 +15,7 @@ public enum GameManager {
 
     //CONSTRUCTOR
     GameManager() {
+        //TODO: This need a StrategyProvider to fetch the right strategy for processing questions
         this.currentCourse = null;
         this.currentContentBlock = null;
         this.questionIterator = null;

@@ -4,10 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * This class provides a custom progress bar with rounded corners for UI progress display.
+ * RoundedProgressBar is a custom JProgressBar with rounded corners,
+ * designed for visually appealing progress display in the UI.
  */
 public class RoundedProgressBar extends JProgressBar {
 
+    /**
+     * Constructs a RoundedProgressBar with the specified initial value.
+     * Sets up appearance and preferred size.
+     *
+     * @param value The initial progress value (0-100).
+     */
     public RoundedProgressBar(int value) {
         super(0, 100);
         setValue(value);
@@ -16,6 +23,12 @@ public class RoundedProgressBar extends JProgressBar {
         setPreferredSize(new Dimension(200, 8));
     }
 
+    /**
+     * Paints the progress bar with rounded corners and custom colors.
+     * Uses anti-aliasing for smooth rendering.
+     *
+     * @param g The Graphics context to use for painting.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         int width = getWidth();

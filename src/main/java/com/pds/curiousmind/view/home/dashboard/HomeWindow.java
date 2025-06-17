@@ -1,12 +1,17 @@
 package com.pds.curiousmind.view.home.dashboard;
 
-import com.pds.curiousmind.view.authentication.login.LoginWindow;
+import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.common.*;
 import com.pds.curiousmind.view.home.components.*;
 import com.pds.curiousmind.view.home.stats.UserWindow;
 
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.home.components.CourseRowSection.createCourseRowSection;
+import static com.pds.curiousmind.view.home.components.CourseRowSection.createRegisteredCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import com.pds.curiousmind.view.common.StyledButton;
@@ -19,15 +24,19 @@ import java.util.List;
 
 public class HomeWindow extends JFrame {
 
-    public HomeWindow() { //TODO: receive user
+    private static final Controller controller = Controller.INSTANCE;
+
+
+    public HomeWindow(User user) {
+
         setTitle("CuriousMind - Home");
-        setMinimumSize(new Dimension(1300, 650));
+        setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground(this,"","", "logout");
+        JPanel basePanel = createBackground(this,null,null, "logout");
         setContentPane(basePanel);
 
         // Right panel setup for main content
@@ -47,23 +56,22 @@ public class HomeWindow extends JFrame {
         headerPanel.setOpaque(false);
         headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         JLabel homeTitle = new JLabel("Home", SwingConstants.LEFT);
-        homeTitle.setFont(new Font("SansSerif", Font.BOLD, 35));
+        homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         userPanel.setOpaque(false);
 
-        // User panel with title and icon
-        //TODO: StyledButton name = new StyledButton(user.getName(), Color.BLACK, Color.WHITE);
-        StyledButton name = new StyledButton("Javier", Color.BLACK, Color.WHITE);
-        name.setFont(new Font("SansSerif", Font.PLAIN, 16));
+        // USER PANEL INFORMATION
+
+        String username = (user != null && user.getUsername() != null) ? user.getUsername() : "Invitado";        StyledButton name = new StyledButton(username, Color.BLACK, Color.WHITE);
+        name.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
         name.setHorizontalAlignment(SwingConstants.CENTER);
         name.setPreferredSize(new Dimension(80, 35));
         name.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                new UserWindow();
-                // TODO: new UserWindow(user);
+                new UserWindow(user);
                 dispose();
             }
             @Override
@@ -75,7 +83,7 @@ public class HomeWindow extends JFrame {
                 name.setBackground(Color.BLACK);
             }
         });
-        String iconPath = "icons/button/user.png"; //TODO: iconpath = user.getIconPath()
+        String  iconPath = controller.getUserPhoto();
         ImageIcon icon = loadIcon(iconPath, 35, 35);
         assert icon != null;
         Image image = icon.getImage();
@@ -84,8 +92,7 @@ public class HomeWindow extends JFrame {
         iconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                new UserWindow();
-                // TODO: new UserWindow(user);
+                new UserWindow(user);
                 dispose();
             }
         });
@@ -98,15 +105,9 @@ public class HomeWindow extends JFrame {
 
         // YOUR COURSES SECTION
 
-        //TODO: Controller has to recuperate the registered courses from the user
-        // myCourses = controller.getRegisteredCourses(user.getId());
-        // JPanel rowMyCourses = createCourseRowSection(myCourses);
+        List<RegisteredCourse> myCourses = controller.getRegisteredCourses();
+        JPanel rowMyCourses = createRegisteredCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
-        JPanel rowMyCourses = createCourseRowSection(this, Arrays.asList(
-                new String[]{"German", "icons/course/german.png"},
-                new String[]{"Modern History", "icons/course/history.png"},
-                new String[]{"Java Script", "icons/course/js.png"}
-        ));
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowMyCourses));
         rightPanel.add(Box.createVerticalStrut(20));
@@ -114,22 +115,9 @@ public class HomeWindow extends JFrame {
 
         // ALL COURSES SECTION
 
-        //TODO: Controller has to recuperate all the courses from the database
-        // allCourses = controller.getCourse();
-        // JPanel rowNewCourses = createCourseRowSection(allCourses);
+        List<Course> allCourses = controller.getAllCourses();
+        JPanel rowNewCourses = createCourseRowSection(this, allCourses);
         rightPanel.add(sectionTitle("New course"));
-        JPanel rowNewCourses = createCourseRowSection(this, Arrays.asList(
-                new String[]{"Languages", "icons/course/languages.png"},
-                new String[]{"Sciences", "icons/course/sciences.png"},
-                new String[]{"Grammar", "icons/course/grammar.png"},
-                new String[]{"Music", "icons/course/music.png"},
-                new String[]{"Programming", "icons/course/programming.png"},
-                new String[]{"History", "icons/course/history.png"},
-                new String[]{"Sciences", "icons/course/sciences.png"},
-                new String[]{"Grammar", "icons/course/grammar.png"},
-                new String[]{"Music", "icons/course/music.png"},
-                new String[]{"Programming", "icons/course/programming.png"}
-        ));
 
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowNewCourses));
@@ -143,7 +131,10 @@ public class HomeWindow extends JFrame {
         createBtnPanel.setOpaque(false); // o blanco si lo prefieres
 
         StyledButton createButton = new StyledButton("+", Color.WHITE, Color.BLACK);
-        createButton.addActionListener(e -> new JsonChooserWindow(this));
+        createButton.addActionListener(e -> {
+            new JsonChooserWindow(this, user);
+            dispose();
+        });
 
         createBtnPanel.add(Box.createHorizontalStrut(5));
         createBtnPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
@@ -155,7 +146,11 @@ public class HomeWindow extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(HomeWindow::new);
+        SwingUtilities.invokeLater(() -> {
+            // Crea un usuario de prueba o recupera el usuario de otra forma
+            User user = controller.getCurrentUser();
+            new HomeWindow(user);
+        });
     }
 
 }
