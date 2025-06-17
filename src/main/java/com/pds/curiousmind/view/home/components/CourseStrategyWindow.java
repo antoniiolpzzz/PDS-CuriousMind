@@ -93,7 +93,7 @@ public class CourseStrategyWindow extends JDialog {
             } else {
                 dispose();
                 controller.createRegisteredCourse(course, selectedStrategy[0]);
-                JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
             }
         });
 

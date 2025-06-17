@@ -16,11 +16,15 @@ import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
 import com.pds.curiousmind.model.user.User;
 
+import javax.swing.*;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+import static com.pds.curiousmind.view.common.GlobalConstants.ICON_ANGRY;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 public enum Controller {
     INSTANCE;
@@ -56,7 +60,7 @@ public enum Controller {
 
 
         // Crear usuario y cursos
-        INSTANCE.currentUser = new User("JaviGuardiola", "javi@gmail.com", "password123", "Javi44");
+        INSTANCE.currentUser = new User("JaviGuardiola", "javi@gmail.com", "password123", "jaavi44");
         INSTANCE.course = new Course("German", "Introduction to German.", "icons/course/german.png", new ArrayList<>(), new ArrayList<>());
         Course course2 = new Course("Music", "Learn the basics of music", "icons/course/music.png", new ArrayList<>(), new ArrayList<>());
         Course course3 = new Course("Java", "Learn the basics of the Java programming", "icons/course/js.png", new ArrayList<>(), new ArrayList<>());
@@ -242,7 +246,6 @@ public enum Controller {
 //                return false;
 //            }
 //        }
-
         // Register the user entry in the app
         getUserStats().logEntry();
 

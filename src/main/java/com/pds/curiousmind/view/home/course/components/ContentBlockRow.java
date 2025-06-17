@@ -10,9 +10,8 @@ import com.pds.curiousmind.view.playview.question.components.QuestionStructure;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 /**
  * Utility class for creating a column of content block rows for a course.
@@ -39,8 +38,24 @@ public class ContentBlockRow {
         column.setOpaque(false);
 
         for ( RegisteredContentBlock block : contentBlocks ) {
-            // Create a label for each content block
             RoundedLabel label = new RoundedLabel(block.getName());
+
+            String iconPath;
+            switch (block.getDifficulty().toString()) {
+                case "EASY":
+                    iconPath = ICON_STAR1;
+                    break;
+                case "MEDIUM":
+                    iconPath = ICON_STAR2;
+                    break;
+                case "HARD":
+                    iconPath = ICON_STAR3;
+                    break;
+                default:
+                    iconPath = ICON_MORE;
+                    break;
+            }
+            label.setIcon(loadIcon(iconPath, 20, 20));
 
             if (block.isCompleted()) {
                 // Style for completed blocks
