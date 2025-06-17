@@ -102,7 +102,7 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
 
 ### 3.  Ventana Menu Principal (Home)
 
-La pantalla *Home* actúa como el menú principal de la aplicación, esta ventana esta dividida en tres secciones principales:
+La pantalla *Home* actúa como el menú principal de la aplicación, estando esta dividida en tres secciones principales:
 
 - *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos. 
 - *New Course*: Donde se encuentran todos los cursos de la aplicación y tenemos la posibilidad de compartirlos e inscribirnos en ellos.
