@@ -3,10 +3,8 @@ package com.pds.curiousmind.view.playview.question.components;
 
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.contentblock.Difficulty;
-import com.pds.curiousmind.model.gameManager.GameManager;
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.question.implementation.FillTheGap;
-import com.pds.curiousmind.model.question.option.ImageOption;
 import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.common.RoundedPanel;
@@ -23,13 +21,9 @@ import java.util.List;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
-import static com.pds.curiousmind.view.playview.question.FillTheGaps.createGapSection;
 import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
-import static com.pds.curiousmind.view.playview.question.Test.createTestPanel;
-import static com.pds.curiousmind.view.playview.question.Translation.createTranslationSection;
 import static com.pds.curiousmind.view.playview.question.components.CreateHeader.createHeader;
 import static com.pds.curiousmind.view.common.BackgroundComponent.createBackground;
-import static java.sql.DriverManager.println;
 
 
 public class QuestionStructure extends JFrame {
@@ -119,8 +113,8 @@ public class QuestionStructure extends JFrame {
                 JOptionPane.showMessageDialog(null, "Correct answer!", "Success", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_HAPPY, 60, 60));
                 Question nextQuestion = controller.getNextQuestion();
                 if (nextQuestion == null) {
-                    //TODO: controller.endGame();
-                    controller.addExperiencePoints(difficulty);
+                    controller.completeContentBlock(difficulty);
+                    controller.endGame();
                     JOptionPane.showMessageDialog(null, "Congratulations! You have completed the content block.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_COMPLETE, 60, 60));
                     new CourseDashboard(course);
                     dispose();
@@ -139,12 +133,8 @@ public class QuestionStructure extends JFrame {
                 controller.addFailedQuestion(question);
                 JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
                 dispose();
-                //TODO:  Question nextQuestion = controller.getNextQuestion();
-                Question nextQuestion = new FillTheGap(
-                        "Complete the sentence:",
-                        "The ___ is the satellite of the Earth.",
-                        "moon"
-                );
+                Question nextQuestion = controller.getNextQuestion();
+
                 new QuestionStructure(
                         course,
                         nextQuestion,
