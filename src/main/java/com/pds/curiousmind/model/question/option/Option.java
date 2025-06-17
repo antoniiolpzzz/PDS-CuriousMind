@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "options")
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -15,10 +18,6 @@ import jakarta.persistence.*;
         @JsonSubTypes.Type(value = Option.class, name = "option"),
         @JsonSubTypes.Type(value = ImageOption.class, name = "imageoption")
 })
-
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "options")
 public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,4 +61,5 @@ public class Option {
     public int hashCode() {
         return Objects.hash(this.label);
     }
+
 }
