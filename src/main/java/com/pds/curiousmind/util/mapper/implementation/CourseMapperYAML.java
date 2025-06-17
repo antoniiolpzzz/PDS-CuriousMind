@@ -10,7 +10,14 @@ import java.io.IOException;
 
 @JsonIgnoreProperties({"id"})
 public class CourseMapperYAML implements ICourseMapper<File> {
-    private final ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+    private final ObjectMapper objectMapper;
+
+    public CourseMapperYAML() {
+        YAMLFactory yamlFactory = new YAMLFactory();
+        yamlFactory.disable(com.fasterxml.jackson.dataformat.yaml.YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
+        this.objectMapper = new ObjectMapper(yamlFactory);
+        this.objectMapper.findAndRegisterModules();
+    }
 
     @Override
     public Course toEntity(File file) {
@@ -32,6 +39,7 @@ public class CourseMapperYAML implements ICourseMapper<File> {
         try {
             objectMapper.addMixIn(Object.class, IgnoreIdMixin.class);
             File tempFile = File.createTempFile("course", ".yaml");
+            System.out.println(objectMapper.writeValueAsString(entity));
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(tempFile, entity);
             return tempFile;
         } catch (IOException e) {
