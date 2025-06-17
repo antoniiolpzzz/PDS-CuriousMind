@@ -352,7 +352,7 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 3. Se abrirá una ventana como la siguiente en la cual debemos escoger la estrategia que queremos seguir en el curso:  
 
-📸 Ventana Estrategia ![Login screen](Images/strategy.png)
+📸 Ventana Estrategia ![Login screen](Images/strategy.png)  //TODO CAMBIAR FOTO 
  
 
    Las estrategias sirven para personalizar la forma de aparición de las preguntas, entre ellas tenemos:
@@ -362,7 +362,7 @@ ya creados en la aplicación y participar en ellos. Para ello:
 
 4. Una vez elegida la estrategia, pulsa el botón **Accept** y serás redirigido a la ventana de Home.
 
-📸 Estrategia Seleccionada ![Login screen](Images/strategySelected.png) 
+📸 Estrategia Seleccionada ![Login screen](Images/strategySelected.png) //TODO CAMBIAR FOTO 
 
 Una vez completados estos pasos, el curso estará accesible en la sección *"My Courses"* tanto en la ventana Home como en la ventana de Usuario.
 
