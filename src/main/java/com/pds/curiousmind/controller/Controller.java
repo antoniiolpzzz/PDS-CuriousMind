@@ -204,6 +204,7 @@ public enum Controller {
     public void completeContentBlock(Difficulty difficulty) {
         gameManager.markBlockAsCompleted();
         currentUser.addExperiencePoints(getPointsForDifficulty(difficulty));
+        currentUser.addTimeSpent(gameManager.getGameDuration());
         userLibrary.update(currentUser);
     }
 
