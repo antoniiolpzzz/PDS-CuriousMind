@@ -42,8 +42,8 @@ public class Course {
 
     @ElementCollection
     @Enumerated(EnumType.ORDINAL)
-    @CollectionTable(name = "course_strategies", joinColumns = @JoinColumn(name = "course_id"))
     @Column(name = "available_strategy", nullable = false)
+    @CollectionTable(name = "course_strategies", joinColumns = @JoinColumn(name = "course_id"))
     private Set<StrategyType> availableStrategies;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)

@@ -30,7 +30,7 @@ public class ContentBlock {
         this.questions = new ArrayList<>();
     }
 
-    public ContentBlock(String name, List<Question> questions, Difficulty difficultyLevel) {
+    public ContentBlock(String name, Difficulty difficultyLevel, List<Question> questions) {
         this.name = name;
         this.questions = new ArrayList<>(questions);
         this.difficulty = difficultyLevel;
