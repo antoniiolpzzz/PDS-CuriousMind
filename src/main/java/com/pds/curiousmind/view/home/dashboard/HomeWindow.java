@@ -145,13 +145,4 @@ public class HomeWindow extends JFrame {
 
         setVisible(true);
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Crea un usuario de prueba o recupera el usuario de otra forma
-            User user = controller.getCurrentUser();
-            new HomeWindow(user);
-        });
-    }
-
 }

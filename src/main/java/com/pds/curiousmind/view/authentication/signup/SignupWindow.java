@@ -4,14 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 
 import com.pds.curiousmind.controller.Controller;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.authentication.components.*;
 import com.pds.curiousmind.view.authentication.login.LoginWindow;
 import com.pds.curiousmind.view.common.BackgroundPanel;
 import com.pds.curiousmind.view.common.RoundedPanel;
 import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.regex.*;
 
 
@@ -107,6 +112,15 @@ public class SignupWindow extends JFrame {
         confirmPasswordField.setBorder(BorderFactory.createTitledBorder("Confirm Password"));
         confirmPasswordField.setMaximumSize(fixedFieldSize);
 
+        confirmPasswordField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (e.getKeyChar() == '\n') {
+                    signUp();
+                }
+            }
+        });
+
         JPanel passwordPanel = new JPanel(new GridLayout(2, 2, 10, 5));
         passwordPanel.setOpaque(false);
         passwordPanel.add(passwordField);
@@ -132,19 +146,7 @@ public class SignupWindow extends JFrame {
         StyledButton createButton = new StyledButton("Create account", Color.BLACK, Color.WHITE);
         createButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         createButton.addActionListener(e -> {
-            if (checkFields(fullNameField.getText(), usernameField.getText(), emailField.getText(), passwordField, confirmPasswordField)) {
-                if (controller.signUp(
-                        fullNameField.getText(),
-                        usernameField.getText(),
-                        emailField.getText(),
-                        new String(passwordField.getPassword())
-                )) {
-                    dispose();
-                    new LoginWindow();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error creating account. Please try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
-                }
-            }
+            signUp();
         });
 
         StyledButton backButton = new StyledButton(LOGIN_LABEL, new Color(240, 240, 240), Color.BLACK);
@@ -180,6 +182,22 @@ public class SignupWindow extends JFrame {
 
         pack();
         setVisible(true);
+    }
+
+    public void signUp() {
+        if (checkFields(fullNameField.getText(), usernameField.getText(), emailField.getText(), passwordField, confirmPasswordField)) {
+            if (controller.signUp(
+                    fullNameField.getText(),
+                    usernameField.getText(),
+                    emailField.getText(),
+                    new String(passwordField.getPassword())
+            )) {
+                dispose();
+                new LoginWindow();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error creating account. Please try again.", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
+            }
+        }
     }
 
     public boolean checkFields(String fullName, String username, String email, JPasswordField password, JPasswordField confirmPassword) {

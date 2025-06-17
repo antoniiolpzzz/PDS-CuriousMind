@@ -43,7 +43,7 @@ public class CourseItemPanel extends JPanel {
 
         setBackground(Color.WHITE);
 
-        //TODO: Check this share functionality works correctly
+        //TODO: Check this share functionality works correctly (we only save as json for easier view)
 
         shareBtn.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();

@@ -48,8 +48,7 @@ public class JsonChooserWindow extends JDialog {
 
         JLabel title = new JLabel("CREATE COURSE", SwingConstants.CENTER);
         title.setFont(new Font(FONT_NAME, Font.BOLD, 22));
-        String courseIconPath = ICON_MORE; // Path to the course icon
-        title.setIcon(loadIcon(courseIconPath, 28, 28));
+        title.setIcon(loadIcon(ICON_MORE, 28, 28));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(title);
 
@@ -86,8 +85,8 @@ public class JsonChooserWindow extends JDialog {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10));
         StyledButton acceptButton = new StyledButton(ACCEPT_LABEL, Color.WHITE, Color.BLACK);
         acceptButton.addActionListener(e -> {
-            if (selectedJsonFile == null || !selectedJsonFile.getName().toLowerCase().endsWith(".json")) {
-                JOptionPane.showMessageDialog(null, "Please select a valid JSON file. ", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
+            if (selectedJsonFile == null || (!selectedJsonFile.getName().toLowerCase().endsWith(".json") && !selectedJsonFile.getName().toLowerCase().endsWith(".yaml"))) {
+                JOptionPane.showMessageDialog(null, "Please select a valid JSON or YAML file. ", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
 
             } else {
                 try {
