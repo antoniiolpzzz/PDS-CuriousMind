@@ -105,7 +105,8 @@ Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual
 
 ## 📲 Use Cases
 
-Click [_here_](https://github.com/mrcdslpz) to go to our detailed use cases list, including:
+Click [_here_]([https://github.com/mrcdslpz](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Aissue+is%3Aclosed+label%3Ause-case)) to go to our detailed use cases list, including:
+
 
 1. CDU 001: Log in
 2. CDU 002: Sign up
