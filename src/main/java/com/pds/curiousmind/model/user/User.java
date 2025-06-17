@@ -89,7 +89,7 @@ public class User {
     public Long getId() { return id; }
 
     public String getFullName() { return fullName; }
-
+  
     public String getEmail() { return email; }
 
     public String getUsername() { return username; }
@@ -102,7 +102,7 @@ public class User {
     // SETTERS
     public void setEmail(String email) { this.email = email; }
 
-    public void setFullName(String firstName) { this.fullName = firstName; }
+    public void setFullName(String fullName) { this.fullName = fullname; }
 
     public void setPassword(String password) { this.password = password; }
 

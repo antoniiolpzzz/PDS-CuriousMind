@@ -2,6 +2,8 @@ package com.pds.curiousmind.view.common;
 
 import javax.swing.*;
 import java.awt.*;
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+
 
 public class RoundedLabel extends JLabel {
     private Color backgroundColor = new Color(245, 245, 245);
@@ -10,7 +12,7 @@ public class RoundedLabel extends JLabel {
     public RoundedLabel(String text) {
         super(text);
         setOpaque(false);
-        setFont(new Font("SansSerif", Font.PLAIN, 18));
+        setFont(new Font(FONT_NAME, Font.PLAIN, 18));
         setBorder(BorderFactory.createEmptyBorder(10, 18, 10, 18));
         setAlignmentX(Component.LEFT_ALIGNMENT);
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
