@@ -118,7 +118,8 @@ Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Ais
 8. CDU 008: Repeat failed (Additional feature)
 9. CDU 009: Increase level (Additional feature)
 
-*You can easily find them by applying the **"use case"** filter. 
+*For an optimal access, the **"use case"** filter is already applied. 
+
 
 ## 🤝 Contributing
 
