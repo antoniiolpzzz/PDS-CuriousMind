@@ -118,7 +118,7 @@ public class HomeWindow extends JFrame {
 
         rightPanel.add(sectionTitle("New course"));
         List<Course> allCourses = controller.getAllCourses();
-        JPanel rowNewCourses = createCourseRowSection(this, allCourses);
+        JPanel rowNewCourses = createCourseRowSection(this, allCourses,user);
 
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowNewCourses));

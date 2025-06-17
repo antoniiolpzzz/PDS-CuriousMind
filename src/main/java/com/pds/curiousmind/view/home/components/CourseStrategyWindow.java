@@ -4,7 +4,9 @@ package com.pds.curiousmind.view.home.components;
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.strategy.StrategyType;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.common.StyledButton;
+import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
@@ -21,7 +23,7 @@ public class CourseStrategyWindow extends JDialog {
     private static final Controller controller = Controller.INSTANCE;
 
 
-    public CourseStrategyWindow(JFrame parent, Course course) {
+    public CourseStrategyWindow(JFrame parent, Course course, User user) {
         super(parent, "Select Strategy", true);
 
         // Set up window properties and focus behavior
@@ -94,7 +96,9 @@ public class CourseStrategyWindow extends JDialog {
             } else {
                 dispose();
                 controller.createRegisteredCourse(course, StrategyType.valueOf(selectedStrategy[0]));
-                JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/enfadado.png", 60, 60));
+                JOptionPane.showMessageDialog(null, "Course registered with strategy: " + selectedStrategy[0], "Successful", JOptionPane.INFORMATION_MESSAGE, loadIcon("icons/pet/feliz.png", 60, 60));
+                dispose();
+                new HomeWindow(user);
             }
         });
 

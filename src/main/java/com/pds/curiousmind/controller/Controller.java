@@ -83,17 +83,17 @@ public enum Controller {
         {
             if(userLibrary.getByUsername(username).getPassword().equals(password)) {
                 currentUser = userLibrary.getByUsername(username);
+                // Register the user entry in the app
+                // TODO: Give a look for a better implementation of this on the user directly
+                getUserStats().logEntry();
+                userLibrary.update(currentUser);
+                return true;
             } else {
                 return false;
             }
         }
+        return false;
 
-        // Register the user entry in the app
-        // TODO: Give a look for a better implementation of this on the user directly
-        getUserStats().logEntry();
-        userLibrary.update(currentUser);
-
-        return true;
     }
 
     // CHECK FIELDS AND CREATE A NEW USER

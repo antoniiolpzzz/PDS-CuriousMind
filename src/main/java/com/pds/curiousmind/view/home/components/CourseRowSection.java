@@ -3,6 +3,7 @@ package com.pds.curiousmind.view.home.components;
 
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.view.home.course.CourseDashboard;
 
 import javax.swing.*;
@@ -28,13 +29,13 @@ public class CourseRowSection {
         return row;
     }
 
-    public static JPanel createCourseRowSection(JFrame parentFrame, List<Course> courseData) {
+    public static JPanel createCourseRowSection(JFrame parentFrame, List<Course> courseData, User user) {
         JPanel row = new JPanel();
         row.setLayout(new GridLayout(0, 4, 20, 15));
         row.setOpaque(false);
         for (Course course : courseData) {
             row.add(new CourseItemPanel(course, () -> {
-                new CourseStrategyWindow(parentFrame, course);
+                new CourseStrategyWindow(parentFrame, course, user);
             }));
         }
         return row;
