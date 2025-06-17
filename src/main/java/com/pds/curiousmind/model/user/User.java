@@ -126,4 +126,8 @@ public class User {
 
     }
 
+    public boolean addTimeSpent(long time) {
+        return this.stats.addTimeSpent(time);
+    }
+
 }

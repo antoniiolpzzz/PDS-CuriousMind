@@ -1,5 +1,6 @@
 package com.pds.curiousmind.model.stat;
 
+import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.user.User;
 import jakarta.persistence.*;
 
@@ -20,6 +21,9 @@ public class Stat {
 
     @Column(name = "experience_points", nullable = false)
     private int experiencePoints;
+
+    @Column(name = "time_spent", nullable = false)
+    private long timeSpent;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "stat_entries",joinColumns = @JoinColumn(name = "stat_id"))
@@ -45,6 +49,7 @@ public class Stat {
 
     public int getExperiencePoints() { return experiencePoints % EXPERIENCE_POINTS_PER_LEVEL; }
 
+    public long getTimeSpent() { return timeSpent; }
 
     // SETTERS
     public void setExperiencePoints(int experiencePoints) { this.experiencePoints = experiencePoints; }
@@ -55,12 +60,14 @@ public class Stat {
 
     public void setUser(User user) { this.user = user; }
 
+    public void setTimeSpent(long timeSpent) { this.timeSpent = timeSpent; }
+
 
     // ADDITIONAL METHODS
     public int getCompletedCourses() {
         return user != null && user.getRegisteredCourses() != null ?
             user.getRegisteredCourses().stream()
-                .filter(course -> course.isCompleted())
+                .filter(RegisteredCourse::isCompleted)
                 .mapToInt(course -> 1)
                 .sum() : 0;
     }
@@ -105,5 +112,16 @@ public class Stat {
         LocalDate entry = LocalDate.now();
         return this.entries.add(entry);
     }
+
+    public boolean addTimeSpent(long time) {
+        if (time < 0) {
+            return false;
+        } else {
+            this.timeSpent += time;
+            return true;
+        }
+    }
+
+
 
 }
