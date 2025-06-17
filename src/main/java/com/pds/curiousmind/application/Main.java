@@ -12,6 +12,7 @@ import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
+import com.pds.curiousmind.util.mapper.service.CourseMapperService;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -20,10 +21,13 @@ import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
+
+        /*
         System.out.println("Hello, World!");
 
         CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
         UserLibrary userLibrary = UserLibrary.INSTANCE;
+        CourseMapperService courseMapper = CourseMapperService.INSTANCE;
 
         Course tempCourse = createRandomCourse();
         courseLibrary.add(tempCourse);
@@ -37,7 +41,7 @@ public class Main {
         userLibrary.update(user);
 
         printAllUserDetails(userLibrary.getAll());
-
+         */
     }
 
     public static void printAllUserDetails(List<User> userlist) {
