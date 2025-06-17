@@ -109,14 +109,14 @@ Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Ais
 
 
 1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
-2. CDU 002: Sign up
-3. CDU 003: Create course
-4. CDU 004: Select course
-5. CDU 005: Register course
-6. CDU 006: Make course
-7. CDU 007: Follow progress
-8. CDU 008: Repeat failed (Additional feature)
-9. CDU 009: Increase level (Additional feature)
+2. [CDU 002](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/53): Sign up
+3. [CDU 003](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/2): Create course
+4. [CDU 004](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/3): Select course
+5. [CDU 005](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/5): Register course
+6. [CDU 006](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/4): Make course
+7. [CDU 007](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/6): Follow progress
+8. [CDU 008](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/12): Repeat failed (Additional feature)
+9. [CDU 009](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/13): Increase level (Additional feature)
 
 *For an optimal access, the **"use case"** filter is already applied. 
 
