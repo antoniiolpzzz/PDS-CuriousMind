@@ -1,5 +1,6 @@
 package com.pds.curiousmind.model.question;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.pds.curiousmind.model.question.option.Option;
@@ -74,7 +75,7 @@ public abstract class Question {
     public List<Option> getOptions() { return Collections.unmodifiableList(options); }
 
 
-    // SETTERS (for JPA)
+    // SETTERS
     public void setId(Long id) { this.id = id; }
 
     public void setIndication(String indication) { this.indication = indication; }
@@ -91,7 +92,10 @@ public abstract class Question {
         return this.correctAnswer.equalsIgnoreCase(answer.trim());
     }
 
+    @JsonIgnore
     public String getType() {
         return this.getClass().getSimpleName();
     }
 }
+
+

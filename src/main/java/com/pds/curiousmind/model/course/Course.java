@@ -40,7 +40,7 @@ public class Course {
     @Column(name = "image_url")
     private String imageURL;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "available_strategy", nullable = false)
     @CollectionTable(name = "course_strategies", joinColumns = @JoinColumn(name = "course_id"))
