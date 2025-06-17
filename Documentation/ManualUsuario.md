@@ -443,45 +443,47 @@ Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque 
 
 ### 🧪 Base de datos para pruebas y testing
 
-CuriousMind incluye una base de datos pensada para pruebas y desarrollo que sirve para comprobar el correcto funcionamiento de la aplicación.  
+CuriousMind incluye una base de datos pensada para pruebas, que sirve para comprobar el correcto funcionamiento de la aplicación.  
 Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: XXXXXX TODO XXXXXX.
 
 ---
 
-### 📚 Cursos disponibles
+### 📚 Cursos disponibles en la base de datos
 
-En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distintos niveles de dificultad y tipos de preguntas. A continuación, se describen brevemente:
+En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distintos niveles de dificultad y todos los tipos de preguntas. A continuación, se describen brevemente:
 
 1. **Curso de Alemán 🇩🇪**  
-   Incluye bloques de contenido con dificultades variadas (fácil, medio y difícil).  
-   Las preguntas son de tipo aleatorio: rellenar huecos, elegir imágenes, opción múltiple, etc.
+   Incluye bloques de contenido con que te van a permitir obtener las bases del idioma.  
+   La estrategia seleccionada para este curso es aleatoria.
 
-2. **Curso de Matemáticas 📐**  
-   Contiene bloques orientados a lógica, cálculo y resolución de problemas.  
-   Las preguntas mezclan texto, ecuaciones y elección de respuestas.
+2. **Curso de C++ 💻**  
+   Con bloques centrados en fundamentos de código.
+   La estrategia seleccionada para este curso es repetición espaciada.
 
-3. **Curso de Historia Mundial 🌍**  
-   Con bloques temáticos por época histórica.  
-   Incluye preguntas tipo línea de tiempo, asociación de conceptos e imágenes históricas.
+3. **Música 🎵**  
+   Con bloques variados con historia y fundamentos de la música.
+   La estrategia seleccionada para este curso es repetición secuencial.
 
 4. **Curso de Ciencia y Naturaleza 🔬**  
    Dividido en bloques por temas (biología, física, ecología…).  
-   Las preguntas usan imágenes, opciones múltiples y textos breves para reforzar conceptos.
+   La estrategia seleccionada para este curso es repetición secuencial.
 
-5. **Curso de Programación 💻**  
-   Con bloques centrados en fundamentos de código (condicionales, bucles, funciones…).  
-   Preguntas basadas en elección de fragmentos de código correctos, completar sintaxis, y lógica de programación.
+5. **Curso de Matemáticas 📐**  
+   Contiene bloques orientados a lógica, cálculo y resolución de problemas.  
+   La estrategia seleccionada para este curso es repetición secuencial.
 
 
 ---
 
-### 👤 Usuario de prueba
+### 👤 Usuario de prueba de la base de datos
 
 Se incluye un **usuario de ejemplo** con el siguiente estado:
 
-- Inscrito en **2 cursos** (Alemán y Música).
+- Nombre de Usuario: JaviPrueba
+- Contraseña: cursosBonitos21
+  
+- Inscrito en **3 cursos** (Alemán, Música y C++).
 - Ha **completado 1 curso ✅**.
-- Tiene **nivel 6 🎯**.
 
 ---
 
