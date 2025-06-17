@@ -108,7 +108,7 @@ Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/raw/369a
 Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Aissue+is%3Aopen+label%3A%22use%20case%22) to go to our detailed use cases list, including:
 
 
-1. CDU 001: Log in
+1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
 2. CDU 002: Sign up
 3. CDU 003: Create course
 4. CDU 004: Select course
