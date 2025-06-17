@@ -170,8 +170,7 @@ public enum Controller {
 
     // GET THE NUMBER OF QUESTIONS ANSWERED IN THE GAME
     public int getBlockProgress() {
-        // TODO: this should be done in the game manager itself
-        return (gameManager.totalQuestions() - gameManager.questionsLeft()) / gameManager.totalQuestions() * 100;
+        return gameManager.getCurrentProgress();
     }
 
     // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK

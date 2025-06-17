@@ -72,9 +72,12 @@ public enum GameManager {
         if (currentContentBlock != null) {
             currentContentBlock.markAsCompleted();
         }
+    }
 
-
-
+    public int getCurrentProgress() {
+        return questionIterator != null ?
+                ((questionIterator.getTotalQuestions() - questionIterator.getQuestionsLeft()) * 100) / questionIterator.getTotalQuestions()
+                : 0;
     }
 
     public int totalQuestions() {
