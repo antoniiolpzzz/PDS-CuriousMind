@@ -195,7 +195,6 @@ public enum Controller {
     // ADD A FAILED QUESTION TO THE GAME MANAGER
 
     public void addFailedQuestion(Question question) {
-        // Add a failed question to the game manager
         gameManager.addFailedQuestion(question);
         //TODO: This should handle the lives number of the user
     }
@@ -204,6 +203,7 @@ public enum Controller {
     public void completeContentBlock(Difficulty difficulty) {
         gameManager.markBlockAsCompleted();
         currentUser.addExperiencePoints(getPointsForDifficulty(difficulty));
+        userLibrary.update(currentUser);
     }
 
     public int getPointsForDifficulty(Difficulty difficulty) {
