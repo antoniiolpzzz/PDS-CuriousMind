@@ -44,18 +44,22 @@ public class ContentBlockRow {
             switch (block.getDifficulty().toString()) {
                 case "EASY":
                     iconPath = ICON_STAR1;
+                    label.setIcon(loadIcon(iconPath, 20, 20));
                     break;
                 case "MEDIUM":
                     iconPath = ICON_STAR2;
+                    label.setIcon(loadIcon(iconPath, 40, 20));
                     break;
                 case "HARD":
                     iconPath = ICON_STAR3;
+                    label.setIcon(loadIcon(iconPath, 60, 20));
                     break;
                 default:
                     iconPath = ICON_MORE;
+                    label.setIcon(loadIcon(iconPath, 20, 20));
                     break;
             }
-            label.setIcon(loadIcon(iconPath, 20, 20));
+
 
             if (block.isCompleted()) {
                 // Style for completed blocks

@@ -120,12 +120,13 @@ public enum Controller {
         questions.add(translation);
         questions.add(flashcard);
 
-        Difficulty difficulty = Difficulty.EASY;
+        Difficulty difficulty = Difficulty.MEDIUM;
+        Difficulty difficulty2 = Difficulty.EASY;
 
         INSTANCE.contentBlock = new ContentBlock(
                 "Your first words",
                 questions,
-                difficulty,
+                difficulty2,
                 INSTANCE.course
         );
 
