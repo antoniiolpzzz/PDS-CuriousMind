@@ -15,11 +15,24 @@ import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.view.common.StyledButton;
 import static com.pds.curiousmind.view.common.HoverEffect.addHoverEffect;
 
+/**
+ * CourseItemPanel represents a UI component for displaying a course item.
+ * It shows the course name as a styled button with an icon,
+ * and includes a share button to export the course data as a JSON file.
+ */
 public class CourseItemPanel extends JPanel {
 
+    /** Singleton controller instance */
     private static final Controller controller = Controller.INSTANCE;
 
-
+    /**
+     * Constructs a CourseItemPanel with a course button and a share button.
+     * The course button triggers the provided onClick runnable when clicked.
+     * The share button opens a file chooser to save the course data as a JSON file.
+     *
+     * @param course the Course object to display
+     * @param onClick the action to perform when the course button is clicked
+     */
     public CourseItemPanel(Course course, Runnable onClick) {
         setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
         setOpaque(false);
@@ -32,8 +45,7 @@ public class CourseItemPanel extends JPanel {
         courseBtn.addActionListener(e -> onClick.run());
         add(courseBtn);
 
-        //SHARE BUTTON
-
+        // SHARE BUTTON
         StyledButton shareBtn = new StyledButton("", Color.WHITE, Color.BLACK);
         shareBtn.setIcon(loadIcon(ICON_SHARE, 18, 18));
         shareBtn.setPreferredSize(new Dimension(35, 35));
@@ -43,34 +55,33 @@ public class CourseItemPanel extends JPanel {
 
         setBackground(Color.WHITE);
 
-        //TODO: Check this share functionality works correctly (we only save as json for easier view)
-
+        // Action listener for sharing course data as a JSON file
         shareBtn.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setDialogTitle("Save file as JSON");
 
-            // Proponer un nombre por defecto con extensión .json
+            // Propose a default filename with .json extension
             fileChooser.setSelectedFile(new java.io.File(course.getName() + ".json"));
 
             int userSelection = fileChooser.showSaveDialog(this);
             if (userSelection == JFileChooser.APPROVE_OPTION) {
                 java.io.File destinationFile = fileChooser.getSelectedFile();
 
-                // Asegurarse de que tenga extensión .json
+                // Ensure the file has a .json extension
                 if (!destinationFile.getName().toLowerCase().endsWith(".json")) {
                     destinationFile = new java.io.File(destinationFile.getAbsolutePath() + ".json");
                 }
 
-                // Obtener el fichero JSON generado por el controlador
+                // Get the JSON file from the controller
                 File jsonFile = controller.getJsonFromCourse(course);
 
                 try {
-                    // Copiar el contenido del fichero original al destino elegido por el usuario
+                    // Copy the JSON file to the user-selected destination
                     Files.copy(jsonFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(
                             null,
-                            "Error al guardar el archivo: " + ex.getMessage(),
+                            "Error saving the file: " + ex.getMessage(),
                             "Error",
                             JOptionPane.ERROR_MESSAGE,
                             loadIcon(ICON_ANGRY, 60, 60)
