@@ -9,7 +9,12 @@ import java.io.IOException;
 
 @JsonIgnoreProperties({"id"})
 public class CourseMapperJSON implements ICourseMapper<File> {
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
+
+    public CourseMapperJSON() {
+        this.objectMapper = new ObjectMapper();
+        this.objectMapper.addMixIn(Object.class, IgnoreIdMixin.class);
+    }
 
     @Override
     public Course toEntity(File file) {
@@ -29,7 +34,7 @@ public class CourseMapperJSON implements ICourseMapper<File> {
             throw new IllegalArgumentException("Course entity must not be null");
         }
         try {
-            objectMapper.addMixIn(Object.class, IgnoreIdMixin.class);
+            //objectMapper.addMixIn(Object.class, IgnoreIdMixin.class);
             File tempFile = File.createTempFile("course", ".json");
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(tempFile, entity);
             return tempFile;
