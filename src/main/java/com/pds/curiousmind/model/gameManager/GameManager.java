@@ -16,6 +16,7 @@ public enum GameManager {
     private QuestionIterator questionIterator;
 
     private final StrategyProvider strategyProvider;
+    private int lifes;
 
     //CONSTRUCTOR
     GameManager() {
@@ -24,6 +25,7 @@ public enum GameManager {
         this.currentCourse = null;
         this.currentContentBlock = null;
         this.questionIterator = null;
+        this.lifes = 5;
     }
 
     //GETTERS AND SETTERS
@@ -42,12 +44,14 @@ public enum GameManager {
         Strategy currentStrategy = strategyProvider.getStrategy(course.getStrategy());
         List<Question> processedQuestions = currentStrategy.getProcessedQuestions(contentBlock);
         this.questionIterator = new QuestionIterator(processedQuestions);
+        this.lifes = 5;
     }
 
     public void deactivateGame() {
         this.currentCourse = null;
         this.currentContentBlock = null;
         this.questionIterator = null;
+        this.lifes = 5;
     }
 
     public boolean hasNextQuestion() {
@@ -55,7 +59,7 @@ public enum GameManager {
     }
 
     public Question getNextQuestion() {
-        if (hasNextQuestion()) {
+        if (hasNextQuestion() && lifes > 0) {
             return questionIterator.next();
         }
         return null;
@@ -65,6 +69,7 @@ public enum GameManager {
         if (questionIterator != null && question != null) {
             questionIterator.addFailedQuestion(question);
         }
+        lifes--;
     }
 
     public void markBlockAsCompleted() {
@@ -91,7 +96,9 @@ public enum GameManager {
         return questionIterator != null ? questionIterator.getFailedCount() : 0;
     }
 
-
+    public int getLifes(){
+        return lifes;
+    }
 
 
 }

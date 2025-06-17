@@ -174,6 +174,12 @@ public enum Controller {
         return gameManager.getCurrentProgress();
     }
 
+    // GET THE NUMBER OF QUESTIONS ANSWERED IN THE GAME
+    public int getLifesLeft() {
+
+        return gameManager.getLifes();
+    }
+
     // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK
 
     public Question initializeGameManager(RegisteredCourse course, RegisteredContentBlock contentBlock) {

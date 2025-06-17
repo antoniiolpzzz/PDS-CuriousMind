@@ -5,6 +5,9 @@ import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.view.common.StyledButton;
 import com.pds.curiousmind.view.home.stats.UserWindow;
 import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
+import com.pds.curiousmind.view.playview.question.FillTheGaps;
+import com.pds.curiousmind.view.playview.question.Test;
+import com.pds.curiousmind.view.playview.question.Translation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +15,7 @@ import java.awt.*;
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
+import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
 
 public class CreateHeader {
 
@@ -37,9 +41,33 @@ public class CreateHeader {
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(10));
 
+        int lifes = controller.getLifesLeft();
+        switch (lifes) {
+            case 1 -> {
+                JLabel iconLabel = new JLabel(loadIcon(ICON_LIFE1, 24, 24));
+                headerPanel.add(iconLabel, BorderLayout.EAST);
+            }
+            case 2 -> {
+                JLabel iconLabel = new JLabel(loadIcon(ICON_LIFE2, 34, 24));
+                headerPanel.add(iconLabel, BorderLayout.EAST);
+            }
+            case 3 -> {
+                JLabel iconLabel = new JLabel(loadIcon(ICON_LIFE3, 50, 24));
+                headerPanel.add(iconLabel, BorderLayout.EAST);
+            }
+            case 4 -> {
+                JLabel iconLabel = new JLabel(loadIcon(ICON_LIFE4, 60, 24));
+                headerPanel.add(iconLabel, BorderLayout.EAST);
+            }
+            case 5 -> {
+                JLabel iconLabel = new JLabel(loadIcon(ICON_LIFE5, 70, 24));
+                headerPanel.add(iconLabel, BorderLayout.EAST);
+            }
+            default -> {
 
-        JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
-        userPanel.setOpaque(false);
+            }
+        }
+
 
 
         // Section title for the content block

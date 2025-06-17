@@ -134,15 +134,22 @@ public class QuestionStructure extends JFrame {
                 } else {
                     controller.addFailedQuestion(question);
                     JOptionPane.showMessageDialog(null, "Incorrect answer. The correct answer was: " + question.getCorrectAnswer(), "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
-                    dispose();
                     Question nextQuestion = controller.getNextQuestion();
-
-                    new QuestionStructure(
-                            course,
-                            nextQuestion,
-                            blockName,
-                            difficulty
-                    );
+                    if (nextQuestion == null) {
+                        controller.endGame();
+                        JOptionPane.showMessageDialog(null, "Oups! You don´t have lifes left.", "Game Over", JOptionPane.INFORMATION_MESSAGE, loadIcon(ICON_FAIL, 60, 60));
+                        new CourseDashboard(course);
+                        dispose();
+                    }
+                    else {
+                        dispose();
+                        new QuestionStructure(
+                                course,
+                                nextQuestion,
+                                blockName,
+                                difficulty
+                        );
+                    }
                 }
 
             }
