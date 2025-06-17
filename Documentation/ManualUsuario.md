@@ -115,7 +115,7 @@ La pantalla *Home* actúa como el menú principal de la aplicación, esta ventan
   📸 Ventana Home ![Home screen](Images/UserManual/home.png)
 
 Por otro lado, pulsando en la foto de perfil o en el nombre del usuario seremos redirigidos a la pantalla de *Información de Usuario*.
-El botón *Logout* <img src="Images/logout.png" width="15"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
+El botón *Logout* <img src="Images/UserManual/logout.png" width="15"/>, como es habitual, permite cerrar la sesión y te redirige a la ventana de *Log In*.
 
   📸 Ventana Home Botón de User ![Home screen](Images/UserManual/homeUserButton.png)
 
@@ -137,7 +137,7 @@ Estadísticas del uso de la aplicación, distribuidas en cuatro métricas clave:
 - ✅ Completed courses: cantidad de cursos terminados por el usuario.
 - ⏱ Time of use: tiempo total de uso acumulado.
 
-Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="15" height="15"/>.
+Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/UserManual/homeButton.png" width="15" height="15"/>.
 
   📸 Ventana Información de Usuario ![UserWindow screen](Images/UserManual/userWindow.png)
 
@@ -149,7 +149,7 @@ La pantalla principal de cada curso tiene una cabecera con el título y la image
 Cabe destacar que encontraremos de color verde los bloques de contenidos del curso que ya hayan sido completados por el usuario.
 Esta diferenciación de color mencionada con anterioridad se debe a que el usuario no puede repetir un bloque de contenidos que ya ha sido completado.
 
-📸 Ventana Home del Curso ![CourseDashboard screen](Images/CourseDashboard.png)
+📸 Ventana Home del Curso ![CourseDashboard screen](Images/UserManual/CourseDashboard.png)
 
 Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/UserManual/homeButton.png" width="15" height="15"/>.
 
@@ -179,7 +179,7 @@ Elementos principales:
 </p>
 
 
-En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/UserManual/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
 ---
 
@@ -196,7 +196,7 @@ Elementos principales de la interfaz:
 - Enunciado e indicación de lo que hay que hacer.
 - Debajo se encuentra una caja de texto vacía donde el usuario debe escribir la palabra que falta.
 
-  📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGapAnswer.png)
+📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGapAnswer.png)
 
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
@@ -208,7 +208,7 @@ Elementos principales de la interfaz:
 </p>
 
 
-En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/UserManual/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
 ---
 
@@ -226,7 +226,7 @@ Elementos destacados:
 - Debajo aparecen tres imágenes correspondientes con sus correspondientes nombres.
 - El usuario debe seleccionar la imagen que representa la palabra correcta.
 
-  📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/FlashcardAnswer.png)
+📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/FlashcardAnswer.png)
   
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
@@ -333,7 +333,7 @@ Para compartir un curso, CuriousMind te da la posibilidad de guardar un archivo 
 en tu explorador de archivos. Para ello:
 
 1. Dirígete a la ventana **Home** o la ventana de Información de Usuario.  
-2. Pulsa el botón <img src="Images/share.png" width="10"/> que se encuentra a la derecha de cada botón de curso.  
+2. Pulsa el botón <img src="Images/UserManual/share.png" width="10"/> que se encuentra a la derecha de cada botón de curso.  
 
 📸 Botón Compartir ![Share screen](Images/UserManual/ShareButton.png) 
 
