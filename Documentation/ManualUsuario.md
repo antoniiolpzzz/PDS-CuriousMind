@@ -65,7 +65,7 @@ Incorpora dos botones diferentes:
    - Log in: Una vez relleno el formulario, se pulsa este botón para acceder al menú principal de la aplicación
    - Sign up: Si es la primera vez que accedemos a CuriousMind, se pulsa este botón para crear nuestra cuenta desde cero. 
 
-📸 Ventana LogIn ![Login screen](Images/login.png)
+📸 Ventana LogIn ![Login screen](Images/UserManual/login.png)
 
 Como se observa en la imagen, esta ventana incluye además botones "extra" a modo de barra superior:
 
@@ -75,8 +75,8 @@ Como se observa en la imagen, esta ventana incluye además botones "extra" a mod
 
 📸 Ventanas About Us y Contact
 <p align="center">
-  <img src="Images/aboutus.png" width="400"/>
-  <img src="Images/contact.png" width="400"/>
+  <img src="Images/UserManual/aboutus.png" width="400"/>
+  <img src="Images/UserManual/contact.png" width="400"/>
 </p>
 
 
@@ -91,7 +91,7 @@ Incorpora dos botones diferentes:
    - Create Account: Una vez relleno el formulario, se pulsa este botón para crear la cuenta almacenándola en la base de datos. Al hacer click sobre este botón, se te redirigirá a la ventana LogIn para iniciar sesión con tus nuevos datos.
    - Log in: Si ya tenías una cuenta, puedes pulsar sobre este botón para volver a la ventana LogIn e iniciar sesión con tus datos. 
 
-📸 Ventana SignUp ![SignUp screen](Images/signup.png)
+📸 Ventana SignUp ![SignUp screen](Images/UserManual/signup.png)
 
 Mantiene los botones comentados anteriormente de la barra superior, con la ligera diferencia del tercero: 
 
@@ -139,7 +139,7 @@ Estadísticas del uso de la aplicación, distribuidas en cuatro métricas clave:
 
 Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="15" height="15"/>.
 
-  📸 Ventana Información de Usuario ![UserWindow screen](Images/userWindow.png)
+  📸 Ventana Información de Usuario ![UserWindow screen](Images/UserManual/userWindow.png)
 
 ---
 
@@ -151,7 +151,7 @@ Esta diferenciación de color mencionada con anterioridad se debe a que el usuar
 
 📸 Ventana Home del Curso ![CourseDashboard screen](Images/CourseDashboard.png)
 
-Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/homeButton.png" width="15" height="15"/>.
+Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/UserManual/homeButton.png" width="15" height="15"/>.
 
 ---
 
@@ -236,7 +236,7 @@ Elementos destacados:
   <img src="Images/UserManual/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
-En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/UserManual/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
 ---
 
@@ -263,7 +263,7 @@ Elementos destacados:
   <img src="Images/UserManual/correct.png" height="200" style="vertical-align: middle;"/>
 </p>
 
-En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
+En la parte inferior izquierda también se encuentra el botón **Exit** <img src="Images/UserManual/logout.png" width="10"/>, que permite salir del ejercicio y volver al menú principal de un curso.
 
 ---
 
@@ -282,7 +282,7 @@ Para registrarte en CuriousMind y comenzar a utilizar la aplicación, sigue esto
    - Vuelve a introducir la **contraseña** para confirmarla (debe coincidir con la anterior).  
 3. Pulsa el botón **"Sign Up"**.
 
-📸 Ventana SignUp ![SignUp screen](Images/signupFilled.png)
+📸 Ventana SignUp ![SignUp screen](Images/UserManual/signupFilled.png)
 
 Una vez completado el registro, serás redirigido automáticamente a la pantalla de **Login** para que introduzcas tus credenciales y accedas a la aplicación.
 
@@ -298,8 +298,8 @@ Para acceder a tu cuenta en CuriousMind, sigue estos pasos:
 
 📸 Ventanas Log in (con y sin contraseña oculta)
 <p align="center">
-  <img src="Images/loginFilled.png" width="500"/>
-  <img src="Images/loginFilledPassw.png" width="500"/>
+  <img src="Images/UserManual/loginFilled.png" width="500"/>
+  <img src="Images/UserManual/loginFilledPassw.png" width="500"/>
 </p>
 
 Una vez iniciado sesión correctamente, accederás a la ventana **Home**, donde podrás ver tus cursos, crear nuevos o inscribirte en los existentes.
@@ -319,7 +319,7 @@ desde tu explorador de archivos. Para ello:
 
 3. Se abrirá una ventana como la siguiente:  
 
-📸 Importar Curso ![Json screen](Images/jsonchooser.png)
+📸 Importar Curso ![Json screen](Images/UserManual/jsonchooser.png)
 
 4. Añade el archivo `.json` y pulsa **Accept**.  
 
@@ -382,7 +382,7 @@ Para completar un curso, sigue estos pasos:
 2. En la sección *"My Courses"*, pulsa el botón del curso que quieras continuar.  
 
 📸 Curso Inscrito  
-![MyCourseButton screen](Images/MyCourseButton.png)
+![MyCourseButton screen](Images/UserManual/MyCourseButton.png)
 
 3. Serás llevado a la ventana del curso (**CourseDashboard**), donde podrás ver todos los bloques de contenido disponibles.  
 Pulsa en uno de ellos para comenzar.  
@@ -394,8 +394,8 @@ Pulsa en uno de ellos para comenzar.
 
 ### ⛔ Sistema de vidas
 
-Al iniciar un bloque, comenzarás con **5 vidas ❤️❤️❤️❤️❤️**. Esto significa que puedes fallar hasta **5 preguntas**.  
-- Si fallas una sexta ❌, serás **expulsado** del bloque y tendrás que **empezar desde el principio** de ese bloque.
+Al iniciar un bloque, comenzarás con **5 vidas ❤️❤️❤️❤️❤️**. Esto significa que puedes fallar hasta **4 preguntas**.  
+- Si fallas una quinta ❌, serás **expulsado** del bloque y tendrás que **empezar desde el principio** de ese bloque.
 - Además, las preguntas que falles mientras completas un bloque serán **repetidas al final** del mismo para afianzar contenidos.
 
 📌 *¡Ten cuidado! Cada fallo cuenta.*
@@ -438,7 +438,7 @@ Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).
 Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque se marcará como **completado** 🎉, ya no lo podrás volver a hacer, y aparecerá de color verde en el menú del curso.
 
 📸 Curso Completado  
-![CompletedCourse screen](Images/CompletedCourse.png)
+![CompletedCourse screen](Images/UserManual/CompletedCourse.png)
 
 ---
 ## Pruebas y testing
