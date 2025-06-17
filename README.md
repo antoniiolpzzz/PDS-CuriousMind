@@ -101,7 +101,7 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
    ```
 ## 👤 User Manual
 
-Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual 
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/raw/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/ManualUsuario.md) to go to our Spanish detailed User Manual, and [_here🇬🇧_](https://github.com/antoniiolpzzz/PDS-CuriousMind/raw/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/UserManual.md) to go to the English version.
 
 ## 📲 Use Cases
 
