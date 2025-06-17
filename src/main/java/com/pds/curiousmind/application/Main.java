@@ -33,7 +33,7 @@ public class Main {
 
         StrategyType[] strategies = StrategyType.values();
         StrategyType randomStrategy = strategies[new Random().nextInt(strategies.length)];
-        user.getRegisteredCourses().add(new RegisteredCourse(user, tempCourse, randomStrategy));
+        user.registerInCourse(tempCourse, randomStrategy);
         userLibrary.update(user);
 
         printAllUserDetails(userLibrary.getAll());
@@ -101,8 +101,8 @@ public class Main {
         // Create a content block
         ContentBlock contentBlock = new ContentBlock(
                 "Block_" + UUID.randomUUID().toString().substring(0, 4),
-                questions,
-                Difficulty.values()[random.nextInt(Difficulty.values().length)]
+                Difficulty.values()[random.nextInt(Difficulty.values().length)],
+                questions
         );
         List<ContentBlock> contentBlocks = new ArrayList<>();
         contentBlocks.add(contentBlock);
