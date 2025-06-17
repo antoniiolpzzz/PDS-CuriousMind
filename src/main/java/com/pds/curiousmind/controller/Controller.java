@@ -16,6 +16,7 @@ import com.pds.curiousmind.util.mapper.service.CourseMapperService;
 
 import java.io.File;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public enum Controller {
     INSTANCE;
@@ -127,7 +128,14 @@ public enum Controller {
     // GET ALL COURSES IN THE DATABASE
 
     public List<Course> getAllCourses() {
-        return courseLibrary.getAll();
+        List<Course> allCourses = new java.util.ArrayList<>(courseLibrary.getAll());
+        //TODO: Filter allCourses so that Registered courses dont appear
+//        for (Course course : allCourses) {
+//            if (!(course instanceof RegisteredCourse)) {
+//                allCourses.add(course);
+//            }
+//        }
+        return allCourses ;
     }
 
     // TODO: CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
@@ -203,7 +211,6 @@ public enum Controller {
 
     public void addFailedQuestion(Question question) {
         gameManager.addFailedQuestion(question);
-        //TODO: This should handle the lives number of the user
     }
 
     // ADD EXPERIENCE POINTS TO THE USER
