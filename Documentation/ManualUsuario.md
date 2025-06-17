@@ -59,7 +59,7 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ### 1. Pantalla de Inicio de sesión (Login)
 
-La pantalla Login muestra el formulario de inicio de sesión, el cual consta de nombre de usuario (*username*) y contraseña (*password*). Hemos añadido la opción de "mostrar contraseña" para evitar fallos o errores al escribir (*show password*).
+La pantalla **Login** muestra el formulario de inicio de sesión, el cual consta de nombre de usuario (*username*) y contraseña (*password*). Hemos añadido la opción de "mostrar contraseña" para evitar fallos o errores al escribir (*show password*).
 Incorpora dos botones diferentes:
 
    - Log in: Una vez relleno el formulario, se pulsa este botón para acceder al menú principal de la aplicación
@@ -85,7 +85,7 @@ Como se observa en la imagen, esta ventana incluye además botones "extra" a mod
 
 ### 2. Registro de usuario (Signup)
 
-La ventana Signup muestra el formulario de creación de cuenta, el cual consta de nombre completo (*fullname*), nombre de usuario (*username*), dirección de correo electrónico (*email address*) y contraseña (*password* y *confirm password*). Manteniendo la opcion de "mostrar contraseña", en esta ventana la incorporamos por duplicado, al tener dos campos de contraseña: elegir y confirmar. 
+La ventana **Signup** muestra el formulario de creación de cuenta, el cual consta de nombre completo (*fullname*), nombre de usuario (*username*), dirección de correo electrónico (*email address*) y contraseña (*password* y *confirm password*). Manteniendo la opcion de "mostrar contraseña", en esta ventana la incorporamos por duplicado, al tener dos campos de contraseña: elegir y confirmar. 
 Incorpora dos botones diferentes:
 
    - Create Account: Una vez relleno el formulario, se pulsa este botón para crear la cuenta almacenándola en la base de datos. Al hacer click sobre este botón, se te redirigirá a la ventana LogIn para iniciar sesión con tus nuevos datos.
@@ -102,7 +102,7 @@ Mantiene los botones comentados anteriormente de la barra superior, con la liger
 
 ### 3.  Ventana Menu Principal (Home)
 
-La pantalla *Home* actúa como el menú principal de la aplicación, estando esta dividida en tres secciones principales:
+La pantalla **Home** actúa como el menú principal de la aplicación, estando esta dividida en tres secciones principales:
 
 - *My Courses*: Donde aparece el listado de los cursos en los que estamos inscritos teniendo la posibilidad de entrar en ellos clicando o compartirlos. 
 - *New Course*: Donde se encuentran todos los cursos de la aplicación y tenemos la posibilidad de compartirlos e inscribirnos en ellos.
@@ -123,7 +123,7 @@ El botón *Logout* <img src="Images/UserManual/logout.png" width="15"/>, como es
 
 ### 4. Ventana Información de Usuario (UserWindow)
 
-La pantalla de *UserWindow* muestra información de usuario una vez iniciada sesión. Se presenta una bienvenida personalizada con el nombre del usuario junto con el nivel actual del usuario.
+La pantalla de **UserWindow** muestra información de usuario una vez iniciada sesión. Se presenta una bienvenida personalizada con el nombre del usuario junto con el nivel actual del usuario.
 
 En esta ventana se divide la información en dos secciones principales:
 
@@ -151,13 +151,19 @@ Esta diferenciación de color mencionada con anterioridad se debe a que el usuar
 
 📸 Ventana Home del Curso ![CourseDashboard screen](Images/UserManual/CourseDashboard.png)
 
-Además, incorpora en la parte inferior izquierda un botón de navegación para volver al menú principal con el texto **Home** <img src="Images/UserManual/homeButton.png" width="15" height="15"/>.
+También incluye el botón **Home** <img src="Images/UserManual/homeButton.png" width="15" height="15"/>.
 
 ---
 
-### 6.  Ventana Pregunta de Traducción (Translate)
+### 6.  Ventana Pregunta
 
-Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es que el usuario traduzca una frase con palabras dadas como opciones.
+Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. Puede ser de varios tipos, como **Traducción**, **Fill the Gaps**, **Test** o **Flash Cards**.
+
+---
+
+**1. Ventana Pregunta de Traducción**
+
+El objetivo principal es que el usuario traduzca una frase con palabras dadas como opciones.
 
 📸 Ventana Pregunta Traducción ![Translate screen](Images/UserManual/translate.png)
 
@@ -183,9 +189,9 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 ---
 
-### 7.  Ventana Pregunta de Rellenar Huecos (FillTheGap)
+**2. Ventana Pregunta de Rellenar Huecos (FillTheGap)**
 
-Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
+El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
 
 📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGap.png)
 
@@ -212,9 +218,9 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 ---
 
-### 8.  Ventana Pregunta de Selección (FlashCard)
+**3. Ventana Pregunta de Selección (FlashCard)**
 
-Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
+El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
 
 📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/Flashcard.png)
 
@@ -240,9 +246,9 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 ---
 
-### 9.  Ventana Pregunta tipo Test (Test)
+**4. Ventana Pregunta tipo Test (Test)**
 
-Esta pantalla corresponde a un ejercicio interactivo dentro del curso seleccionado. El objetivo principal es que el usuario responda una pregunta tipo test seleccionando la opción correcta.
+El objetivo principal es que el usuario responda una pregunta tipo test seleccionando la opción correcta.
 
 📸 Ventana Pregunta Test ![Test screen](Images/UserManual/Test.png)
 
