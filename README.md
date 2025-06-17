@@ -105,17 +105,19 @@ Click [_here_](https://github.com/mrcdslpz) to go to our detailed User Manual
 
 ## 📲 Use Cases
 
-Click [_here_](https://github.com/mrcdslpz) to go to our detailed Use cases, including:
+Click [_here_](https://github.com/mrcdslpz) to go to our detailed use cases list, including:
 
-1. CDU 001
-2. CDU 002
-3. CDU 003
-4. CDU 004
-5. CDU 005
-6. CDU 006
-7. CDU 007
-8. CDU 008
-9. CDU 009
+1. CDU 001: Log in
+2. CDU 002: Sign up
+3. CDU 003: Create course
+4. CDU 004: Select course
+5. CDU 005: Register course
+6. CDU 006: Make course
+7. CDU 007: Follow progress
+8. CDU 008: Repeat failed (Additional feature)
+9. CDU 009: Increase level (Additional feature)
+
+*You can easily find them by applying the **"use case"** filter. 
 
 ## 🤝 Contributing
 
