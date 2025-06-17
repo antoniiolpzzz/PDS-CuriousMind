@@ -20,19 +20,20 @@ public enum SpacedRepetition implements Strategy {
     }
 
     @Override
-    public List<Question> getProcessedQuestions(RegisteredContentBlock block){
-
+    public List<Question> getProcessedQuestions(RegisteredContentBlock block) {
         List<Question> questions = block.getQuestions();
-        List<Question> result = new ArrayList<Question>();
+        List<Question> result = new ArrayList<>();
 
         IntStream.range(0, questions.size()).forEach(i -> {
             result.add(questions.get(i));
             if ((i + 1) % REPETITION_NUMBER == 0) {
-                result.add(questions.get(i % REPETITION_NUMBER));
+                int repeatIndex = (i + 1) / REPETITION_NUMBER - 1;
+                if (repeatIndex < questions.size()) {
+                    result.add(questions.get(repeatIndex));
+                }
             }
         });
 
         return result;
-
     }
 }
