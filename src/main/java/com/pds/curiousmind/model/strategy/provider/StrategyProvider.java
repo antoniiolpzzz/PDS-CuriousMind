@@ -1,4 +1,4 @@
-package com.pds.curiousmind.model.strategy.factory;
+package com.pds.curiousmind.model.strategy.provider;
 
 import com.pds.curiousmind.model.strategy.Strategy;
 import com.pds.curiousmind.model.strategy.StrategyType;
