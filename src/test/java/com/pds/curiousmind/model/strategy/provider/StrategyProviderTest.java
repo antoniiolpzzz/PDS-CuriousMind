@@ -29,9 +29,16 @@ class StrategyProviderTest {
         assertEquals(StrategyType.SPACED_REPETITION, strategy.getStrategyType());
     }
 
+    @Test
+    void testSingletonInstance() {
+        assertSame(StrategyProvider.INSTANCE, StrategyProvider.INSTANCE);
+    }
 
     @Test
-    void testIsSingleton() {
-        assertSame(StrategyProvider.INSTANCE, StrategyProvider.INSTANCE);
+    void testGetStrategyMultipleCalls() {
+        Strategy firstCall = StrategyProvider.INSTANCE.getStrategy(StrategyType.SEQUENTIAL);
+        Strategy secondCall = StrategyProvider.INSTANCE.getStrategy(StrategyType.SEQUENTIAL);
+
+        assertSame(firstCall, secondCall);
     }
 }

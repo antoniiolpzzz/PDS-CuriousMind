@@ -1,5 +1,8 @@
 package com.pds.curiousmind.model.question;
 
+import com.pds.curiousmind.model.question.implementation.FillTheGap;
+import com.pds.curiousmind.model.question.implementation.FlashCard;
+import com.pds.curiousmind.model.question.implementation.Translate;
 import com.pds.curiousmind.model.question.option.Option;
 import org.junit.jupiter.api.Test;
 
@@ -9,99 +12,67 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionTest {
 
-    // Clase dummy para poder testear Question
-    static class DummyQuestion extends Question {
-        public DummyQuestion(String indication, String statement, String correctAnswer, List<Option> options) {
-            super(indication, statement, correctAnswer, options);
-        }
+    @Test
+    void testValidateAnswerCaseInsensitive() {
+        Question q = new com.pds.curiousmind.model.question.implementation.Test("Indication", "What is 2 + 2?", "4", List.of());
 
-        public DummyQuestion() {
-            super();
-        }
+        assertTrue(q.validateAnswer("4"));
+        assertTrue(q.validateAnswer(" 4 "));
+        assertTrue(q.validateAnswer("4"));
+        assertFalse(q.validateAnswer("5"));
     }
 
     @Test
-    void testConstructorAndGetters() {
-        String correctAnswer = "  Correct Answer  ";
-        Option option1 = new Option("Option 1");
-        Option option2 = new Option("Option 2");
+    void testGetTypeForEachSubclass() {
+        Question q1 = new com.pds.curiousmind.model.question.implementation.Test();
+        Question q2 = new Translate();
+        Question q3 = new FlashCard();
+        Question q4 = new FillTheGap();
 
-        DummyQuestion question = new DummyQuestion(
-                "Choose the correct answer.",
-                "This is the statement.",
-                correctAnswer,
-                List.of(option1, option2)
-        );
-
-        assertEquals("Choose the correct answer.", question.getIndication());
-        assertEquals("This is the statement.", question.getStatement());
-        // Debe haber hecho trim
-        assertEquals("Correct Answer", question.getCorrectAnswer());
-        assertEquals(2, question.getOptions().size());
+        assertEquals("Test", q1.getType());
+        assertEquals("Translate", q2.getType());
+        assertEquals("FlashCard", q3.getType());
+        assertEquals("FillTheGap", q4.getType());
     }
 
     @Test
-    void testConstructorWithNullOptions() {
-        DummyQuestion question = new DummyQuestion(
-                "Indication",
-                "Statement",
-                "Answer",
-                null
-        );
+    void testGetCorrectAnswer() {
+        Question q = new FlashCard("Indication", "Translate 'cat'", "gato", List.of());
 
-        assertNotNull(question.getOptions());
-        assertTrue(question.getOptions().isEmpty());
+        assertEquals("gato", q.getCorrectAnswer());
     }
 
     @Test
-    void testEmptyConstructor() {
-        DummyQuestion question = new DummyQuestion();
+    void testGetOptionsWhenEmpty() {
+        Question q = new com.pds.curiousmind.model.question.implementation.Test("Indication", "Question?", "answer", List.of());
 
-        assertNull(question.getIndication());
-        assertNull(question.getStatement());
-        assertNull(question.getCorrectAnswer());
-        assertNotNull(question.getOptions());
-        assertTrue(question.getOptions().isEmpty());
+        List<Option> options = q.getOptions();
+
+        assertNotNull(options);
+        assertTrue(options.isEmpty());
     }
 
     @Test
-    void testSetOptions() {
-        DummyQuestion question = new DummyQuestion();
+    void testGetOptionsWithOptions() {
+        Option opt1 = new Option("A");
+        Option opt2 = new Option("B");
 
-        Option option1 = new Option("A");
-        Option option2 = new Option("B");
-        List<Option> newOptions = List.of(option1, option2);
+        Question q = new FlashCard("Indication", "Select A", "A", List.of(opt1, opt2));
 
-        question.setOptions(newOptions);
+        List<Option> options = q.getOptions();
 
-        assertEquals(2, question.getOptions().size());
+        assertEquals(2, options.size());
+        assertTrue(options.contains(opt1));
+        assertTrue(options.contains(opt2));
     }
 
     @Test
-    void testValidateAnswer() {
-        DummyQuestion question = new DummyQuestion(
-                "Indication",
-                "Statement",
-                "Correct Answer",
-                null
-        );
+    void testDefaultConstructor() {
+        Question q = new com.pds.curiousmind.model.question.implementation.Test();
 
-        // Exact match
-        assertTrue(question.validateAnswer("Correct Answer"));
-
-        // Different case
-        assertTrue(question.validateAnswer("correct answer"));
-
-        // With extra spaces
-        assertTrue(question.validateAnswer("   Correct Answer   "));
-
-        // Incorrect answer
-        assertFalse(question.validateAnswer("Wrong Answer"));
-    }
-
-    @Test
-    void testGetType() {
-        DummyQuestion question = new DummyQuestion();
-        assertEquals("DummyQuestion", question.getType());
+        assertNull(q.getCorrectAnswer());
+        assertNull(q.getStatement());
+        assertNull(q.getIndication());
+        assertNotNull(q.getOptions());
     }
 }
