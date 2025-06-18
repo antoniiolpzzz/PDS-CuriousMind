@@ -108,7 +108,7 @@ public class CourseStrategyWindow extends JDialog {
                 false));
 
         strategyPanel.add(createImageButton(
-                StrategyType.SPACED_REPETITION.toString(),
+                "Sp. REPETITION",
                 ICON_STRATEGY_REPETITON,
                 selectedStrategy,
                 strategyButtons,
