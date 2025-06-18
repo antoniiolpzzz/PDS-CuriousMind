@@ -230,17 +230,25 @@ public enum Controller {
      * Uses AppConfig to persist the initialization flag, but will re-import if DB is empty.
      */
     public void initializeSamplesOnFirstOpen() {
-        String sampleCoursesPath = AppConfig.get("sample.courses.path");
-        String sampleExtension = mapperFormat.name().toLowerCase();
-
-        if (courseLibrary.getAll().isEmpty()) {
-            try (Stream<Path> paths = Files.list(Paths.get(sampleCoursesPath))) {
-                for (Path path : paths.filter(p -> p.toString().endsWith("." + sampleExtension )).toList()) {
-                    courseLibrary.add(courseMapperService.toEntity(path.toFile()));
-                }
-            } catch (Exception e) {
-                Logger.error("Failed to import courses from directory: " + e.getMessage());
+        try {
+            String sampleCoursesPath = AppConfig.get("sample.courses.path");
+            var resourceUrl = getClass().getClassLoader().getResource(sampleCoursesPath);
+            if (resourceUrl == null) {
+                Logger.error("Sample courses directory not found in resources.");
+                return;
             }
+            Path sampleCoursesDir = Paths.get(resourceUrl.toURI());
+            String sampleExtension = mapperFormat.name().toLowerCase();
+
+            if (courseLibrary.getAll().isEmpty()) {
+                try (Stream<Path> paths = Files.list(sampleCoursesDir)) {
+                    for (Path path : paths.filter(p -> p.toString().endsWith("." + sampleExtension)).toList()) {
+                        courseLibrary.add(courseMapperService.toEntity(path.toFile()));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Logger.error("Failed to import courses from resources: " + e.getMessage());
         }
     }
 

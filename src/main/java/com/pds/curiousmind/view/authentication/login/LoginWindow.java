@@ -217,10 +217,17 @@ public class LoginWindow extends JFrame {
     }
 
     /**
+     * Shows the login window in a static, convenient way.
+     */
+    public static void showLogin() {
+        SwingUtilities.invokeLater(LoginWindow::new);
+    }
+
+    /**
      * Main method to launch the login window.
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(LoginWindow::new);
+        showLogin();
     }
 }
