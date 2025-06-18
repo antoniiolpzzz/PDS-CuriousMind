@@ -47,28 +47,29 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ### 🎴 Interactive Learning Cards
 
-- Create customized flashcards with text, images, and audio
+- Create customized flashcards with text and images
 - Support for multiple question types:
   - **Multiple Choice** - Test your knowledge with options
-  - **True/False** - Quick binary decisions
-  - **Fill-in-the-blank** - Practice recall
-  - **Short Answer** - Express your understanding
+  - **Fill-the-gap** - Practice recall
+  - **FlashCards** - Play with visual answers
+  - **Form the sentence** - Create your knowledge 
   - **And more coming soon!**
 - Rich text formatting for better content presentation
 
 ### 🧮 Smart Learning System
 
-- Adaptive learning algorithms that adjust to your progress
+- Thanks to "Shuffled mode", you will actually learn, not exercise your memory!
 - Spaced repetition system for optimal retention
 - Performance analytics and learning insights
-- Customizable study schedules
+
 
 ### 📚 Course Management
 
 - Create and organize courses by topics and difficulty levels
-- Import and export course content
+- Import course content from your computer
 - Share courses with other users
-- Collaborative course creation tools
+- Fun "5-lives" system to learn challenging yourselves
+
 
 ### 🎨 User Experience
 
@@ -81,11 +82,13 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ### Prerequisites
 
-- Java Development Kit (JDK) [VERSION] or higher
+- Java Development Kit (JDK) **21** or higher
 - Maven for dependency management
 - Your favorite IDE (IntelliJ IDEA recommended)
 
 ### ⚙️ Installation
+
+Disclaimer: There are already compiled artifacts in Java/target/artifacts directory matching the main branch version.
 
 1. Clone the repository
    ```bash
@@ -93,7 +96,7 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
    ```
 2. Navigate to the project directory
    ```bash
-   cd CuriousMind
+   cd PDS-CuriousMind/Java
    ```
 3. Build the project
    ```bash
@@ -133,7 +136,7 @@ We welcome contributions to CuriousMind! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the [TYPE OF LICENSE] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
