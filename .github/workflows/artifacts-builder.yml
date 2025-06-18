@@ -27,8 +27,8 @@ jobs:
 
       - name: Copy JAR to artifacts folder
         run: |
-          mkdir -p java/target/artifacts
-          cp java/target/*.jar java/target/artifacts
+          mkdir -p Java/target/artifacts
+          cp Java/target/*.jar Java/target/artifacts
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
