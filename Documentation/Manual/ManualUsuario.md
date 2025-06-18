@@ -145,7 +145,7 @@ La pantalla principal de cada curso tiene una cabecera con el título y la image
 Cabe destacar que encontraremos de color verde los bloques de contenidos del curso que ya hayan sido completados por el usuario.
 Esta diferenciación de color mencionada con anterioridad se debe a que el usuario no puede repetir un bloque de contenidos que ya ha sido completado.
 
-📸 Ventana Home del Curso ![CourseDashboard screen](Images/UserManual/CourseDashboard.png) //TODO
+📸 Ventana Home del Curso ![CourseDashboard screen](Images/UserManual/CourseDashboard.png) 
 
 También incluye el botón **Home** <img src="Images/UserManual/homeButton.png" width="15" height="15"/>.
 
@@ -390,7 +390,7 @@ Para completar un curso, sigue estos pasos:
 Pulsa en uno de ellos para comenzar.  
 
 📸 Bloques de Contenido  
-![ContentBlock screen](Images/UserManual/CourseDashboard.png) //TODO
+![ContentBlock screen](Images/UserManual/CourseDashboard.png) 
 
 ---
 
@@ -448,7 +448,7 @@ Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque 
 ### 🧪 Base de datos para pruebas y testing
 
 CuriousMind incluye una base de datos pensada para pruebas, que sirve para comprobar el correcto funcionamiento de la aplicación.  
-Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: XXXXXX TODO XXXXXX. 
+Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: XXXXXX TODO XXXXXX Testing ddbb. 
 
 ---
 
@@ -483,8 +483,8 @@ En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distin
 
 Se incluye un **usuario de ejemplo** con el siguiente estado:
 
-- Nombre de Usuario: JaviPrueba
-- Contraseña: cursosBonitos21
+- Nombre de Usuario: CuriousUser10
+- Contraseña: CuriousPassword10 
   
 - Inscrito en **3 cursos** (Alemán, Música y C++).
 - Ha **completado 1 curso ✅**.
