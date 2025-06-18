@@ -1,7 +1,7 @@
 package com.pds.curiousmind.util.mapper.service;
 
 import com.pds.curiousmind.model.course.Course;
-import com.pds.curiousmind.util.mapper.service.CourseFormat;
+import com.pds.curiousmind.util.Logger;
 import com.pds.curiousmind.util.mapper.implementation.CourseMapperJSON;
 import com.pds.curiousmind.util.mapper.implementation.CourseMapperYAML;
 
@@ -15,18 +15,24 @@ public enum CourseMapperService {
 
     public Course toEntity(File file) {
         String extension = extractFileExtension(file);
-        return switch (CourseFormat.valueOf(extension)) {
-            case CourseFormat.JSON -> jsonMapper.toEntity(file);
-            case CourseFormat.YAML -> yamlMapper.toEntity(file);
-            default -> throw new IllegalArgumentException("Unsupported format: " + file.getName());
+        return switch (MapperFormat.valueOf(extension)) {
+            case MapperFormat.JSON -> jsonMapper.toEntity(file);
+            case MapperFormat.YAML -> yamlMapper.toEntity(file);
+            default -> {
+                Logger.error("Unsupported format or extension: " + file.getName());
+                yield null;
+            }
         };
     }
 
-    public File fromEntity(Course course, CourseFormat format) {
+    public File fromEntity(Course course, MapperFormat format) {
         return switch (format) {
             case JSON -> jsonMapper.fromEntity(course);
             case YAML -> yamlMapper.fromEntity(course);
-            default -> throw new IllegalArgumentException("Unsupported format: " + format);
+            default -> {
+                Logger.error("Unsupported format or extension: " + format);
+                yield null;
+            }
         };
     }
 
@@ -34,9 +40,9 @@ public enum CourseMapperService {
         String fileName = file.getName();
         int lastIndexOfDot = fileName.lastIndexOf('.');
         if (lastIndexOfDot == -1 || lastIndexOfDot == fileName.length() - 1) {
-            throw new IllegalArgumentException("File does not have a valid extension: " + fileName);
+            Logger.error("File does not have a valid extension: " + fileName);
+            return null;
         }
         return fileName.substring(lastIndexOfDot + 1).toUpperCase();
     }
 }
-
