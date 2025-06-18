@@ -48,12 +48,20 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 Aviso legal: Ya existen artefactos compilados en el directorio `Java/target/artifacts` que coinciden con la versión de la rama principal.
 
-1. Clonar el repositorio  
-```bash
-git clone https://github.com/antoniiolpzzz/PDS-CuriousMind.git
-
-cd PDS-CuriousMind/Java
-
+1. Clonar el repositorio 
+   ```bash
+   git clone https://github.com/antoniiolpzzz/PDS-CuriousMind.git
+   ```
+2. Navegar hasta el siguiente directorio
+   ```bash
+   cd PDS-CuriousMind/Java
+   ```
+3. Compilar el proyecto
+   ```bash
+   mvn clean install
+   ```
+   
+4. Lanzamiento TODO
 
 ---
 
