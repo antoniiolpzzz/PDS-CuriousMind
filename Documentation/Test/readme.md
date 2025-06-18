@@ -30,15 +30,7 @@ Este apartado describe la estrategia y el estado actual de las pruebas implement
 - Validación de funcionalidades completas desde la perspectiva del usuario.
 - Se ha decidido el uso de vídeos explicativos donde se muestra cómo interactuará el usuario con la aplicacion.
 - [Video Demostrativo](https://dai.ly/k3ALFKPBzbRbZODhqhq)
-
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-  <iframe src="https://geo.dailymotion.com/player.html?video=k3ALFKPBzbRbZODhqhq"
-    style="width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden; border:none;"
-    allowfullscreen
-    title="Dailymotion Video Player"
-    allow="web-share">
-  </iframe>
-</div>
+[![Video Demostrativo](https://upload.wikimedia.org/wikipedia/commons/2/21/Dailymotion_logo.png)](https://geo.dailymotion.com/player.html?video=k3ALFKPBzbRbZODhqhq)
 
 ### 🛠️ Tests con Mockito
 
