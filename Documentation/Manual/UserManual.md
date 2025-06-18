@@ -35,19 +35,15 @@ This is an interactive program that makes learning languages, music, history, or
 ## System Requirements
 
 - Operative System: (ej. Windows / macOS / Linux)
-- Java version: 1.8.0 
+- Java version: 21 
 - IntelliJ IDEA (si se ejecuta desde código fuente)
-- Maven: Versión XX //TODO
+- Maven Versión:  3.x y 4.x
 
 ---
 
 ## Installation and Launch
 
 //TODO
-1. Clona o descarga el repositorio.
-2. Abre el proyecto en IntelliJ IDEA.
-3. Ejecuta la clase `App.java`.
-4. Se abrirá la interfaz principal de la aplicación.
 
 ---
 
@@ -190,7 +186,7 @@ The **Exit** <img src="Images/UserManual/logout.png" width="10"/> button now all
 
 This question's objective is to correctly complete an english sentence by introducing the missing word. 
 
-📸 FillTheGap Question Window ![FillTheGap screen](Images/UserManual/FillTheGap.png)
+📸 FillTheGap Question Window ![FillTheGap screen](Images/UserManual/fill.png)
 
 Main elements:
 
@@ -199,7 +195,7 @@ Main elements:
 - Instruction and prompt indicating what needs to be done.
 - Answer area: text field where the user must write the missing word. 
 
-📸 FillTheGap Answer Window ![FillTheGap screen](Images/UserManual/FillTheGapAnswer.png)
+📸 FillTheGap Answer Window ![FillTheGap screen](Images/UserManual/fillAnswer.png)
 
 - **Submit** button at the end to check if the answer is correct or not.
 
@@ -220,7 +216,7 @@ The **Exit** <img src="Images/UserManual/logout.png" width="10"/> button still a
 
 Its main objective is to correctly identify a vocabulary's word represented as an image.
 
-📸 FlashCard Question Window ![Flashcard screen](Images/UserManual/Flashcard.png)
+📸 FlashCard Question Window ![Flashcard screen](Images/UserManual/flashCard.png)
 
 Main elements: 
 
@@ -230,7 +226,7 @@ Main elements:
 - Answer area: three images corresponding to the possible options with their names.
 - The user must choose the image that represents the correct word.
 
-📸 Flashcard Answer Question ![Flashcard screen](Images/UserManual/FlashcardAnswer.png)
+📸 Flashcard Answer Question ![Flashcard screen](Images/UserManual/flashCardAnswer.png)
   
 - **Submit** button at the end to check if the answer is correct or not.
 
@@ -249,7 +245,7 @@ The **Exit** <img src="Images/UserManual/logout.png" width="10"/> button mantain
 
 This window question's objective is that the user answers to a test question by selecting the correct test answer.
 
-📸 Test Question Window ![Test screen](Images/UserManual/Test.png)
+📸 Test Question Window ![Test screen](Images/UserManual/test.png)
 
 Main elements: 
 
@@ -258,7 +254,7 @@ Main elements:
 - Instruction and prompt indicating what needs to be done.
 - Answer area: answer options, from which the user must select the correct one.
 
-📸 Test Answer Window ![Test screen](Images/UserManual/TestAnswer.png)
+📸 Test Answer Window ![Test screen](Images/UserManual/testAnswer.png)
   
 - **Submit** button at the end to check if the answer is correct or not.
 
@@ -435,7 +431,7 @@ Each content block has an assigned **difficulty** level (easy, medium, hard).
   - Medium ⚙️ → 300 points
   - Hard 🔥 → 500 points
 
-🏆 Points help you **increase your student level** in CuriousMind. The more blocks you complete, the higher your level will be **(1 level = 1000 points)**.
+🏆 Points help you **increase your student level** in CuriousMind. The more blocks you complete, the higher your level will be **(1 level = 100 points)**.
 
 ![Completed Content Block screen](Images/UserManual/contentFinal.png)
 
@@ -489,8 +485,8 @@ There are **5 predefined courses** in the database, each designed with different
 
 An **example user** is included with the following status:
 
-- Username: JaviPrueba
-- Password: cursosBonitos21
+- Username: CuriousUser10
+- Password: CuriousPassword10
   
 - Enrolled in **3 courses** (German, Music, and C++).
 - Has **completed 1 course ✅**.
