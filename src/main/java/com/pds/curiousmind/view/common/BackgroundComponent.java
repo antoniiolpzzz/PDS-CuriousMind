@@ -79,7 +79,7 @@ public class BackgroundComponent {
                 break;
             default:
                 labelText = "Welcome";
-                labelIcon = loadIcon("icons/button/mano.png", 40, 40);
+                labelIcon = loadIcon(ICON_FAIL, 40, 40);
                 labelFont = new Font(FONT_NAME, Font.BOLD, 35);
                 onClickAction = () -> {};
                 break;

@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
+
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.ImageButton.createImageButton;
 
 public class FlashCard {
@@ -33,7 +35,7 @@ public class FlashCard {
 
         for (Option option : options) {
             String label = option.getLabel();
-            String imgUrl = (option instanceof ImageOption imageOption) ? imageOption.getImageURL() : "icons/button/history.jpg";
+            String imgUrl = (option instanceof ImageOption imageOption) ? imageOption.getImageURL() : ICON_FAIL;
             JPanel buttonPanel = createImageButton(label, imgUrl, selectedLabel, cardButtons, true);
             cardPanel.add(buttonPanel);
         }
