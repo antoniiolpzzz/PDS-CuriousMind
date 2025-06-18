@@ -178,8 +178,11 @@ public enum GameManager {
      * @return the progress percentage (0-100)
      */
     public int getCurrentProgress() {
-        return questionIterator != null ?
-                ((questionIterator.getTotalQuestions() - (questionIterator.getQuestionsLeft()+1)) * 100) / questionIterator.getTotalQuestions()
+
+        int value = (questionIterator.getTotalQuestions() - (questionIterator.getQuestionsLeft()+1)) * 100;
+
+        return (questionIterator != null && value > 0) ?
+                (value / questionIterator.getTotalQuestions())
                 : 0;
     }
 
