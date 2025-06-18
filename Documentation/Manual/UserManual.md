@@ -19,8 +19,9 @@
    - [4. How to share a course](#4-how-to-share-a-course)
    - [5. How to enroll in a course](#5-how-to-enroll-in-a-course)
 6. [Course Workflow](#course-workflow)
-7. [Frequently Asked Questions](#frequently-asked-questions)
-8. [Contact and Support](#contact-and-support)
+7. [Course Workflow](#testing)
+8. [Frequently Asked Questions](#frequently-asked-questions)
+9. [Contact and Support](#contact-and-support)
 
 ---
 
