@@ -483,7 +483,7 @@ En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distin
 
 Se incluye un **usuario de ejemplo** con el siguiente estado:
 
-- Nombre de Usuario: CuriousUser10
+- Nombre de Usuario: Curious10
 - Contraseña: CuriousPassword10 
   
 - Inscrito en **3 cursos** (Alemán, Música y C++).
