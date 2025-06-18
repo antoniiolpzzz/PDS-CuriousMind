@@ -2,6 +2,7 @@ package com.pds.curiousmind.persistence.adapter.implementation;
 
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.persistence.adapter.interfaces.ICourseAdapter;
+import com.pds.curiousmind.util.Logger;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -31,7 +32,8 @@ public enum CourseAdapterJPA implements ICourseAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to save course", e);
+            Logger.error("Failed to save course: " + e.getMessage());
+            return null;
         } finally {
             entityManager.close();
         }
@@ -50,7 +52,8 @@ public enum CourseAdapterJPA implements ICourseAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to update course", e);
+            Logger.error("Failed to update course: " + e.getMessage());
+            return null;
         } finally {
             entityManager.close();
         }
@@ -70,6 +73,7 @@ public enum CourseAdapterJPA implements ICourseAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
+            Logger.error("Failed to delete course: " + e.getMessage());
             return false;
         } finally {
             entityManager.close();
@@ -90,7 +94,6 @@ public enum CourseAdapterJPA implements ICourseAdapter {
     public List<Course> findAll() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            // Removed entity graph to avoid MultipleBagFetchException
             return entityManager.createQuery("SELECT c FROM Course c", Course.class)
                 .getResultList();
         } finally {

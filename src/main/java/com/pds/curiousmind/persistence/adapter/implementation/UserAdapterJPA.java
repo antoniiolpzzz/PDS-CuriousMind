@@ -2,6 +2,7 @@ package com.pds.curiousmind.persistence.adapter.implementation;
 
 import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.persistence.adapter.interfaces.IUserAdapter;
+import com.pds.curiousmind.util.Logger;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -31,7 +32,8 @@ public enum UserAdapterJPA implements IUserAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to save user", e);
+            Logger.error("Failed to save user: " + e.getMessage());
+            return null;
         } finally {
             entityManager.close();
         }
@@ -50,7 +52,8 @@ public enum UserAdapterJPA implements IUserAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Failed to update user", e);
+            Logger.error("Failed to update user: " + e.getMessage());
+            return null;
         } finally {
             entityManager.close();
         }
@@ -70,6 +73,7 @@ public enum UserAdapterJPA implements IUserAdapter {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
+            Logger.error("Failed to delete user: " + e.getMessage());
             return false;
         } finally {
             entityManager.close();
