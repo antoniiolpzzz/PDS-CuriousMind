@@ -45,6 +45,8 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ## ✨ Features
 
+You can watch a demostrative video related to all the features of our app. You will find it in this [readme]() related to the tests made!
+
 ### 🎴 Interactive Learning Cards
 
 - Create customized flashcards with text and images
