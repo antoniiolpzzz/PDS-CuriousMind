@@ -13,14 +13,10 @@ import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.util.AppConfig;
 import com.pds.curiousmind.util.ImageUtils;
-import com.pds.curiousmind.util.Logger;
 import com.pds.curiousmind.util.mapper.service.MapperFormat;
 import com.pds.curiousmind.util.mapper.service.CourseMapperService;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -178,7 +174,7 @@ public enum Controller {
     // GET THE NUMBER OF QUESTIONS ANSWERED IN THE GAME
     public int getLifesLeft() {
 
-        return gameManager.getLifes();
+        return gameManager.getLives();
     }
 
     // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK
