@@ -38,16 +38,22 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ## Requisitos para el funcionamiento
 
-- Sistema operativo: (ej. Windows / macOS / Linux)
-- Versión Java: 21
-- IntelliJ IDEA (si se ejecuta desde código fuente)
-- Versión Maven: 3.x y 4.x
+- Kit de Desarrollo de Java (JDK) **21** o superior  
+- Maven para la gestión de dependencias  
+- Tu IDE preferido (se recomienda IntelliJ IDEA)  
 
 ---
 
-## Instalación y ejecución 
+## Instalación y lanzamiento
 
-//TODO
+Aviso legal: Ya existen artefactos compilados en el directorio `Java/target/artifacts` que coinciden con la versión de la rama principal.
+
+1. Clonar el repositorio  
+```bash
+git clone https://github.com/antoniiolpzzz/PDS-CuriousMind.git
+
+cd PDS-CuriousMind/Java
+
 
 ---
 
