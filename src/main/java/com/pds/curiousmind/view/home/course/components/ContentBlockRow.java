@@ -10,6 +10,10 @@ import com.pds.curiousmind.view.playview.question.components.QuestionStructure;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.ArrayList;
+
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
@@ -37,7 +41,19 @@ public class ContentBlockRow {
         column.setLayout(new BoxLayout(column, BoxLayout.Y_AXIS));
         column.setOpaque(false);
 
-        for ( RegisteredContentBlock block : contentBlocks ) {
+        List<RegisteredContentBlock> sortedBlocks = new ArrayList<RegisteredContentBlock>(contentBlocks);
+
+        // Ordenar por dificultad
+        sortedBlocks.sort(Comparator.comparingInt(block -> {
+            return switch (block.getDifficulty().toString()) {
+                case "EASY" -> 0;
+                case "MEDIUM" -> 1;
+                case "HARD" -> 2;
+                default -> 3;
+            };
+        }));
+
+        for (RegisteredContentBlock block : sortedBlocks) {
             RoundedLabel label = new RoundedLabel(block.getName());
 
             String iconPath;
