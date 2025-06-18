@@ -172,7 +172,7 @@ public enum Controller {
     }
 
     // GET THE NUMBER OF QUESTIONS ANSWERED IN THE GAME
-    public int getLifesLeft() {
+    public int getLivesLeft() {
 
         return gameManager.getLives();
     }

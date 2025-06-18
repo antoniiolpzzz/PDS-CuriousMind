@@ -2,12 +2,7 @@ package com.pds.curiousmind.view.playview.question.components;
 
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
-import com.pds.curiousmind.view.common.StyledButton;
-import com.pds.curiousmind.view.home.stats.UserWindow;
 import com.pds.curiousmind.view.home.stats.components.RoundedProgressBar;
-import com.pds.curiousmind.view.playview.question.FillTheGaps;
-import com.pds.curiousmind.view.playview.question.Test;
-import com.pds.curiousmind.view.playview.question.Translation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +10,6 @@ import java.awt.*;
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
-import static com.pds.curiousmind.view.playview.question.FlashCard.createFlashCard;
 
 public class CreateHeader {
 
@@ -41,7 +35,7 @@ public class CreateHeader {
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(10));
 
-        int lifes = controller.getLifesLeft();
+        int lifes = controller.getLivesLeft();
         switch (lifes) {
             case 1 -> {
                 JLabel iconLabel = new JLabel(loadIcon(ICON_LIFE1, 24, 24));
