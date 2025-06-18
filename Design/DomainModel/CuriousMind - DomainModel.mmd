@@ -1,0 +1,104 @@
+---
+config:
+  look: neo
+  theme: redux
+  layout: elk
+---
+classDiagram
+direction TB
+    class Test {
+    }
+    class Traduccion {
+    }
+    class FlashCard {
+    }
+    class FillTheGaps {
+    }
+    class Aleatorio {
+    }
+    class RepEspaciada {
+    }
+    class Secuencial {
+    }
+    class Usuario {
+    }
+    class BloqueContenido {
+	    - Nombre
+    }
+    class Curso {
+	    - Nombre
+    }
+    class CursoInscrito {
+    }
+    class Estadisticas {
+	    - Accesos
+	    - Nivel
+    }
+    class BloqueContenidoInscrito {
+	    - Completado
+    }
+    class Estrategia {
+    }
+    class BibliotecaCursos {
+    }
+    class Pregunta {
+	    - Indicacion.
+	    - Enunciado
+	    - Opciones
+	    - RespuestaCorrecta
+    }
+
+	<<interface>> Estrategia
+	<<abstract>> Pregunta
+
+    Pregunta <|-- Test
+    Pregunta <|-- Traduccion
+    Pregunta <|-- FlashCard
+    Pregunta <|-- FillTheGaps
+    Estrategia <|-- Aleatorio
+    Estrategia <|-- RepEspaciada
+    Estrategia <|-- Secuencial
+    Usuario "1" <--> "1" Estadisticas : presenta
+    Curso "1" *-- "1..*" BloqueContenido : contiene
+    BloqueContenido "1" *-- "1..*" Pregunta : contiene
+    CursoInscrito "1" *-- "1..*" BloqueContenidoInscrito : contiene
+    Curso "1" <-- "*" CursoInscrito : referencia
+    BloqueContenido "1" <-- "*" BloqueContenidoInscrito : referencia
+    Curso "*" --> "1..*" Estrategia : ofrece
+    CursoInscrito "1..*" --> "1" Estrategia : presenta
+    BibliotecaCursos "1" *-- "*" Curso : ofrece
+    Usuario "1" <--> "*" CursoInscrito : realiza
+
+	style Test :,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#000000
+	style Traduccion :,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#000000
+	style FlashCard :,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#000000
+	style FillTheGaps :,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#000000
+	style Aleatorio :,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#000000
+	style RepEspaciada :,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#000000
+	style Secuencial :,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#000000
+	style Usuario color:#000000,stroke-width:1px,stroke-dasharray: 0,stroke:#6991ca,fill:#BBDEFB,stroke-width:1px,stroke-dasharray: 0,stroke:#6991ca,fill:#BBDEFB
+	style BloqueContenido stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,color:#000000
+	style Curso fill:#7cce7f,stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,color:#000000
+	style CursoInscrito :,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,fill:#b585ad,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,fill:#c596bd,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,color:#000000,stroke:#56315b,fill:#cda4c6,color:#000000
+	style Estadisticas stroke:#8aa8d3,stroke:#7398cb,color:#000000,stroke-width:1px,stroke-dasharray: 0,stroke:#6991ca,fill:#BBDEFB,stroke-width:1px,stroke-dasharray: 0,stroke:#6991ca,fill:#BBDEFB
+	style BloqueContenidoInscrito :,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,fill:#b585ad,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#136b1b,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,fill:#c596bd,stroke-width:1px,stroke-dasharray: 0,fill:#c0fbc2,stroke:#2b8b33,color:#000000,stroke:#56315b,fill:#cda4c6,color:#000000
+	style Estrategia :,stroke-width:1px,stroke-dasharray:none,stroke:#FBB35A,fill:#FFEFDB,color:#000000
+	style BibliotecaCursos fill:#93dad6,stroke:#507e79,color:#000000
+	style Pregunta :,stroke-width:1px,stroke-dasharray:none,stroke:#FF5978,fill:#FFDFE5,color:#000000
+
+	class Test:::Rose
+	class Traduccion:::Rose
+	class FlashCard:::Rose
+	class FillTheGaps:::Rose
+	class Aleatorio:::Peach
+	class RepEspaciada:::Peach
+	class Secuencial:::Peach
+	class Usuario:::Usuario
+	class BloqueContenido:::Curso
+	class Curso:::Curso
+	class CursoInscrito:::CursoInscrito
+	class Estadisticas:::Usuario
+	class BloqueContenidoInscrito:::CursoInscrito
+	class Estrategia:::Peach
+	class BibliotecaCursos:::Biblioteca
+	class Pregunta:::Rose
