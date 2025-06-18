@@ -22,12 +22,13 @@ jobs:
           cache: maven
 
       - name: Build with Maven (includes tests)
+        working-directory: java
         run: mvn clean package -DskipTests
 
       - name: Copy JAR to artifacts folder
         run: |
           mkdir -p java/target/artifacts
-          cp target/*.jar java/target/artifacts
+          cp java/target/*.jar java/target/artifacts
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
@@ -36,4 +37,3 @@ jobs:
           path: java/target/artifacts/*.jar
           if-no-files-found: error
           retention-days: 14
-          
