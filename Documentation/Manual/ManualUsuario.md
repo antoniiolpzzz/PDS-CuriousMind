@@ -463,7 +463,7 @@ Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque 
 
 CuriousMind incluye una base de datos pensada para pruebas, que sirve para comprobar el correcto funcionamiento de la aplicación.  
 Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: [Cursos de Prueba](src/...DDBB...TODO). 
-Además, la aplicación está preparada para que si al arrancar todavía no hay cursos creados en la base de datos, se generan automáticamente 2 cursos por defecto que se encuentran en la carpeta [samplecourses](https://github.com/antoniiolpzzz/PDS-CuriousMind/tree/876d33269c3ef5c47de2bac28a7e25ac36ce4f8d/Java/src/main/resources/samplecourses).
+Además, la aplicación está preparada para que si al arrancar todavía no hay cursos creados en la base de datos, se generan automáticamente 2 cursos por defecto que se encuentran en la carpeta [samplecourses](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/2786285b5e783a23504fe9d701aa23ca6242abb3/Documentation/Test/DDBB/ArtHistoryCourse.json).
 
 ---
 
