@@ -34,17 +34,31 @@ This is an interactive program that makes learning languages, music, history, or
 
 ## System Requirements
 
-- Operative System: (ej. Windows / macOS / Linux)
-- Java version: 21 
-- IntelliJ IDEA (si se ejecuta desde código fuente)
-- Maven Versión:  3.x y 4.x
+- Java Development Kit (JDK) **21** or higher
+- Maven for dependency management
+- Your favorite IDE (IntelliJ IDEA recommended)
 
 ---
 
 ## Installation and Launch
 
-//TODO
+Disclaimer: There are already compiled artifacts in Java/target/artifacts directory matching the main branch version.
 
+1. Clone the repository
+   ```bash
+   git clone https://github.com/antoniiolpzzz/PDS-CuriousMind.git
+   ```
+2. Navigate to the project directory
+   ```bash
+   cd PDS-CuriousMind/Java
+   ```
+3. Build the project
+   ```bash
+   mvn clean install
+   ```
+4. Lauch TODO
+
+   
 ---
 
 ## Main Screens
