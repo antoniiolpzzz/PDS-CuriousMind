@@ -448,7 +448,7 @@ Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque 
 ### 🧪 Base de datos para pruebas y testing
 
 CuriousMind incluye una base de datos pensada para pruebas, que sirve para comprobar el correcto funcionamiento de la aplicación.  
-Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: samplecourses. 
+Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: [Cursos de Prueba](src/......TODO). 
 Además, la aplicación está preparada para que si al arrancar todavía no hay cursos creados en la base de datos, se generan automáticamente 2 cursos por defecto.
 
 ---
