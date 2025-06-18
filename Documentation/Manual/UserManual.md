@@ -34,17 +34,31 @@ This is an interactive program that makes learning languages, music, history, or
 
 ## System Requirements
 
-- Operative System: (ej. Windows / macOS / Linux)
-- Java version: 21 
-- IntelliJ IDEA (si se ejecuta desde código fuente)
-- Maven Versión:  3.x y 4.x
+- Java Development Kit (JDK) **21** or higher
+- Maven for dependency management
+- Your favorite IDE (IntelliJ IDEA recommended)
 
 ---
 
 ## Installation and Launch
 
-//TODO
+Disclaimer: There are already compiled artifacts in Java/target/artifacts directory matching the main branch version.
 
+1. Clone the repository
+   ```bash
+   git clone https://github.com/antoniiolpzzz/PDS-CuriousMind.git
+   ```
+2. Navigate to the project directory
+   ```bash
+   cd PDS-CuriousMind/Java
+   ```
+3. Build the project
+   ```bash
+   mvn clean install
+   ```
+4. Lauch TODO
+
+   
 ---
 
 ## Main Screens
@@ -448,7 +462,7 @@ For each content block you complete **without running out of lives**, the block 
 
 ### 🧪 Test Database
 
-CuriousMind includes a test database designed to verify the correct functioning of the application. It contains realistic examples of the app’s workflow, ideal for functional testing, located in the folder: samplecourses. In addition, the application has 2 default courses that will be imported in case the user has an empty database when running
+CuriousMind includes a test database designed to verify the correct functioning of the application in the following directory. It contains realistic examples of the app’s workflow, ideal for functional testing, located in the folder: [Cursos de Prueba](src/..DDBB....TODO). . In addition, the application has 2 default courses that will be imported in case the user has an empty database when running int he directory ....samplescouses...TODO 
 
 
 ---
