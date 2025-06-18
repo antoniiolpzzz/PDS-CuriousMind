@@ -11,27 +11,32 @@ import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
 import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
-import com.pds.curiousmind.util.mapper.service.CourseFormat;
+import com.pds.curiousmind.util.AppConfig;
+import com.pds.curiousmind.util.ImageUtils;
+import com.pds.curiousmind.util.Logger;
+import com.pds.curiousmind.util.mapper.service.MapperFormat;
 import com.pds.curiousmind.util.mapper.service.CourseMapperService;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.io.File;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public enum Controller {
     INSTANCE;
 
-    // GLOBAL VARIABLES
-
+    // CONTROLLER VARIABLES
     private User currentUser;
-    private final GameManager gameManager = GameManager.INSTANCE;
+    private final MapperFormat mapperFormat = MapperFormat.valueOf(AppConfig.get("mapping.file.format"));
+    private static final String USER_PHOTO_API = "https://api.dicebear.com/9.x/dylan/png?size=128&seed=";
 
-    // INITIALIZATION OF THE LIBRARIES AND ADAPTERS
-
+    // INITIALIZATION OF THE LIBRARIES AND ADAPTERS AND SERVICES
     private final CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
     private final UserLibrary userLibrary = UserLibrary.INSTANCE;
-
-    // INITIALIZATION OF THE CONTROLLER
+    private final GameManager gameManager = GameManager.INSTANCE;
+    private final CourseMapperService courseMapperService = CourseMapperService.INSTANCE;
 
 
     // *****************************************************************************************
@@ -46,10 +51,9 @@ public enum Controller {
 
     // GET USER PHOTO BY API
     public String getUserPhoto() {
-        // Return the URL or path to the user's photo
-        //TODO: User photo ??  -> return currentUser.getPhotoUrl();
-        return "icons/button/user.png";
-        //return "https://api.dicebear.com/9.x/dylan/svg?seed=" + (currentUser != null ? currentUser.getUsername() : "default");
+        String urlString = USER_PHOTO_API + (currentUser != null ? currentUser.getUsername() : "user");
+        String imagePath = ImageUtils.downloadImage(urlString, ".png");
+        return imagePath != null ? imagePath : "src/main/resources/images/user.png";
     }
 
 
@@ -78,39 +82,30 @@ public enum Controller {
     // LOG IN THE USER
 
     public boolean logIn(String username, String password) {
-        //Check in the database if the user exists and the password is correct
 
         if(userLibrary.getByUsername(username) != null)
         {
             if(userLibrary.getByUsername(username).getPassword().equals(password)) {
                 currentUser = userLibrary.getByUsername(username);
-                // Register the user entry in the app
-                // TODO: Give a look for a better implementation of this on the user directly
-                getUserStats().logEntry();
+
+                currentUser.logEntry();
                 userLibrary.update(currentUser);
                 return true;
-            } else {
-                return false;
             }
         }
         return false;
-
     }
 
     // CHECK FIELDS AND CREATE A NEW USER
 
     public boolean signUp(String fullName, String username, String email, String password) {
-
-        //TODO: Check if this implementation is correct
-        if(userLibrary.getByUsername(username) == null)
-        {
+        if (userLibrary.getByUsername(username) == null) {
             User user = new User(fullName, email, password, username);
             userLibrary.add(user);
+            return true;
         } else {
             return false;
         }
-
-        return true;
     }
 
 
@@ -128,29 +123,27 @@ public enum Controller {
     // GET ALL COURSES IN THE DATABASE
 
     public List<Course> getAllCourses() {
-        List<Course> allCourses = new java.util.ArrayList<>(courseLibrary.getAll());
+        List<Course> allCourses = new ArrayList<>(courseLibrary.getAll());
+        getRegisteredCourses().forEach(registeredCourse -> {
+            allCourses.removeIf(
+                    course -> course.getId().equals(registeredCourse.getCourse().getId())
+                                    && !registeredCourse.isCompleted());
+        });
         //TODO: Filter allCourses so that Registered courses dont appear
-//        for (Course course : allCourses) {
-//            if (!(course instanceof RegisteredCourse)) {
-//                allCourses.add(course);
-//            }
-//        }
+        // CREO QUE LO HE SOLUCIOANDO CON EL FOR EACH
         return allCourses ;
     }
 
-    // TODO: CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
+    // CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
 
     public File getJsonFromCourse(Course course) {
-        // Use the CourseMapperService to convert the Course object to a JSON file
-        //TODO: DO THIS CORRECTLY
-        return CourseMapperService.INSTANCE.fromEntity(course, CourseFormat.YAML);
+        return courseMapperService.fromEntity(course, mapperFormat);
     }
 
-    // TODO: CREATE COURSE FROM A JSON FILE (DESERIALIZATION)
+    // CREATE COURSE FROM A JSON FILE (DESERIALIZATION)
 
     public Course createCourseFromJson(File jsonFile) {
-        // Use the CourseMapperService to convert the JSON file to a Course object
-        Course mappedCourse = CourseMapperService.INSTANCE.toEntity(jsonFile);
+        Course mappedCourse = courseMapperService.toEntity(jsonFile);
         return courseLibrary.add(mappedCourse);
     }
 
