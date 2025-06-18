@@ -462,7 +462,11 @@ For each content block you complete **without running out of lives**, the block 
 
 ### 🧪 Test Database
 
-CuriousMind includes a test database designed to verify the correct functioning of the application in the following directory. It contains realistic examples of the app’s workflow, ideal for functional testing, located in the folder: [Cursos de Prueba](src/..DDBB....TODO). . In addition, the application has 2 default courses that will be imported in case the user has an empty database when running int he directory ....samplescouses...TODO 
+CuriousMind includes a database designed for testing purposes, which is used to verify the correct functioning of the application.  
+It contains realistic examples of the application's flow, making it ideal for functional testing.  
+
+Additionally, the application is set up so that if no courses exist in the database at startup, two default courses are automatically generated.  
+All of this can be found in the following folder: [DDBB](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/2786285b5e783a23504fe9d701aa23ca6242abb3/Documentation/Test/DDBB).
 
 
 ---
