@@ -1,7 +1,5 @@
 package com.pds.curiousmind.application;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.util.Logger;
 import com.pds.curiousmind.view.authentication.login.LoginWindow;
