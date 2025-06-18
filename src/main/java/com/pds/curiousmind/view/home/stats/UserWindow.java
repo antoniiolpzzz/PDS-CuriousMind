@@ -20,11 +20,26 @@ import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 
-
+/**
+ * Represents the user profile window in the CuriousMind application.
+ * <p>
+ * This window displays the user's greeting message, level, list of registered courses,
+ * and personal usage statistics such as best streak, usage days, completed courses, and time spent.
+ * </p>
+ * It uses a custom layout with a background and dynamically loads user-specific data
+ * through the {@link Controller}.
+ *
+ * @author
+ */
 public class UserWindow extends JFrame {
 
     private static final Controller controller = Controller.INSTANCE;
 
+    /**
+     * Constructs the {@code UserWindow} and initializes all UI components.
+     *
+     * @param user The current logged-in user whose data will be displayed.
+     */
     public UserWindow(User user) {
 
         setTitle("CuriousMind - Profile");
@@ -34,9 +49,8 @@ public class UserWindow extends JFrame {
         setResizable(true);
 
         // BACKGROUND PANEL
-        JPanel basePanel = createBackground(this,user,null, "home");
+        JPanel basePanel = createBackground(this, user, null, "home");
         setContentPane(basePanel);
-
 
         // Right panel setup
         JPanel rightWrapper = new JPanel(new BorderLayout());
@@ -73,7 +87,6 @@ public class UserWindow extends JFrame {
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(20));
 
-
         // COURSES SECTION
         List<RegisteredCourse> myCourses = controller.getRegisteredCourses();
         JPanel rowMyCourses = createCourseRowSection(myCourses);
@@ -89,7 +102,6 @@ public class UserWindow extends JFrame {
         rightPanel.add(Box.createVerticalStrut(10));
 
         // STATS SECTION
-
         Stat stats = controller.getUserStats();
 
         rightPanel.add(sectionTitle("Your stats"));
@@ -99,17 +111,17 @@ public class UserWindow extends JFrame {
         statsWrapper.setLayout(new BoxLayout(statsWrapper, BoxLayout.Y_AXIS));
         statsWrapper.setOpaque(false);
 
-        // Fila 1
+        // Row 1
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row1.setOpaque(false);
         row1.add(new StatsBlock("Best streak", stats.getBestStreak(), ICON_STREAK));
         row1.add(new StatsBlock("Days of use", stats.getEntries().size(), ICON_DAY));
 
+        // Row 2
         JPanel row2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
         row2.setOpaque(false);
-        row2.add(new StatsBlock("Completed courses", stats.getCompletedCourses(), ICON_COURSES));
-        row2.add(new StatsBlock("Time of use", 15, ICON_TIME));
-        //TODO: Value of time of use
+        row2.add(new StatsBlock("Completed Courses", stats.getCompletedCourses(), ICON_COURSES));
+        row2.add(new StatsBlock("Time of use (mins)", (int) ((stats.getTimeSpent())/60), ICON_TIME));
 
         statsWrapper.add(row1);
         statsWrapper.add(Box.createVerticalStrut(10));
@@ -117,10 +129,16 @@ public class UserWindow extends JFrame {
 
         rightPanel.add(statsWrapper);
 
-
         setVisible(true);
     }
 
+    /**
+     * Creates the panel displaying the user's registered courses,
+     * each with a visual progress indicator and access to the course dashboard.
+     *
+     * @param courseData The list of courses registered by the user.
+     * @return A JPanel containing all course panels.
+     */
     private JPanel createCourseRowSection(List<RegisteredCourse> courseData) {
         JPanel row = new JPanel();
         row.setLayout(new GridLayout(0, 4, 0, -5));
@@ -136,14 +154,13 @@ public class UserWindow extends JFrame {
         return row;
     }
 
+    /**
+     * Returns the progress of a given course.
+     *
+     * @param course The course to evaluate.
+     * @return A double representing the course progress (typically between 0 and 100).
+     */
     private double getProgressForCourse(RegisteredCourse course) {
         return course.getProgress();
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Crea un usuario de prueba o recupera el usuario de otra forma
-            User user = controller.getCurrentUser();
-            new HomeWindow(user);
-        });
-    }}
+}

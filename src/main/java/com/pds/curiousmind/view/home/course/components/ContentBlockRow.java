@@ -10,9 +10,12 @@ import com.pds.curiousmind.view.playview.question.components.QuestionStructure;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Comparator;
+import java.util.List;
+import java.util.ArrayList;
+
+import static com.pds.curiousmind.view.common.GlobalConstants.*;
+import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
 
 /**
  * Utility class for creating a column of content block rows for a course.
@@ -38,9 +41,40 @@ public class ContentBlockRow {
         column.setLayout(new BoxLayout(column, BoxLayout.Y_AXIS));
         column.setOpaque(false);
 
-        for ( RegisteredContentBlock block : contentBlocks ) {
-            // Create a label for each content block
+        List<RegisteredContentBlock> sortedBlocks = new ArrayList<RegisteredContentBlock>(contentBlocks);
+
+        sortedBlocks.sort(Comparator.comparingInt(block ->
+                switch (block.getDifficulty().toString()) {
+                    case "EASY" -> 0;
+                    case "MEDIUM" -> 1;
+                    case "HARD" -> 2;
+                    default -> 3;
+                }
+        ));
+
+        for (RegisteredContentBlock block : sortedBlocks) {
             RoundedLabel label = new RoundedLabel(block.getName());
+
+            String iconPath;
+            switch (block.getDifficulty().toString()) {
+                case "EASY":
+                    iconPath = ICON_STAR1;
+                    label.setIcon(loadIcon(iconPath, 20, 20));
+                    break;
+                case "MEDIUM":
+                    iconPath = ICON_STAR2;
+                    label.setIcon(loadIcon(iconPath, 40, 20));
+                    break;
+                case "HARD":
+                    iconPath = ICON_STAR3;
+                    label.setIcon(loadIcon(iconPath, 60, 20));
+                    break;
+                default:
+                    iconPath = ICON_MORE;
+                    label.setIcon(loadIcon(iconPath, 20, 20));
+                    break;
+            }
+
 
             if (block.isCompleted()) {
                 // Style for completed blocks
@@ -69,8 +103,7 @@ public class ContentBlockRow {
                      */
                     @Override
                     public void mouseClicked(java.awt.event.MouseEvent e) {
-                        // TODO: Use controller to initialize the game manager for the block
-                        Question question = block.getQuestions().get(2);
+                        Question question = controller.initializeGameManager(course, block);
                         new QuestionStructure(course, question, block.getName(), block.getDifficulty());
                         parentFrame.dispose();
                     }

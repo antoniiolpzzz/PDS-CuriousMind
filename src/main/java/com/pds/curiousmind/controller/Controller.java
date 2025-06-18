@@ -1,324 +1,257 @@
 package com.pds.curiousmind.controller;
 
-import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.contentblock.Difficulty;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.gameManager.GameManager;
+import com.pds.curiousmind.model.library.implementation.CourseLibrary;
+import com.pds.curiousmind.model.library.implementation.UserLibrary;
 import com.pds.curiousmind.model.question.Question;
-import com.pds.curiousmind.model.question.implementation.FillTheGap;
-import com.pds.curiousmind.model.question.implementation.FlashCard;
-import com.pds.curiousmind.model.question.implementation.Test;
-import com.pds.curiousmind.model.question.implementation.Translate;
-import com.pds.curiousmind.model.question.option.ImageOption;
-import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.stat.Stat;
+import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
-
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Singleton main controller that orchestrates user, course, and game operations.
+ * <p>
+ * This controller acts as a facade, delegating all business logic to the corresponding
+ * domain-specific controllers: {@link UserController}, {@link CourseController}, and {@link GameController}.
+ * It provides a unified API for managing users, courses, and game sessions in the application.
+ * </p>
+ *
+ * <p>Usage example:</p>
+ * <pre>
+ *     Controller.INSTANCE.logIn("user", "pass");
+ *     List&lt;Course&gt; courses = Controller.INSTANCE.getAllCourses();
+ * </pre>
+ *
+ * @author Antonio López
+ * @since 1.0
+ */
 public enum Controller {
     INSTANCE;
+    private final CourseController courseController = CourseController.INSTANCE;
+    private final UserController userController = UserController.INSTANCE;
+    private final GameController gameController = GameController.INSTANCE;
 
-    // GLOBAL VARIABLES
+    // User related methods
 
-    private User currentUser;
-    private final GameManager gameManager = GameManager.INSTANCE;
-    //private final CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
-    //private final UserLibrary userLibrary = UserLibrary.INSTANCE;
-
-
-    // INITIALIZATION OF THE LIBRARIES AND ADAPTERS
-
-    // INITIALIZATION OF THE CONTROLLER
-
-
-
-    //  ********************** TODO: QUITAR LOS CASOS DE PRUEBA  **********************
-    Course course;
-    RegisteredCourse registeredCourse;
-    ContentBlock contentBlock;
-    RegisteredContentBlock RegisteredContentBlock;
-    List<RegisteredCourse> registeredCourses = new java.util.ArrayList<>();
-    List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
-    List<Course> allCourses = new java.util.ArrayList<>();
-
-    static {
-        // Crear usuario y cursos
-        INSTANCE.currentUser = new User("JaviGuardiola", "javi@gmail.com", "password123", "Javi44");
-        INSTANCE.course = new Course("Java Basics", "Learn the basics of Java programming.", "icons/course/js.png", new ArrayList<>(), new ArrayList<>());
-        Course course2 = new Course("Music", "Learn the basics of music", "icons/course/history.png", new ArrayList<>(), new ArrayList<>());
-        Course course3 = new Course("German", "Introduction to German.", "icons/course/german.png", new ArrayList<>(), new ArrayList<>());
-
-        List<Question> questions = new ArrayList<>();
-
-        List<Option> testOptions = new ArrayList<>();
-        testOptions.add(new Option("Madrid"));
-        testOptions.add(new Option("Barcelona"));
-        testOptions.add(new Option("Valencia"));
-        testOptions.add(new Option("Seville"));
-
-        List<Option> flashCardOptions = new ArrayList<>();
-        flashCardOptions.add(new ImageOption("Apfel", "icons/course/comida-sana.png"));
-        flashCardOptions.add(new ImageOption("Karotte", "icons/course/zanahoria.png"));
-        flashCardOptions.add(new ImageOption("Zwiebel", "icons/course/cebolla.png"));
-
-        List<Option> translateOptions = new ArrayList<>();
-        translateOptions.add(new Option("New"));
-        translateOptions.add(new Option("green"));
-        translateOptions.add(new Option("sheep"));
-        translateOptions.add(new Option("iron"));
-        translateOptions.add(new Option("table"));
-        translateOptions.add(new Option("are"));
-        translateOptions.add(new Option("pencil"));
-        translateOptions.add(new Option("cat"));
-
-        Question fillTheGaps = new FillTheGap(
-                "Complete the sentence:",
-                "The ___ is the satellite of the Earth.",
-                "moon"
-        );
-
-        Question test = new Test(
-                "Select the capital of Spain:",
-                "What is the capital of Spain?",
-                "Madrid",
-                testOptions
-        );
-
-        Question translation = new Translate(
-                "Translate to English:",
-                "El perro es azul",
-                "The dog is blue",
-                translateOptions
-        );
-
-        Question flashcard = new FlashCard(
-                "Choose the correct answer:",
-                "Where is the onion?",
-                "Zwiebel",
-                flashCardOptions
-        );
-
-        questions.add(fillTheGaps);
-        questions.add(test);
-        questions.add(translation);
-        questions.add(flashcard);
-
-        Difficulty difficulty = Difficulty.EASY;
-
-        INSTANCE.contentBlock = new ContentBlock(
-                "Basic Vocabulary",
-                questions,
-                difficulty,
-                INSTANCE.course
-        );
-
-        INSTANCE.RegisteredContentBlock = new RegisteredContentBlock(
-                INSTANCE.contentBlock
-        );
-        // Añadir cursos a la lista de todos los cursos
-        INSTANCE.allCourses.add(INSTANCE.course);
-        INSTANCE.allCourses.add(course2);
-        INSTANCE.allCourses.add(course3);
-
-        // Crear cursos registrados
-        INSTANCE.registeredCourse = new RegisteredCourse(INSTANCE.currentUser, INSTANCE.course, "SHUFFLED");
-
-        // Añadir cursos registrados a la lista
-        INSTANCE.registeredCourses.add(INSTANCE.registeredCourse);
-
-        // Asignar cursos registrados al usuario
-        INSTANCE.currentUser.setRegisteredCourses(INSTANCE.registeredCourses);
-
-        // Asignar contenido bloque registrado al curso registrado
-        List<RegisteredContentBlock> registeredContentBlocks = new ArrayList<>();
-        registeredContentBlocks.add(INSTANCE.RegisteredContentBlock);
-        INSTANCE.registeredCourses.get(0).setRegisteredContentBlocks(registeredContentBlocks);
-    }
-
-    //**** TODO: QUITAR LOS CASOS DE PRUEBA  ******************************************************
-
-
-
-
-    // *****************************************************************************************
-    // **************************** USER FUNCTIONS *********************************************
-    // *****************************************************************************************
-
-    // GET CURRENT USER
+    /**
+     * Returns the currently logged-in user.
+     *
+     * @return the current {@link User}, or null if no user is logged in
+     */
     public User getCurrentUser() {
-        return currentUser;
+        return userController.getCurrentUser();
     }
 
-
-    // GET USER PHOTO BY API
+    /**
+     * Returns the file path to the current user's profile photo.
+     *
+     * @return the path to the user's photo, or a default image if not available
+     */
     public String getUserPhoto() {
-        // Return the URL or path to the user's photo
-        //TODO: User photo ??  -> return currentUser.getPhotoUrl();
-        return "icons/button/user.png";
+        return userController.getUserPhoto();
     }
 
+    /**
+     * Downloads an image from a given URL and returns its local file path.
+     *
+     * @param urlString the URL of the image
+     * @return the local file path to the downloaded image, or a default image if download fails
+     */
+    public String downloadImageFromUrl(String urlString) {
+        return userController.downloadImageFromUrl(urlString);
+    }
 
-
-
-    // *****************************************************************************************
-    // **************************** STATS FUNCTIONS ********************************************
-    // *****************************************************************************************
-
-    // GET USER STATS
+    /**
+     * Returns the statistics of the current user.
+     *
+     * @return the {@link Stat} object for the current user, or null if not logged in
+     */
     public Stat getUserStats() {
-        return currentUser.getStats();
+        return userController.getUserStats();
     }
 
-    // ADD EXPERIENCE POINTS TO THE USER
-    public void addExperiencePoints(Difficulty difficulty) {
-
-        int points = switch (difficulty) {
-            case EASY -> 100;
-            case MEDIUM -> 200;
-            case HARD -> 300;
-        };
-        getUserStats().addExperiencePoints(points);
-    }
-
-    // GET LEVEL OF THE USER
+    /**
+     * Returns the current user's level.
+     *
+     * @return the user's level, or 0 if not logged in
+     */
     public int getUserLevel() {
-        return getUserStats().getLevel();
+        return userController.getUserLevel();
     }
 
-
-
-    // *****************************************************************************************
-    // **************************** AUTHENTICATION FUNCTIONS ***********************************
-    // *****************************************************************************************
-
-    // LOG IN THE USER
-
+    /**
+     * Attempts to log in a user with the given credentials.
+     *
+     * @param username the username
+     * @param password the password
+     * @return true if login is successful, false otherwise
+     */
     public boolean logIn(String username, String password) {
-        //Check in the database if the user exists and the password is correct
-
-        //TODO: Check if this implementation is correct
-//        if(userlibrary.getByUsername(username) != null)
-//        {
-//            if(userlibrary.getByUsername(username).getPassword().equals(password)) {
-//                currentUser = userlibrary.getByUsername(username);
-//            } else {
-//                return false;
-//            }
-//        }
-
-        // Register the user entry in the app
-        getUserStats().logEntry();
-
-        return true;
+        return userController.logIn(username, password);
     }
 
-    // CHECK FIELDS AND CREATE A NEW USER
-
+    /**
+     * Registers a new user with the provided information.
+     *
+     * @param fullName the user's full name
+     * @param username the desired username
+     * @param email    the user's email address
+     * @param password the desired password
+     * @return true if registration is successful, false if username already exists
+     */
     public boolean signUp(String fullName, String username, String email, String password) {
-
-        //TODO: Check if this implementation is correct
-//        if(userlibrary.getByUsername(username) == null)
-//        {
-//            User user = new User(fullName, email, password, username);
-//            userlibrary.add(user);
-//        } else {
-//            return false;
-//        }
-
-        return true;
+        return userController.signUp(fullName, username, email, password);
     }
 
+    // Course related methods
 
-
-    // *****************************************************************************************
-    // **************************** COURSE FUNCTIONS *******************************************
-    // *****************************************************************************************
-
-    // GET ALL REGISTERED COURSES OF THE USER
-
+    /**
+     * Returns the list of registered courses for the current user.
+     *
+     * @return a list of {@link RegisteredCourse} objects, or an empty list if none
+     */
     public List<RegisteredCourse> getRegisteredCourses() {
-        return currentUser.getRegisteredCourses();
+        return courseController.getRegisteredCourses(getCurrentUser());
     }
 
-    // GET ALL COURSES IN THE DATABASE
-
+    /**
+     * Returns all available courses that the current user can register for.
+     *
+     * @return a list of {@link Course} objects
+     */
     public List<Course> getAllCourses() {
-        // TODO: List<Course> allCourses = courselibrary.getAll();
-        return allCourses;
+        return courseController.getAllCourses(getCurrentUser());
     }
 
-    // TODO: CREATE A JSON FILE FROM A COURSE (SERIALIZATION)
-
+    /**
+     * Serializes a course to a JSON file.
+     *
+     * @param course the {@link Course} to serialize
+     * @return the generated JSON {@link File}
+     */
     public File getJsonFromCourse(Course course) {
-        return null;
+        return courseController.getJsonFromCourse(course);
     }
 
-    // TODO: CREATE COURSE FROM A JSON FILE (DESERIALIZATION)
-
+    /**
+     * Creates a new course from a JSON file and adds it to the course library.
+     *
+     * @param jsonFile the JSON {@link File} representing the course
+     * @return the created {@link Course}
+     */
     public Course createCourseFromJson(File jsonFile) {
-        return null;
+        return courseController.createCourseFromJson(jsonFile);
     }
 
-    // CREATE REGISTERED COURSE FROM A COURSE AND ITS STRATEGY
-
-    public void createRegisteredCourse(Course course, String strategy) {
-        new RegisteredCourse(currentUser, course, strategy);
+    /**
+     * Registers the current user in a course with the specified strategy.
+     *
+     * @param course   the {@link Course} to register in
+     * @param strategy the {@link StrategyType} to use
+     */
+    public void createRegisteredCourse(Course course, StrategyType strategy) {
+        courseController.createRegisteredCourse(getCurrentUser(), course, strategy);
     }
 
-    // *****************************************************************************************
-    // **************************** CONTENT BLOCK FUNCTIONS ************************************
-    // *****************************************************************************************
+    /**
+     * Initializes sample courses on the first application run.
+     */
+    public void initializeSamplesOnFirstOpen() {
+        courseController.initializeSamplesOnFirstOpen();
+    }
 
+    // Game related methods
 
-    // *****************************************************************************************
-    // **************************** QUESTION FUNCTIONS *****************************************
-    // *****************************************************************************************
-
-    // VALIDATE THE ANSWER OF A QUESTION
-
+    /**
+     * Validates the user's answer for a given question.
+     *
+     * @param question the {@link Question} to validate
+     * @param answer   the user's answer
+     * @return true if the answer is correct, false otherwise
+     */
     public boolean validateAnswer(Question question, String answer) {
-        return question.validateAnswer(answer);
+        return gameController.validateAnswer(question, answer);
     }
 
-    // *****************************************************************************************
-    // **************************** GAME MANAGER FUNCTIONS *************************************
-    // *****************************************************************************************
-
-    // GET THE NUMBER OF QUESTIONS ANSWERED IN THE GAME
+    /**
+     * Returns the current progress in the content block.
+     *
+     * @return the progress as an integer value
+     */
     public int getBlockProgress() {
-        //TODO: return (gameManager.totalQuestions() - gameManager.questionsLeft()) / gameManager.totalQuestions() * 100;
-        return 0;
+        return gameController.getBlockProgress();
     }
 
-    // INITIALIZE THE GAME MANAGER WITH A COURSE AND A CONTENT BLOCK
+    /**
+     * Returns the number of lives left in the current game session.
+     *
+     * @return the number of lives left
+     */
+    public int getLivesLeft() {
+        return gameController.getLivesLeft();
+    }
 
+    /**
+     * Initializes the game manager for a registered course and content block.
+     *
+     * @param course       the {@link RegisteredCourse} to play
+     * @param contentBlock the {@link RegisteredContentBlock} to play
+     * @return the first {@link Question} of the session
+     */
     public Question initializeGameManager(RegisteredCourse course, RegisteredContentBlock contentBlock) {
-        gameManager.initializeGame(course, contentBlock);
-        return gameManager.getNextQuestion();
+        return gameController.initializeGameManager(course, contentBlock);
     }
 
-    // GET THE NEXT QUESTION FROM THE GAME MANAGER
-
+    /**
+     * Returns the next question in the current game session.
+     *
+     * @return the next {@link Question}, or null if there are no more questions
+     */
     public Question getNextQuestion() {
-        return gameManager.getNextQuestion();
+        return gameController.getNextQuestion();
     }
 
-    // END THE GAME
-
+    /**
+     * Ends the current game session.
+     */
     public void endGame() {
-        gameManager.deactivateGame();
+        gameController.endGame();
     }
 
-    // ADD A FAILED QUESTION TO THE GAME MANAGER
-
+    /**
+     * Adds a failed question to the current game session.
+     *
+     * @param question the {@link Question} that was answered incorrectly
+     */
     public void addFailedQuestion(Question question) {
-        // Add a failed question to the game manager
-        gameManager.addFailedQuestion(question);
-        //TODO: This should handle the lives number of the user
+        gameController.addFailedQuestion(question);
+    }
+
+    /**
+     * Marks the current content block as completed and updates user stats.
+     *
+     * @param difficulty the {@link Difficulty} of the completed block
+     */
+    public void completeContentBlock(Difficulty difficulty) {
+        gameController.completeContentBlock(getCurrentUser(), difficulty);
+    }
+
+    /**
+     * Returns the number of points awarded for a given difficulty.
+     *
+     * @param difficulty the {@link Difficulty}
+     * @return the number of points for the difficulty
+     */
+    public int getPointsForDifficulty(Difficulty difficulty) {
+        return gameController.getPointsForDifficulty(difficulty);
     }
 }
+    // *************
+    // ***** QUESTION FUNCTIONS
+    // ...existing code...

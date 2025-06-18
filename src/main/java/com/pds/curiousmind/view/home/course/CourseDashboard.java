@@ -62,7 +62,7 @@ public class CourseDashboard extends JFrame {
 
         // HEADER SECTION
 
-        String iconPath = course.getImageURL();
+        String iconPath = controller.downloadImageFromUrl(course.getImageURL());
         JLabel homeTitle = new JLabel(course.getName());
         homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
@@ -106,17 +106,4 @@ public class CourseDashboard extends JFrame {
         setVisible(true);
     }
 
-    /**
-     * Main method for testing the CourseDashboard window.
-     * Launches the dashboard for the first registered course.
-     *
-     * @param args Command-line arguments (not used).
-     */
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Creates a test user or retrieves the user in another way
-            RegisteredCourse course = controller.getRegisteredCourses().get(0);
-            new CourseDashboard(course);
-        });
-    }
 }

@@ -12,6 +12,8 @@ import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
@@ -115,6 +117,15 @@ public class LoginWindow extends JFrame {
         rightPanel.add(passwordField);
         rightPanel.add(Box.createVerticalStrut(10));
 
+        passwordField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (e.getKeyChar() == '\n') {
+                    login();
+                }
+            }
+        });
+
         showPasswordCheckBox = new JCheckBox(SHOW_PASSWORD_LABEL);
         showPasswordCheckBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         showPasswordCheckBox.setOpaque(false);
@@ -138,17 +149,7 @@ public class LoginWindow extends JFrame {
         StyledButton loginButton = new StyledButton(LOGIN_LABEL, Color.BLACK, Color.WHITE);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.addActionListener(e -> {
-            if (checkFields(usernameField.getText(), passwordField)) {
-                if (controller.logIn(usernameField.getText(), new String(passwordField.getPassword()))) {
-                    User user = controller.getCurrentUser();
-                    dispose();
-                    new HomeWindow(user);
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
-                }
-            }
+            login();
         });
         buttonsPanel.add(loginButton);
         buttonsPanel.add(Box.createVerticalStrut(15));
@@ -183,6 +184,22 @@ public class LoginWindow extends JFrame {
         setVisible(true);
     }
 
+
+    public void login() {
+        if (checkFields(usernameField.getText(), passwordField)) {
+            if (controller.logIn(usernameField.getText(), new String(passwordField.getPassword()))) {
+                User user = controller.getCurrentUser();
+                dispose();
+                new HomeWindow(user);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE, loadIcon(ICON_ANGRY, 60, 60));
+            }
+        }
+    }
+
+
     /**
      * Checks if the username and password fields are filled.
      * Shows an error dialog if any field is empty.
@@ -200,10 +217,17 @@ public class LoginWindow extends JFrame {
     }
 
     /**
+     * Shows the login window in a static, convenient way.
+     */
+    public static void showLogin() {
+        SwingUtilities.invokeLater(LoginWindow::new);
+    }
+
+    /**
      * Main method to launch the login window.
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(LoginWindow::new);
+        showLogin();
     }
 }
