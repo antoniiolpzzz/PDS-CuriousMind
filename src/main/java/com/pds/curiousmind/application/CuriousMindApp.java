@@ -1,9 +1,11 @@
 package com.pds.curiousmind.application;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.util.Logger;
-import javax.swing.SwingUtilities;
+import com.pds.curiousmind.view.authentication.login.LoginWindow;
+
 import javax.swing.UIManager;
 
 
@@ -57,7 +59,7 @@ public class CuriousMindApp {
      */
     private static void configureLookAndFeel() {
         try {
-            UIManager.setLookAndFeel(new FlatMacLightLaf());
+            UIManager.setLookAndFeel(UIManager.getLookAndFeel());
 
         } catch (Exception e) {
             Logger.error("Failed to initialize FlatMacLightLaf: " + e.getMessage());
@@ -69,10 +71,8 @@ public class CuriousMindApp {
      * Replace MainController::showMainWindow with your actual UI entry point.
      */
     private static void launchUI() {
-        SwingUtilities.invokeLater(() -> {
-            // MainController.showMainWindow(); // Uncomment and replace with your actual UI controller
-            Logger.info("Launching main UI...");
-        });
+        LoginWindow.showLogin();
+        Logger.info("Launching main UI...");
     }
 
 }
