@@ -10,7 +10,7 @@
    - [2. Signup Window](#2-signup-window)
    - [3. Home Window](#3-home-window)
    - [4. UserInfo Window](#4-userinfo-window)
-   - [5. Course Dashboard)](#5-course-dashboard)
+   - [5. Course Dashboard](#5-course-dashboard)
    - [6. Question Window](#6-question-window)
 5. [App Functionality](#app-functionality)
    - [1. How to create an account](#1-how-to-create-an-account)
