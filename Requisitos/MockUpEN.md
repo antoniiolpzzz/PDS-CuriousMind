@@ -43,6 +43,6 @@ Below is a summary of the available mockups:
 ---
 
 Each of these mockups visually supports the corresponding functionalities and user experience of **CuriousMind**.  
-For more details, see the related [issues](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Aissue+is%3Aopen+label%3A%22mockup%22) in this repository.
+For more details, see the related [issues](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Aissue+is%3Aopen+label%3A%22user%20interface%22) in this repository.
 
 * The link above applies the **mockup** label filter for convenience.
