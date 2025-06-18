@@ -249,4 +249,32 @@ public class Course {
     public void setAvailableStrategies(Set<StrategyType> availableStrategies) {
         this.availableStrategies = new HashSet<>(availableStrategies);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        if (id != null && course.id != null) {
+            return id.equals(course.id);
+        }
+
+        return name != null && name.equals(course.name)
+                && ((description == null && course.description == null) || (description != null && description.equals(course.description)));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
