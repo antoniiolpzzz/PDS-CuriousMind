@@ -3,6 +3,7 @@ package com.pds.curiousmind.util.mapper.implementation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pds.curiousmind.model.course.Course;
+import com.pds.curiousmind.util.Logger;
 import com.pds.curiousmind.util.mapper.interfaces.ICourseMapper;
 import java.io.File;
 import java.io.IOException;
@@ -19,31 +20,33 @@ public class CourseMapperJSON implements ICourseMapper<File> {
     @Override
     public Course toEntity(File file) {
         if (file == null || !file.exists()) {
-            throw new IllegalArgumentException("Input JSON file must not be null and must exist");
+            Logger.error("Input JSON file must not be null and must exist");
+            return null;
         }
         try {
             return objectMapper.readValue(file, Course.class);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to parse JSON file to Course", e);
+            Logger.error("Failed to parse JSON file to Course: " + e.getMessage());
+            return null;
         }
     }
 
     @Override
     public File fromEntity(Course entity) {
         if (entity == null) {
-            throw new IllegalArgumentException("Course entity must not be null");
+            Logger.error("Course entity must not be null");
+            return null;
         }
         try {
-            //objectMapper.addMixIn(Object.class, IgnoreIdMixin.class);
             File tempFile = File.createTempFile("course", ".json");
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(tempFile, entity);
             return tempFile;
         } catch (IOException e) {
-            throw new RuntimeException("Failed to convert Course to JSON file", e);
+            Logger.error("Failed to convert Course to JSON file: " + e.getMessage());
+            return null;
         }
     }
 
     @JsonIgnoreProperties({"id"})
     private static class IgnoreIdMixin {}
 }
-
