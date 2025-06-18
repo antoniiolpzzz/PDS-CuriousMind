@@ -27,7 +27,7 @@ public class CreateHeader {
         JLabel homeTitle = new JLabel(course.getName(), SwingConstants.LEFT);
         homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
-        homeTitle.setIcon(loadIcon(course.getImageURL(), 24, 24));
+        homeTitle.setIcon(loadIcon(controller.downloadImageFromUrl(course.getImageURL()), 24, 24));
         headerPanel.add(homeTitle, BorderLayout.WEST);
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(Color.WHITE);

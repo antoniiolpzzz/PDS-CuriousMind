@@ -53,7 +53,7 @@ public class CourseStrategyWindow extends JDialog {
         String courseName = course.getName ();
         JLabel title = new JLabel(courseName);
         title.setFont(new Font(FONT_NAME, Font.BOLD, 22));
-        title.setIcon(loadIcon(course.getImageURL(), 28, 28));
+        title.setIcon(loadIcon(controller.downloadImageFromUrl(course.getImageURL()), 28, 28));
         titlePanel.add(title);
         mainPanel.add(titlePanel);
 

@@ -62,7 +62,7 @@ public class CourseDashboard extends JFrame {
 
         // HEADER SECTION
 
-        String iconPath = course.getImageURL();
+        String iconPath = controller.downloadImageFromUrl(course.getImageURL());
         JLabel homeTitle = new JLabel(course.getName());
         homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
