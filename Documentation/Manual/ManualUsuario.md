@@ -189,7 +189,7 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 El objetivo del ejercicio es completar correctamente una oración en inglés introduciendo la palabra que falta.
 
-📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGap.png)
+📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/fill.png)
 
 Elementos principales de la interfaz:
 
@@ -198,7 +198,7 @@ Elementos principales de la interfaz:
 - Enunciado e indicación de lo que hay que hacer.
 - Debajo se encuentra una caja de texto vacía donde el usuario debe escribir la palabra que falta.
 
-📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/FillTheGapAnswer.png)
+📸 Ventana Pregunta Rellenar Huecos ![FillTheGap screen](Images/UserManual/fillAnswer.png)
 
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
@@ -218,7 +218,7 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 El objetivo principal es identificar correctamente una palabra del vocabulario presentada en forma de imagen.
 
-📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/Flashcard.png)
+📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/flashCard.png)
 
 Elementos destacados:
 
@@ -228,7 +228,7 @@ Elementos destacados:
 - Debajo aparecen tres imágenes correspondientes con sus correspondientes nombres.
 - El usuario debe seleccionar la imagen que representa la palabra correcta.
 
-📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/FlashcardAnswer.png)
+📸 Ventana Pregunta Flashcard ![Flashcard screen](Images/UserManual/flashCardAnswer.png)
   
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
@@ -246,7 +246,7 @@ En la parte inferior izquierda también se encuentra el botón **Exit** <img src
 
 El objetivo principal es que el usuario responda una pregunta tipo test seleccionando la opción correcta.
 
-📸 Ventana Pregunta Test ![Test screen](Images/UserManual/Test.png)
+📸 Ventana Pregunta Test ![Test screen](Images/UserManual/test.png)
 
 Elementos destacados:
 
@@ -255,7 +255,7 @@ Elementos destacados:
 - Enunciado e indicación de lo que hay que hacer.
 - Debajo aparecen las opciones de respuesta de entre las cuales el usuario debe seleccionar la respuesta correcta.
 
-📸 Ventana Pregunta Test ![Test screen](Images/UserManual/TestAnswer.png)
+📸 Ventana Pregunta Test ![Test screen](Images/UserManual/testAnswer.png)
   
 - Botón **Submit** al final para comprobar si la respuesta es correcta o no.
 
@@ -440,7 +440,7 @@ Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).
 Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque se marcará como **completado** 🎉, ya no lo podrás volver a hacer, y aparecerá de color verde en el menú del curso.
 
 📸 Curso Completado  
-![CompletedCourse screen](Images/UserManual/CompletedCourse.png) //TODO
+![CompletedCourse screen](Images/UserManual/CompletedCourse.png) 
 
 ---
 ## Pruebas y testing
