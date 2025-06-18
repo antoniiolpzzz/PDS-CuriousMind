@@ -33,4 +33,6 @@ A continuación, se presenta un resumen:
    Los usuarios ganan puntos al completar bloques de contenido, subiendo de nivel en función de su progreso.
 
 Cada uno de estos casos de uso cubre funcionalidades clave para la experiencia de aprendizaje en **CuriousMind**.  
-Para más información, consulta los issues correspondientes en este repositorio.
+Para más información, consulta los [issues](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Aissue+is%3Aopen+label%3A%22use%20case%22) correspondientes en este repositorio.
+
+* Para mayor comodidad, el filtro **use case** de los **issues** está activado en el anterior enlace. 
