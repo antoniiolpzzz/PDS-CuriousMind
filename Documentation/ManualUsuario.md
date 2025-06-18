@@ -428,8 +428,8 @@ Si decides salir del bloque antes de terminarlo (cerrando la app o saliendo al m
 Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).  
 - Al completar un bloque, recibirás **puntos** en función de su dificultad:
   - Fácil ⭐ → 100 puntos
-  - Medio ⚙️ → 300 puntos
-  - Difícil 🔥 → 500 puntos
+  - Medio ⭐⭐ → 300 puntos
+  - Difícil ⭐⭐⭐ → 500 puntos
 
 🏆 Los puntos te ayudan a **aumentar tu nivel como estudiante** en CuriousMind. Cuantos más bloques completes, más nivel tendrás **(1 nivel = 100 puntos)**.
 
