@@ -139,10 +139,4 @@ public class UserWindow extends JFrame {
         return course.getProgress();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // Crea un usuario de prueba o recupera el usuario de otra forma
-            User user = controller.getCurrentUser();
-            new HomeWindow(user);
-        });
-    }}
+}

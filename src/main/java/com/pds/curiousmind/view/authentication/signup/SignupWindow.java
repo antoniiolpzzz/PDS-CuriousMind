@@ -221,8 +221,4 @@ public class SignupWindow extends JFrame {
 
         return true;
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(SignupWindow::new);
-    }
 }

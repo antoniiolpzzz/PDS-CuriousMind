@@ -170,28 +170,4 @@ public class QuestionStructure extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-
-        RegisteredCourse course = controller.getRegisteredCourses().get(0);
-
-        //Crear una lista de tipo Option para la prueba
-
-        Question question = new FillTheGap(
-                "Complete the sentence:",
-                "The ___ is the satellite of the Earth.",
-                "moon"
-        );
-
-        Difficulty difficulty = Difficulty.EASY;
-
-        SwingUtilities.invokeLater(() -> new com.pds.curiousmind.view.playview.question.components.QuestionStructure(
-                course,
-                question,
-                "Basic Astronomy Questions",
-                difficulty
-        ));
-    }
-
-
-
 }
