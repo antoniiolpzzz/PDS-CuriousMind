@@ -36,6 +36,4 @@ jobs:
           path: java/target/artifacts/*.jar
           if-no-files-found: error
           retention-days: 14
-
-      - name: Update dependency graph
-        uses: advanced-security/maven-dependency-submission-action@v4
+          
