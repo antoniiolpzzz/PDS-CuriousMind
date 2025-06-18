@@ -1,4 +1,4 @@
-package com.pds.curioudmind.model;
+package com.pds.curiousmind.model.course;
 
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.contentblock.ContentBlock;
@@ -9,6 +9,7 @@ import com.pds.curiousmind.model.strategy.StrategyType;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,6 +42,7 @@ class CourseTest {
         return course;
     }
 
+    // GETTERS
 
     @Test
     void testGetName() {
@@ -49,21 +51,15 @@ class CourseTest {
     }
 
     @Test
-    void testGetId() {
+    void testGetDescription() {
         Course course = createExampleCourse();
-        assertNotNull(course.getId());
+        assertEquals("A course to introduce basic German language concepts.", course.getDescription());
     }
 
     @Test
     void testGetImageURL() {
         Course course = createExampleCourse();
         assertEquals("https://stock.adobe.com/247157521/german-language-learning-logo-icon-with-headphones.jpg", course.getImageURL());
-    }
-
-    @Test
-    void testGetDescription() {
-        Course course = createExampleCourse();
-        assertEquals("A course to introduce basic German language concepts.", course.getDescription());
     }
 
     @Test
@@ -74,11 +70,27 @@ class CourseTest {
     }
 
     @Test
-    void testSetContentBlocks() {
+    void testGetAvailableStrategies() {
         Course course = createExampleCourse();
-        course.setContentBlocks(List.of());
-        assertEquals(0, course.getContentBlocks().size());
+        assertNotNull(course.getAvailableStrategies());
+        assertEquals(2, course.getAvailableStrategies().size());
     }
+
+    // SETTERS
+    @Test
+    void testSetId() {
+        Course course = createExampleCourse();
+        course.setId(123L);
+        assertEquals(123L, course.getId());
+    }
+
+    @Test
+    void testSetName() {
+        Course course = createExampleCourse();
+        course.setName("New Name");
+        assertEquals("New Name", course.getName());
+    }
+
 
     @Test
     void testSetDescription() {
@@ -95,16 +107,22 @@ class CourseTest {
     }
 
     @Test
-    void testSetName() {
+    void testSetContentBlocks() {
         Course course = createExampleCourse();
-        course.setName("New Name");
-        assertEquals("New Name", course.getName());
+        course.setContentBlocks(List.of());
+        assertEquals(0, course.getContentBlocks().size());
     }
 
     @Test
-    void testSetId() {
+    void testSetAvailableStrategies() {
         Course course = createExampleCourse();
-        course.setId(123L);
-        assertEquals(123L, course.getId());
+        course.setAvailableStrategies(Set.of(StrategyType.SEQUENTIAL));
+        assertEquals(1, course.getAvailableStrategies().size());
+        assertTrue(course.getAvailableStrategies().contains(StrategyType.SEQUENTIAL));
     }
+
+
+
+
+
 }

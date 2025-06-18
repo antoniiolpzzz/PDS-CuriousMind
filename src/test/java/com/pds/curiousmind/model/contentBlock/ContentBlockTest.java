@@ -1,4 +1,4 @@
-package com.pds.curioudmind.model;
+package com.pds.curiousmind.model.contentBlock;
 
 import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.contentblock.Difficulty;
@@ -41,16 +41,12 @@ class ContentBlockTest {
         );
     }
 
-    @Test
-    void testGetId() {
-        ContentBlock block = createExampleBlock();
-        assertNotNull(block.getId());
-    }
+    // GETTERS
 
     @Test
-    void testGetDifficulty() {
+    void testGetName() {
         ContentBlock block = createExampleBlock();
-        assertEquals(Difficulty.EASY, block.getDifficulty());
+        assertEquals("Introduction", block.getName());
     }
 
     @Test
@@ -61,9 +57,25 @@ class ContentBlockTest {
     }
 
     @Test
-    void testGetName() {
+    void testGetDifficulty() {
         ContentBlock block = createExampleBlock();
-        assertEquals("Introduction", block.getName());
+        assertEquals(Difficulty.EASY, block.getDifficulty());
+    }
+
+
+    // SETTERS
+    @Test
+    void testSetId() {
+        ContentBlock block = createExampleBlock();
+        block.setId(123L);
+        assertEquals(123L, block.getId());
+    }
+
+    @Test
+    void testSetName() {
+        ContentBlock block = createExampleBlock();
+        block.setName("New Name");
+        assertEquals("New Name", block.getName());
     }
 
     @Test
@@ -74,23 +86,10 @@ class ContentBlockTest {
     }
 
     @Test
-    void testSetId() {
-        ContentBlock block = createExampleBlock();
-        block.setId(123L);
-        assertEquals(123L, block.getId());
-    }
-
-    @Test
     void testSetDifficulty() {
         ContentBlock block = createExampleBlock();
         block.setDifficulty(Difficulty.MEDIUM);
         assertEquals(Difficulty.MEDIUM, block.getDifficulty());
     }
 
-    @Test
-    void testSetName() {
-        ContentBlock block = createExampleBlock();
-        block.setName("New Name");
-        assertEquals("New Name", block.getName());
-    }
 }
