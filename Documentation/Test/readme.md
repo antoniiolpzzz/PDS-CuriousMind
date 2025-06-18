@@ -28,7 +28,9 @@ Este apartado describe la estrategia y el estado actual de las pruebas implement
 ### 🎯 Pruebas de aceptación
 
 - Validación de funcionalidades completas desde la perspectiva del usuario.
-- Se ha decidido el uso de vídeos explicativos donde se muestra cómo interactuará el usuario con la aplicacion. Estos se adjuntan a continuación:
+- Se ha decidido el uso de vídeos explicativos donde se muestra cómo interactuará el usuario con la aplicacion.
+- [Video Demostrativo](https://dai.ly/k3ALFKPBzbRbZODhqhq)
+
 
 ### 🛠️ Tests con Mockito
 
@@ -38,4 +40,3 @@ Este apartado describe la estrategia y el estado actual de las pruebas implement
   - Facilitar la escritura de pruebas unitarias e integración.
 
 ---
-
