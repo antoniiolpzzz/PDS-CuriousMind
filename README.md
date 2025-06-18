@@ -108,7 +108,7 @@ Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369
 
 ## 📲 Use Cases
 
-Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Aissue+is%3Aopen+label%3A%22use%20case%22) to go to our detailed use cases list, including:
+Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readme.md) to go to our detailed use cases list, including:
 
 
 1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
@@ -121,7 +121,7 @@ Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues?q=is%3Ais
 8. [CDU 008](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/12): Repeat failed (Additional feature)
 9. [CDU 009](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/13): Increase level (Additional feature)
 
-*For an optimal access, the **"use case"** filter is already applied. 
+
 
 
 ## 🤝 Contributing
