@@ -14,18 +14,39 @@ import static com.pds.curiousmind.view.home.components.CourseRowSection.createCo
 import static com.pds.curiousmind.view.home.components.CourseRowSection.createRegisteredCourseRowSection;
 import static com.pds.curiousmind.view.home.components.SectionTitle.sectionTitle;
 import static com.pds.curiousmind.view.common.LoadIcon.loadIcon;
-import com.pds.curiousmind.view.common.StyledButton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-
+/**
+ * This class represents the main home window of the CuriousMind application.
+ * <p>
+ * It displays:
+ * <ul>
+ *     <li>A personalized greeting and user profile icon</li>
+ *     <li>The list of courses the user is currently enrolled in</li>
+ *     <li>A section to discover new courses</li>
+ *     <li>An option to import or create a custom course</li>
+ * </ul>
+ * Clicking the username or profile picture navigates to the {@link UserWindow} with stats and profile details.
+ *
+ * @see User
+ * @see RegisteredCourse
+ * @see Course
+ * @see UserWindow
+ * @see JsonChooserWindow
+ * @author
+ */
 public class HomeWindow extends JFrame {
 
     private static final Controller controller = Controller.INSTANCE;
 
-
+    /**
+     * Constructs the home window for the given user, initializing all components and layout.
+     *
+     * @param user The current logged-in user. If null, a guest view is shown.
+     */
     public HomeWindow(User user) {
 
         setTitle("CuriousMind - Home");
@@ -34,11 +55,11 @@ public class HomeWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(true);
 
-        // BACKGROUND PANEL
-        JPanel basePanel = createBackground(this,null,null, "logout");
+        // Set the background panel
+        JPanel basePanel = createBackground(this, null, null, "logout");
         setContentPane(basePanel);
 
-        // Right panel setup for main content
+        // Right content panel with rounded layout
         JPanel rightWrapper = new JPanel(new BorderLayout());
         rightWrapper.setOpaque(false);
         rightWrapper.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 20));
@@ -50,7 +71,7 @@ public class HomeWindow extends JFrame {
         basePanel.add(rightWrapper, BorderLayout.EAST);
         rightWrapper.setPreferredSize(new Dimension(950, 0));
 
-        // Header with user info and home title
+        // Header section: Title and user profile info
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
         headerPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
@@ -58,10 +79,9 @@ public class HomeWindow extends JFrame {
         homeTitle.setFont(new Font(FONT_NAME, Font.BOLD, 35));
         homeTitle.setForeground(Color.BLACK);
         homeTitle.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+
         JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         userPanel.setOpaque(false);
-
-        // USER PANEL INFORMATION
 
         String username = (user != null && user.getUsername() != null) ? user.getUsername() : "Invitado";
         StyledButton name = new StyledButton(username, Color.BLACK, Color.WHITE);
@@ -74,15 +94,18 @@ public class HomeWindow extends JFrame {
                 new UserWindow(user);
                 dispose();
             }
+
             @Override
             public void mouseEntered(java.awt.event.MouseEvent e) {
                 name.setBackground(new Color(50, 50, 50));
             }
+
             @Override
             public void mouseExited(java.awt.event.MouseEvent e) {
                 name.setBackground(Color.BLACK);
             }
         });
+
         String iconPath = controller.getUserPhoto();
         ImageIcon icon = loadIcon(iconPath, 35, 35);
         assert icon != null;
@@ -96,6 +119,7 @@ public class HomeWindow extends JFrame {
                 dispose();
             }
         });
+
         userPanel.add(name);
         userPanel.add(iconLabel);
         headerPanel.add(userPanel, BorderLayout.EAST);
@@ -103,8 +127,7 @@ public class HomeWindow extends JFrame {
         rightPanel.add(headerPanel);
         rightPanel.add(Box.createVerticalStrut(20));
 
-        // YOUR COURSES SECTION
-
+        // Section: Your registered courses
         List<RegisteredCourse> myCourses = controller.getRegisteredCourses();
         JPanel rowMyCourses = createRegisteredCourseRowSection(this, myCourses);
         rightPanel.add(sectionTitle("Your courses"));
@@ -112,23 +135,19 @@ public class HomeWindow extends JFrame {
         rightPanel.add(new CoursesScrollPanel(rowMyCourses));
         rightPanel.add(Box.createVerticalStrut(20));
 
-
-        // ALL COURSES SECTION
-
+        // Section: All available courses
         rightPanel.add(sectionTitle("New course"));
         List<Course> allCourses = controller.getAllCourses();
-        JPanel rowNewCourses = createCourseRowSection(this, allCourses,user);
-
+        JPanel rowNewCourses = createCourseRowSection(this, allCourses, user);
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(new CoursesScrollPanel(rowNewCourses));
         rightPanel.add(Box.createVerticalStrut(20));
 
-        // IMPORT COURSE SECTION
-
+        // Section: Create or import a custom course
         rightPanel.add(sectionTitle("Create your course"));
         rightPanel.add(Box.createVerticalStrut(10));
         JPanel createBtnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
-        createBtnPanel.setOpaque(false); // o blanco si lo prefieres
+        createBtnPanel.setOpaque(false);
 
         StyledButton createButton = new StyledButton("+", Color.WHITE, Color.BLACK);
         createButton.addActionListener(e -> {
@@ -140,7 +159,6 @@ public class HomeWindow extends JFrame {
         createBtnPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
         createBtnPanel.add(createButton);
         rightPanel.add(createBtnPanel);
-
 
         setVisible(true);
     }
