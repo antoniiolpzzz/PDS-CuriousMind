@@ -18,7 +18,6 @@ import com.pds.curiousmind.view.common.StyledButton;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -84,7 +83,7 @@ public class HomeWindow extends JFrame {
                 name.setBackground(Color.BLACK);
             }
         });
-        String  iconPath = controller.getUserPhoto();
+        String iconPath = controller.getUserPhoto();
         ImageIcon icon = loadIcon(iconPath, 35, 35);
         assert icon != null;
         Image image = icon.getImage();
