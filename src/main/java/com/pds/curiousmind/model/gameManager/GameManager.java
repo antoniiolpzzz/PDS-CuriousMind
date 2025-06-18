@@ -147,7 +147,20 @@ public enum GameManager {
         if (questionIterator != null && question != null) {
             questionIterator.addFailedQuestion(question);
         }
-        lives--;
+        decrementLives();
+    }
+
+    /**
+     * Checks if the user has any lives remaining.
+     *
+     * @return true if lives are available, false otherwise
+     */
+    private boolean decrementLives() {
+        if (lives > 0) {
+            lives--;
+            return true;
+        }
+        return false;
     }
 
     /**
