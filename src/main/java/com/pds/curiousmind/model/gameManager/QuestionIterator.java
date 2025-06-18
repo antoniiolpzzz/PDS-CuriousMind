@@ -1,10 +1,10 @@
 package com.pds.curiousmind.model.gameManager;
 
 import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.util.Logger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class QuestionIterator implements Iterator<Question> {
 
@@ -29,7 +29,8 @@ public class QuestionIterator implements Iterator<Question> {
     @Override
     public Question next() {
         if (!hasNext()) {
-            throw new NoSuchElementException("No more questions available.");
+            Logger.error("No more questions available.");
+            return null;
         }
         return questions.get(currentIndex++);
     }
