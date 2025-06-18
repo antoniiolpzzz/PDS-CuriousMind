@@ -5,9 +5,27 @@ import java.io.InputStream;
 import java.io.IOException;
 
 /**
- * AppConfig is a utility class that loads configuration properties from a file named "config.properties".
- * It provides a method to retrieve property values by their keys.
- * This class is designed to be used throughout the application to access configuration settings.
+ * Utility class for loading and accessing application configuration properties.
+ * <p>
+ * The {@code AppConfig} class loads configuration properties from a file named {@code config.properties}
+ * located in the classpath. It provides a static method to retrieve property values by their keys.
+ * The properties are loaded once when the class is first accessed, ensuring efficient access
+ * throughout the application's lifecycle.
+ * </p>
+ *
+ * <p>
+ * Example usage:
+ * <pre>
+ *     String dbUrl = AppConfig.get("database.url");
+ *     String adapterClass = AppConfig.get("persistence.adapter.implementation");
+ * </pre>
+ * </p>
+ *
+ * <p>
+ * If the configuration file is missing or cannot be loaded, an error is logged and a runtime exception is thrown.
+ * </p>
+ *
+ * @author antoniolopeztoboso
  */
 public final class AppConfig {
     /**
@@ -15,6 +33,7 @@ public final class AppConfig {
      * This file should be located in the classpath.
      */
     private static final String CONFIGURATION_FILE = "config.properties";
+
     /**
      * The Properties object that holds the configuration properties loaded from the file.
      * It is initialized statically to ensure that properties are loaded once when the class is first accessed.
@@ -39,10 +58,9 @@ public final class AppConfig {
      * Retrieves the value of a property by its key.
      *
      * @param key the key of the property to retrieve
-     * @return the value of the property, or null if the key does not exist
+     * @return the value of the property, or {@code null} if the key does not exist
      */
     public static String get(String key) {
         return properties.getProperty(key);
     }
 }
-
