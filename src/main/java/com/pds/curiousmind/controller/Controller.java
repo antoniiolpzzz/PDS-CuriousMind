@@ -26,7 +26,7 @@ public enum Controller {
     // CONTROLLER VARIABLES
     private User currentUser;
     private final MapperFormat mapperFormat = MapperFormat.valueOf(AppConfig.get("mapping.file.format"));
-    private static final String USER_PHOTO_API = "https://api.dicebear.com/9.x/dylan/png?size=128&seed=";
+    private static final String USER_IMAGE_API = AppConfig.get("user.image.api");
 
     // INITIALIZATION OF THE LIBRARIES AND ADAPTERS AND SERVICES
     private final CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
@@ -47,7 +47,7 @@ public enum Controller {
 
     // GET USER PHOTO BY API
     public String getUserPhoto() {
-        String urlString = USER_PHOTO_API + (currentUser != null ? currentUser.getUsername() : "user");
+        String urlString = USER_IMAGE_API + (currentUser != null ? currentUser.getUsername() : "user");
         String imagePath = ImageUtils.downloadImage(urlString, ".png");
         return imagePath != null ? imagePath : "icons/button/user.png";
     }
@@ -83,12 +83,11 @@ public enum Controller {
     // LOG IN THE USER
 
     public boolean logIn(String username, String password) {
-
-        if(userLibrary.getByUsername(username) != null)
+        User user = userLibrary.getByUsername(username);
+        if(user != null)
         {
-            if(userLibrary.getByUsername(username).getPassword().equals(password)) {
-                currentUser = userLibrary.getByUsername(username);
-
+            if(user.getPassword().equals(password)) {
+                currentUser = user;
                 currentUser.logEntry();
                 userLibrary.update(currentUser);
                 return true;
