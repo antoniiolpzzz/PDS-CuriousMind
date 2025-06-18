@@ -17,7 +17,8 @@ Este apartado describe la estrategia y el estado actual de las pruebas implement
 - Tipos de cobertura:
   - **Cobertura por línea**
   - **Cobertura por rama**
-- El informe generado se adjunta a continuación 
+- El informe generado se adjunta a continuación
+![image](https://github.com/antoniiolpzzz/PDS-CuriousMind/raw/b89e72fa54b8db1e46a37aecefd982192e917665/Documentation/Test/informeCobertura.png)
 
 ### 🔄 Pruebas de integración
 
