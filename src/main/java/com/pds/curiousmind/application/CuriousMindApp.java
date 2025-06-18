@@ -1,45 +1,84 @@
 package com.pds.curiousmind.application;
 
-import com.pds.curiousmind.model.contentblock.Difficulty;
-import com.pds.curiousmind.model.question.implementation.FlashCard;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import com.pds.curiousmind.controller.Controller;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
-import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
-import com.pds.curiousmind.model.course.Course;
-import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.question.Question;
 import com.pds.curiousmind.model.question.option.Option;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
-import com.pds.curiousmind.util.mapper.service.CourseMapperService;
+import com.pds.curiousmind.util.Logger;
 
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.UUID;
 
+
+/**
+ * Main entry point for the CuriousMind application.
+ * <p>
+ * This class is responsible for initializing core services and launching the Swing UI.
+ * It follows best practices for maintainability and clarity, keeping the entry point clean and professional.
+ * </p>
+ *
+ * <p>
+ * Application startup and shutdown are logged for traceability.
+ * </p>
+ *
+ * @author antoniolopeztoboso
+ */
 public class CuriousMindApp {
+    /**
+     * Main method: application entry point.
+     * Initializes core services and launches the Swing UI.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
+        System.out.println("CuriousMind Application starting...");
+        try {
+            initializeCoreServices();
+            configureLookAndFeel();
+            launchUI();
+            System.out.println("CuriousMind Application started successfully.");
+        } catch (Exception e) {
+            System.err.println("Application failed to start: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
-        /*
-        System.out.println("Hello, World!");
+    /**
+     * Initializes core singleton services/libraries required by the application.
+     * Extend this method as the application grows.
+     *
+     * Note: Initialization of business logic should be handled by controllers or service classes.
+     */
+    private static void initializeCoreServices() {
+        Controller controller = Controller.INSTANCE;
+    }
 
-        CourseLibrary courseLibrary = CourseLibrary.INSTANCE;
-        UserLibrary userLibrary = UserLibrary.INSTANCE;
-        CourseMapperService courseMapper = CourseMapperService.INSTANCE;
+    /**
+     * Configures the Swing look and feel for the application.
+     * Sets FlatMacLightLaf as the default theme.
+     */
+    private static void configureLookAndFeel() {
+        try {
+            UIManager.setLookAndFeel(new FlatMacLightLaf());
 
-        Course tempCourse = createRandomCourse();
-        courseLibrary.add(tempCourse);
+        } catch (Exception e) {
+            Logger.error("Failed to initialize FlatMacLightLaf: " + e.getMessage());
+        }
+    }
 
-        User tempUser = createRandomUser();
-        User user = userLibrary.add(tempUser);
+    /**
+     * Launches the main Swing UI on the Event Dispatch Thread.
+     * Replace MainController::showMainWindow with your actual UI entry point.
+     */
+    private static void launchUI() {
+        SwingUtilities.invokeLater(() -> {
+            System.out.println("Launching main UI...");
 
-        StrategyType[] strategies = StrategyType.values();
-        StrategyType randomStrategy = strategies[new Random().nextInt(strategies.length)];
-        user.registerInCourse(tempCourse, randomStrategy);
-        userLibrary.update(user);
-
-        printAllUserDetails(userLibrary.getAll());
-         */
+        });
     }
 
     public static void printAllUserDetails(List<User> userlist) {
@@ -71,61 +110,5 @@ public class CuriousMindApp {
             System.out.println("-----------------------------------------------");
         }
         System.out.println("\n");
-    }
-
-
-    public static Course createRandomCourse() {
-        Random random = new Random();
-        String name = "Course_" + UUID.randomUUID().toString().substring(0, 8);
-        String description = "Description_" + UUID.randomUUID().toString().substring(0, 8);
-        String imageURL = "http://example.com/image" + random.nextInt(1000) + ".jpg";
-        List<StrategyType> strategies = List.of(
-                StrategyType.values()[random.nextInt(StrategyType.values().length)],
-                StrategyType.values()[random.nextInt(StrategyType.values().length)]
-        );
-
-        // Create random options
-        List<Option> options = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            options.add(new Option("Option " + (char)('A' + i)));
-        }
-
-        // Create a random question
-        Question question = new FlashCard(
-                "Indication_" + random.nextInt(100),
-                "Statement_" + random.nextInt(100),
-                options.getFirst().getLabel(),
-                options
-        );
-        List<Question> questions = new ArrayList<>();
-        questions.add(question);
-
-        // Create a content block
-        ContentBlock contentBlock = new ContentBlock(
-                "Block_" + UUID.randomUUID().toString().substring(0, 4),
-                Difficulty.values()[random.nextInt(Difficulty.values().length)],
-                questions
-        );
-        List<ContentBlock> contentBlocks = new ArrayList<>();
-        contentBlocks.add(contentBlock);
-
-        // Create and return the course
-        return new Course(
-                name,
-                description,
-                imageURL,
-                strategies,
-                contentBlocks
-        );
-    }
-
-    public static User createRandomUser() {
-        Random random = new Random();
-        String fullName = "User_" + UUID.randomUUID().toString().substring(0, 8);
-        String email = "user" + random.nextInt(10000) + "@mail.com";
-        String password = "pass" + UUID.randomUUID().toString().substring(0, 6);
-        String username = "username_" + UUID.randomUUID().toString().substring(0, 6);
-
-        return new User(fullName, email, password, username);
     }
 }
