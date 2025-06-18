@@ -5,39 +5,39 @@ Each mockup is documented as an individual issue in this repository for tracking
 
 Below is a summary of the available mockups:
 
-([**Authentication**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+[**Authentication**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8)
 
-1. **Login** — `login.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+1. **Login** —  [`login.png`](/MockUps/login.png)
 
-2. **Signup** — `signup.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+2. **Signup** —  [`signup.png`](/MockUps/signup.png)
 
-([**Main**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+[**Main**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9)
 
-4. **Home** — `home.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+4. **Home** — [`home.png` ](/MockUps/home.png)
 
-5. **Course Dashboard** — `courseDashboard.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+5. **Course Dashboard** — [`courseDashboard.png`](/MockUps/login.png)
 
-6. **Profile** — `profile.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+6. **Profile** —  [`profile.png`](/MockUps/profile.png)
 
-([**Question**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+[**Question**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8)
 
-8. **Fill in the blank** — `fill.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+8. **Fill in the blank** — [`fill.png`](/MockUps/fill.png)
 
-9. **Flashcard** — `flashcard.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+9. **Flashcard** —  [`flashcard.png`](/MockUps/flashcard.png)
   
-10. **Test** — `test.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+10. **Test** — [`test.png`](/MockUps/tet.png)
 
-11. **Translate** — `translate.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+11. **Translate** —  [`translate.png`](/MockUps/translate.png)
 
-([**PopUp**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+[**PopUp**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8)
 
-13. **About** — `about.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+13. **About** — [`about.png`](/MockUps/about.png)
 
-14. **Contact** — `contact.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+14. **Contact** — [`contact.png`](/MockUps/contact.png)
 
-15. **JSON Import** — `json.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+15. **JSON Import** — [`json.png`](/MockUps/json.png)
 
-16. **Strategy** — `strategy.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+16. **Strategy** — [`strategy.png`](/MockUps/strategy.png)
 
 
 ---
