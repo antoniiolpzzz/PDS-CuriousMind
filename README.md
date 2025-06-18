@@ -33,6 +33,8 @@ _An innovative learning platform for curious minds_
 
 CuriousMind is an innovative learning platform inspired by successful applications like _Duolingo_ and _Mochi_. Our platform is designed to facilitate learning and reviewing concepts across various domains through an interactive card-based system.
 
+You can easily understand its main structure by looking at our domain model. CLick [here]() to see it!
+
 ### 🎯 Key Features
 
 - Create and share custom learning courses
