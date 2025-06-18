@@ -130,8 +130,6 @@ public enum Controller {
                     course -> course.getId().equals(registeredCourse.getCourse().getId())
                                     && !registeredCourse.isCompleted());
         });
-        //TODO: Filter allCourses so that Registered courses dont appear
-        // CREO QUE LO HE SOLUCIOANDO CON EL FOR EACH
         return allCourses ;
     }
 

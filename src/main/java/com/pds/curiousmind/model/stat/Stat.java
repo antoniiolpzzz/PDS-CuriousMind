@@ -198,7 +198,6 @@ public class Stat {
      * @return the best streak length
      */
     public int getBestStreak() {
-        //TODO: This need to be revised
         if (entries == null || entries.isEmpty()) return 0;
         int maxStreak = 1;
         int currentStreak = 1;
