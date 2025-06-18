@@ -62,7 +62,7 @@ public class CuriousMindApp {
             UIManager.setLookAndFeel(UIManager.getLookAndFeel());
 
         } catch (Exception e) {
-            Logger.error("Failed to initialize FlatMacLightLaf: " + e.getMessage());
+            Logger.error("Failed to initialize LookAndFeel: " + e.getMessage());
         }
     }
 
