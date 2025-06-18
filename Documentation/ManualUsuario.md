@@ -501,7 +501,7 @@ Sí, todos tus cambios se guardan y además la aplicación es capaz de guardar e
 No, si sales de un bloque de contenidos iniciado, como en la mayoría de aplicaciones relacionadas con el aprendizaje interactivo, debes iniciar de nuevo ese bloque.
 
 **¿Puedo volver a inscribirme en un curso del que ya estoy inscrito?**  
-No, una vez que te has inscrito en un curso, este aparece en la sección *"Mis Cursos"* y no es posible volver a inscribirse nuevamente.  
+No, una vez que te has inscrito en un curso, este aparece en la sección *"Mis Cursos"* y no es posible volver a inscribirse hasta que haya sido completado.  
 
 **¿Puedo volver a realizar un bloque de contenidos que ya he completado?**  
 No, una vez que completas con éxito un bloque de contenidos de un curso no se puede volver a hacer y quedará marcado en verde en la ventana principal del curso.
