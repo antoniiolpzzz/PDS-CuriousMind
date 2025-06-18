@@ -43,15 +43,14 @@ public class ContentBlockRow {
 
         List<RegisteredContentBlock> sortedBlocks = new ArrayList<RegisteredContentBlock>(contentBlocks);
 
-        // Ordenar por dificultad
-        sortedBlocks.sort(Comparator.comparingInt(block -> {
-            return switch (block.getDifficulty().toString()) {
-                case "EASY" -> 0;
-                case "MEDIUM" -> 1;
-                case "HARD" -> 2;
-                default -> 3;
-            };
-        }));
+        sortedBlocks.sort(Comparator.comparingInt(block ->
+                switch (block.getDifficulty().toString()) {
+                    case "EASY" -> 0;
+                    case "MEDIUM" -> 1;
+                    case "HARD" -> 2;
+                    default -> 3;
+                }
+        ));
 
         for (RegisteredContentBlock block : sortedBlocks) {
             RoundedLabel label = new RoundedLabel(block.getName());
