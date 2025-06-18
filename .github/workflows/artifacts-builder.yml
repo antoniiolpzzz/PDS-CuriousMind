@@ -22,7 +22,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven (includes tests)
-        working-directory: java
+        working-directory: Java
         run: mvn clean package -DskipTests
 
       - name: Copy JAR to artifacts folder
@@ -33,7 +33,5 @@ jobs:
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
-          name: project-jar
-          path: java/target/artifacts/*.jar
-          if-no-files-found: error
-          retention-days: 14
+          name: CuriousMind
+          path: Java/target/artifacts/*.jar
