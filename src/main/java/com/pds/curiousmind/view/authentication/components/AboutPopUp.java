@@ -20,6 +20,7 @@ public class AboutPopUp extends JDialog {
     public AboutPopUp(JFrame parent) {
         super(parent, "About Us", true);
         setUndecorated(false);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setSize(POPUP_WIDTH, POPUP_HEIGHT);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout());

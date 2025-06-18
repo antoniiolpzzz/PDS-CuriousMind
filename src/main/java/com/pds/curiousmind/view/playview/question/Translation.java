@@ -9,27 +9,55 @@ import java.util.Collections;
 import java.util.List;
 import static com.pds.curiousmind.view.common.GlobalConstants.*;
 
-
+/**
+ * This class provides utility methods to create interactive UI components
+ * for translation-based questions. It allows users to select words to form a translated sentence.
+ */
 public class Translation {
 
     // *****************************************************************************************
     // **************************** TRANSLATION FUNCTIONS **************************************
     // *****************************************************************************************
 
+    /**
+     * Encapsulates the result of creating a translation section, including
+     * the UI panel and the list of selected words.
+     */
     public static class TranslationSectionResult {
+        /** The main panel containing the translation UI components. */
         public final JPanel panel;
+
+        /** List of words selected by the user to form the translation. */
         private final List<String> selectedWords;
 
+        /**
+         * Constructs a TranslationSectionResult with the specified panel and selected words.
+         *
+         * @param panel the UI panel containing the translation section
+         * @param selectedWords the list of words selected by the user
+         */
         public TranslationSectionResult(JPanel panel, List<String> selectedWords) {
             this.panel = panel;
             this.selectedWords = selectedWords;
         }
 
+        /**
+         * Returns the final user-constructed answer by joining the selected words with spaces.
+         *
+         * @return the user's translation as a single string
+         */
         public String getAnswer() {
             return String.join(" ", selectedWords);
         }
     }
 
+    /**
+     * Creates a new translation section UI component where users can select words
+     * from a randomized list to form a sentence.
+     *
+     * @param options the list of {@link Option} objects representing possible word choices
+     * @return a {@link TranslationSectionResult} containing the panel and selected words
+     */
     public static TranslationSectionResult createTranslationSection(List<Option> options) {
 
         JPanel translationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 30, 0));
@@ -47,11 +75,10 @@ public class Translation {
 
         translationPanel.add(scrollPane);
 
+        // Shuffle options to randomize word order
         List<Option> shuffledOptions = new ArrayList<>(options);
         Collections.shuffle(shuffledOptions);
 
-        // Resto del código igual, pero usa shuffledOptions en vez de options
-        // ...
         List<String> wordOptions = shuffledOptions.stream()
                 .map(Option::getLabel)
                 .toList();
@@ -63,6 +90,7 @@ public class Translation {
         List<JButton> optionButtons = new ArrayList<>();
         List<String> selectedWords = new ArrayList<>();
 
+        // Create buttons for each word option
         for (String word : wordOptions) {
             JButton wordButton = new JButton(word);
             wordButton.setFont(new Font("SansSerif", Font.PLAIN, 14));
@@ -74,6 +102,7 @@ public class Translation {
 
             optionButtons.add(wordButton);
 
+            // Handle word selection
             wordButton.addActionListener(e -> {
                 wordButton.setVisible(false);
 
@@ -87,6 +116,7 @@ public class Translation {
 
                 selectedWords.add(word);
 
+                // Handle deselection of a word
                 selectedButton.addActionListener(evt -> {
                     answerInnerPanel.remove(selectedButton);
                     wordButton.setVisible(true);
