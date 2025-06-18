@@ -39,19 +39,15 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 ## Requisitos para el funcionamiento
 
 - Sistema operativo: (ej. Windows / macOS / Linux)
-- Java version: 1.8.0 
+- Versión Java: 21
 - IntelliJ IDEA (si se ejecuta desde código fuente)
-- Maven: Versión XX //TODO
+- Versión Maven: 3.x y 4.x
 
 ---
 
 ## Instalación y ejecución 
 
 //TODO
-1. Clona o descarga el repositorio.
-2. Abre el proyecto en IntelliJ IDEA.
-3. Ejecuta la clase `App.java`.
-4. Se abrirá la interfaz principal de la aplicación.
 
 ---
 
@@ -444,7 +440,7 @@ Cada bloque tiene una **dificultad** asignada (fácil, medio, difícil).
 Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque se marcará como **completado** 🎉, ya no lo podrás volver a hacer, y aparecerá de color verde en el menú del curso.
 
 📸 Curso Completado  
-![CompletedCourse screen](Images/UserManual/CompletedCourse.png)
+![CompletedCourse screen](Images/UserManual/CompletedCourse.png) //TODO
 
 ---
 ## Pruebas y testing
