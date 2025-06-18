@@ -49,7 +49,12 @@ public enum Controller {
     public String getUserPhoto() {
         String urlString = USER_PHOTO_API + (currentUser != null ? currentUser.getUsername() : "user");
         String imagePath = ImageUtils.downloadImage(urlString, ".png");
-        return imagePath != null ? imagePath : "src/main/resources/images/user.png";
+        return imagePath != null ? imagePath : "icons/button/user.png";
+    }
+
+    public String downloadImageFromUrl(String urlString) {
+        String imagePath = ImageUtils.downloadImage(urlString, ".png");
+        return imagePath != null ? imagePath : "icons/stat/time.jpg";
     }
 
 
