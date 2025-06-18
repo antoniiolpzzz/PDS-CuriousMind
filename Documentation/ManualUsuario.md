@@ -390,7 +390,7 @@ Para completar un curso, sigue estos pasos:
 Pulsa en uno de ellos para comenzar.  
 
 📸 Bloques de Contenido  
-![ContentBlock screen](Images/UserManual/ContentBlock.png)
+![ContentBlock screen](Images/UserManual/CourseDashboard.png) //TODO
 
 ---
 
