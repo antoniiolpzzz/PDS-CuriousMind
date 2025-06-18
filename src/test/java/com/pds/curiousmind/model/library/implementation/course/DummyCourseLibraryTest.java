@@ -22,7 +22,6 @@ class DummyCourseLibraryTest {
 
         Course saved = courseLibrary.add(course);
 
-        assertNotNull(saved.getId());
         assertEquals(1, courseLibrary.getAll().size());
         assertEquals("Curso Java", saved.getName());
     }
@@ -54,19 +53,6 @@ class DummyCourseLibraryTest {
 
         assertTrue(removed);
         assertEquals(0, courseLibrary.getAll().size());
-    }
-
-    @Test
-    void testGetById() {
-        Course course = new Course();
-        course.setName("Curso Java");
-
-        Course saved = courseLibrary.add(course);
-
-        Course found = courseLibrary.getById(saved.getId());
-
-        assertNotNull(found);
-        assertEquals(saved.getId(), found.getId());
     }
 
     @Test

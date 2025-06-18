@@ -4,8 +4,6 @@ import com.pds.curiousmind.model.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DummyUserLibraryTest {
@@ -19,40 +17,30 @@ class DummyUserLibraryTest {
 
     @Test
     void testAddUser() {
-        User user = new User();
-        user.setFullName("Ana López");
-        user.setUsername("ana123");
-        user.setEmail("ana@example.com");
-        user.setPassword("secret");
+        User user = new User("Ana López", "ana@example.com", "pass123", "ana123");
 
         User saved = userLibrary.add(user);
 
         assertEquals(1, userLibrary.getAll().size());
         assertEquals("Ana López", saved.getFullName());
+        assertEquals("ana123", saved.getUsername());
     }
 
     @Test
     void testUpdateUser() {
-        User user = new User();
-        user.setFullName("Ana López");
-        user.setUsername("ana123");
-
+        User user = new User("Ana López", "ana@example.com", "pass123", "ana123");
         User saved = userLibrary.add(user);
 
-        saved.setFullName("Ana María López");
-
+        saved.setFullName("Ana Modificada");
         User updated = userLibrary.update(saved);
 
         assertNotNull(updated);
-        assertEquals("Ana María López", updated.getFullName());
+        assertEquals("Ana Modificada", updated.getFullName());
     }
 
     @Test
     void testRemoveUser() {
-        User user = new User();
-        user.setFullName("Ana López");
-        user.setUsername("ana123");
-
+        User user = new User("Ana López", "ana@example.com", "pass123", "ana123");
         userLibrary.add(user);
 
         assertEquals(1, userLibrary.getAll().size());
@@ -63,12 +51,9 @@ class DummyUserLibraryTest {
         assertEquals(0, userLibrary.getAll().size());
     }
 
-
     @Test
     void testGetByUsername() {
-        User user = new User();
-        user.setUsername("ana123");
-
+        User user = new User("Ana López", "ana@example.com", "pass123", "ana123");
         userLibrary.add(user);
 
         User found = userLibrary.getByUsername("ana123");

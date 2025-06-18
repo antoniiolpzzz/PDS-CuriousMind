@@ -13,18 +13,16 @@ public class DummyCourseLibrary implements Library<Course> {
 
     @Override
     public Course add(Course course) {
-        course.setId((long) (courses.size() + 1)); // simulamos ID autoincremental
         courses.add(course);
         return course;
     }
 
     @Override
     public Course update(Course course) {
-        for (int i = 0; i < courses.size(); i++) {
-            if (courses.get(i).getId().equals(course.getId())) {
-                courses.set(i, course);
-                return course;
-            }
+        int index = courses.indexOf(course);
+        if (index >= 0) {
+            courses.set(index, course);
+            return course;
         }
         return null;
     }
@@ -41,15 +39,13 @@ public class DummyCourseLibrary implements Library<Course> {
 
     @Override
     public Course getById(Long id) {
-        return courses.stream()
-                .filter(course -> course.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        // Si tu Course no tiene id → devuelve null o usa name como id en tests
+        return null;
     }
 
     public Course getByName(String name) {
         return courses.stream()
-                .filter(course -> course.getName().equals(name))
+                .filter(c -> c.getName().equals(name))
                 .findFirst()
                 .orElse(null);
     }

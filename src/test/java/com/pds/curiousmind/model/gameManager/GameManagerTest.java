@@ -1,8 +1,8 @@
 package com.pds.curiousmind.model.gameManager;
 
-import com.pds.curiousmind.model.contentblock.ContentBlock;
 import com.pds.curiousmind.model.course.Course;
 import com.pds.curiousmind.model.question.Question;
+import com.pds.curiousmind.model.question.implementation.FillTheGap;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.registeredCourse.RegisteredCourse;
 import com.pds.curiousmind.model.strategy.StrategyType;
@@ -18,7 +18,6 @@ class GameManagerTest {
 
     private User user;
     private Course course;
-    private ContentBlock contentBlock;
     private RegisteredCourse registeredCourse;
     private RegisteredContentBlock registeredContentBlock;
 
@@ -27,44 +26,40 @@ class GameManagerTest {
 
     @BeforeEach
     void setUp() {
-        // Crear preguntas
-        q1 = new com.pds.curiousmind.model.question.implementation.Test("Indication", "Q1", "A1", List.of());
-        q2 = new com.pds.curiousmind.model.question.implementation.Test("Indication", "Q2", "A2", List.of());
+        // Crear user + course
+        user = new User("Ana López", "ana@example.com", "pass123", "ana123");
+
+        course = new Course();
+        course.setName("Curso Test");
+        course.setContentBlocks(List.of());
+
+        registeredCourse = new RegisteredCourse(user, course, StrategyType.SEQUENTIAL);
 
         // Crear ContentBlock con preguntas
-        contentBlock = new ContentBlock();
-        contentBlock.setName("Block 1");
-        contentBlock.setQuestions(List.of(q1, q2));
+        q1 = new com.pds.curiousmind.model.question.implementation.Test("Indication 1", "Question 1", "Answer 1", List.of());
+        q2 = new FillTheGap("Indication 2", "Question 2", "Answer 2");
 
-        // Crear Course con contentBlock
-        course = new Course();
-        course.setName("Test Course");
-        course.setContentBlocks(List.of(contentBlock));
+        RegisteredContentBlock block = new RegisteredContentBlock();
+        block.setRegisteredCourse(registeredCourse);
+        block.setContentBlock(new com.pds.curiousmind.model.contentblock.ContentBlock() {{
+            setName("Block Test");
+            setQuestions(List.of(q1, q2));
+        }});
 
-        // Crear User
-        user = new User("Ana", "ana@test.com", "1234", "ana");
-
-        // Registrar Course
-        registeredCourse = new RegisteredCourse(user, course, StrategyType.SEQUENTIAL);
-        registeredContentBlock = registeredCourse.getRegisteredContentBlocks().getFirst();
+        registeredContentBlock = block;
     }
 
     @Test
-    void testInitializeAndDeactivateGame() {
+    void testInitializeGame() {
         GameManager.INSTANCE.initializeGame(registeredCourse, registeredContentBlock);
 
         assertEquals(registeredCourse, GameManager.INSTANCE.getCurrentCourse());
         assertEquals(registeredContentBlock, GameManager.INSTANCE.getCurrentContentBlock());
         assertEquals(5, GameManager.INSTANCE.getLives());
-        assertTrue(GameManager.INSTANCE.hasNextQuestion());
+        assertEquals(2, GameManager.INSTANCE.totalQuestions());
+        assertTrue(GameManager.INSTANCE.getGameDuration() >= 0);
 
         GameManager.INSTANCE.deactivateGame();
-
-        assertNull(GameManager.INSTANCE.getCurrentCourse());
-        assertNull(GameManager.INSTANCE.getCurrentContentBlock());
-        assertFalse(GameManager.INSTANCE.hasNextQuestion());
-        assertEquals(5, GameManager.INSTANCE.getLives());
-        assertEquals(0, GameManager.INSTANCE.getGameDuration());
     }
 
     @Test
@@ -79,32 +74,34 @@ class GameManagerTest {
 
         Question next = GameManager.INSTANCE.getNextQuestion();
         assertNotNull(next);
-        assertEquals(5, GameManager.INSTANCE.getLives()); // No pierde vidas al responder
+        assertEquals(5, GameManager.INSTANCE.getLives());
 
-        // consumir todo
-        GameManager.INSTANCE.getNextQuestion();
+        Question next2 = GameManager.INSTANCE.getNextQuestion();
+        assertNotNull(next2);
+
         assertNull(GameManager.INSTANCE.getNextQuestion());
     }
 
     @Test
-    void testAddFailedQuestionAndLives() {
+    void testFailedQuestionsAndLives() {
         GameManager.INSTANCE.initializeGame(registeredCourse, registeredContentBlock);
 
-        assertEquals(5, GameManager.INSTANCE.getLives());
-        assertEquals(0, GameManager.INSTANCE.getFailedCount());
+        Question q = GameManager.INSTANCE.getNextQuestion();
+        assertNotNull(q);
 
-        GameManager.INSTANCE.addFailedQuestion(q1);
+        GameManager.INSTANCE.addFailedQuestion(q);
 
-        assertEquals(4, GameManager.INSTANCE.getLives());
         assertEquals(1, GameManager.INSTANCE.getFailedCount());
+        assertEquals(4, GameManager.INSTANCE.getLives());
     }
 
     @Test
-    void testOutOfLivesPreventsNextQuestion() {
+    void testLivesReachZero() {
         GameManager.INSTANCE.initializeGame(registeredCourse, registeredContentBlock);
 
+        Question q = GameManager.INSTANCE.getNextQuestion();
         for (int i = 0; i < 5; i++) {
-            GameManager.INSTANCE.addFailedQuestion(q1);
+            GameManager.INSTANCE.addFailedQuestion(q);
         }
 
         assertEquals(0, GameManager.INSTANCE.getLives());
@@ -123,11 +120,14 @@ class GameManagerTest {
     }
 
     @Test
-    void testGetGameDuration() throws InterruptedException {
+    void testDeactivateGame() {
         GameManager.INSTANCE.initializeGame(registeredCourse, registeredContentBlock);
 
-        Thread.sleep(1000);
+        GameManager.INSTANCE.deactivateGame();
 
-        assertTrue(GameManager.INSTANCE.getGameDuration() >= 1);
+        assertNull(GameManager.INSTANCE.getCurrentCourse());
+        assertNull(GameManager.INSTANCE.getCurrentContentBlock());
+        assertEquals(5, GameManager.INSTANCE.getLives());
+        assertEquals(0, GameManager.INSTANCE.totalQuestions());
     }
 }

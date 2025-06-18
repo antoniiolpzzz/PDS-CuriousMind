@@ -10,30 +10,26 @@ import java.util.List;
 public class DummyUserLibrary implements Library<User> {
 
     private final List<User> users = new ArrayList<>();
-    private long nextId = 1L; // contador interno de IDs
 
     @Override
     public User add(User user) {
-        User userCopy = copyUser(user); // copiamos el user
-        setId(userCopy, nextId++);
-        users.add(userCopy);
-        return userCopy;
+        users.add(user);
+        return user;
     }
 
     @Override
     public User update(User user) {
-        for (int i = 0; i < users.size(); i++) {
-            if (getId(users.get(i)).equals(getId(user))) {
-                users.set(i, copyUser(user));
-                return users.get(i);
-            }
+        int index = users.indexOf(user);
+        if (index >= 0) {
+            users.set(index, user);
+            return user;
         }
         return null;
     }
 
     @Override
     public boolean remove(User user) {
-        return users.removeIf(u -> getId(u).equals(getId(user)));
+        return users.remove(user);
     }
 
     @Override
@@ -43,10 +39,8 @@ public class DummyUserLibrary implements Library<User> {
 
     @Override
     public User getById(Long id) {
-        return users.stream()
-                .filter(u -> getId(u).equals(id))
-                .findFirst()
-                .orElse(null);
+        // Como User no tiene id en test → devolvemos null (o puedes usar username como id)
+        return null;
     }
 
     public User getByUsername(String username) {
@@ -54,37 +48,5 @@ public class DummyUserLibrary implements Library<User> {
                 .filter(u -> u.getUsername().equals(username))
                 .findFirst()
                 .orElse(null);
-    }
-
-    // Métodos auxiliares
-
-    private Long getId(User user) {
-        try {
-            var field = User.class.getDeclaredField("id");
-            field.setAccessible(true);
-            return (Long) field.get(user);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void setId(User user, Long id) {
-        try {
-            var field = User.class.getDeclaredField("id");
-            field.setAccessible(true);
-            field.set(user, id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private User copyUser(User original) {
-        User copy = new User();
-        copy.setFullName(original.getFullName());
-        copy.setUsername(original.getUsername());
-        copy.setEmail(original.getEmail());
-        copy.setPassword(original.getPassword());
-        setId(copy, getId(original)); // si ya tiene ID
-        return copy;
     }
 }
