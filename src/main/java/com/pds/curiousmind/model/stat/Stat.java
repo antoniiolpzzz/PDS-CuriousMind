@@ -45,7 +45,7 @@ public class Stat {
     /**
      * The number of experience points required to advance one level.
      */
-    private static final int EXPERIENCE_POINTS_PER_LEVEL = 1000;
+    private static final int EXPERIENCE_POINTS_PER_LEVEL = 100;
 
     /**
      * Unique identifier for the stat record (primary key, auto-generated).

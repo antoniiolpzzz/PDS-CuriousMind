@@ -204,4 +204,26 @@ public class RegisteredCourse {
         return (int) registeredContentBlocks.stream().filter(RegisteredContentBlock::isCompleted).count();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RegisteredCourse that = (RegisteredCourse) o;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "RegisteredCourse{" +
+                "id=" + id +
+                ", course=" + (course != null ? course.getName() : null) +
+                ", user=" + (user != null ? user.getUsername() : null) +
+                '}';
+    }
+
 }

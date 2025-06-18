@@ -13,12 +13,17 @@ import com.pds.curiousmind.model.strategy.StrategyType;
 import com.pds.curiousmind.model.user.User;
 import com.pds.curiousmind.util.AppConfig;
 import com.pds.curiousmind.util.ImageUtils;
+import com.pds.curiousmind.util.Logger;
 import com.pds.curiousmind.util.mapper.service.MapperFormat;
 import com.pds.curiousmind.util.mapper.service.CourseMapperService;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public enum Controller {
     INSTANCE;
@@ -218,6 +223,33 @@ public enum Controller {
             case MEDIUM -> 200;
             case HARD -> 300;
         };
+    }
+
+    /**
+     * Adds default courses from JSON files in a directory if the database is empty.
+     * Uses AppConfig to persist the initialization flag, but will re-import if DB is empty.
+     */
+    public void initializeSamplesOnFirstOpen() {
+        try {
+            String sampleCoursesPath = AppConfig.get("sample.courses.path");
+            var resourceUrl = getClass().getClassLoader().getResource(sampleCoursesPath);
+            if (resourceUrl == null) {
+                Logger.error("Sample courses directory not found in resources.");
+                return;
+            }
+            Path sampleCoursesDir = Paths.get(resourceUrl.toURI());
+            String sampleExtension = mapperFormat.name().toLowerCase();
+
+            if (courseLibrary.getAll().isEmpty()) {
+                try (Stream<Path> paths = Files.list(sampleCoursesDir)) {
+                    for (Path path : paths.filter(p -> p.toString().endsWith("." + sampleExtension)).toList()) {
+                        courseLibrary.add(courseMapperService.toEntity(path.toFile()));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Logger.error("Failed to import courses from resources: " + e.getMessage());
+        }
     }
 
 }

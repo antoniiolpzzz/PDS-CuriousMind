@@ -110,7 +110,6 @@ public class QuestionStructure extends JFrame {
         }
 
         // Submit button to validate answer
-        rightPanel.add(Box.createVerticalGlue());
         StyledButton submitButton = new StyledButton(SUBMIT_LABEL, Color.BLACK, Color.WHITE);
         submitButton.setFont(new Font(FONT_NAME, Font.BOLD, 18));
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);

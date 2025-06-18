@@ -6,6 +6,7 @@ import com.pds.curiousmind.view.common.StyledButton;
 import com.pds.curiousmind.view.home.dashboard.HomeWindow;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -78,6 +79,14 @@ public class JsonChooserWindow extends JDialog {
         // File chooser action
         openButton.addActionListener((ActionEvent e) -> {
             JFileChooser fileChooser = new JFileChooser();
+
+            // Crear y aplicar el filtro de archivos JSON
+            FileNameExtensionFilter jsonFilter = new FileNameExtensionFilter("JSON files (*.json)", "json");
+            fileChooser.setFileFilter(jsonFilter);
+
+            // Opcional: desactivar todos los archivos (para que no puedan elegir "All Files")
+            fileChooser.setAcceptAllFileFilterUsed(false);
+
             int result = fileChooser.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) {
                 selectedJsonFile = fileChooser.getSelectedFile();

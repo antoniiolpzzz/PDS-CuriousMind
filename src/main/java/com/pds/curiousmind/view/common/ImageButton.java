@@ -35,8 +35,8 @@ public class ImageButton {
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         if (isCard) {
-            button = new JButton(loadIcon(iconPath, 180, 180));
-            label.setFont(new Font(FONT_NAME, Font.PLAIN, 25));
+            button = new JButton(loadIcon(iconPath, 120, 120));
+            label.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
         } else {
             button = new JButton(loadIcon(iconPath, 70, 70));
             label.setFont(new Font(FONT_NAME, Font.PLAIN, 12));

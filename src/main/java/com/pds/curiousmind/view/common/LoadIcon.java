@@ -29,7 +29,6 @@ public class LoadIcon {
             originalIcon = loadFromUrl(pathORurl);
         }
         if (originalIcon == null || originalIcon.getImage() == null) {
-            System.err.println("Icon not found or image is null: " + pathORurl);
             originalIcon = new ImageIcon();
         }
         try{
@@ -54,7 +53,6 @@ public class LoadIcon {
                 return new ImageIcon(url);
             }
         } catch (Exception ignored) {}
-        Logger.error("Icon resource not found in classpath: " + path);
         return null;
     }
 
@@ -69,7 +67,6 @@ public class LoadIcon {
         if (file.exists()) {
             return new ImageIcon(file.getAbsolutePath());
         }
-        Logger.error("Icon file not found: " + path);
         return null;
     }
 
@@ -84,7 +81,6 @@ public class LoadIcon {
             URL url = java.net.URI.create(urlString).toURL();
             return new ImageIcon(url);
         } catch (Exception e) {
-            Logger.error("Failed to load icon from URL: " + urlString + " - " + e.getMessage());
             return null;
         }
     }
