@@ -28,7 +28,7 @@ Este apartado describe la estrategia y el estado actual de las pruebas implement
 ### 🎯 Pruebas de aceptación
 
 - Validación de funcionalidades completas desde la perspectiva del usuario.
-- Se ha decidido el uso de vídeos explicativos donde se muestra cómo interactuará el usuario con la aplicacion.
+- Se ha decidido el uso de vídeos explicativos donde se muestra cómo interactuará el usuario con la aplicación.
 - [Video Demostrativo](https://dai.ly/k3ALFKPBzbRbZODhqhq)
 [![Video Demostrativo](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/19fbc344a0d8a998837dee42300f22f802e38d75/Documentation/Test/Captura%20-%20Video%20demostrativo.png)](https://geo.dailymotion.com/player.html?video=k3ALFKPBzbRbZODhqhq)
 
