@@ -9,7 +9,7 @@ Este apartado describe la estrategia y el estado actual de las pruebas implement
 - Se han implementado pruebas unitarias para cada clase del modelo.
 - Por cada clase de modelo existe una clase de test correspondiente.
 - Cada método público ha sido probado para verificar su correcto funcionamiento.
-- Se aduntan estas clases de prueba en el directorio [src/test](enlace al directorio)
+- Se adjuntan estas clases de prueba en el directorio [src/test](enlace al directorio)
 ### 📊 Estadísticas de cobertura (Maven + plugin de cobertura)
 
 - Se ha usado el plugin de Maven con JaCoCo para generar informes de cobertura de código.
