@@ -142,6 +142,7 @@ public class CourseStrategyWindow extends JDialog {
                         JOptionPane.INFORMATION_MESSAGE,
                         loadIcon(ICON_HAPPY, 60, 60));
                 dispose();
+                parent.dispose();
                 new HomeWindow(user);
             }
         });
