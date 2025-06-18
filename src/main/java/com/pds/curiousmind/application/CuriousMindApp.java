@@ -1,8 +1,6 @@
 package com.pds.curiousmind.application;
 
 import com.pds.curiousmind.model.contentblock.Difficulty;
-import com.pds.curiousmind.model.library.implementation.CourseLibrary;
-import com.pds.curiousmind.model.library.implementation.UserLibrary;
 import com.pds.curiousmind.model.question.implementation.FlashCard;
 import com.pds.curiousmind.model.registeredContentBlock.RegisteredContentBlock;
 import com.pds.curiousmind.model.strategy.StrategyType;
@@ -19,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 
-public class Main {
+public class CuriousMindApp {
     public static void main(String[] args) {
 
         /*
