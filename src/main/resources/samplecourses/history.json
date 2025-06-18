@@ -1,0 +1,205 @@
+{
+  "name": "Art History",
+  "description": "A course to introduce basic and intermediate concepts of Art History with corrected question types and image-based flashcards.",
+  "imageURL": "https://img.freepik.com/psd-gratis/maquina-escribir-antigua-antiga-nostalgia-escribiendo-vieja-maquina-claves-envejecidas-rollo-papel_191095-87711.jpg?semt=ais_hybrid&w=740",
+  "availableStrategies": ["SEQUENTIAL", "SHUFFLED", "SPACED_REPETITION"],
+  "contentBlocks": [
+    {
+      "name": "Introduction",
+      "difficulty": "EASY",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct answer",
+          "statement": "Who painted the Mona Lisa?",
+          "correctAnswer": "Leonardo da Vinci",
+          "options": [
+            { "type": "option", "label": "Leonardo da Vinci" },
+            { "type": "option", "label": "Pablo Picasso" },
+            { "type": "option", "label": "Claude Monet" },
+            { "type": "option", "label": "Vincent van Gogh" }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the artwork.",
+          "statement": "The Starry Night",
+          "correctAnswer": "Vincent van Gogh",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Vincent van Gogh",
+              "imageURL": "https://img.freepik.com/vector-gratis/ilustracion-pintura-van-gogh-dibujada-mano_23-2149595266.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Leonardo da Vinci",
+              "imageURL": "https://img.freepik.com/vector-gratis/vector-fondo-dedo-dios-diseno-marron-estetico_53876-156336.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Claude Monet",
+              "imageURL": "https://img.freepik.com/vector-gratis/conjunto-girasoles-remezclado-obras-arte-claude-monet_53876-99352.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Choose the correct answer",
+          "statement": "The Renaissance period began in the city of _____",
+          "correctAnswer": "Florence"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the correct translation for the sentence:",
+          "statement": "El arte es eterno",
+          "correctAnswer": "art is eternal",
+          "options": [
+            { "type": "option", "label": "art" },
+            { "type": "option", "label": "is" },
+            { "type": "option", "label": "eternal" },
+            { "type": "option", "label": "temporary" },
+            { "type": "option", "label": "ancient" },
+            { "type": "option", "label": "modern" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Famous Artworks",
+      "difficulty": "MEDIUM",
+      "questions": [
+        {
+          "type": "flashcard",
+          "indication": "Identify the artist.",
+          "statement": "The Birth of Venus",
+          "correctAnswer": "Sandro Botticelli",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Sandro Botticelli",
+              "imageURL": "https://img.freepik.com/vector-gratis/vector-collage-femenino-arte-tecnica-mixta-ilustracion-amor_53876-136564.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Michelangelo",
+              "imageURL": "https://img.freepik.com/foto-gratis/dios-sol-representado-como-hombre-poderoso-entorno-renacentista_23-2151296139.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Raphael",
+              "imageURL": "https://img.freepik.com/vector-gratis/ilustracion-arcangel-dibujada-mano_23-2149866644.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank with the correct term:",
+          "statement": "_____ is known as the father of modern art.",
+          "correctAnswer": "Paul Cézanne"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the correct translation for the sentence:",
+          "statement": "La pintura es hermosa",
+          "correctAnswer": "the painting is beautiful",
+          "options": [
+            { "type": "option", "label": "the" },
+            { "type": "option", "label": "painting" },
+            { "type": "option", "label": "is" },
+            { "type": "option", "label": "beautiful" },
+            { "type": "option", "label": "ugly" },
+            { "type": "option", "label": "dark" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Art Movements",
+      "difficulty": "HARD",
+      "questions": [
+        {
+          "type": "flashcard",
+          "indication": "Identify the art movement.",
+          "statement": "Cubism",
+          "correctAnswer": "Pablo Picasso",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Pablo Picasso",
+              "imageURL": "https://img.freepik.com/foto-gratis/museo-pompidou-malaga_23-2150159193.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Salvador Dalí",
+              "imageURL": "https://img.freepik.com/vector-gratis/coleccion-mascaras-planas-carnaval-venecia_23-2149253343.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Henri Matisse",
+              "imageURL": "https://img.freepik.com/foto-gratis/hermosa-fotografia-macro-mantis-verde-sobre-flor-amarilla_181624-18287.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill the blank with the correct word:",
+          "statement": "_____ was a major figure in the Surrealist movement.",
+          "correctAnswer": "Salvador Dalí"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the correct translation for the sentence:",
+          "statement": "El arte moderno desafía las normas",
+          "correctAnswer": "modern art challenges conventions",
+          "options": [
+            { "type": "option", "label": "modern" },
+            { "type": "option", "label": "art" },
+            { "type": "option", "label": "challenges" },
+            { "type": "option", "label": "conventions" },
+            { "type": "option", "label": "follows" },
+            { "type": "option", "label": "rules" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Common Terms",
+      "difficulty": "MEDIUM",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct definition",
+          "statement": "What is 'fresco'?",
+          "correctAnswer": "Painting done on wet plaster",
+          "options": [
+            { "type": "option", "label": "Painting done on wet plaster" },
+            { "type": "option", "label": "Sculpture in marble" },
+            { "type": "option", "label": "Oil painting" },
+            { "type": "option", "label": "Tempera painting" }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank with the appropriate term",
+          "statement": "_____ is a technique of printmaking.",
+          "correctAnswer": "Etching"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the correct translation:",
+          "statement": "El arte inspira a la gente",
+          "correctAnswer": "art inspires people",
+          "options": [
+            { "type": "option", "label": "art" },
+            { "type": "option", "label": "inspires" },
+            { "type": "option", "label": "people" },
+            { "type": "option", "label": "teaches" },
+            { "type": "option", "label": "old" },
+            { "type": "option", "label": "modern" }
+          ]
+        }
+      ]
+    }
+  ]
+}
