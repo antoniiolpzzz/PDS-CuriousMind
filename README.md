@@ -45,6 +45,8 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ## ✨ Features
 
+You can watch a demostrative video related to all the features of our app. You will find it in this [readme](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/9c0469c9bbbe2dcc981de4834de17a8e0bd0a341/Documentation/Test/readme.md) related to the tests made!
+
 ### 🎴 Interactive Learning Cards
 
 - Create customized flashcards with text and images
