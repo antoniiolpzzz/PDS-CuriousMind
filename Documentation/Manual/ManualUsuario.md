@@ -468,7 +468,7 @@ En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distin
    Con bloques variados con historia y fundamentos de la música.
    La estrategia seleccionada para este curso es repetición secuencial.
 
-4. **Curso de Ciencia y Naturaleza 🔬**  
+4. **Curso de Ciencia y Naturaleza 🌱**  
    Dividido en bloques por temas (biología, física, ecología…).  
    La estrategia seleccionada para este curso es repetición secuencial.
 
