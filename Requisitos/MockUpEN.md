@@ -5,31 +5,39 @@ Each mockup is documented as an individual issue in this repository for tracking
 
 Below is a summary of the available mockups:
 
+([**Authentication**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+
 1. **Login** — `login.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
 
 2. **Signup** — `signup.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
 
-3. **Home** — `home.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+([**Main**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
 
-4. **Course Dashboard** — `courseDashboard.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+4. **Home** — `home.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
 
-5. **Profile** — `profile.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
+5. **Course Dashboard** — `courseDashboard.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
 
-6. **Fill in the blank** — `fill.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+6. **Profile** — `profile.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/9))
 
-7. **Flashcard** — `flashcard.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+([**Question**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
+
+8. **Fill in the blank** — `fill.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+
+9. **Flashcard** — `flashcard.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
   
-8. **Test** — `test.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+10. **Test** — `test.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
 
-9. **Translate** — `translate.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
+11. **Translate** — `translate.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/10))
 
-10. **About** — `about.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+([**PopUp**](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/8))
 
-11. **Contact** — `contact.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+13. **About** — `about.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
 
-12. **JSON Import** — `json.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+14. **Contact** — `contact.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
 
-13. **Strategy** — `strategy.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+15. **JSON Import** — `json.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
+
+16. **Strategy** — `strategy.png` ([#issue](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/50))
 
 
 ---
