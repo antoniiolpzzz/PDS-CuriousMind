@@ -1,0 +1,39 @@
+name: Build CuriousMind JAR
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven (includes tests)
+        run: mvn clean package -DskipTests
+
+      - name: Copy JAR to artifacts folder
+        run: |
+          mkdir -p java/target/artifacts
+          cp target/*.jar java/target/artifacts
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-jar
+          path: java/target/artifacts/*.jar
+          if-no-files-found: error
+          retention-days: 14
+          
