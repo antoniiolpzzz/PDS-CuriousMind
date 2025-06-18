@@ -106,9 +106,11 @@ Disclaimer: There are already compiled artifacts in Java/target/artifacts direct
 
 Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/ManualUsuario.md) to go to our Spanish detailed User Manual, and [_here🇬🇧_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/UserManual.md) to go to the English version.
 
+
+
 ## 📲 Use Cases
 
-Click [_here_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readme.md) to go to our detailed use cases list, including:
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readme.md) to go to our detailed use cases list in Spanish, and [here🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/072f3c472cc31163fb0e51d98366d80c1225debd/Requisitos/readmeEN.md) to go to the English version, including:
 
 
 1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
