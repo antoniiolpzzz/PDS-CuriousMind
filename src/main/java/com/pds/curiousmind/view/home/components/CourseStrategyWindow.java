@@ -108,7 +108,7 @@ public class CourseStrategyWindow extends JDialog {
                 false));
 
         strategyPanel.add(createImageButton(
-                "Sp. REPETITION",
+                StrategyType.SPACED_REPETITION.toString(),
                 ICON_STRATEGY_REPETITON,
                 selectedStrategy,
                 strategyButtons,
@@ -142,7 +142,6 @@ public class CourseStrategyWindow extends JDialog {
                         JOptionPane.INFORMATION_MESSAGE,
                         loadIcon(ICON_HAPPY, 60, 60));
                 dispose();
-                parent.dispose();
                 new HomeWindow(user);
             }
         });
