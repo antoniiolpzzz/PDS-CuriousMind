@@ -33,7 +33,7 @@ _An innovative learning platform for curious minds_
 
 CuriousMind is an innovative learning platform inspired by successful applications like _Duolingo_ and _Mochi_. Our platform is designed to facilitate learning and reviewing concepts across various domains through an interactive card-based system.
 
-You can easily understand its main structure by looking at our **domain model**. Click [here](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/5a510aa8f666e4d7dd2de0c05dd6eb0faf6eea6b/Design/DomainModel/CuriousMind%20-%20DomainModel.png) to see it!
+You can easily understand its main structure by looking at our **domain model**. Click [here](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Design/DomainModel/CuriousMind%20-%20DomainModel.png) to see it!
 
 ### 🎯 Key Features
 
@@ -47,7 +47,7 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ## ✨ Features
 
-You can watch a demostrative video related to all the features of our app. You will find it in this [readme🇪🇸](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/9c0469c9bbbe2dcc981de4834de17a8e0bd0a341/Documentation/Test/readme.md) | [readme🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/e60d72a72dfead6a8b2df38804569bd340c4dcea/Documentation/Test/readme.md) related to the tests made!
+You can watch a demostrative video related to all the features of our app. You will find it in this [readme🇪🇸](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Documentation/Test/readmeES.md) | [readme🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Documentation/Test/readme.md) related to the tests made!
 
 ### 🎴 Interactive Learning Cards
 
@@ -108,13 +108,13 @@ Disclaimer: There are already compiled artifacts in Java/target/artifacts direct
    ```
 ## 👤 User Manual
 
-Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/ManualUsuario.md) to go to our Spanish detailed User Manual, and [_here🇬🇧_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/UserManual.md) to go to the English version.
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Documentation/Manual/ManualUsuario.md) to go to our Spanish detailed User Manual, and [_here🇬🇧_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Documentation/Manual/UserManual.md) to go to the English version.
 
 
 
 ## 📲 Use Cases
 
-Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readmeES.md) to go to our detailed use cases list in Spanish, and [here🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/072f3c472cc31163fb0e51d98366d80c1225debd/Requisitos/readme.md) to go to the English version, including:
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Requisitos/readmeES.md) to go to our detailed use cases list in Spanish, and [here🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Requisitos/readme.md) to go to the English version, including:
 
 
 1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
