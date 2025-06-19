@@ -2,9 +2,9 @@
 
 # 🧠 CuriousMind
 
-[![License](https://img.shields.io/badge/LICENSE-to_be_determined-violet.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/STATUS-in%20development-yellow.svg)](#)
-[![Version](https://img.shields.io/badge/VERSION-0.0.1-orange.svg)](#)
+[![License](https://img.shields.io/badge/LICENSE-MIT-violet.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/STATUS-Always_Evolving-green.svg)](#)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-orange.svg)](#)
 
 _An innovative learning platform for curious minds_
 
@@ -12,7 +12,7 @@ _An innovative learning platform for curious minds_
    <a href="#-about" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; 
    background: linear-gradient(135deg,rgb(160, 193, 98),rgb(136, 149, 18)); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">📖 About</a>
   <a href="#-features" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">✨ Features</a>
-  <a href="#-getting-started" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #7ac29a, #5daf82); border-radius: 20px; box-shadow: 0 2px 4px rgba(122, 194, 154, 0.3); transition: transform 0.2s, box-shadow 0.2s;">🚀 Getting Started</a>
+  <a href="#-getting-started" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #7ac29a, #5daf82); border-radius: 20px; box-shadow: 0 2px 4px rgba(122, 194, 154, 0.3); transition: transform 0.2s, box-shadow 0.2s;">🚀 Getting Started</a><a href="#-user-manual" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;">👤 User Manual</a><a href="#-use-cases" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #4a90e2, #357abd); border-radius: 20px; box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3); transition: transform 0.2s, box-shadow 0.2s;"> 📲Use Cases</a>
   <a href="#-contributing" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #9b6ddf, #7b4fc9); border-radius: 20px; box-shadow: 0 2px 4px rgba(155, 109, 223, 0.3); transition: transform 0.2s, box-shadow 0.2s;">🤝 Contributing</a>
   <a href="#-license" style="flex: 0 1 auto; padding: 8px 16px; text-decoration: none; color: white; font-weight: bold; background: linear-gradient(135deg, #ff7676, #ff5252); border-radius: 20px; box-shadow: 0 2px 4px rgba(255, 118, 118, 0.3); transition: transform 0.2s, box-shadow 0.2s;">📄 License</a>
 </div>
@@ -33,6 +33,8 @@ _An innovative learning platform for curious minds_
 
 CuriousMind is an innovative learning platform inspired by successful applications like _Duolingo_ and _Mochi_. Our platform is designed to facilitate learning and reviewing concepts across various domains through an interactive card-based system.
 
+You can easily understand its main structure by looking at our **domain model**. Click [here](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/5a510aa8f666e4d7dd2de0c05dd6eb0faf6eea6b/Design/DomainModel/CuriousMind%20-%20DomainModel.png) to see it!
+
 ### 🎯 Key Features
 
 - Create and share custom learning courses
@@ -45,30 +47,33 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ## ✨ Features
 
+You can watch a demostrative video related to all the features of our app. You will find it in this [readme🇪🇸](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/9c0469c9bbbe2dcc981de4834de17a8e0bd0a341/Documentation/Test/readme.md) | [readme🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/e60d72a72dfead6a8b2df38804569bd340c4dcea/Documentation/Test/readme.md) related to the tests made!
+
 ### 🎴 Interactive Learning Cards
 
-- Create customized flashcards with text, images, and audio
+- Create customized flashcards with text and images
 - Support for multiple question types:
   - **Multiple Choice** - Test your knowledge with options
-  - **True/False** - Quick binary decisions
-  - **Fill-in-the-blank** - Practice recall
-  - **Short Answer** - Express your understanding
+  - **Fill-the-gap** - Practice recall
+  - **FlashCards** - Play with visual answers
+  - **Form the sentence** - Create your knowledge 
   - **And more coming soon!**
 - Rich text formatting for better content presentation
 
 ### 🧮 Smart Learning System
 
-- Adaptive learning algorithms that adjust to your progress
+- Thanks to "Shuffled mode", you will actually learn, not exercise your memory!
 - Spaced repetition system for optimal retention
 - Performance analytics and learning insights
-- Customizable study schedules
+
 
 ### 📚 Course Management
 
 - Create and organize courses by topics and difficulty levels
-- Import and export course content
+- Import course content from your computer
 - Share courses with other users
-- Collaborative course creation tools
+- Fun "5-lives" system to learn challenging yourselves
+
 
 ### 🎨 User Experience
 
@@ -81,11 +86,13 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ### Prerequisites
 
-- Java Development Kit (JDK) [VERSION] or higher
+- Java Development Kit (JDK) **21** or higher
 - Maven for dependency management
 - Your favorite IDE (IntelliJ IDEA recommended)
 
 ### ⚙️ Installation
+
+Disclaimer: There are already compiled artifacts in Java/target/artifacts directory matching the main branch version.
 
 1. Clone the repository
    ```bash
@@ -93,12 +100,35 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
    ```
 2. Navigate to the project directory
    ```bash
-   cd CuriousMind
+   cd PDS-CuriousMind/Java
    ```
 3. Build the project
    ```bash
    mvn clean install
    ```
+## 👤 User Manual
+
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/ManualUsuario.md) to go to our Spanish detailed User Manual, and [_here🇬🇧_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369abcec0df07e68ce372fe7198f1530db9dcdf9/Documentation/UserManual.md) to go to the English version.
+
+
+
+## 📲 Use Cases
+
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readmeES.md) to go to our detailed use cases list in Spanish, and [here🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/072f3c472cc31163fb0e51d98366d80c1225debd/Requisitos/readme.md) to go to the English version, including:
+
+
+1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
+2. [CDU 002](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/53): Sign up
+3. [CDU 003](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/2): Create course
+4. [CDU 004](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/3): Select course
+5. [CDU 005](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/5): Register course
+6. [CDU 006](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/4): Make course
+7. [CDU 007](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/6): Follow progress
+8. [CDU 008](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/12): Repeat failed (Additional feature)
+9. [CDU 009](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/13): Increase level (Additional feature)
+
+
+
 
 ## 🤝 Contributing
 
@@ -112,7 +142,7 @@ We welcome contributions to CuriousMind! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the [TYPE OF LICENSE] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
