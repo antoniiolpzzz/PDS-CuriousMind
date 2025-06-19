@@ -49,7 +49,15 @@ public enum CourseController {
      * @return a list of {@link RegisteredCourse} objects, or an empty list if none
      */
     public List<RegisteredCourse> getRegisteredCourses(User user) {
-        return user.getRegisteredCourses();
+        return user.getRegisteredCourses().stream()
+                .collect(java.util.stream.Collectors.toMap(
+                        rc -> rc.getCourse().getName() + "|" + rc.getCourse().getDescription(),
+                        rc -> rc,
+                        (rc1, rc2) -> rc1.getProgress() >= rc2.getProgress() ? rc1 : rc2
+                ))
+                .values()
+                .stream()
+                .toList();
     }
 
     /**
@@ -111,19 +119,48 @@ public enum CourseController {
     public void initializeSamplesOnFirstOpen() {
         try {
             String sampleCoursesPath = AppConfig.get("sample.courses.path");
-            var resourceUrl = getClass().getClassLoader().getResource(sampleCoursesPath);
-            if (resourceUrl == null) {
-                Logger.error("Sample courses directory not found in resources.");
-                return;
-            }
-            Path sampleCoursesDir = Paths.get(resourceUrl.toURI());
             String sampleExtension = mapperFormat.name().toLowerCase();
 
             if (courseLibrary.getAll().isEmpty()) {
-                try (Stream<Path> paths = Files.list(sampleCoursesDir)) {
-                    for (Path path : paths.filter(p -> p.toString().endsWith("." + sampleExtension)).toList()) {
-                        courseLibrary.add(courseMapperService.toEntity(path.toFile()));
+                var classLoader = getClass().getClassLoader();
+                var resourceUrl = classLoader.getResource(sampleCoursesPath);
+                if (resourceUrl == null) {
+                    Logger.error("Sample courses directory not found in resources.");
+                    return;
+                }
+                if ("file".equals(resourceUrl.getProtocol())) {
+                    // Running from filesystem (e.g., IDE)
+                    Path sampleCoursesDir = Paths.get(resourceUrl.toURI());
+                    try (Stream<Path> paths = Files.list(sampleCoursesDir)) {
+                        for (Path path : paths.filter(p -> p.toString().endsWith("." + sampleExtension)).toList()) {
+                            courseLibrary.add(courseMapperService.toEntity(path.toFile()));
+                        }
                     }
+                } else if ("jar".equals(resourceUrl.getProtocol())) {
+                    // Running from JAR
+                    String jarPath = resourceUrl.getPath().substring(5, resourceUrl.getPath().indexOf("!"));
+                    try (java.util.jar.JarFile jar = new java.util.jar.JarFile(jarPath)) {
+                        java.util.Enumeration<java.util.jar.JarEntry> entries = jar.entries();
+                        while (entries.hasMoreElements()) {
+                            java.util.jar.JarEntry entry = entries.nextElement();
+                            String entryName = entry.getName();
+                            if (entryName.startsWith(sampleCoursesPath + "/") && entryName.endsWith("." + sampleExtension)) {
+                                try (var is = classLoader.getResourceAsStream(entryName)) {
+                                    if (is != null) {
+                                        // Create a temp file to use the existing toEntity(File) method
+                                        File tempFile = File.createTempFile("samplecourse", "." + sampleExtension);
+                                        tempFile.deleteOnExit();
+                                        try (var os = new java.io.FileOutputStream(tempFile)) {
+                                            is.transferTo(os);
+                                        }
+                                        courseLibrary.add(courseMapperService.toEntity(tempFile));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    Logger.error("Unsupported resource protocol: " + resourceUrl.getProtocol());
                 }
             }
         } catch (Exception e) {
