@@ -480,7 +480,7 @@ All of this can be found in the following folder: [DDBB](https://github.com/anto
 
 ### 📚 Available Courses in the Database
 
-There are **5 predefined courses** in the database, each designed with different levels of difficulty and all types of questions. They are briefly described below:
+There are **3 predefined courses** in the database, each designed with different levels of difficulty and all types of questions. They are briefly described below:
 
 1. **German Course 🇩🇪**  
    Includes content blocks that will help you build a solid foundation in the language.  
@@ -488,20 +488,13 @@ There are **5 predefined courses** in the database, each designed with different
 
 2. **C++ Course 💻**  
    Focused on fundamental coding blocks.  
-   The selected strategy for this course is spaced repetition.
 
 3. **Music 🎵**  
    Includes various blocks covering music history and fundamentals.  
    The selected strategy for this course is sequential repetition.
 
-4. **Science and Nature Course 🔬**  
-   Divided into blocks by topic (biology, physics, ecology…).  
-   The selected strategy for this course is sequential repetition.
-
-5. **Mathematics Course 📐**  
-   Contains blocks focused on logic, calculus, and problem solving.  
-   The selected strategy for this course is sequential repetition.
-
+4. **History Course 🔬 (This course is not in the database is left for the tester to import it)**  
+   Divided into blocks by topic (Architecture, Art, Dates…).  
 
 
 ---
@@ -509,11 +502,11 @@ There are **5 predefined courses** in the database, each designed with different
 
 An **example user** is included with the following status:
 
-- Username: CuriousUser10
+- Username: Curious10
 - Password: CuriousPassword10
   
-- Enrolled in **3 courses** (German, Music, and C++).
-- Has **completed 1 course ✅**.
+- Enrolled in **2 courses** (German, Music).
+- C++ course left to the tester to try enrollment.
 
 
 ---
