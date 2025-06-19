@@ -57,7 +57,13 @@ Disclaimer: There are already compiled artifacts in Java/target/artifacts direct
    ```bash
    mvn clean install
    ```
-4. Lauch TODO
+4. Launch the app
+   - Double click onto the generated file
+     
+5. Launch the app (ALTERNATIVE)
+   ```bash
+   java -jar "generated_file_name"
+   ```
 
    
 ---
