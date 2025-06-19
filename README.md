@@ -82,6 +82,8 @@ You can watch a demostrative video related to all the features of our app. You w
 - Mobile-responsive design
 - Offline learning capability
 
+All of this can be seen on our [Mockups🇪🇸](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Requisitos/MockUpES.md) |  [Mockups🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/main/Requisitos/MockUpEN.md).
+
 ## 🚀 Getting Started
 
 ### Prerequisites
