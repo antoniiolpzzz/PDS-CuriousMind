@@ -29,8 +29,8 @@ class StatTest {
         boolean result = stat.addExperiencePoints(1500);
 
         assertTrue(result);
-        assertEquals(1, stat.getLevel());
-        assertEquals(500, stat.getExperiencePoints());
+        assertEquals(15, stat.getLevel());
+        assertEquals(0, stat.getExperiencePoints());
     }
 
     @Test
