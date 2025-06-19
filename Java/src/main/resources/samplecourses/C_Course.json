@@ -1,0 +1,388 @@
+{
+  "name": "C++ Fundamentals",
+  "description": "A course with content blocks focused on C++ coding basics and practical exercises. Strategy: spaced repetition.",
+  "imageURL": "https://img.freepik.com/vector-gratis/ilustracion-icono-computadora_53876-5559.jpg?semt=ais_hybrid&w=740",
+  "availableStrategies": [
+    "SEQUENTIAL",
+    "SHUFFLED",
+    "SPACED_REPETITION"
+  ],
+  "contentBlocks": [
+    {
+      "name": "Introduction to C++",
+      "difficulty": "EASY",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct answer",
+          "statement": "Which line correctly declares an integer variable?",
+          "correctAnswer": "int number;",
+          "options": [
+            {
+              "type": "option",
+              "label": "int number;"
+            },
+            {
+              "type": "option",
+              "label": "integer number;"
+            },
+            {
+              "type": "option",
+              "label": "var number = 0;"
+            },
+            {
+              "type": "option",
+              "label": "number = int;"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the correct C++ command.",
+          "statement": "Print text to the console",
+          "correctAnswer": "std::cout << \"Hello!\";",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "std::cout << \"Hello!\";",
+              "imageURL": "https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+            },
+            {
+              "type": "imageoption",
+              "label": "console.log(\"Hello!\")",
+              "imageURL": "https://cdn-icons-png.flaticon.com/512/5968/5968350.png"
+            },
+            {
+              "type": "imageoption",
+              "label": "System.out.println(\"Hello!\")",
+              "imageURL": "https://cdn-icons-png.flaticon.com/512/5968/5968282.png"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank with the correct word:",
+          "statement": "_____ cout << \"Hello!\";",
+          "correctAnswer": "std::"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "Declare an integer variable age with value 25",
+          "correctAnswer": "int age = 25;",
+          "options": [
+            {
+              "type": "option",
+              "label": "int"
+            },
+            {
+              "type": "option",
+              "label": "age"
+            },
+            {
+              "type": "option",
+              "label": "="
+            },
+            {
+              "type": "option",
+              "label": "25"
+            },
+            {
+              "type": "option",
+              "label": ";"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Data Types and Operators",
+      "difficulty": "MEDIUM",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct data type for decimal numbers",
+          "statement": "What type would you use for decimal numbers?",
+          "correctAnswer": "float",
+          "options": [
+            {
+              "type": "option",
+              "label": "float"
+            },
+            {
+              "type": "option",
+              "label": "int"
+            },
+            {
+              "type": "option",
+              "label": "char"
+            },
+            {
+              "type": "option",
+              "label": "bool"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the correct operator",
+          "statement": "Assignment operator",
+          "correctAnswer": "=",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "=",
+              "imageURL": "https://img.freepik.com/foto-gratis/mano-que-sostiene-mismo-simbolo_53876-63811.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "==",
+              "imageURL": "https://img.freepik.com/vector-gratis/conjunto-ilustracion-plana-huellas-dactilares-detalladas-negras-escaner-electronico-policia-huella-digital-recopilacion-vectores-aislados-datos-delictivos-concepto-identidad-tecnologia-dedo_74855-9808.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "!=",
+              "imageURL": "https://img.freepik.com/vector-premium/hombre-adolescente-dolor-lamentablemente-nino-problemas-estres-o-miedo-vector-aislado-sobre-fondo-blanco_81894-5770.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "float pi = _____;",
+          "correctAnswer": "3.14"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "Declare a float variable price with value 9.99",
+          "correctAnswer": "float price = 9.99;",
+          "options": [
+            {
+              "type": "option",
+              "label": "float"
+            },
+            {
+              "type": "option",
+              "label": "price"
+            },
+            {
+              "type": "option",
+              "label": "="
+            },
+            {
+              "type": "option",
+              "label": "9.99"
+            },
+            {
+              "type": "option",
+              "label": ";"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Control Structures",
+      "difficulty": "HARD",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct control structure",
+          "statement": "Which one is a loop in C++?",
+          "correctAnswer": "for",
+          "options": [
+            {
+              "type": "option",
+              "label": "for"
+            },
+            {
+              "type": "option",
+              "label": "if"
+            },
+            {
+              "type": "option",
+              "label": "switch"
+            },
+            {
+              "type": "option",
+              "label": "return"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the correct keyword",
+          "statement": "Conditional statement keyword",
+          "correctAnswer": "if",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "if",
+              "imageURL": "https://img.freepik.com/vector-gratis/mujer-pensativa-portatil-mirando-gran-signo-interrogacion_1150-39362.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "while",
+              "imageURL": "https://img.freepik.com/vector-gratis/contorno-cronometro-mueve-rapido_78370-8142.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "for",
+              "imageURL": "https://img.freepik.com/vector-gratis/hombre-megafono-gritando-ilustracion-concepto_114360-19573.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "if (x > 0) { cout << \"Positive\"; _____ }",
+          "correctAnswer": "}"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "If number is greater than 10, print 'Big'",
+          "correctAnswer": "if (number > 10) { cout << \"Big\"; }",
+          "options": [
+            {
+              "type": "option",
+              "label": "if"
+            },
+            {
+              "type": "option",
+              "label": "("
+            },
+            {
+              "type": "option",
+              "label": "number"
+            },
+            {
+              "type": "option",
+              "label": ">"
+            },
+            {
+              "type": "option",
+              "label": "10"
+            },
+            {
+              "type": "option",
+              "label": ")"
+            },
+            {
+              "type": "option",
+              "label": "{"
+            },
+            {
+              "type": "option",
+              "label": "cout"
+            },
+            {
+              "type": "option",
+              "label": "<<"
+            },
+            {
+              "type": "option",
+              "label": "\"Big\""
+            },
+            {
+              "type": "option",
+              "label": ";"
+            },
+            {
+              "type": "option",
+              "label": "}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Functions and Parameters",
+      "difficulty": "MEDIUM",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct answer",
+          "statement": "Which keyword is used to define a function?",
+          "correctAnswer": "void",
+          "options": [
+            {
+              "type": "option",
+              "label": "void"
+            },
+            {
+              "type": "option",
+              "label": "function"
+            },
+            {
+              "type": "option",
+              "label": "define"
+            },
+            {
+              "type": "option",
+              "label": "method"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the correct keyword",
+          "statement": "Function return type",
+          "correctAnswer": "int",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "int",
+              "imageURL": "https://img.freepik.com/vector-gratis/simbolos-matematicos-dibujados-mano_23-2148779488.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "char",
+              "imageURL": "https://img.freepik.com/vector-gratis/coleccion-cartas-notas-rescate-estilo-papel_23-2148979741.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "float",
+              "imageURL": "https://img.freepik.com/vector-gratis/circulos-fracciones-coloridos-aprendizaje-matematicas_1308-177012.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "void greet() { cout << \"Hi!\"; _____ }",
+          "correctAnswer": "}"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "Define a function called sum",
+          "correctAnswer": "int sum() { }",
+          "options": [
+            {
+              "type": "option",
+              "label": "int"
+            },
+            {
+              "type": "option",
+              "label": "sum"
+            },
+            {
+              "type": "option",
+              "label": "()"
+            },
+            {
+              "type": "option",
+              "label": "{"
+            },
+            {
+              "type": "option",
+              "label": "}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "name": "Music Fundamentals",
+  "description": "A course with blocks on music history, theory, and instruments. Strategy: sequential repetition.",
+  "imageURL": "https://img.freepik.com/fotos-premium/nota-musica-purpura-png-forma-3d-esponjosa-fondo-transparente_53876-1021945.jpg?semt=ais_hybrid&w=740",
+  "availableStrategies": [
+    "SEQUENTIAL",
+    "SHUFFLED",
+    "SPACED_REPETITION"
+  ],
+  "contentBlocks": [
+    {
+      "name": "History of Music",
+      "difficulty": "EASY",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct answer",
+          "statement": "Which period came before the Classical era?",
+          "correctAnswer": "Baroque",
+          "options": [
+            {
+              "type": "option",
+              "label": "Baroque"
+            },
+            {
+              "type": "option",
+              "label": "Romantic"
+            },
+            {
+              "type": "option",
+              "label": "Modern"
+            },
+            {
+              "type": "option",
+              "label": "Contemporary"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the instrument",
+          "statement": "Piano",
+          "correctAnswer": "Piano",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Piano",
+              "imageURL": "https://img.freepik.com/vector-gratis/ilustracion-clasica-piano-cola_24877-61573.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Violin",
+              "imageURL": "https://img.freepik.com/vector-gratis/violin-estilo-dibujos-animados_1308-134043.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Guitar",
+              "imageURL": "https://img.freepik.com/vector-premium/ilustracion-arte-vectorial-guitarra-dibujada-mano_539680-6575.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "The _____ is the art of combining sounds.",
+          "correctAnswer": "music"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "The composer wrote a new symphony",
+          "correctAnswer": "The composer wrote a new symphony",
+          "options": [
+            {
+              "type": "option",
+              "label": "The"
+            },
+            {
+              "type": "option",
+              "label": "composer"
+            },
+            {
+              "type": "option",
+              "label": "wrote"
+            },
+            {
+              "type": "option",
+              "label": "a"
+            },
+            {
+              "type": "option",
+              "label": "new"
+            },
+            {
+              "type": "option",
+              "label": "symphony"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Music Theory",
+      "difficulty": "MEDIUM",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct answer",
+          "statement": "How many notes are there in a standard major scale?",
+          "correctAnswer": "7",
+          "options": [
+            {
+              "type": "option",
+              "label": "7"
+            },
+            {
+              "type": "option",
+              "label": "5"
+            },
+            {
+              "type": "option",
+              "label": "8"
+            },
+            {
+              "type": "option",
+              "label": "6"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the symbol",
+          "statement": "Treble clef",
+          "correctAnswer": "Treble clef",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Treble clef",
+              "imageURL": "https://img.freepik.com/vector-gratis/contorno-nota-musical-glif-plano_78370-7391.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Bass clef",
+              "imageURL": "https://img.freepik.com/vector-premium/simbolo-musica-clave-icono-plano_423491-281.jpg?semt=ais_hybrid&w=740"
+            },
+			{
+              "type": "imageoption",
+              "label": "Corchea",
+              "imageURL": "https://img.freepik.com/vector-gratis/tres-notas-musicales-flotando-arriba_78370-7371.jpg?semt=ais_hybrid&w=740"
+			  
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "A quarter note lasts _____ beat.",
+          "correctAnswer": "one"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "She is learning to read music",
+          "correctAnswer": "She is learning to read music",
+          "options": [
+            {
+              "type": "option",
+              "label": "She"
+            },
+            {
+              "type": "option",
+              "label": "is"
+            },
+            {
+              "type": "option",
+              "label": "learning"
+            },
+            {
+              "type": "option",
+              "label": "to"
+            },
+            {
+              "type": "option",
+              "label": "read"
+            },
+            {
+              "type": "option",
+              "label": "music"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Instruments and Sounds",
+      "difficulty": "HARD",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct family",
+          "statement": "Which family does the trumpet belong to?",
+          "correctAnswer": "Brass",
+          "options": [
+            {
+              "type": "option",
+              "label": "Brass"
+            },
+            {
+              "type": "option",
+              "label": "Strings"
+            },
+            {
+              "type": "option",
+              "label": "Percussion"
+            },
+            {
+              "type": "option",
+              "label": "Woodwind"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the instrument",
+          "statement": "Drum set",
+          "correctAnswer": "Drum set",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Drum set",
+              "imageURL": "https://img.freepik.com/foto-gratis/pasion-musica-al-estilo-dibujos-animados-ilustrada_23-2151056727.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Piano",
+              "imageURL": "https://img.freepik.com/vector-gratis/ilustracion-clasica-piano-cola_24877-61573.jpg?semt=ais_hybrid&w=740"
+            },
+			{
+              "type": "imageoption",
+              "label": "Saxophone",
+              "imageURL": "https://img.freepik.com/foto-gratis/saxofon-sobre-fondo-blanco_1286-139.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "The violin has _____ strings.",
+          "correctAnswer": "four"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "He plays the guitar every day",
+          "correctAnswer": "He plays the guitar every day",
+          "options": [
+            {
+              "type": "option",
+              "label": "He"
+            },
+            {
+              "type": "option",
+              "label": "plays"
+            },
+            {
+              "type": "option",
+              "label": "the"
+            },
+            {
+              "type": "option",
+              "label": "guitar"
+            },
+            {
+              "type": "option",
+              "label": "every"
+            },
+            {
+              "type": "option",
+              "label": "day"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Music Genres",
+      "difficulty": "MEDIUM",
+      "questions": [
+        {
+          "type": "test",
+          "indication": "Choose the correct genre",
+          "statement": "Which genre is known for improvisation?",
+          "correctAnswer": "Jazz",
+          "options": [
+            {
+              "type": "option",
+              "label": "Jazz"
+            },
+            {
+              "type": "option",
+              "label": "Pop"
+            },
+            {
+              "type": "option",
+              "label": "Rock"
+            },
+            {
+              "type": "option",
+              "label": "Classical"
+            }
+          ]
+        },
+        {
+          "type": "flashcard",
+          "indication": "Identify the genre",
+          "statement": "Electronic music",
+          "correctAnswer": "Electronic",
+          "options": [
+            {
+              "type": "imageoption",
+              "label": "Electronic",
+              "imageURL": "https://img.freepik.com/psd-gratis/instrumentos-musicales-aislados_23-2151456104.jpg?semt=ais_hybrid&w=740"
+            },
+            {
+              "type": "imageoption",
+              "label": "Jazz",
+              "imageURL": "https://img.freepik.com/foto-gratis/pintura-saxofon-jazz_1379-395.jpg?semt=ais_hybrid&w=740"
+            },
+			{
+              "type": "imageoption",
+              "label": "Rock",
+              "imageURL": "https://img.freepik.com/vector-gratis/concepto-gesto-rock-monocromo-vintage_225004-1211.jpg?semt=ais_hybrid&w=740"
+            }
+          ]
+        },
+        {
+          "type": "fillthegap",
+          "indication": "Fill in the blank:",
+          "statement": "Hip hop often features _____ rhymes.",
+          "correctAnswer": "spoken"
+        },
+        {
+          "type": "translate",
+          "indication": "Build the sentence:",
+          "statement": "They enjoy listening to classical music",
+          "correctAnswer": "They enjoy listening to classical music",
+          "options": [
+            {
+              "type": "option",
+              "label": "They"
+            },
+            {
+              "type": "option",
+              "label": "enjoy"
+            },
+            {
+              "type": "option",
+              "label": "listening"
+            },
+            {
+              "type": "option",
+              "label": "to"
+            },
+            {
+              "type": "option",
+              "label": "classical"
+            },
+            {
+              "type": "option",
+              "label": "music"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
