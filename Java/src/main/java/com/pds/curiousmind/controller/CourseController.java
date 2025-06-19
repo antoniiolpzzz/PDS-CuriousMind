@@ -49,7 +49,15 @@ public enum CourseController {
      * @return a list of {@link RegisteredCourse} objects, or an empty list if none
      */
     public List<RegisteredCourse> getRegisteredCourses(User user) {
-        return user.getRegisteredCourses();
+        return user.getRegisteredCourses().stream()
+                .collect(java.util.stream.Collectors.toMap(
+                        rc -> rc.getCourse().getName() + "|" + rc.getCourse().getDescription(),
+                        rc -> rc,
+                        (rc1, rc2) -> rc1.getProgress() >= rc2.getProgress() ? rc1 : rc2
+                ))
+                .values()
+                .stream()
+                .toList();
     }
 
     /**
