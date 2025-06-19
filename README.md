@@ -2,9 +2,9 @@
 
 # 🧠 CuriousMind
 
-[![License](https://img.shields.io/badge/LICENSE-to_be_determined-violet.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/STATUS-in%20development-yellow.svg)](#)
-[![Version](https://img.shields.io/badge/VERSION-0.0.1-orange.svg)](#)
+[![License](https://img.shields.io/badge/LICENSE-MIT-violet.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/STATUS-Always_Evolving-green.svg)](#)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-orange.svg)](#)
 
 _An innovative learning platform for curious minds_
 
