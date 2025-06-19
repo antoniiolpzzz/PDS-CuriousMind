@@ -472,7 +472,7 @@ CuriousMind incluye una base de datos pensada para pruebas, que sirve para compr
 
 ### 📚 Cursos disponibles en la base de datos
 
-En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distintos niveles de dificultad y todos los tipos de preguntas. A continuación, se describen brevemente:
+En la base de datos hay **3 cursos predefinidos**, cada uno diseñado con distintos niveles de dificultad y todos los tipos de preguntas. A continuación, se describen brevemente:
 
 1. **Curso de Alemán 🇩🇪**  
    Incluye bloques de contenido con que te van a permitir obtener las bases del idioma.  
@@ -486,13 +486,8 @@ En la base de datos hay **5 cursos predefinidos**, cada uno diseñado con distin
    Con bloques variados con historia y fundamentos de la música.
    La estrategia seleccionada para este curso es repetición secuencial.
 
-4. **Curso de Ciencia y Naturaleza 🌱**  
-   Dividido en bloques por temas (biología, física, ecología…).  
-   La estrategia seleccionada para este curso es repetición secuencial.
-
-5. **Curso de Matemáticas 📐**  
-   Contiene bloques orientados a lógica, cálculo y resolución de problemas.  
-   La estrategia seleccionada para este curso es repetición secuencial.
+4. **Curso Historia 🌱 (Este curso no se encuentra en BBDD, esta disponible para el tester con la idea de porbar la importación de cursos)**  
+   Dividido en bloques por temas (Arquitectura, Arte, Fechas Historicas…).  
 
 
 ---
@@ -504,8 +499,8 @@ Se incluye un **usuario de ejemplo** con el siguiente estado:
 - Nombre de Usuario: Curious10
 - Contraseña: CuriousPassword10 
   
-- Inscrito en **3 cursos** (Alemán, Música y C++).
-- Ha **completado 1 curso ✅**.
+- Inscrito en **2 cursos** (Alemán, Música).
+- El Curso C++ no se encuentra inscrito para que el tester pueda probar la función de registro/inscripcion en un curso.
 
 ---
 
