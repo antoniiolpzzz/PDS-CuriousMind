@@ -46,7 +46,7 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ## Instalación y lanzamiento
 
-Aviso legal: Ya existen artefactos compilados en el directorio `Java/target/artifacts` que coinciden con la versión de la rama principal.
+Aviso legal: Ya existen artefactos compilados en la seccion releases "CuriousMind 1.0.0" que coinciden con la versión de la rama principal.
 
 1. Clonar el repositorio 
    ```bash
@@ -58,10 +58,15 @@ Aviso legal: Ya existen artefactos compilados en el directorio `Java/target/arti
    ```
 3. Compilar el proyecto
    ```bash
-   mvn clean install
+   mvn clean install;  mvn clean package
    ```
-   
-4. Lanzamiento TODO
+4. Lanzamiento de la aplicación
+   - Realizar doble click sobre el fichero generado
+     
+5. Lanzamiento de la aplicación (ALTERNATIVA)
+   ```bash
+   java -jar "generated_file_name"
+   ```
 
 ---
 
