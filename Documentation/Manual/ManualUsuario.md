@@ -44,9 +44,9 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ---
 
-## Instalación y lanzamiento
+## Instalación y Ejecución
 
-Aviso legal: Ya existen artefactos compilados en la seccion releases "CuriousMind 1.0.0" que coinciden con la versión de la rama principal.
+Aviso legal: Ya existen artefactos compilados en la seccion releases ["CuriousMind 1.0.0"](https://github.com/antoniiolpzzz/PDS-CuriousMind/releases/tag/1.0.0) que coinciden con la versión de la rama principal.
 
 1. Clonar el repositorio 
    ```bash

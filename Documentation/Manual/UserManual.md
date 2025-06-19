@@ -43,7 +43,7 @@ This is an interactive program that makes learning languages, music, history, or
 
 ## Installation and Launch
 
-Disclaimer: There are already compiled artifacts in Java/target/artifacts directory matching the main branch version.
+Disclaimer: There are already compiled artifacts in the releases section ["CuriousMind 1.0.0"](https://github.com/antoniiolpzzz/PDS-CuriousMind/releases/tag/1.0.0) matching the main branch version.
 
 1. Clone the repository
    ```bash

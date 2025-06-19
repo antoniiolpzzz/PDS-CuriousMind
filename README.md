@@ -2,9 +2,9 @@
 
 # 🧠 CuriousMind
 
-[![License](https://img.shields.io/badge/LICENSE-to_be_determined-violet.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/STATUS-in%20development-yellow.svg)](#)
-[![Version](https://img.shields.io/badge/VERSION-0.0.1-orange.svg)](#)
+[![License](https://img.shields.io/badge/LICENSE-MIT-violet.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/STATUS-Always_Evolving-green.svg)](#)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-orange.svg)](#)
 
 _An innovative learning platform for curious minds_
 
@@ -47,7 +47,7 @@ Whether you're learning a new language, preparing for a quiz show, studying prog
 
 ## ✨ Features
 
-You can watch a demostrative video related to all the features of our app. You will find it in this [readme🇪🇸](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/9c0469c9bbbe2dcc981de4834de17a8e0bd0a341/Documentation/Test/readme.md)/[readme🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/e60d72a72dfead6a8b2df38804569bd340c4dcea/Documentation/Test/readmeEN.md) related to the tests made!
+You can watch a demostrative video related to all the features of our app. You will find it in this [readme🇪🇸](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/9c0469c9bbbe2dcc981de4834de17a8e0bd0a341/Documentation/Test/readme.md) | [readme🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/e60d72a72dfead6a8b2df38804569bd340c4dcea/Documentation/Test/readme.md) related to the tests made!
 
 ### 🎴 Interactive Learning Cards
 
@@ -114,7 +114,7 @@ Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/369
 
 ## 📲 Use Cases
 
-Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readme.md) to go to our detailed use cases list in Spanish, and [here🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/072f3c472cc31163fb0e51d98366d80c1225debd/Requisitos/readmeEN.md) to go to the English version, including:
+Click [_here🇪🇸_](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/725a2124e87d427fa5bd533958aef306c4d982cb/Requisitos/readmeES.md) to go to our detailed use cases list in Spanish, and [here🇬🇧](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/072f3c472cc31163fb0e51d98366d80c1225debd/Requisitos/readme.md) to go to the English version, including:
 
 
 1. [CDU 001](https://github.com/antoniiolpzzz/PDS-CuriousMind/issues/51): Log in
