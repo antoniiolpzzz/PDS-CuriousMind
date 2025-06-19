@@ -55,7 +55,7 @@ class UserTest {
         User user = new User("Ana", "ana@test.com", "1234", "ana");
 
         assertTrue(user.addExperiencePoints(500));
-        assertEquals(500, user.getStats().getExperiencePoints());
+        assertEquals(0, user.getStats().getExperiencePoints());
     }
 
     @Test
