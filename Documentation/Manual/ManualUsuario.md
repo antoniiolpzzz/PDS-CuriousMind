@@ -46,7 +46,7 @@ Esta aplicación es un programa interactivo que hace que aprender idiomas, músi
 
 ## Instalación y lanzamiento
 
-Aviso legal: Ya existen artefactos compilados en el directorio `Java/target/artifacts` que coinciden con la versión de la rama principal.
+Aviso legal: Ya existen artefactos compilados en la seccion releases "CuriousMind 1.0.0" que coinciden con la versión de la rama principal.
 
 1. Clonar el repositorio 
    ```bash
@@ -58,10 +58,15 @@ Aviso legal: Ya existen artefactos compilados en el directorio `Java/target/arti
    ```
 3. Compilar el proyecto
    ```bash
-   mvn clean install
+   mvn clean install;  mvn clean package
    ```
-   
-4. Lanzamiento TODO
+4. Lanzamiento de la aplicación
+   - Realizar doble click sobre el fichero generado
+     
+5. Lanzamiento de la aplicación (ALTERNATIVA)
+   ```bash
+   java -jar "generated_file_name"
+   ```
 
 ---
 
@@ -461,9 +466,7 @@ Por cada bloque de contenidos que completes **sin agotar tus vidas**, el bloque 
 
 ### 🧪 Base de datos para pruebas y testing
 
-CuriousMind incluye una base de datos pensada para pruebas, que sirve para comprobar el correcto funcionamiento de la aplicación.  
-Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional, encontrados en la carpeta: [Cursos de Prueba](src/...DDBB...TODO). 
-Además, la aplicación está preparada para que si al arrancar todavía no hay cursos creados en la base de datos, se generan automáticamente 2 cursos por defecto que se encuentran en la carpeta ...TODO samplescourses....
+CuriousMind incluye una base de datos pensada para pruebas, que sirve para comprobar el correcto funcionamiento de la aplicación.  Contiene ejemplos realistas del flujo de la aplicación, ideal para testing funcional. Además, la aplicación está preparada para que si al arrancar todavía no hay cursos creados en la base de datos, se generan automáticamente 2 cursos por defecto, todo esto se encuentran en la carpeta [DDBB](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/2786285b5e783a23504fe9d701aa23ca6242abb3/Documentation/Test/DDBB).
 
 ---
 

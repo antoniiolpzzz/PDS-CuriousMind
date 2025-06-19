@@ -10,7 +10,7 @@
    - [2. Signup Window](#2-signup-window)
    - [3. Home Window](#3-home-window)
    - [4. UserInfo Window](#4-userinfo-window)
-   - [5. Course Dashboard)](#5-course-dashboard)
+   - [5. Course Dashboard](#5-course-dashboard)
    - [6. Question Window](#6-question-window)
 5. [App Functionality](#app-functionality)
    - [1. How to create an account](#1-how-to-create-an-account)
@@ -19,8 +19,9 @@
    - [4. How to share a course](#4-how-to-share-a-course)
    - [5. How to enroll in a course](#5-how-to-enroll-in-a-course)
 6. [Course Workflow](#course-workflow)
-7. [Frequently Asked Questions](#frequently-asked-questions)
-8. [Contact and Support](#contact-and-support)
+7. [Testing](#testing)
+8. [Frequently Asked Questions](#frequently-asked-questions)
+9. [Contact and Support](#contact-and-support)
 
 ---
 
@@ -56,7 +57,13 @@ Disclaimer: There are already compiled artifacts in Java/target/artifacts direct
    ```bash
    mvn clean install
    ```
-4. Lauch TODO
+4. Launch the app
+   - Double click onto the generated file
+     
+5. Launch the app (ALTERNATIVE)
+   ```bash
+   java -jar "generated_file_name"
+   ```
 
    
 ---
@@ -462,7 +469,11 @@ For each content block you complete **without running out of lives**, the block 
 
 ### 🧪 Test Database
 
-CuriousMind includes a test database designed to verify the correct functioning of the application in the following directory. It contains realistic examples of the app’s workflow, ideal for functional testing, located in the folder: [Cursos de Prueba](src/..DDBB....TODO). . In addition, the application has 2 default courses that will be imported in case the user has an empty database when running int he directory ....samplescouses...TODO 
+CuriousMind includes a database designed for testing purposes, which is used to verify the correct functioning of the application.  
+It contains realistic examples of the application's flow, making it ideal for functional testing.  
+
+Additionally, the application is set up so that if no courses exist in the database at startup, two default courses are automatically generated.  
+All of this can be found in the following folder: [DDBB](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/2786285b5e783a23504fe9d701aa23ca6242abb3/Documentation/Test/DDBB).
 
 
 ---
