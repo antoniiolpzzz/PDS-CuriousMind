@@ -473,7 +473,7 @@ CuriousMind includes a database designed for testing purposes, which is used to 
 It contains realistic examples of the application's flow, making it ideal for functional testing.  
 
 Additionally, the application is set up so that if no courses exist in the database at startup, two default courses are automatically generated.  
-All of this can be found in the following folder: [DDBB](https://github.com/antoniiolpzzz/PDS-CuriousMind/blob/2786285b5e783a23504fe9d701aa23ca6242abb3/Documentation/Test/DDBB).
+All of this can be found in the following folder: [DDBB](https://github.com/antoniiolpzzz/PDS-CuriousMind/tree/main/Documentation/Test/DDBB).
 
 
 ---
