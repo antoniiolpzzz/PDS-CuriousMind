@@ -25,7 +25,7 @@ Below is a summary of the available mockups:
 
 9. **Flashcard 🎴** —  [`flashcard.png`](MockUps/flashcard.png)
   
-10. **Test ✍️** — [`test.png`](MockUps/tet.png)
+10. **Test ✍️** — [`test.png`](MockUps/test.png)
 
 11. **Translate 🌍** —  [`translate.png`](MockUps/translate.png)
 
